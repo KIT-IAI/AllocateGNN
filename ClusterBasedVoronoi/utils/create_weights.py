@@ -52,20 +52,19 @@ def create_rank_weights(df, method, cluster_label_col='cluster_label', rank_col=
         # Convert to numpy array for easier operations
         ranks_array = np.array(cluster_ranks)
 
-        # 应用一个初始的归一化，可以先使用min-max或softmax
-        # 这里我们先用min-max作为起点
+        # Apply an initial normalization; start with min-max
         min_rank = np.min(ranks_array)
         max_rank = np.max(ranks_array)
 
-        # 检查所有值是否相同
+        # Check if all values are the same
         if max_rank == min_rank:
             normalized_ranks = [0.5 for _ in ranks_array]
         else:
-            # 首先应用min-max归一化到[0,1]范围
+            # First apply min-max normalization to [0, 1] range
             initial_norm = (ranks_array - min_rank) / (max_rank - min_rank)
 
-            # 然后调整范围确保最大值/最小值不超过10倍
-            # 我们将范围映射到[0.1, 1]，这样最大比例为10
+            # Then adjust the range to ensure max/min ratio does not exceed 10x
+            # Map the range to [0.1, 1] so the maximum ratio is 10
             normalized_ranks = 0.1 + 0.1 * initial_norm
             normalized_ranks = normalized_ranks.tolist()
 
@@ -90,20 +89,19 @@ def create_count_weights(df, method, cluster_label_col='cluster_label', rank_col
         # Convert to numpy array for easier operations
         ranks_array = np.array(cluster_counts)
 
-        # 应用一个初始的归一化，可以先使用min-max或softmax
-        # 这里我们先用min-max作为起点
+        # Apply an initial normalization; start with min-max
         min_rank = np.min(ranks_array)
         max_rank = np.max(ranks_array)
 
-        # 检查所有值是否相同
+        # Check if all values are the same
         if max_rank == min_rank:
             normalized_ranks = [1 for _ in ranks_array]
         else:
-            # 首先应用min-max归一化到[0,1]范围
+            # First apply min-max normalization to [0, 1] range
             initial_norm = (ranks_array - min_rank) / (max_rank - min_rank)
 
-            # 然后调整范围确保最大值/最小值不超过10倍
-            # 我们将范围映射到[0.1, 1]，这样最大比例为10
+            # Then adjust the range to ensure max/min ratio does not exceed 10x
+            # Map the range to [0.1, 1] so the maximum ratio is 10
             normalized_ranks = 1 + 1 * initial_norm
             normalized_ranks = normalized_ranks.tolist()
 

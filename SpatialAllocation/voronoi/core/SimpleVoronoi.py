@@ -15,7 +15,7 @@ def simple_voronoi(gdf_point, gdf_grid, sub_columns=None, with_landuse=False):
         gdf_point = gdf_point[["cluster_label", "geometry"]].copy()
         gdf_grid = gdf_grid[["geometry"]].copy()
     else:
-        # 如果提供了 sub_columns，则只保留指定的列
+        # If sub_columns is provided, only keep the specified columns
         gdf_point = gdf_point[list(sub_columns.keys()) + ["cluster_label", "geometry"]].copy()
         gdf_grid = gdf_grid[list(sub_columns.values()) + ["geometry"]].copy()
 

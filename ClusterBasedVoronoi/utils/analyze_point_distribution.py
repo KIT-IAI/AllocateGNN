@@ -5,43 +5,43 @@ import matplotlib.pyplot as plt
 from scipy.spatial import cKDTree
 
 
-# 假设 gdf 是你的包含点数据的 GeoDataFrame
+# Assume gdf is a GeoDataFrame containing point data
 def analyze_point_distribution(gdf):
-    # 确保是点几何类型
+    # Ensure point geometry type
     if not all(geom.geom_type == 'Point' for geom in gdf.geometry):
-        print("非点几何类型，请只包含点几何")
+        print("Non-point geometry type detected; please only include point geometries")
         return
 
-    # 提取坐标
+    # Extract coordinates
     coords = np.array([(geom.x, geom.y) for geom in gdf.geometry])
 
-    # 使用KDTree计算最近邻
+    # Use KDTree to compute nearest neighbors
     tree = cKDTree(coords)
-    distances, _ = tree.query(coords, k=2)  # k=2因为每个点到自己的距离为0
-    mean_distance = np.mean(distances[:, 1])  # 第二列是到最近邻的距离
+    distances, _ = tree.query(coords, k=2)  # k=2 because each point's distance to itself is 0
+    mean_distance = np.mean(distances[:, 1])  # Second column is the distance to the nearest neighbor
 
-    # 计算研究区域面积
+    # Calculate study area
     area = gdf.total_bounds[2] - gdf.total_bounds[0] * (gdf.total_bounds[3] - gdf.total_bounds[1])
 
-    # 计算点密度
+    # Calculate point density
     density = len(gdf) / area
 
-    # 计算期望的平均最近邻距离（对于随机分布）
+    # Calculate the expected mean nearest neighbor distance (for random distribution)
     expected_mean_distance = 0.5 / np.sqrt(density)
 
-    # 计算最近邻指数
+    # Calculate the nearest neighbor index
     nn_index = mean_distance / expected_mean_distance
 
-    print(f"观测到的平均最近邻距离: {mean_distance}")
-    print(f"期望的平均最近邻距离（随机分布）: {expected_mean_distance}")
-    print(f"最近邻指数: {nn_index}")
+    print(f"Observed mean nearest neighbor distance: {mean_distance}")
+    print(f"Expected mean nearest neighbor distance (random distribution): {expected_mean_distance}")
+    print(f"Nearest neighbor index: {nn_index}")
 
-    # 解释结果
+    # Interpret results
     if nn_index < 1:
-        print("点分布呈聚集模式")
+        print("Point distribution shows a clustered pattern")
     elif nn_index > 1:
-        print("点分布呈均匀模式")
+        print("Point distribution shows a uniform pattern")
     else:
-        print("点分布接近随机模式")
+        print("Point distribution is close to a random pattern")
 
     return nn_index

@@ -11,13 +11,22 @@ from typing import Dict, List, Tuple
 
 class GraphEncoder(nn.Module):
     """
-    异构图编码器：使用HeteroConv学习多类型节点的低维表示
-    目的: 为 'source' 和 'agent' 两种节点类型分别学习信息丰富的嵌入。
-    工作原理:
-        1. 使用一个 nn.ModuleDict 包含的线性层，将不同维度的输入特征统一到相同的隐藏维度。
-        2. 使用多层 HeteroConv。在每一层，HeteroConv会为图中的每种边关系（例如 'source' -> 'agent'）调用一个指定的GNN层（如GCNConv）来进行消息传递和聚合。
-        3. 经过多层传播，每个节点的最终嵌入不仅包含了邻域信息，还隐式地包含了邻居的类型信息。
-    结果: 返回一个字典，包含每种节点类型对应的低维、稠密的嵌入向量。
+    Heterogeneous graph encoder: uses HeteroConv to learn low-dimensional representations for multi-type nodes.
+
+    Purpose:
+        Learn informative embeddings for 'source' and 'agent' node types separately.
+
+    How it works:
+        1. Uses nn.ModuleDict with linear layers to project input features of different dimensions
+           into a unified hidden dimension.
+        2. Uses multiple HeteroConv layers. In each layer, HeteroConv invokes a specified GNN layer
+           (e.g., GCNConv) for each edge relation type (e.g., 'source' -> 'agent') to perform
+           message passing and aggregation.
+        3. After multiple propagation layers, each node's final embedding incorporates neighborhood
+           information and implicitly encodes neighbor type information.
+
+    Result:
+        Returns a dictionary containing low-dimensional, dense embedding vectors for each node type.
     """
 
     def __init__(self, input_dims: Dict[str, int], config: ModelConfig, metadata: Tuple[List[str], List[Tuple[str, str, str]]]):
@@ -25,37 +34,36 @@ class GraphEncoder(nn.Module):
         self.config = config
         self.conv_type = self.config.conv_type.lower()
 
-        # 验证conv_type
+        # Validate conv_type
         supported_types = ['gcn', 'sage', 'gat', 'gin', 'hgt']
         if self.conv_type not in supported_types:
             raise ValueError(f"Unsupported conv_type: {self.conv_type}. Supported types: {supported_types}")
 
-        # 1. 为每种节点类型创建一个初始的线性投影层，以统一维度
+        # 1. Create an initial linear projection layer for each node type to unify dimensions
         self.lin_dict = nn.ModuleDict()
         for node_type, in_dim in input_dims.items():
-            # 如果某个节点类型没有特征，我们创建一个可学习的嵌入来表示它
+            # If a node type has no features, create a learnable embedding to represent it
             if in_dim == 0:
                 self.lin_dict[node_type] = nn.Embedding(1, config.hidden_dim)
             else:
                 self.lin_dict[node_type] = nn.Linear(in_dim, config.hidden_dim)
 
-        # 2. 创建异构图卷积层列表
+        # 2. Create heterogeneous graph convolution layer list
         self.convs = nn.ModuleList()
-        # HGTConv 需要一个不同的初始化和前向传播路径
+        # HGTConv requires a different initialization and forward propagation path
         if self.conv_type == 'hgt':
             for _ in range(config.num_layers):
-                # HGTConv需要图的元数据来进行初始化
+                # HGTConv needs graph metadata for initialization
                 conv = HGTConv(-1, config.hidden_dim, metadata, heads=self.config.gat_heads)
                 self.convs.append(conv)
         else:
-            # 对于其他类型的卷积，使用HeteroConv包装
+            # For other convolution types, wrap with HeteroConv
             for _ in range(config.num_layers):
-                # MODIFICATION 1: 为每种边类型创建独立的卷积实例
+                # Create independent convolution instances for each edge type
                 conv_dict = {}
                 for edge_type in metadata[1]:
-                    # edge_type 本身就是元组，例如 ('source', 'connects_to', 'agent')
+                    # edge_type is already a tuple, e.g., ('source', 'connects_to', 'agent')
                     if self.conv_type == 'gcn':
-                        # 直接使用元组 edge_type 作为键
                         conv_dict[edge_type] = GCNConv(-1, config.hidden_dim, add_self_loops=False)
                     elif self.conv_type == 'sage':
                         conv_dict[edge_type] = SAGEConv(-1, config.hidden_dim)
@@ -74,18 +82,18 @@ class GraphEncoder(nn.Module):
                         )
                         conv_dict[edge_type] = GINConv(nn=mlp, train_eps=True)
 
-                # HeteroConv 接收以元组为键的字典，并会自动管理其中的模块
+                # HeteroConv accepts a dict keyed by tuples and manages the modules automatically
                 conv = HeteroConv(conv_dict, aggr='sum')
                 self.convs.append(conv)
 
-        # 3. 创建一个最终的线性层，用于输出期望的 embedding_dim
+        # 3. Create a final linear layer for outputting the desired embedding_dim
         self.out_lin = nn.Linear(config.hidden_dim, config.embedding_dim)
 
-        # 4. 可学习的缩放因子 g (与之前相同)
+        # 4. Learnable scaling factor g (same as before)
         self.g = nn.Parameter(torch.ones(config.embedding_dim))
         self.dropout = nn.Dropout(0.1)
 
-        # 5. 为每种节点类型创建一个 LayerNorm 层
+        # 5. Create a LayerNorm layer for each node type
         self.norm_dict = nn.ModuleDict()
         for node_type in input_dims.keys():
             self.norm_dict[node_type] = nn.LayerNorm(config.hidden_dim)
@@ -93,29 +101,29 @@ class GraphEncoder(nn.Module):
     def forward(self, x_dict: Dict[str, torch.Tensor], edge_index_dict: Dict[str, torch.Tensor]) -> Dict[
         str, torch.Tensor]:
         """
-        前向传播函数，接收并返回字典格式的数据
+        Forward propagation function; receives and returns dictionary-formatted data.
         """
-        # 1. 应用初始的线性变换或嵌入
+        # 1. Apply initial linear transformation or embedding
         for node_type, x in x_dict.items():
-            if x.size(1) == 0:  # 如果没有输入特征
-                # 创建一个全零的索引张量来查询嵌入
+            if x.size(1) == 0:  # If no input features
+                # Create a zero index tensor to query the embedding
                 idx = torch.zeros(x.size(0), dtype=torch.long, device=x.device)
                 x_dict[node_type] = self.lin_dict[node_type](idx)
             else:
                 x_dict[node_type] = self.lin_dict[node_type](x)
 
-        # 2. 通过多层异构卷积
+        # 2. Pass through multiple heterogeneous convolution layers
         for i, conv in enumerate(self.convs):
-            # 缓存输入以用于残差连接
+            # Cache input for residual connection
             x_input_dict = x_dict
             x_dict = conv(x_dict, edge_index_dict)
 
-            # 对每种节点类型应用激活、归一化和残差连接
+            # Apply activation, normalization, and residual connection for each node type
             for node_type, x_out in x_dict.items():
                 x = F.relu(x_out)
                 x = self.norm_dict[node_type](x)
 
-                # 添加残差连接 (确保输入字典中有对应的节点类型)
+                # Add residual connection (ensure the input dict has the corresponding node type)
                 if node_type in x_input_dict:
                     x = x + x_input_dict[node_type]
 
@@ -124,11 +132,11 @@ class GraphEncoder(nn.Module):
                 x_dict[node_type] = x
 
 
-        # 3. 应用最终的输出线性层
+        # 3. Apply the final output linear layer
         for node_type in x_dict.keys():
             x_dict[node_type] = self.out_lin(x_dict[node_type])
 
-        # 4. L2归一化和缩放 (与之前相同, 但对字典中的每个张量操作)
+        # 4. L2 normalization and scaling (same as before, but operates on each tensor in the dict)
         for node_type in x_dict.keys():
             x_dict[node_type] = F.normalize(x_dict[node_type], p=2, dim=1)
             x_dict[node_type] = self.g * x_dict[node_type]

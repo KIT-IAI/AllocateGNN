@@ -19,13 +19,13 @@ from torch_geometric.loader import DataLoader
 
 class EdgeWeightSolver:
     """
-    自监督学习的点分配求解器
+    Self-supervised point allocation solver.
     """
 
     def __init__(self, config: ModelConfig):
         self.config = config
 
-        # 设置设备
+        # Set device
         if config.device is None:
             self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         else:
@@ -36,9 +36,9 @@ class EdgeWeightSolver:
 
     def init_model(self, train_dataloader: DataLoader):
         """
-        初始化模型参数
+        Initialize model parameters.
         """
-        # 从训练数据加载器中获取输入维度
+        # Get input dimensions from the training data loader
         first_batch = next(iter(train_dataloader))
         input_dims = {
             node_type: first_batch[node_type].x.shape[1]
@@ -51,7 +51,8 @@ class EdgeWeightSolver:
     def train_multi_graph(self, train_dataloader: DataLoader, test_dataloader: DataLoader = None,
                           objective_weights: Optional[Dict[str, float]] = None):
         """
-        多图边权重预测的自监督训练 (已完全适配原生异构模型)，并包含测试/验证逻辑。
+        Self-supervised training for multi-graph edge weight prediction (fully adapted to native
+        heterogeneous models), including test/validation logic.
         """
         if objective_weights is None:
             objective_weights = {'entropy_regularization': 1.0}
@@ -61,7 +62,7 @@ class EdgeWeightSolver:
             torch.autograd.set_detect_anomaly(True)
 
         if test_dataloader is None:
-            print("没有提供测试数据加载器，将仅进行训练。")
+            print("No test data loader provided; training only.")
 
         self.init_model(train_dataloader)
 
@@ -75,7 +76,7 @@ class EdgeWeightSolver:
                 optimizer, T_max=T_max, eta_min=self.config.cosine_eta_min
             )
 
-        # --- 1. 为训练和测试分别初始化 losses 字典 ---
+        # --- 1. Initialize loss dictionaries for training and testing ---
         train_losses = {key: [] for key in objective_weights.keys()}
         train_losses['total'] = []
         train_losses['learning_rate'] = []
@@ -83,9 +84,9 @@ class EdgeWeightSolver:
         test_losses = {key: [] for key in objective_weights.keys()}
         test_losses['total'] = []
 
-        best_test_loss = float('inf')  # 用于跟踪最佳测试损失
+        best_test_loss = float('inf')  # Track best test loss
 
-        print("开始原生异构图模型训练与测试...")
+        print("Starting native heterogeneous graph model training and testing...")
         for epoch in range(self.config.epochs):
             start_time = time.time()
             epoch_grad_norms = []
@@ -111,7 +112,7 @@ class EdgeWeightSolver:
                     'num_a': batch_data['agent'].num_nodes,
                     'agent_features': batch_data['agent'].x,
                 }
-                # 只有当数据存在时才添加，以保持向后兼容性
+                # Only add data when it exists, for backward compatibility
                 if hasattr(batch_data, 'agent'):
                     if hasattr(batch_data['agent'], 'demand'):
                         metadata_for_loss['agent_demand'] = batch_data['agent'].demand
@@ -129,9 +130,6 @@ class EdgeWeightSolver:
 
                 total_loss, objectives = criterion(edge_weights, edge_index_sa, metadata_for_loss)
 
-                # --- 仅在调试时打印每个批次的损失 ---
-                # print(f"  [Train] Batch {batch_idx + 1}/{len(train_dataloader)}, Total Loss: {total_loss.item():.6f}")
-
                 total_loss.backward()
                 total_norm = torch.nn.utils.clip_grad_norm_(params, max_norm=float('inf'))
                 epoch_grad_norms.append(total_norm.item())
@@ -146,7 +144,7 @@ class EdgeWeightSolver:
                         epoch_train_losses[key] += value.item()
                 num_train_batches += 1
 
-            # 计算并记录训练损失和学习率
+            # Compute and record training losses and learning rate
             for key in epoch_train_losses:
                 train_losses[key].append(epoch_train_losses[key] / num_train_batches)
             train_losses['learning_rate'].append(optimizer.param_groups[0]['lr'])
@@ -161,7 +159,7 @@ class EdgeWeightSolver:
                 epoch_test_losses = {key: 0.0 for key in test_losses.keys()}
                 num_test_batches = 0
 
-                with torch.no_grad():  # 在测试阶段不计算梯度
+                with torch.no_grad():  # No gradient computation during testing
                     for batch_data in test_dataloader:
                         batch_data = batch_data.to(self.device)
                         embeddings_dict = self.encoder(batch_data.x_dict, batch_data.edge_index_dict)
@@ -170,13 +168,13 @@ class EdgeWeightSolver:
                         edge_index_sa = batch_data['source', 'connects_to', 'agent'].edge_index
                         edge_weights, edge_costs = self.edge_weighting_layer(embeddings_s, embeddings_a, edge_index_sa)
 
-                        # !! 修改点: 同样为测试阶段添加 landuse 矩阵 !!
+                        # Also add landuse matrices for the testing phase
                         metadata_for_loss = {
                             'num_s': batch_data['source'].num_nodes,
                             'num_a': batch_data['agent'].num_nodes,
                             'agent_features': batch_data['agent'].x,
                         }
-                        # 只有当数据存在时才添加，以保持向后兼容性
+                        # Only add data when it exists, for backward compatibility
                         if hasattr(batch_data, 'agent'):
                             if hasattr(batch_data['agent'], 'demand'):
                                 metadata_for_loss['agent_demand'] = batch_data['agent'].demand
@@ -199,14 +197,14 @@ class EdgeWeightSolver:
                                 epoch_test_losses[key] += value.item()
                         num_test_batches += 1
 
-                # 计算并记录测试损失
+                # Compute and record test losses
                 for key in epoch_test_losses:
                     test_losses[key].append(epoch_test_losses[key] / num_test_batches)
                 avg_epoch_test_loss = test_losses['total'][-1]
             else:
                 avg_epoch_test_loss = float('inf')
 
-            # --- Epoch 结束后的调度、保存和打印 ---
+            # --- Post-epoch: scheduling, saving, and printing ---
             if scheduler is not None:
                 scheduler.step()
 
@@ -219,7 +217,7 @@ class EdgeWeightSolver:
                 f"Avg Grad Norm: {avg_grad_norm:.6f}"
             )
 
-            # 根据测试损失保存最佳模型
+            # Save best model based on test loss
             if test_dataloader is not None:
                 if avg_epoch_test_loss < best_test_loss:
                     best_test_loss = avg_epoch_test_loss
@@ -233,7 +231,7 @@ class EdgeWeightSolver:
                     if scheduler:
                         checkpoint['scheduler_state_dict'] = scheduler.state_dict()
                     torch.save(checkpoint, self.config.save_path)
-                    print(f'  -> Epoch {epoch + 1}, ** 新的最佳模型已保存 (Test Loss: {best_test_loss:.6f}) **')
+                    print(f'  -> Epoch {epoch + 1}, ** New best model saved (Test Loss: {best_test_loss:.6f}) **')
             else:
                 if avg_epoch_train_loss < best_test_loss:
                     best_test_loss = avg_epoch_train_loss
@@ -247,35 +245,34 @@ class EdgeWeightSolver:
                     if scheduler:
                         checkpoint['scheduler_state_dict'] = scheduler.state_dict()
                     torch.save(checkpoint, self.config.save_path)
-                    print(f'  -> Epoch {epoch + 1}, ** 新的最佳模型已保存 (Test Loss: {best_test_loss:.6f}) **')
+                    print(f'  -> Epoch {epoch + 1}, ** New best model saved (Test Loss: {best_test_loss:.6f}) **')
 
-        # --- 3. 调用修改后的绘图函数 ---
-        # 假设 _plot_training_curves 函数可以接收一个包含 'train' 和 'test'键的字典
+        # --- 3. Call the plotting function ---
         self._plot_training_curves({'train': train_losses, 'test': test_losses})
-        print("原生异构图训练和测试完成!")
+        print("Native heterogeneous graph training and testing complete!")
 
     def _plot_training_curves(self, all_losses: Dict[str, Dict[str, list]]):
         """
-        动态绘制所有记录的训练损失曲线。
+        Dynamically plot all recorded training loss curves.
         """
-        # 获取所有损失的键名（除了学习率）
+        # Get all loss key names (excluding learning rate)
         train_losses = all_losses.get('train', {})
         test_losses = all_losses.get('test', {})
         loss_keys = [key for key in train_losses.keys() if key != 'learning_rate' and len(train_losses[key]) > 0]
 
-        # 计算需要的子图数量
+        # Calculate number of subplots needed
         num_plots = len(loss_keys)
         if num_plots == 0:
-            print("没有可供绘制的损失数据。")
+            print("No loss data to plot.")
             return
 
         plt.figure(figsize=(6 * num_plots, 5))
 
-        # 动态创建子图
+        # Dynamically create subplots
         for i, key in enumerate(loss_keys):
             plt.subplot(1, num_plots, i + 1)
             plt.plot(train_losses[key], label=f'Train {key.replace("_", " ").title()} Loss')
-            # 检查测试集中是否有该损失的记录
+            # Check if the test set has records for this loss
             if key in test_losses and test_losses[key]:
                  plt.plot(test_losses[key], label=f'Test {key.replace("_", " ").title()} Loss')
             plt.title(f'{key.replace("_", " ").title()} Loss Over Epochs')
@@ -289,33 +286,35 @@ class EdgeWeightSolver:
 
     def predict_edge_weights(self, data: HeteroData) -> pd.DataFrame:
         """
-        使用训练好的模型，为给定的异构图数据预测边权重，并根据原始索引重新排序。
+        Use the trained model to predict edge weights for the given heterogeneous graph data,
+        and reorder results based on original indices.
 
         Args:
-            data (HeteroData): 一个包含'source'和'agent'节点及它们之间边的图数据对象。
-                               这个对象应包含一个名为 'agent_index_map' 的属性，
-                               它是一个能将图内部agent索引映射回原始gdf索引的Series或数组。
+            data (HeteroData): A graph data object containing 'source' and 'agent' nodes and
+                               edges between them. This object should contain an 'agent_index_map'
+                               attribute that maps internal agent indices back to original GeoDataFrame indices.
 
         Returns:
-            np.ndarray: 一个包含预测边权重的NumPy数组，其顺序与原始agent的GeoDataFrame索引一致。
+            pd.DataFrame: A DataFrame containing predicted edge weights, ordered consistently
+                          with the original agent GeoDataFrame indices.
         """
         if self.encoder is None or self.edge_weighting_layer is None:
-            raise RuntimeError("模型尚未训练或加载。请先调用 train_multi_graph 或加载一个模型。")
+            raise RuntimeError("Model has not been trained or loaded. Please call train_multi_graph or load a model first.")
 
-        # 检查必要的元数据是否存在
+        # Check that necessary metadata exists
         if not hasattr(data, 'agent_index_map'):
-            raise ValueError("输入的 HeteroData 对象必须包含 'agent_index_map' 属性用于权重重新排序。")
+            raise ValueError("The input HeteroData object must contain an 'agent_index_map' attribute for weight reordering.")
 
-        # 加载最佳模型的状态
+        # Load best model state
         try:
             checkpoint = torch.load(self.config.save_path, map_location=self.device)
             self.encoder.load_state_dict(checkpoint['encoder_state_dict'])
             self.edge_weighting_layer.load_state_dict(checkpoint['edge_weighting_layer_state_dict'])
-            print(f"成功从 '{self.config.save_path}' 加载模型。")
+            print(f"Successfully loaded model from '{self.config.save_path}'.")
         except FileNotFoundError:
-            raise FileNotFoundError(f"找不到模型文件 '{self.config.save_path}'。请确保模型已训练并保存。")
+            raise FileNotFoundError(f"Model file '{self.config.save_path}' not found. Please ensure the model has been trained and saved.")
         except Exception as e:
-            raise RuntimeError(f"加载模型时出错: {e}")
+            raise RuntimeError(f"Error loading model: {e}")
 
         self.encoder.eval()
         self.edge_weighting_layer.eval()
@@ -329,51 +328,51 @@ class EdgeWeightSolver:
             try:
                 edge_index_sa = data['source', 'connects_to', 'agent'].edge_index
             except KeyError:
-                raise ValueError("输入的 HeteroData 对象中必须包含 ('source', 'connects_to', 'agent') 类型的边。")
+                raise ValueError("The input HeteroData object must contain edges of type ('source', 'connects_to', 'agent').")
 
             edge_weights, edge_costs = self.edge_weighting_layer(
                 embeddings_s, embeddings_a, edge_index_sa
             )
 
-            # --- 重新引入验证逻辑 ---
-            print("\n=== 边权重预测结果统计 ===")
+            # --- Validation logic ---
+            print("\n=== Edge Weight Prediction Statistics ===")
             num_s = data['source'].num_nodes
 
-            # 1. 计算理论上的均匀分布权重
+            # 1. Compute theoretical uniform distribution weights
             uniform_weights = torch.zeros_like(edge_weights)
             s_indices = edge_index_sa[0]
-            # 使用 scatter_add 高效计算每个 source 的出边数量
+            # Use scatter_add to efficiently count the out-degree of each source
             ones = torch.ones_like(s_indices, dtype=torch.float)
             out_degree_s = torch.zeros(num_s, device=self.device, dtype=torch.float).scatter_add_(0, s_indices, ones)
-            # 避免除以零
+            # Avoid division by zero
             uniform_weight_values = 1.0 / out_degree_s[s_indices].clamp(min=1)
             uniform_weights = uniform_weight_values
 
-            # 2. 计算 MAE (Mean Absolute Error)
+            # 2. Compute MAE (Mean Absolute Error)
             mae = torch.mean(torch.abs(edge_weights - uniform_weights))
-            print(f"总体 MAE (对比均匀分布): {mae.item():.6f}")
+            print(f"Overall MAE (vs. uniform distribution): {mae.item():.6f}")
 
-            # 3. 验证每个 source 节点的权重和是否为1
+            # 3. Verify that weight sums per source node equal 1
             weight_sums_per_s = torch.zeros(num_s, device=self.device).scatter_add_(0, s_indices, edge_weights)
             avg_weight_sum_error = torch.mean(torch.abs(weight_sums_per_s[out_degree_s > 0] - 1.0))
-            print(f"平均权重和误差 (应接近0): {avg_weight_sum_error.item():.6f}")
-            print(f"权重范围: [{edge_weights.min().item():.4f}, {edge_weights.max().item():.4f}]")
+            print(f"Average weight sum error (should be close to 0): {avg_weight_sum_error.item():.6f}")
+            print(f"Weight range: [{edge_weights.min().item():.4f}, {edge_weights.max().item():.4f}]")
             print("=" * 35 + "\n")
-            # --- 验证逻辑结束 ---
+            # --- End of validation logic ---
 
-            # --- 重新引入二次调整（重新排序）逻辑 ---
-            # 获取图中边的 agent 局部索引
+            # --- Reordering logic ---
+            # Get the local agent indices from graph edges
             agent_local_indices = edge_index_sa[1].cpu().numpy()
 
-            # 使用 agent_index_map 将局部索引转换为原始的 GeoDataFrame 索引
-            # agent_index_map 应该是一个 Series 或者 dict，键是局部索引，值是原始索引
+            # Use agent_index_map to convert local indices to original GeoDataFrame indices
+            # agent_index_map should be a Series or dict where keys are local indices and values are original indices
             agent_index_map = data.agent_index_map
             original_gdf_indices = pd.Series(agent_index_map).iloc[agent_local_indices].values
 
-            # 一个agent只属于一个source
+            # Each agent belongs to exactly one source
             source_indices = edge_index_sa[0].cpu().numpy()
 
-            # 返回一个包含 source_id, agent_id, weight 的 DataFrame，这是最清晰的
+            # Return a DataFrame containing source_id, agent_id, and weight
             result_df = pd.DataFrame({
                 'source_node_idx': source_indices,
                 'agent_node_idx': agent_local_indices,
@@ -381,8 +380,6 @@ class EdgeWeightSolver:
                 'predicted_weight': edge_weights.cpu().numpy()
             })
 
-            print("已生成包含原始索引和权重的 DataFrame。")
+            print("Generated DataFrame with original indices and weights.")
 
-            # 为了完全模拟原代码的返回类型，我们返回与边一一对应的权重值 numpy 数组
-            # 调用者需要自己处理索引映射
             return result_df

@@ -10,7 +10,7 @@ def get_osm_data(bounds, path = None, tags=None):
         osm_tags = tags
 
 
-    # 获取边界值
+    # Get boundary values
     minx, miny, maxx, maxy = bounds
 
 
@@ -20,7 +20,7 @@ def get_osm_data(bounds, path = None, tags=None):
     )
 
     if landuse_gdf.empty:
-        print("在指定区域未找到landuse数据")
+        print("No landuse data found in the specified area")
 
     if path is not None:
         with open(path, "wb") as f:

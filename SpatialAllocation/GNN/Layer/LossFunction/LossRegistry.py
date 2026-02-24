@@ -2,7 +2,7 @@
 
 class LossRegistry:
     """
-    损失函数注册器类,用于管理和注册不同的损失函数
+    Loss function registry class for managing and registering different loss functions.
     """
     def __init__(self):
         self._losses = {}
@@ -32,5 +32,4 @@ class LossRegistry:
             }
             for name in self._losses
         }
-
 

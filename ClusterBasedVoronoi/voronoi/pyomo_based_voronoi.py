@@ -33,12 +33,12 @@ def pyomo_solution_to_gdf(model, grid_points, regions, step_size_m, clusters):
     # Step 1: Initialize lists for polygons and indices (cluster labels)
     start = time.time()
     points_df = pd.DataFrame(grid_points, columns=['x', 'y'])
-    points_df['q_idx'] = np.arange(1, len(grid_points) + 1)  # Pyomo索引从1开始
+    points_df['q_idx'] = np.arange(1, len(grid_points) + 1)  # Pyomo indices start from 1
 
-    # 创建一个字典以快速查询每个点的分配情况
+    # Create a dictionary for quick lookup of each point's assignment
     point_cluster_dict = {}
 
-    # 这个循环无法避免，但我们可以减少内循环的工作量
+    # This loop cannot be avoided, but we can reduce the inner loop workload
     # for var in model.x:
     #     q_idx, c = var
     #     if pyo.value(model.x[q_idx, c]) > 0.5:
@@ -53,7 +53,7 @@ def pyomo_solution_to_gdf(model, grid_points, regions, step_size_m, clusters):
             assignment_values[q_idx] = {}
         assignment_values[q_idx][c] = value
 
-    # 为每个网格点选择最佳cluster
+    # Select the best cluster for each grid point
     point_cluster_dict = {}
     for q_idx, cluster_values in assignment_values.items():
         best_cluster = max(cluster_values, key=cluster_values.get)
@@ -79,16 +79,16 @@ def pyomo_solution_to_gdf(model, grid_points, regions, step_size_m, clusters):
     print(f"Step create gdf time: {end - start}")
 
     start = time.time()
-    # 创建结果DataFrame存储
+    # Create result DataFrame storage
     result_geometries = []
     result_labels = []
 
-    # 按cluster_label分组并合并
+    # Group by cluster_label and merge
     for label, group in gdf.groupby('cluster_label'):
-        # 合并同一cluster的所有几何体
+        # Merge all geometries of the same cluster
         union_geom = unary_union(group['geometry'].tolist())
 
-        # 与边界相交
+        # Intersect with boundary
         if union_geom.intersects(boundary_polygon_m):
             clipped_geom = union_geom.intersection(boundary_polygon_m)
             result_geometries.append(clipped_geom)
@@ -219,13 +219,11 @@ def build_model(regions, clusters, step_size_m, weight = "equal", method="civd",
         Returns:
         Objective: A Pyomo objective to maximize the total influence.
         """
-        # if method == "civd" or method == "ivd":
-        #     # Maximize total influence (CIVD approach)
-        # 原目标函数部分
+        # Original objective function part
         objective_value = sum(model.x[q, c] * influence_matrix[q - 1][c] for q in model.Q for c in model.C)
 
         if penalty_weight is not None:
-            # 添加惩罚项
+            # Add penalty term
             penalty_value = penalty_weight * sum((model.x[q, c] - 0.5) ** 2 for q in model.Q for c in model.C)
             return objective_value + penalty_value
 

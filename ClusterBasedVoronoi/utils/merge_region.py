@@ -6,21 +6,21 @@ import matplotlib.pyplot as plt
 
 
 def calculate_adjacency_matrix(gdf):
-    """计算GeoDataFrame中多边形的邻接矩阵"""
+    """Calculate the adjacency matrix of polygons in a GeoDataFrame."""
     n = len(gdf)
     adjacency_matrix = np.zeros((n, n), dtype=bool)
 
-    # 为提高效率，先创建空间索引
+    # Create spatial index for efficiency
     sindex = gdf.sindex
 
     for i, geom in enumerate(gdf.geometry):
-        # 获取潜在的相邻多边形
+        # Get potentially adjacent polygons
         possible_matches_index = list(sindex.intersection(geom.bounds))
         possible_matches = gdf.iloc[possible_matches_index]
 
-        # 筛选出真正相邻的多边形
+        # Filter for truly adjacent polygons
         for j, possible_match in enumerate(possible_matches_index):
-            if i != possible_match:  # 不计算自身
+            if i != possible_match:  # Exclude self
                 if geom.touches(possible_matches.iloc[j].geometry):
                     adjacency_matrix[i, possible_match] = True
 
@@ -29,46 +29,46 @@ def calculate_adjacency_matrix(gdf):
 
 def find_merge_pairs(adjacency_matrix):
     """
-    找出最佳的两两合并对
+    Find the best pairwise merge pairs.
 
-    参数:
-    adjacency_matrix: 邻接矩阵
+    Parameters:
+    adjacency_matrix: Adjacency matrix.
 
-    返回:
-    merge_pairs: 要合并的区域对列表 [(i1,j1), (i2,j2), ...]
+    Returns:
+    merge_pairs: List of region pairs to merge [(i1,j1), (i2,j2), ...]
     """
     n = len(adjacency_matrix)
     remaining = set(range(n))
     pairs = []
 
-    # 对每个区域，找到一个相邻区域进行配对
+    # For each region, find an adjacent region to pair with
     while len(remaining) >= 2:
         found_pair = False
 
-        # 从剩余区域中取第一个
+        # Take the first from the remaining regions
         if not remaining:
             break
 
         i = min(remaining)
         remaining.remove(i)
 
-        # 查找i的所有相邻区域
+        # Find all adjacent regions of i
         neighbors = [j for j in remaining if adjacency_matrix[i, j]]
 
         if neighbors:
-            # 选择第一个相邻区域配对
+            # Pair with the first adjacent region
             j = neighbors[0]
             pairs.append((i, j))
             remaining.remove(j)
             found_pair = True
 
-        # 如果没有找到相邻区域，尝试与任何剩余区域配对（即使不相邻）
+        # If no adjacent region found, try pairing with any remaining region (even if not adjacent)
         if not found_pair and remaining:
             j = min(remaining)
             pairs.append((i, j))
             remaining.remove(j)
 
-    # 如果剩余奇数个区域，最后一个单独保留
+    # If an odd number of regions remain, keep the last one as-is
     if remaining:
         pairs.append((list(remaining)[0],))
 
@@ -77,30 +77,31 @@ def find_merge_pairs(adjacency_matrix):
 
 def merge_by_pairs(gdf, id_column='id', attribute_operations=None):
     """
-    两两合并区域
+    Pairwise merge of regions.
 
-    参数:
-    gdf: 包含区域的GeoDataFrame
-    id_column: 区域ID列名
-    attribute_operations: 字典，键为列名，值为合并操作('mean', 'sum', 'min', 'max', 'first', 'last', 'count')
+    Parameters:
+    gdf: GeoDataFrame containing the regions.
+    id_column: Region ID column name.
+    attribute_operations: Dictionary where keys are column names and values are merge operations
+                         ('mean', 'sum', 'min', 'max', 'first', 'last', 'count').
 
-    返回:
-    合并后的新GeoDataFrame
+    Returns:
+    A new GeoDataFrame after merging.
     """
     if len(gdf) <= 1:
         return gdf.copy()
 
-    # 计算邻接矩阵
+    # Compute adjacency matrix
     adjacency_matrix = calculate_adjacency_matrix(gdf)
 
-    # 找出要合并的区域对
+    # Find region pairs to merge
     merge_pairs = find_merge_pairs(adjacency_matrix)
 
-    # 创建新的合并区域
+    # Create new merged regions
     new_geometries = []
     new_ids = []
 
-    # 为每个属性准备数据
+    # Prepare data for each attribute
     attribute_data = {}
     if attribute_operations:
         for col, operation in attribute_operations.items():
@@ -109,19 +110,19 @@ def merge_by_pairs(gdf, id_column='id', attribute_operations=None):
 
     for i, pair in enumerate(merge_pairs):
         if len(pair) == 2:
-            # 合并两个区域
+            # Merge two regions
             i1, i2 = pair
             geom1 = gdf.iloc[i1].geometry
             geom2 = gdf.iloc[i2].geometry
             merged_geom = unary_union([geom1, geom2])
 
-            # 处理属性
+            # Process attributes
             if attribute_operations:
                 for col, operation in attribute_operations.items():
                     if col in gdf.columns and col != 'geometry' and col != id_column:
                         values = [gdf.iloc[i1][col], gdf.iloc[i2][col]]
 
-                        # 执行指定的操作
+                        # Execute the specified operation
                         if operation == 'mean':
                             attribute_data[col].append(np.mean(values))
                         elif operation == 'sum':
@@ -136,33 +137,33 @@ def merge_by_pairs(gdf, id_column='id', attribute_operations=None):
                             attribute_data[col].append(values[1])
                         elif operation == 'count':
                             attribute_data[col].append(len(values))
-                        else:  # 默认为平均值
+                        else:  # Default to mean
                             attribute_data[col].append(np.mean(values))
         else:
-            # 单个区域保持不变
+            # Single region stays unchanged
             i1 = pair[0]
             merged_geom = gdf.iloc[i1].geometry
 
-            # 处理属性
+            # Process attributes
             if attribute_operations:
                 for col, operation in attribute_operations.items():
                     if col in gdf.columns and col != 'geometry' and col != id_column:
                         attribute_data[col].append(gdf.iloc[i1][col])
 
         new_geometries.append(merged_geom)
-        new_ids.append(i + 1)  # 从1开始的新ID
+        new_ids.append(i + 1)  # New IDs starting from 1
 
-    # 创建数据字典
+    # Create data dictionary
     data_dict = {
         id_column: new_ids,
         'geometry': new_geometries
     }
 
-    # 添加属性数据
+    # Add attribute data
     for col, values in attribute_data.items():
         data_dict[col] = values
 
-    # 创建新的GeoDataFrame
+    # Create new GeoDataFrame
     new_gdf = gpd.GeoDataFrame(data_dict, crs=gdf.crs)
 
     return new_gdf
@@ -170,42 +171,43 @@ def merge_by_pairs(gdf, id_column='id', attribute_operations=None):
 
 def create_hierarchical_regions(gdf, target_region_count, id_column='id', attribute_operations=None):
     """
-    创建分层区域合并，通过两两合并的方式
+    Create hierarchical region merging through pairwise merging.
 
-    参数:
-    gdf: 原始GeoDataFrame
-    target_region_count: 最终目标区域数量（例如1）
-    id_column: 区域ID列名
-    attribute_operations: 字典，键为列名，值为合并操作('mean', 'sum', 'min', 'max', 'first', 'last', 'count')
-        例如: {'population': 'sum', 'income': 'mean', 'area_code': 'first'}
+    Parameters:
+    gdf: Original GeoDataFrame.
+    target_region_count: Final target number of regions (e.g., 1).
+    id_column: Region ID column name.
+    attribute_operations: Dictionary where keys are column names and values are merge operations
+                         ('mean', 'sum', 'min', 'max', 'first', 'last', 'count').
+        Example: {'population': 'sum', 'income': 'mean', 'area_code': 'first'}
 
-    返回:
-    list: 含有原始GDF和各个层级合并结果的GeoDataFrame列表，
-          按照区域数量从多到少排序
+    Returns:
+    list: A list of GeoDataFrames containing the original GDF and merge results at each level,
+          sorted by region count from most to fewest.
     """
-    # 确保输入的GDF有连续的ID，从1开始
+    # Ensure input GDF has consecutive IDs starting from 1
     original_gdf = gdf.copy()
     original_gdf[id_column] = range(1, len(original_gdf) + 1)
 
-    # 创建结果列表，首先添加原始GDF
+    # Create result list, first add the original GDF
     results_list = [original_gdf]
 
-    # 当前工作的GDF
+    # Current working GDF
     current_gdf = original_gdf.copy()
 
-    # 持续合并直到达到或低于目标数量
+    # Keep merging until reaching or going below the target count
     while len(current_gdf) > target_region_count:
-        # 两两合并，传递属性操作参数
+        # Pairwise merge, passing attribute operation parameters
         current_gdf = merge_by_pairs(current_gdf, id_column, attribute_operations)
 
-        # 如果没有进一步减少（例如只剩一个区域），则停止
+        # If no further reduction (e.g., only one region left), stop
         if len(current_gdf) == len(results_list[-1]):
             break
 
-        # 添加到结果列表
+        # Add to result list
         results_list.append(current_gdf.copy())
 
-        # 如果已经达到目标数量，停止合并
+        # If target count reached, stop merging
         if len(current_gdf) <= target_region_count:
             break
 

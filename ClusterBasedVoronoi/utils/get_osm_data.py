@@ -6,10 +6,10 @@ def get_osm_data(bounds, path = None, tags=None):
 
     if tags is None:
         tags = {'landuse':True}
-    # 获取边界值
+    # Get boundary values
     minx, miny, maxx, maxy = bounds
 
-    # 按照新的顺序重新组织边界值: (left, bottom, right, top)
+    # Reorganize boundary values in new order: (left, bottom, right, top)
     # landuse_gdf = ox.features.features_from_bbox(
     #     north=maxy,  # top
     #     south=miny,  # bottom
@@ -23,7 +23,7 @@ def get_osm_data(bounds, path = None, tags=None):
     )
 
     if landuse_gdf.empty:
-        print("在指定区域未找到landuse数据")
+        print("No landuse data found in the specified area")
 
     if path is not None:
         with open(path, "wb") as f:

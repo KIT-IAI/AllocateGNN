@@ -4,36 +4,36 @@ from typing import Optional, Dict, Any, Callable
 
 @dataclass
 class ModelConfig:
-    """模型配置参数"""
-    # GraphEncoder 参数
+    """Model configuration parameters"""
+    # GraphEncoder parameters
     hidden_dim: int = 128
     embedding_dim: int = 64
     num_layers: int = 3
-    conv_type: str = 'sage'  # 可选: 'gcn', 'sage', 'gat', 'gin', 'transformer', 'gated', 'hgt', 'rgcn', 'pna', 'edge', 'graph', 'gmm', 'appnp', 'sg'
-    gat_heads: int = 4  # GAT头数，适用于GATConv
+    conv_type: str = 'sage'  # Options: 'gcn', 'sage', 'gat', 'gin', 'transformer', 'gated', 'hgt', 'rgcn', 'pna', 'edge', 'graph', 'gmm', 'appnp', 'sg'
+    gat_heads: int = 4  # Number of GAT heads, used for GATConv
 
-    # Differentiableallocation 参数
-    allocation_temperature_start: float = 2.0  # 初始温度（较高）
+    # Differentiable allocation parameters
+    allocation_temperature_start: float = 2.0  # Initial temperature (relatively high)
 
-    # 训练参数
+    # Training parameters
     learning_rate: float = 0.001
-    weight_decay: float = 1e-4  # 添加权重衰减
+    weight_decay: float = 1e-4  # Weight decay
     epochs: int = 300
-    clip_grad_norm: Optional[float] = None  # 是否使用梯度裁剪
-    use_scheduler: bool = True  # 是否使用余弦退火学习率调度器
-    warmup_epochs: Optional[int] = int(epochs*0.1)  # 预热阶段的epoch数，如果为None则不使用预热
-    warmup_start_factor: float = 0.1  # 预热阶段的学习率起始倍率
-    warmup_end_factor: float = 1.0  # 预热阶段的学习率结束倍率
+    clip_grad_norm: Optional[float] = None  # Whether to use gradient clipping
+    use_scheduler: bool = True  # Whether to use cosine annealing learning rate scheduler
+    warmup_epochs: Optional[int] = int(epochs*0.1)  # Number of warmup epochs; None disables warmup
+    warmup_start_factor: float = 0.1  # Learning rate start multiplier for warmup phase
+    warmup_end_factor: float = 1.0  # Learning rate end multiplier for warmup phase
     decay_epochs: Optional[int] = int(epochs*0.1)
-    decay_start_factor: float = 1.0  # 衰减阶段的学习率起始倍率
+    decay_start_factor: float = 1.0  # Learning rate start multiplier for decay phase
     decay_end_factor: float = 0.01
-    cosine_epochs: Optional[int] = int(epochs*0.8)  # 周期长度，如果为None则使用总epoch数
-    cosine_eta_min: float = 1e-6  # 最小学习率
+    cosine_epochs: Optional[int] = int(epochs*0.8)  # Period length; None uses total epoch count
+    cosine_eta_min: float = 1e-6  # Minimum learning rate
 
-    # 损失函数
-    learnable: bool = True  # 是否使用可学习的损失函数
+    # Loss function
+    learnable: bool = True  # Whether to use learnable loss function
 
-    # 设备参数
-    device: Optional[str] = None  # None表示自动选择
+    # Device parameters
+    device: Optional[str] = None  # None means automatic selection
     debug: bool = True
     save_path: str = 'best_model.pth'

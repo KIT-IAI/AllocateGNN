@@ -37,7 +37,7 @@ def generate_grid(regions, step_size_m = None, landuse_gdf = None, target_points
     if step_size_m is None:
         print("Step size not provided, calculating optimal step size...")
         print("This function 'target_points' is experimental and estimates the step size based on the square area of the region.")
-        # 计算边界框面积
+        # Calculate bounding box area
         box_area = (maxx - minx) * (maxy - miny)
         polygon_area = boundary_polygon_m.area
         area_ratio = polygon_area / box_area
@@ -234,4 +234,3 @@ def scale_grid_weights(grid_weights, n_points):
     scaled_weights = [weight * scaling_factor for weight in grid_weights]
 
     return scaled_weights
-
