@@ -68,11 +68,19 @@ class EntropyLoss(BaseLoss):
 
         return entropy_loss
 
+# WARNING: SupervisedSubstationDemandLoss uses real substation demand D_t as a direct supervision signal.
+# This VIOLATES the self-supervised/weakly-supervised constraint of the framework.
+# D_t should only be used for evaluation (e.g., computing RMSE/MAE at test time), NOT for training.
+# Do NOT enable this loss in objective_weights unless you explicitly intend full supervision.
 @loss_registry.register("supervised_substation_demand_loss", default_weight=1.0,
-                        description="Minimizes the MSE between predicted and actual demand at the substation level.")
+                        description="[SUPERVISED - uses D_t] Minimizes the MAE between predicted and actual demand at the substation level.")
 class SupervisedSubstationDemandLoss(BaseLoss):
     """
-    Supervised loss: minimizes the mean squared error between predicted and actual demand
+    WARNING: This is a SUPERVISED loss that uses real substation demand D_t as a direct
+    supervision signal. Enabling this loss breaks the self-supervised/weakly-supervised
+    framework constraint. D_t should only be used for evaluation, not training.
+
+    Supervised loss: minimizes the mean absolute error between predicted and actual demand
     at the substation level. This loss function is generic and does not depend on
     the specific meaning of 'source' nodes.
     """
@@ -86,7 +94,7 @@ class SupervisedSubstationDemandLoss(BaseLoss):
             metadata (dict): Must contain:
                 - 'agent_demand' (torch.Tensor): Base demand for each agent node.
                 - 'agent_substation_map' (torch.Tensor): Index mapping from each agent node to its substation.
-                - 'substation_y_true' (torch.Tensor): True demand for each substation (supervision signal).
+                - 'substation_y_true' (torch.Tensor): True demand for each substation (D_t, used as supervision signal).
                 - 'num_substations' (int): Total number of substations in the batch.
         """
         a_indices = edge_index[1]  # Agent node index for each edge

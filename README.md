@@ -22,7 +22,7 @@ The framework models the spatial allocation problem as a heterogeneous graph wit
 - **Agent nodes**: Represent grid cells with land-use features that serve as intermediaries for demand distribution.
 - **Target nodes**: Represent substations where demand is physically consumed.
 
-A GNN encoder learns node embeddings via message passing, and a differentiable edge weighting layer predicts allocation weights, which are optimized using a combination of self-supervised loss functions including entropy regularization, supervised substation demand loss, feature similarity loss, and land-use prediction loss.
+A GNN encoder learns node embeddings via message passing, and a differentiable edge weighting layer predicts allocation weights, which are optimized using a combination of self-supervised and weakly-supervised loss functions including entropy regularization, feature similarity loss, and land-use prediction loss. The real substation demand $D_t$ is used only for evaluation (RMSE/MAE), not as a training signal.
 
 ## 2. Project Structure
 
@@ -87,13 +87,19 @@ Supports multiple GNN convolution types (`GCN`, `GraphSAGE`, `GAT`, `GIN`, `HGT`
 Predicts edge weights using embedding distances gated by a learned MLP, followed by temperature-scaled grouped softmax via `scatter_softmax`. Ensures that weights from each source node sum to 1.
 
 ### 3.3 Loss Functions
-| Loss | Description |
-|------|-------------|
-| `entropy_regularization` | Encourages uniform edge weight distribution per source node |
-| `supervised_substation_demand_loss` | Minimizes MAE between predicted and actual substation demand |
-| `feature_similarity_loss` | Minimizes feature variance within each source's allocation cluster |
-| `feature_consistency_loss` | Encourages feature-similar agents under the same source to have similar weights |
-| `landuse_prediction_loss` | Computes KL divergence between predicted and actual land-use ratios |
+
+**Self-supervised / Weakly-supervised losses (recommended):**
+| Loss | Type | Description |
+|------|------|-------------|
+| `entropy_regularization` | Self-supervised | Encourages uniform edge weight distribution per source node |
+| `feature_similarity_loss` | Self-supervised | Minimizes feature variance within each source's allocation cluster |
+| `feature_consistency_loss` | Self-supervised | Encourages feature-similar agents under the same source to have similar weights |
+| `landuse_prediction_loss` | Weakly-supervised | Computes KL divergence between predicted and actual land-use ratios (from OSM) |
+
+**Supervised loss (uses real substation demand $D_t$ — not recommended for self/weakly-supervised settings):**
+| Loss | Type | Description |
+|------|------|-------------|
+| `supervised_substation_demand_loss` | Supervised | Minimizes MAE between predicted and actual substation demand |
 
 All losses support learnable uncertainty-based weighting for multi-task optimization.
 
@@ -152,7 +158,6 @@ solver.train_multi_graph(
     test_loader,
     objective_weights={
         'entropy_regularization': 1.0,
-        'supervised_substation_demand_loss': 1.0,
         'landuse_prediction_loss': 1.0
     }
 )

@@ -118,10 +118,10 @@ class EdgeWeightSolver:
                         metadata_for_loss['agent_demand'] = batch_data['agent'].demand
                     if hasattr(batch_data['agent'], 'substation_idx'):
                         metadata_for_loss['agent_substation_map'] = batch_data['agent'].substation_idx
-                if hasattr(batch_data, 'substation_y'):
-                    metadata_for_loss['substation_y_true'] = batch_data.substation_y
-                if hasattr(batch_data, 'num_substations'):
-                    metadata_for_loss['num_substations'] = batch_data.num_substations
+                # NOTE: substation_y (D_t) and num_substations are intentionally NOT passed
+                # into the training loss metadata. D_t is only used for evaluation, not training.
+                # If supervised_substation_demand_loss is enabled in objective_weights without
+                # these keys, it will raise a KeyError as a safeguard.
                 if hasattr(batch_data, 'landuse_mapping_matrix'):
                     metadata_for_loss['landuse_mapping_matrix'] = batch_data.landuse_mapping_matrix
                 if hasattr(batch_data, 'landuse_ratio'):
@@ -180,10 +180,8 @@ class EdgeWeightSolver:
                                 metadata_for_loss['agent_demand'] = batch_data['agent'].demand
                             if hasattr(batch_data['agent'], 'substation_idx'):
                                 metadata_for_loss['agent_substation_map'] = batch_data['agent'].substation_idx
-                        if hasattr(batch_data, 'substation_y'):
-                            metadata_for_loss['substation_y_true'] = batch_data.substation_y
-                        if hasattr(batch_data, 'num_substations'):
-                            metadata_for_loss['num_substations'] = batch_data.num_substations
+                        # NOTE: substation_y (D_t) and num_substations are intentionally NOT passed
+                        # into the test loss metadata. D_t is only used for post-training evaluation.
                         if hasattr(batch_data, 'landuse_mapping_matrix'):
                             metadata_for_loss['landuse_mapping_matrix'] = batch_data.landuse_mapping_matrix
                         if hasattr(batch_data, 'landuse_ratio'):

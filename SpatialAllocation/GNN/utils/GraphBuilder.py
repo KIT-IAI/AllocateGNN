@@ -351,11 +351,11 @@ def prepare_hetero_graph_from_processed(
     data.feature_mapping_s = processed_features_s['mapping']
     data.feature_mapping_a = processed_features_a['mapping']
 
-    # Add source node true demand as supervision target
+    # Add source node true demand as evaluation target (used only for post-training evaluation, not for training loss)
     if 'Demand (MVA)' in gdf_s.columns:
         source_demand_true = gdf_s['Demand (MVA)'].values
         data['source'].y = torch.tensor(source_demand_true, dtype=torch.float32)
-        print("Added supervision target 'y' for source nodes.")
+        print("Added evaluation target 'y' for source nodes.")
 
     if 'Demand (MVA)' in gdf_a.columns:
         agent_demand = gdf_a['Demand (MVA)'].values
@@ -367,13 +367,13 @@ def prepare_hetero_graph_from_processed(
         data['agent'].substation_idx = torch.tensor(agent_substation_map, dtype=torch.long)
         print("Added agent-to-substation mapping 'substation_idx'.")
 
-    # Add substation true demand as graph-level supervision target
+    # Add substation true demand as evaluation target (D_t, used ONLY for post-training evaluation metrics like RMSE/MAE, NOT for training loss)
     if 'Demand (MVA)' in gdf_t.columns:
         substation_demand_true = gdf_t['Demand (MVA)'].values
         data.substation_y = torch.tensor(substation_demand_true, dtype=torch.float32).reshape(-1)  # Ensure 1D tensor
         print(data.substation_y.shape)
         data.num_substations = len(gdf_t)
-        print("Added substation true demand 'substation_y' as graph-level attribute.")
+        print("Added substation true demand 'substation_y' as evaluation target (graph-level attribute).")
 
     data.source_index_map = pd.Series(gdf_s.index.values)
     data.agent_index_map = pd.Series(gdf_a.index.values)
