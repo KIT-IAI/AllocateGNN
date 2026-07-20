@@ -13,6 +13,9 @@ Coupling with Graph Neural Networks</h1>
 <div align="left"> This repository is the official code of the paper <strong>"Improving Spatial Allocation for Energy System
 Coupling with Graph Neural Networks"</strong></div>
 
+> [!NOTE]
+> 🚧 **Coming soon:** The extended code for our follow-up paper *"Mechanism-Dependent Antagonism of Auxiliary Information in Substation-Level Load Disaggregation for Distribution Network Planning"* ([arXiv:2605.24491](https://arxiv.org/abs/2605.24491)) will be released here soon. Stay tuned! ⭐
+
 ## 1. Introduction
 
 **AllocateGNN** proposes a Graph Neural Network (GNN)-based approach to improve the spatial allocation of electricity demand in energy systems. Traditional methods such as Voronoi tessellation assign demand to the nearest substation using simple geometric proximity, ignoring structural and contextual information. This work formulates the spatial allocation task as an edge weight prediction problem on a heterogeneous graph and uses self-supervised learning to produce more accurate, context-aware allocations.
