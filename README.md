@@ -8,7 +8,7 @@
 <h1 align="center">Improving Spatial Allocation for Energy System
 Coupling with Graph Neural Networks</h1>
 
-**Note**: *Last update on 2026.02.24*
+**Note**: *Last update on 2026.07.20*
 
 <div align="left"> This repository is the official code of the paper <strong>"Improving Spatial Allocation for Energy System
 Coupling with Graph Neural Networks"</strong></div>
@@ -173,36 +173,24 @@ result_df = solver.predict_edge_weights(test_data)
 ### 5.4 Voronoi Baseline
 See **`002_british_voronoi_simulate.ipynb`** for running the cluster-based Voronoi baseline with different clustering methods and influence calculation strategies.
 
-[//]: # (<h2>6. Citation &#128221;</h2>)
+## 6. Citation 📝
 
-[//]: # (<p>)
+If you use this framework in your research, please consider citing our paper 📝 and giving the repository a star ⭐:
 
-[//]: # (If you use this framework in your research, please consider citing our paper &#128221; and giving the repository a star &#11088;:)
+```bibtex
+@article{Mu2026Improving,
+      author={Mu, Xuanhao and Geiges, Jakob and Liu, Nan and Schlachter, Thorsten and Hagenmeyer, Veit},
+      title={Improving spatial allocation for energy system coupling with graph neural networks},
+      journal={Electric Power Systems Research},
+      volume={262},
+      pages={113519},
+      year={2027},
+      issn={0378-7796},
+      doi={10.1016/j.epsr.2026.113519},
+      url={https://www.sciencedirect.com/science/article/pii/S0378779626008126}
+}
+```
 
-[//]: # (</p>)
-
-[//]: # ()
-[//]: # (```bibTeX)
-
-[//]: # (@misc{mu2026improving,)
-
-[//]: # (      title={Improving Spatial Allocation for Energy System Coupling with Graph Neural Networks}, )
-
-[//]: # (      author={Xuanhao Mu and Gökhan Demirel and Yuzhe Zhang and Jianlei Liu and Thorsten Schlachter and Veit Hagenmeyer},)
-
-[//]: # (      year={2025},)
-
-[//]: # (      eprint={2508.10587},)
-
-[//]: # (      archivePrefix={arXiv},)
-
-[//]: # (      primaryClass={cs.LG},)
-
-[//]: # (      url={https://arxiv.org/abs/2508.10587}, )
-
-[//]: # (})
-
-[//]: # (```)
 ## License
 This code is licensed under the **[MIT License](LICENSE)**.
 For any issues or any intention of cooperation, please feel free to contact me at **[xuanhao.mu@kit.edu](xuanhao.mu@kit.edu)**.
