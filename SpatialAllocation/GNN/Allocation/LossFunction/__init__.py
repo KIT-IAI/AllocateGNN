@@ -1,0 +1,4 @@
+from SpatialAllocation.GNN.Allocation.LossFunction.AllocationLossRegistry import allocation_loss_registry
+from SpatialAllocation.GNN.Allocation.LossFunction.AllocationDistanceLoss import AllocationDistanceLoss
+from SpatialAllocation.GNN.Allocation.LossFunction.AllocationFeatureHomogeneityLoss import AllocationFeatureHomogeneityLoss
+from SpatialAllocation.GNN.Allocation.LossFunction.AllocationCombinedLoss import AllocationCombinedLoss

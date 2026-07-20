@@ -2,7 +2,7 @@
 
 class LossRegistry:
     """
-    Loss function registry class for managing and registering different loss functions.
+    Loss function registry class, used to manage and register different loss functions.
     """
     def __init__(self):
         self._losses = {}
@@ -32,4 +32,5 @@ class LossRegistry:
             }
             for name in self._losses
         }
+
 

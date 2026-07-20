@@ -1,0 +1,126 @@
+{
+  "grid": {
+    "target_points": 50000,
+    "min_step_size": 10,
+    "crs_project": "EPSG:3857"
+  },
+  "cache_dir": "./results/intermediate/features/cache",
+
+  "fetchers": {
+    "sentinel2": {
+      "enabled": true,
+      "gee_collection": "COPERNICUS/S2_SR_HARMONIZED",
+      "bands": ["B2", "B3", "B4", "B8", "B11", "B12"],
+      "scale_m": 10,
+      "composite_method": "median",
+      "max_cloud_cover": 20,
+      "date_range": ["2021-01-01", "2022-12-31"],
+      "output_crs": "EPSG:27700"
+    },
+    "worldcover": {
+      "enabled": true,
+      "gee_image": "ESA/WorldCover/v200/2021",
+      "band": "Map",
+      "scale_m": 10,
+      "output_crs": "EPSG:27700"
+    },
+    "osm": {
+      "enabled": true,
+      "tags": {"landuse": true},
+      "buffer_m": 0
+    },
+    "ntl": {
+      "enabled": true,
+      "gee_collection": "NOAA/VIIRS/DNB/MONTHLY_V1/VCMSLCFG",
+      "band": "avg_rad",
+      "scale_m": 500,
+      "composite_method": "median",
+      "date_range": ["2021-01-01", "2022-12-31"],
+      "output_crs": "EPSG:27700",
+      "buffer_m": 1000
+    }
+  },
+
+  "extractors": {
+    "landuse": {
+      "enabled": true,
+      "fetcher": "osm",
+      "mode": "proportions",
+      "categories": {
+        "residential": ["residential", "retail;residential", "driveway"],
+        "commercial": ["depot", "commercial", "retail", "hospitality", "tourism", "commerce", "commercial;greenfield"],
+        "industrial": ["industrial", "quarry", "construction", "landfill", "yard", "storage", "demolition", "concrete",
+                       "logistics", "power", "logging", "water_wellfield", "maintenance_work", "lumberyard", "harbour",
+                       "construction; industrial", "ware"],
+        "agricultural": ["farm", "animal_keeping", "meadow", "allotments", "plant_nursery", "farmland", "farmyard",
+                         "orchard", "greenhouse_horticulture", "vineyard", "apiary", "animal_enclosure",
+                         "community_food_growing", "aquaculture", "paddock", "horticulture", "plantation", "gardening",
+                         "fallow", "lifestock", "animal", "x-meadow"],
+        "others": ["military", "recreation_ground", "brownfield", "cemetery", "grass", "village_green", "railway",
+                   "forest", "conservation", "religious", "observatory", "garages", "traffic_island", "education",
+                   "basin", "healthcare", "nursery", "flowerbed", "churchyard", "platform", "civic", "sport", "mixed",
+                   "road", "greenfield", "teaching_area", "arboretum", "fire_station", "governmental", "runway",
+                   "university", "shrubs", "institutional", "greenery", "courtyard", "civic_admin", "unclear",
+                   "planting", "leisure", "trees", "playing_fields", "transport", "shelter", "fairground",
+                   "winter_sports", "piste", "exercise_area", "highway", "reservoir", "garden", "proposed",
+                   "Insect reserve"]
+      },
+      "default_category": "others"
+    },
+    "spectral": {
+      "enabled": true,
+      "fetcher": "sentinel2",
+      "indices": {
+        "NDVI": {"formula": "(B8-B4)/(B8+B4)"},
+        "NDBI": {"formula": "(B11-B8)/(B11+B8)"},
+        "NDWI": {"formula": "(B3-B8)/(B3+B8)"},
+        "BSI":  {"formula": "((B11+B4)-(B8+B2))/((B11+B4)+(B8+B2))"},
+        "UI":   {"formula": "(B12-B8)/(B12+B8)"}
+      },
+      "aggregation": ["mean", "std", "median"]
+    },
+    "ntl": {
+      "enabled": true,
+      "fetcher": "ntl",
+      "radius_m": 0
+    },
+    "worldcover": {
+      "enabled": true,
+      "fetcher": "worldcover",
+      "classes": {
+        "10": "tree_cover",
+        "20": "shrubland",
+        "30": "grassland",
+        "40": "cropland",
+        "50": "built_up",
+        "60": "bare_sparse_veg",
+        "70": "snow_ice",
+        "80": "permanent_water",
+        "90": "herbaceous_wetland",
+        "95": "mangroves",
+        "100": "moss_lichen"
+      },
+      "aggregation_mapping": {
+        "built_up": [50],
+        "agricultural": [10, 20, 30, 40],
+        "others": [60, 70, 80, 90, 95, 100]
+      }
+    }
+  },
+
+  "qa_builder": {
+    "enabled": true,
+    "buildup_threshold": 0.1,
+    "buildup_split_source": "landuse",
+    "buildup_split_categories": ["residential", "commercial", "industrial"],
+    "buildup_default_split": [0.333, 0.333, 0.334],
+    "sector_names": ["residential", "commercial", "industrial", "agricultural", "others"],
+    "sector_mapping": {
+      "residential":  {"from": "built_up", "split_by": "residential"},
+      "commercial":   {"from": "built_up", "split_by": "commercial"},
+      "industrial":   {"from": "built_up", "split_by": "industrial"},
+      "agricultural": {"from": "agricultural", "split_by": null},
+      "others":       {"from": "others", "split_by": null, "absorb_residual": true}
+    }
+  }
+}

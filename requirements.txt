@@ -1,0 +1,61 @@
+# =============================================================================
+# AllocateGNN - dependencies for the spatial load-allocation GNN and the
+# accompanying multi-country case studies (British / Australia / Germany).
+# =============================================================================
+
+# ---- Deep learning ----------------------------------------------------------
+torch>=2.0.0
+torchvision>=0.15.0
+
+# PyTorch Geometric and its compiled extensions.
+# NOTE: torch-scatter / torch-sparse must match your installed PyTorch and CUDA
+# build. Prefer `pip install torch-geometric` and follow the official install
+# guide for the extension wheels.
+torch-geometric>=2.3.0
+torch-scatter>=2.1.0
+torch-sparse>=0.6.0
+
+# ---- Geospatial -------------------------------------------------------------
+geopandas>=0.12.0
+shapely>=2.0.0
+pyproj>=3.4.0
+fiona>=1.9.0
+osmnx>=1.3.0
+networkx>=3.0
+
+# ---- Remote sensing / imagery ----------------------------------------------
+earthengine-api>=0.1.350
+rasterio>=1.3
+requests>=2.28.0
+Pillow>=9.0.0
+
+# ---- Data & scientific computing -------------------------------------------
+pandas>=1.5.0
+numpy>=1.23.0
+scipy>=1.10.0
+scikit-learn>=1.2.0
+statsmodels>=0.14.0
+
+# ---- Clustering -------------------------------------------------------------
+hdbscan>=0.8.30
+
+# ---- Optimization -----------------------------------------------------------
+# Pyomo needs an external solver (e.g. CBC, GLPK or Gurobi).
+pyomo>=6.0.0
+
+# ---- Power flow (downstream evaluation) ------------------------------------
+pandapower>=2.14
+
+# ---- Visualization ----------------------------------------------------------
+matplotlib>=3.6.0
+scienceplots>=2.1.0
+
+# ---- Utilities --------------------------------------------------------------
+python-dotenv>=1.0.0
+joblib>=1.2.0
+tqdm>=4.65.0
+
+# ---- Notebooks --------------------------------------------------------------
+jupyter>=1.0.0
+ipykernel>=6.20.0
+ipywidgets>=8.0.0
