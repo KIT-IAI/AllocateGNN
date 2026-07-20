@@ -5,8 +5,7 @@
 [![Python](https://img.shields.io/badge/Python-3.12.8-blue?logo=python)](https://www.python.org/downloads/release/python-3918/)
 [![License](https://img.shields.io/badge/License-MIT-green?logo=opensource)](./LICENSE)
 
-<h1 align="center">Improving Spatial Allocation for Energy System
-Coupling with Graph Neural Networks</h1>
+<h1 align="center">AllocateGNN</h1>
 
 **Note**: *Last update on 2026.07.20*
 
