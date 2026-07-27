@@ -1,0 +1,268 @@
+{
+  "meta": {
+    "generated_by": "scratchpad/finalcheck/manifests/build_uk_de_manifests.py",
+    "generated_at": "2026-07-27 18:45:50",
+    "case": "StudyCase/British_weighter_experiments（UK 案例·APEN 大修）",
+    "version": "v1",
+    "note": "路径相对 StudyCase/British_weighter_experiments/；清单取自 precheck_frozen_inputs.py（S1 前置断言，16 项 check）中属「输入」的 7 项 check → 36 文件；模型 checkpoint / 训练与基线结果 / 环境检查项不入清单；license 为占位，终稿以论文数据源表为准"
+  },
+  "summary": {
+    "n_files": 36,
+    "total_bytes": 1187360447,
+    "n_missing": 0
+  },
+  "files": [
+    {
+      "path": "results/intermediate/substations.gpkg",
+      "bytes": 765952,
+      "sha256": "b7f75a36dad26cd644c0a6bcd32471c138ff7e382d88a9e04ab83af8a3c19361",
+      "dataset": "UK 变电站真值点（precheck: substations_gpkg；005 训练脚本直接读取）",
+      "license": "see data-source table (paper Tab. 2)"
+    },
+    {
+      "path": "results/intermediate/ITL3_region.gpkg",
+      "bytes": 36900864,
+      "sha256": "1c05d534b57ea9a15276120beffd5c17edc94a0385532ddbbe796a64a99cc3a3",
+      "dataset": "UK ITL3 区域边界（precheck: itl3_region_gpkg；005 直接读取，S5 Moran 邻接依赖）",
+      "license": "see data-source table (paper Tab. 2)"
+    },
+    {
+      "path": "results/intermediate/features/assembled/London_grid_points.pickle",
+      "bytes": 14120830,
+      "sha256": "1f75510fd3f3e82123276ea5fd2b8806dc3871d4f280f37a4f9809903ffde195",
+      "dataset": "London 网格点特征装配（precheck: grid_points_16_regions；lu/wc 特征列齐全）",
+      "license": "derived intermediate; upstream licenses per data-source table (paper Tab. 2)"
+    },
+    {
+      "path": "results/intermediate/features/assembled/TLH2_grid_points.pickle",
+      "bytes": 14192742,
+      "sha256": "08024f83e10c662409ed79028bf291d1d7308cf9dc1bcd6555cf44fded508b66",
+      "dataset": "TLH2 网格点特征装配（precheck: grid_points_16_regions；lu/wc 特征列齐全）",
+      "license": "derived intermediate; upstream licenses per data-source table (paper Tab. 2)"
+    },
+    {
+      "path": "results/intermediate/features/assembled/TLH3_grid_points.pickle",
+      "bytes": 14055603,
+      "sha256": "810bf0aaba7dc830ff6ae4fecdd56475196bdaf2b8fd3bac0cb5eaaa66add3ee",
+      "dataset": "TLH3 网格点特征装配（precheck: grid_points_16_regions；lu/wc 特征列齐全）",
+      "license": "derived intermediate; upstream licenses per data-source table (paper Tab. 2)"
+    },
+    {
+      "path": "results/intermediate/features/assembled/TLJ1_grid_points.pickle",
+      "bytes": 13897337,
+      "sha256": "4b16d3d576e19264eafdfa12a66040facbaf39bdb5b7474fcb50540842b40bcc",
+      "dataset": "TLJ1 网格点特征装配（precheck: grid_points_16_regions；lu/wc 特征列齐全）",
+      "license": "derived intermediate; upstream licenses per data-source table (paper Tab. 2)"
+    },
+    {
+      "path": "results/intermediate/features/assembled/TLF1_grid_points.pickle",
+      "bytes": 13849099,
+      "sha256": "0f2fa1f861fd3d82efeed9701318ede46ce73efc549ee45b41fef992a664e3ed",
+      "dataset": "TLF1 网格点特征装配（precheck: grid_points_16_regions；lu/wc 特征列齐全）",
+      "license": "derived intermediate; upstream licenses per data-source table (paper Tab. 2)"
+    },
+    {
+      "path": "results/intermediate/features/assembled/TLF2_grid_points.pickle",
+      "bytes": 13814136,
+      "sha256": "ea830da330c020fc2cebd5529664dfcd303459042b82851c3a76d3c14b1817fb",
+      "dataset": "TLF2 网格点特征装配（precheck: grid_points_16_regions；lu/wc 特征列齐全）",
+      "license": "derived intermediate; upstream licenses per data-source table (paper Tab. 2)"
+    },
+    {
+      "path": "results/intermediate/features/assembled/TLC1_grid_points.pickle",
+      "bytes": 13878909,
+      "sha256": "f94a7ad725c27f9ca65afc0396f34136a9894cc89dfde7824639e4fef4c012c0",
+      "dataset": "TLC1 网格点特征装配（precheck: grid_points_16_regions；lu/wc 特征列齐全）",
+      "license": "derived intermediate; upstream licenses per data-source table (paper Tab. 2)"
+    },
+    {
+      "path": "results/intermediate/features/assembled/TLC2_grid_points.pickle",
+      "bytes": 13772673,
+      "sha256": "227599c69d4011f0c008df65c9bdd73ebe10e58d2c9a7048e12bfbc079721dcc",
+      "dataset": "TLC2 网格点特征装配（precheck: grid_points_16_regions；lu/wc 特征列齐全）",
+      "license": "derived intermediate; upstream licenses per data-source table (paper Tab. 2)"
+    },
+    {
+      "path": "results/intermediate/features/assembled/TLD6_grid_points.pickle",
+      "bytes": 13969696,
+      "sha256": "cd84749e70e6267077993c4072c6c711f941cd61239a72bbf051acc72e0af57b",
+      "dataset": "TLD6 网格点特征装配（precheck: grid_points_16_regions；lu/wc 特征列齐全）",
+      "license": "derived intermediate; upstream licenses per data-source table (paper Tab. 2)"
+    },
+    {
+      "path": "results/intermediate/features/assembled/TLG1_grid_points.pickle",
+      "bytes": 13566440,
+      "sha256": "007d0172a0780e4a32e32099b1b19353cf17086790da3c2c87366fa6867b4459",
+      "dataset": "TLG1 网格点特征装配（precheck: grid_points_16_regions；lu/wc 特征列齐全）",
+      "license": "derived intermediate; upstream licenses per data-source table (paper Tab. 2)"
+    },
+    {
+      "path": "results/intermediate/features/assembled/TLG2_grid_points.pickle",
+      "bytes": 13621182,
+      "sha256": "f851d305819b73b11c87cb8900a6378c1ca344418dbf02f2e381af3cef329da6",
+      "dataset": "TLG2 网格点特征装配（precheck: grid_points_16_regions；lu/wc 特征列齐全）",
+      "license": "derived intermediate; upstream licenses per data-source table (paper Tab. 2)"
+    },
+    {
+      "path": "results/intermediate/features/assembled/TLE4_grid_points.pickle",
+      "bytes": 13587036,
+      "sha256": "cbdfcdb27379dfd9eb3ca23872e965d55fba2930fb3963342c51b515dc83a2b6",
+      "dataset": "TLE4 网格点特征装配（precheck: grid_points_16_regions；lu/wc 特征列齐全）",
+      "license": "derived intermediate; upstream licenses per data-source table (paper Tab. 2)"
+    },
+    {
+      "path": "results/intermediate/features/assembled/TLH1_grid_points.pickle",
+      "bytes": 13641236,
+      "sha256": "fafdb12bd1af22b27870b75d03337869a8e561c13a3d70594e889b7c27cd4ea7",
+      "dataset": "TLH1 网格点特征装配（precheck: grid_points_16_regions；lu/wc 特征列齐全）",
+      "license": "derived intermediate; upstream licenses per data-source table (paper Tab. 2)"
+    },
+    {
+      "path": "results/intermediate/features/assembled/TLE3_grid_points.pickle",
+      "bytes": 14103312,
+      "sha256": "f350dd1da6ff2215f4038a7c7011968d67f5e88a99bb7674d5e2fbaaddffdd8c",
+      "dataset": "TLE3 网格点特征装配（precheck: grid_points_16_regions；lu/wc 特征列齐全）",
+      "license": "derived intermediate; upstream licenses per data-source table (paper Tab. 2)"
+    },
+    {
+      "path": "results/intermediate/features/assembled/TLD3_grid_points.pickle",
+      "bytes": 14455627,
+      "sha256": "925c149889a5ad0ce2c3341de563f2186d3ba4e6bc619674d17a4aa974985341",
+      "dataset": "TLD3 网格点特征装配（precheck: grid_points_16_regions；lu/wc 特征列齐全）",
+      "license": "derived intermediate; upstream licenses per data-source table (paper Tab. 2)"
+    },
+    {
+      "path": "results/intermediate/features/assembled/TLD4_grid_points.pickle",
+      "bytes": 14181631,
+      "sha256": "0c717c6d77dd505355a97059f22acc0edcb76485ab5a1cb189a66ef157e041b8",
+      "dataset": "TLD4 网格点特征装配（precheck: grid_points_16_regions；lu/wc 特征列齐全）",
+      "license": "derived intermediate; upstream licenses per data-source table (paper Tab. 2)"
+    },
+    {
+      "path": "results/intermediate/features/extracted/London_ntl.npz",
+      "bytes": 414224,
+      "sha256": "5861b76db4da654791c4c209481e50ef4f1c3bb7a7571673c260e72475ebaabc",
+      "dataset": "London 夜间灯光特征提取（precheck: ntl_npz_16_regions_nonzero_var；方差非零防线）",
+      "license": "derived intermediate; upstream licenses per data-source table (paper Tab. 2)"
+    },
+    {
+      "path": "results/intermediate/features/extracted/TLH2_ntl.npz",
+      "bytes": 419400,
+      "sha256": "081c0a2cf96ebf908988f1ea067a527b212b1e53a03c1aa44c0e7e9ffdb51b38",
+      "dataset": "TLH2 夜间灯光特征提取（precheck: ntl_npz_16_regions_nonzero_var；方差非零防线）",
+      "license": "derived intermediate; upstream licenses per data-source table (paper Tab. 2)"
+    },
+    {
+      "path": "results/intermediate/features/extracted/TLH3_ntl.npz",
+      "bytes": 415352,
+      "sha256": "d3aee214053f4484439ba9890ee7cfc84dd0a583dd7dead7bd0d0356f06c3c72",
+      "dataset": "TLH3 夜间灯光特征提取（precheck: ntl_npz_16_regions_nonzero_var；方差非零防线）",
+      "license": "derived intermediate; upstream licenses per data-source table (paper Tab. 2)"
+    },
+    {
+      "path": "results/intermediate/features/extracted/TLJ1_ntl.npz",
+      "bytes": 410680,
+      "sha256": "c52211bd62ff4eea7260168970c96a51af57a1e8932a6054e8994a718072efac",
+      "dataset": "TLJ1 夜间灯光特征提取（precheck: ntl_npz_16_regions_nonzero_var；方差非零防线）",
+      "license": "derived intermediate; upstream licenses per data-source table (paper Tab. 2)"
+    },
+    {
+      "path": "results/intermediate/features/extracted/TLF1_ntl.npz",
+      "bytes": 409256,
+      "sha256": "7501ed6b194cbc6dcf9487e9e45a96b5014e25aaeee4ab4e8d5c7470eddcfd1e",
+      "dataset": "TLF1 夜间灯光特征提取（precheck: ntl_npz_16_regions_nonzero_var；方差非零防线）",
+      "license": "derived intermediate; upstream licenses per data-source table (paper Tab. 2)"
+    },
+    {
+      "path": "results/intermediate/features/extracted/TLF2_ntl.npz",
+      "bytes": 408224,
+      "sha256": "17d1b918878218a2596b93c392d784da58af019db298f3112283b83887fd871f",
+      "dataset": "TLF2 夜间灯光特征提取（precheck: ntl_npz_16_regions_nonzero_var；方差非零防线）",
+      "license": "derived intermediate; upstream licenses per data-source table (paper Tab. 2)"
+    },
+    {
+      "path": "results/intermediate/features/extracted/TLC1_ntl.npz",
+      "bytes": 410136,
+      "sha256": "7640231d3b5e6f60edf3a1449655347746fc7f09f5b42467979f9ebddd6bac5b",
+      "dataset": "TLC1 夜间灯光特征提取（precheck: ntl_npz_16_regions_nonzero_var；方差非零防线）",
+      "license": "derived intermediate; upstream licenses per data-source table (paper Tab. 2)"
+    },
+    {
+      "path": "results/intermediate/features/extracted/TLC2_ntl.npz",
+      "bytes": 407000,
+      "sha256": "c83c1b474f5f9809b985fed2a8671045a94ea31684ab0a1f61abab53d27b72f4",
+      "dataset": "TLC2 夜间灯光特征提取（precheck: ntl_npz_16_regions_nonzero_var；方差非零防线）",
+      "license": "derived intermediate; upstream licenses per data-source table (paper Tab. 2)"
+    },
+    {
+      "path": "results/intermediate/features/extracted/TLD6_ntl.npz",
+      "bytes": 412816,
+      "sha256": "07a2364ad6292a56c8bed86b2c68cce5f096d7392a925b529b15d8216724c20a",
+      "dataset": "TLD6 夜间灯光特征提取（precheck: ntl_npz_16_regions_nonzero_var；方差非零防线）",
+      "license": "derived intermediate; upstream licenses per data-source table (paper Tab. 2)"
+    },
+    {
+      "path": "results/intermediate/features/extracted/TLG1_ntl.npz",
+      "bytes": 400912,
+      "sha256": "358df1b048adc6acddb9f91f1a06fd3901ea88b4150871843e76da70937106ef",
+      "dataset": "TLG1 夜间灯光特征提取（precheck: ntl_npz_16_regions_nonzero_var；方差非零防线）",
+      "license": "derived intermediate; upstream licenses per data-source table (paper Tab. 2)"
+    },
+    {
+      "path": "results/intermediate/features/extracted/TLG2_ntl.npz",
+      "bytes": 402528,
+      "sha256": "05a37d5e29576359c74059379c0fb28d5be6eedf1a92bb93da03af7a71f765a3",
+      "dataset": "TLG2 夜间灯光特征提取（precheck: ntl_npz_16_regions_nonzero_var；方差非零防线）",
+      "license": "derived intermediate; upstream licenses per data-source table (paper Tab. 2)"
+    },
+    {
+      "path": "results/intermediate/features/extracted/TLE4_ntl.npz",
+      "bytes": 401520,
+      "sha256": "6c9a944d7bc6dd6adb22ced0bfedbb47c6d217f9452595dcd1da7bba430fe88c",
+      "dataset": "TLE4 夜间灯光特征提取（precheck: ntl_npz_16_regions_nonzero_var；方差非零防线）",
+      "license": "derived intermediate; upstream licenses per data-source table (paper Tab. 2)"
+    },
+    {
+      "path": "results/intermediate/features/extracted/TLH1_ntl.npz",
+      "bytes": 403120,
+      "sha256": "343b8de120e5dba3e0deae3d4c7ece236fa2d79ca0c3676c2d3ed14d7d5ed963",
+      "dataset": "TLH1 夜间灯光特征提取（precheck: ntl_npz_16_regions_nonzero_var；方差非零防线）",
+      "license": "derived intermediate; upstream licenses per data-source table (paper Tab. 2)"
+    },
+    {
+      "path": "results/intermediate/features/extracted/TLE3_ntl.npz",
+      "bytes": 416760,
+      "sha256": "7b0ee1426bcc06a1f03fb51e4a7595ab5ab6303627c3532c963b16f09c9269d7",
+      "dataset": "TLE3 夜间灯光特征提取（precheck: ntl_npz_16_regions_nonzero_var；方差非零防线）",
+      "license": "derived intermediate; upstream licenses per data-source table (paper Tab. 2)"
+    },
+    {
+      "path": "results/intermediate/features/extracted/TLD3_ntl.npz",
+      "bytes": 427160,
+      "sha256": "9acac96b7df99f019c42a68d219832c2b99a2ec640bcafa9319af34f2567f630",
+      "dataset": "TLD3 夜间灯光特征提取（precheck: ntl_npz_16_regions_nonzero_var；方差非零防线）",
+      "license": "derived intermediate; upstream licenses per data-source table (paper Tab. 2)"
+    },
+    {
+      "path": "results/intermediate/features/extracted/TLD4_ntl.npz",
+      "bytes": 419072,
+      "sha256": "c64c982a076e629fd2357716dc9fa10dca20fb6a43cb5c905350c9da1b25ab65",
+      "dataset": "TLD4 夜间灯光特征提取（precheck: ntl_npz_16_regions_nonzero_var；方差非零防线）",
+      "license": "derived intermediate; upstream licenses per data-source table (paper Tab. 2)"
+    },
+    {
+      "path": "results/exp0_kfold_prior/graph_cache/cached_graphs.pickle",
+      "bytes": 458605345,
+      "sha256": "9d09a136daa0b63040454ddeeff7f5563d5b59fd9ddf47a34c1c7f50bd5bf32a",
+      "dataset": "主图缓存·16 区域 PyG HeteroData（precheck: main_graph_cache_*；无 (agent,near,agent) 边，agent 特征 5 维）",
+      "license": "derived intermediate; upstream licenses per data-source table (paper Tab. 2)"
+    },
+    {
+      "path": "results/exp0_kfold_prior_AgentConn/graph_cache/cached_graphs.pickle",
+      "bytes": 461802637,
+      "sha256": "484939c890fba39040d0a548638cbb806f44af1f218125ea2976819cd4b787ca",
+      "dataset": "AgentConn 变体图缓存·16 区域 PyG HeteroData（precheck: agentconn_cache_has_near_edge；含 (agent,near,agent) 边）",
+      "license": "derived intermediate; upstream licenses per data-source table (paper Tab. 2)"
+    }
+  ]
+}

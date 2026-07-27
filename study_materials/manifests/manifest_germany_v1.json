@@ -1,0 +1,65 @@
+{
+  "meta": {
+    "generated_by": "scratchpad/finalcheck/manifests/build_uk_de_manifests.py",
+    "generated_at": "2026-07-27 18:45:50",
+    "case": "StudyCase/Germany（DE Börde 案例·APEN 大修）",
+    "version": "v1",
+    "note": "路径相对 StudyCase/Germany/；清单取自 precheck_de_inputs.py（S6-DE 前置核查，17 项 check）中属「输入」的文件 7 个；派生量冒烟3 项无对应文件不入清单；network_distance_matrix.npy 为 003 静态基线输入（训练非必需）一并收入；license 为占位，终稿以论文数据源表为准"
+  },
+  "summary": {
+    "n_files": 7,
+    "total_bytes": 20575537,
+    "n_missing": 0
+  },
+  "files": [
+    {
+      "path": "results/intermediate/source_regions.gpkg",
+      "bytes": 253952,
+      "sha256": "d7d0980778a70861e71168c37cb07c86078cca400ebdfb759d73df396004dd8e",
+      "dataset": "DE Börde 案例 34 Gemeinden 区域（precheck: source_regions_*；含 5 个 *_percent 特征列）",
+      "license": "see data-source table (paper Tab. 2)"
+    },
+    {
+      "path": "results/intermediate/substations.gpkg",
+      "bytes": 98304,
+      "sha256": "27b7cb12cf6173bd082bd6870896ba4d5a8bbefce6bea9d03ff1fc582a928511",
+      "dataset": "DE Börde 案例 13 UW 变电站（precheck: substations_*；总负荷 207.5 MW）",
+      "license": "see data-source table (paper Tab. 2)"
+    },
+    {
+      "path": "results/intermediate/features/assembled/boerde_grid_points.pickle",
+      "bytes": 14440023,
+      "sha256": "01feb119ec8bbbc2a126f80d741b9eaf8716c7f8d00f016a2b5c9ea7c0d9de78",
+      "dataset": "Börde 网格点特征装配 [grid_gdf, step_size_m]（precheck: grid_points_*；51619 点，lu×5 + wc×3 特征列）",
+      "license": "derived intermediate; upstream licenses per data-source table (paper Tab. 2)"
+    },
+    {
+      "path": "results/intermediate/features/extracted/boerde_ntl.npz",
+      "bytes": 413496,
+      "sha256": "66d3b6d8785d81538b951c8d9d9600f0c2ed3f739779e47d04aa878e0dc3ef15",
+      "dataset": "Börde 夜间灯光特征提取（precheck: ntl_length / ntl_variance_nonzero）",
+      "license": "derived intermediate; upstream licenses per data-source table (paper Tab. 2)"
+    },
+    {
+      "path": "results/intermediate/features/assembled/all_node_features_col.pickle",
+      "bytes": 438,
+      "sha256": "e2965e2fb63fecb5137a6dbbf4734b6f4a4cd9fdd4be834234d75e650505a890",
+      "dataset": "特征列 schema 装配（precheck: assembled_all_node_features_col.pickle）",
+      "license": "derived intermediate; upstream licenses per data-source table (paper Tab. 2)"
+    },
+    {
+      "path": "results/intermediate/features/assembled/feature_schema.json",
+      "bytes": 820,
+      "sha256": "9e8fed897514e3707fb5c881a3751c66624764dee290f8d427515766cda375ec",
+      "dataset": "特征 schema 登记（precheck: assembled_feature_schema.json）",
+      "license": "derived intermediate; upstream licenses per data-source table (paper Tab. 2)"
+    },
+    {
+      "path": "results/intermediate/features/network_distance/boerde/network_distance_matrix.npy",
+      "bytes": 5368504,
+      "sha256": "0a3741208ed8ae906cc1603a7df54dcd4fd9723222b59d3895d43bf52a6d8a31",
+      "dataset": "Börde 路网距离矩阵（precheck: network_distance_for_003；003 静态基线所需，005 训练非必需——按脚本注释作为冻结输入收入）",
+      "license": "derived intermediate; upstream licenses per data-source table (paper Tab. 2)"
+    }
+  ]
+}

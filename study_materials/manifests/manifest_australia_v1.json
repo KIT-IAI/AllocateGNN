@@ -1,0 +1,184 @@
+{
+  "meta": {
+    "generated_by": "StudyCase/Australia/007_freeze_manifest.py",
+    "generated_at": "2026-07-14 21:23:20",
+    "case": "StudyCase/Australia（AU 第三迁移案例）",
+    "version": "v1",
+    "main_year": 2009,
+    "note": "原始数据目录 StudyCase/Australia/data/ 已 gitignore，本 manifest 目录可入库（仿 StudyCase_slp/data/manifest/ 纪律）；复现方式：001（负荷 zip）+ 003（位置图层）+ 005（配套源）+ 006（站表/OSM 缓存）按序重跑，与本表 sha256 核对"
+  },
+  "summary": {
+    "n_files": 24,
+    "total_bytes": 569042039
+  },
+  "files": [
+    {
+      "path": "data/processed/asgs_ed3/asgs_nsw_sa2_sa3_sa4_gda2020.gpkg",
+      "bytes": 55705600,
+      "sha256": "d44180e17c757de0d6a3b6b0cb5915ec0bb0ce0a8b5c99e40fe415625ad2645e",
+      "dataset": "本线派生产物（NSW 边界 GPKG 子集、站表 CSV、空间分布 GeoJSON）",
+      "license": "由上游各源许可派生；发布口径见 docs/licensing_statement.md（只发布衍生分析结果）"
+    },
+    {
+      "path": "data/processed/station_points_fy2009.geojson",
+      "bytes": 39720,
+      "sha256": "1c61fdee0cf473b0312fe0a68192e2dddd3f1876d258656cd0839221720cc93b",
+      "dataset": "本线派生产物（NSW 边界 GPKG 子集、站表 CSV、空间分布 GeoJSON）",
+      "license": "由上游各源许可派生；发布口径见 docs/licensing_statement.md（只发布衍生分析结果）"
+    },
+    {
+      "path": "data/processed/station_table_fy2008.csv",
+      "bytes": 25436,
+      "sha256": "a7610a8f3f32c53fd5c893bc0ed1fc14ceae2c14fcc50a1a55d7565d5c931c1c",
+      "dataset": "本线派生产物（NSW 边界 GPKG 子集、站表 CSV、空间分布 GeoJSON）",
+      "license": "由上游各源许可派生；发布口径见 docs/licensing_statement.md（只发布衍生分析结果）"
+    },
+    {
+      "path": "data/processed/station_table_fy2009.csv",
+      "bytes": 26320,
+      "sha256": "bec9b7c1abdf282073962bbf6885af05420dedda1ee68d74e2c2f68c8f945e7f",
+      "dataset": "本线派生产物（NSW 边界 GPKG 子集、站表 CSV、空间分布 GeoJSON）",
+      "license": "由上游各源许可派生；发布口径见 docs/licensing_statement.md（只发布衍生分析结果）"
+    },
+    {
+      "path": "data/processed/station_table_fy2010.csv",
+      "bytes": 26399,
+      "sha256": "127ce8a579ad839c741ba5e2c1a7a0f28274f97bd903e624b12aeffa805300a6",
+      "dataset": "本线派生产物（NSW 边界 GPKG 子集、站表 CSV、空间分布 GeoJSON）",
+      "license": "由上游各源许可派生；发布口径见 docs/licensing_statement.md（只发布衍生分析结果）"
+    },
+    {
+      "path": "data/raw/abares_clum/clum_50m_2023_v2.zip",
+      "bytes": 158077503,
+      "sha256": "438216128400d1b7db0a27160062a3afe2570bc0e66af13a55a29e166192f360",
+      "dataset": "ABARES Catchment Scale Land Use of Australia (CLUM) 50m（2023-12 v2 + 2015-03）",
+      "license": "CC BY 4.0（2023 v2，DOI 10.25814/2w2p-ph98）；CC BY（2015-03，data.gov.au 登记）"
+    },
+    {
+      "path": "data/raw/abares_clum/rasterclum50m0315m.zip",
+      "bytes": 79482460,
+      "sha256": "0a745f1ec4956137af6cf6ecdb77d200dd8bb99d8b0d1d6cc8ee7cf1502b6485",
+      "dataset": "ABARES Catchment Scale Land Use of Australia (CLUM) 50m（2023-12 v2 + 2015-03）",
+      "license": "CC BY 4.0（2023 v2，DOI 10.25814/2w2p-ph98）；CC BY（2015-03，data.gov.au 登记）"
+    },
+    {
+      "path": "data/raw/abs_income/6524055002do004_200506201011.xls",
+      "bytes": 4330496,
+      "sha256": "90496e26d7bc19409f761d3ae2cf58187fb6ace590a3c6931dcb97d38089c627",
+      "dataset": "ABS 个人收入：6524.0.55.002 历史表（2005-06~2010-11，SA 层级） + Personal Income in Australia 2022-23 Table 1",
+      "license": "CC BY 4.0（ABS 网站统一声明；历史归档页同源）"
+    },
+    {
+      "path": "data/raw/abs_income/personal_income_table1_sa2_2018-19_2022-23.xlsx",
+      "bytes": 822620,
+      "sha256": "be4d2f5c6abb76064743ab1b7192a425e85bda1c22ad27d4e8da21b2b875fc6a",
+      "dataset": "ABS 个人收入：6524.0.55.002 历史表（2005-06~2010-11，SA 层级） + Personal Income in Australia 2022-23 Table 1",
+      "license": "CC BY 4.0（ABS 网站统一声明；历史归档页同源）"
+    },
+    {
+      "path": "data/raw/abs_population/32180DS0003_2001-25.xlsx",
+      "bytes": 688233,
+      "sha256": "f35d0ca0caaf70b0933871747210e62ac3ff5f7ab7fb4876c92bb1f6e1f6a0a8",
+      "dataset": "ABS Regional population · SA2 及以上层级 ERP 2001–2025",
+      "license": "CC BY 4.0（ABS 网站统一声明）"
+    },
+    {
+      "path": "data/raw/asgs_ed3/SA2_2021_AUST_SHP_GDA2020.zip",
+      "bytes": 50678443,
+      "sha256": "c4dc5bac209f01177eaa0715d27f32cdb09ab5784fb82979741556d2f8e6d148",
+      "dataset": "ABS ASGS Edition 3 (2021) 数字边界 SA2/SA3/SA4（GDA2020 Shapefile）",
+      "license": "CC BY 4.0（ABS 网站统一声明）"
+    },
+    {
+      "path": "data/raw/asgs_ed3/SA3_2021_AUST_SHP_GDA2020.zip",
+      "bytes": 35980764,
+      "sha256": "05215ddc3a577373aa929038cad4cd0fddf910d2f62dbc36cc9c628b5e0a6a32",
+      "dataset": "ABS ASGS Edition 3 (2021) 数字边界 SA2/SA3/SA4（GDA2020 Shapefile）",
+      "license": "CC BY 4.0（ABS 网站统一声明）"
+    },
+    {
+      "path": "data/raw/asgs_ed3/SA4_2021_AUST_SHP_GDA2020.zip",
+      "bytes": 29830757,
+      "sha256": "36eeceb69329f981d95d08b68e8e5af37c261d23e735d701b6e466acaa1bbe39",
+      "dataset": "ABS ASGS Edition 3 (2021) 数字边界 SA2/SA3/SA4（GDA2020 Shapefile）",
+      "license": "CC BY 4.0（ABS 网站统一声明）"
+    },
+    {
+      "path": "data/raw/ausgrid_zs/ausgrid_zs_fy2008.zip",
+      "bytes": 15284842,
+      "sha256": "0ab37cafaf00227a55e485ce875deecf6b093502573af2271e37c0b6907983ea",
+      "dataset": "Ausgrid Distribution Zone Substation Data（15min 负荷，FY2008/2009/2010/2024）",
+      "license": "依据 National Electricity Rules Rule 5.13A 发布；Ausgrid 保留版权与知识产权（官网原文措辞）；data.NSW CKAN 同名数据集登记 license_id=cc-by——两处措辞并引，详见 docs/licensing_statement.md"
+    },
+    {
+      "path": "data/raw/ausgrid_zs/ausgrid_zs_fy2009.zip",
+      "bytes": 15592168,
+      "sha256": "903b85e826e098c028c3ee1b307ff20cc63db6270d846a051fa41c5d59ab242f",
+      "dataset": "Ausgrid Distribution Zone Substation Data（15min 负荷，FY2008/2009/2010/2024）",
+      "license": "依据 National Electricity Rules Rule 5.13A 发布；Ausgrid 保留版权与知识产权（官网原文措辞）；data.NSW CKAN 同名数据集登记 license_id=cc-by——两处措辞并引，详见 docs/licensing_statement.md"
+    },
+    {
+      "path": "data/raw/ausgrid_zs/ausgrid_zs_fy2010.zip",
+      "bytes": 15844259,
+      "sha256": "c7c5e956b6c3370a95aac3e7f7a28d262d0043a8dd4087cb6cbed295db6a5daa",
+      "dataset": "Ausgrid Distribution Zone Substation Data（15min 负荷，FY2008/2009/2010/2024）",
+      "license": "依据 National Electricity Rules Rule 5.13A 发布；Ausgrid 保留版权与知识产权（官网原文措辞）；data.NSW CKAN 同名数据集登记 license_id=cc-by——两处措辞并引，详见 docs/licensing_statement.md"
+    },
+    {
+      "path": "data/raw/ausgrid_zs/ausgrid_zs_fy2024.zip",
+      "bytes": 16986827,
+      "sha256": "30be21ff0222b7398e225964b713f7827ca0f1f5c39f348f476b7540335cb045",
+      "dataset": "Ausgrid Distribution Zone Substation Data（15min 负荷，FY2008/2009/2010/2024）",
+      "license": "依据 National Electricity Rules Rule 5.13A 发布；Ausgrid 保留版权与知识产权（官网原文措辞）；data.NSW CKAN 同名数据集登记 license_id=cc-by——两处措辞并引，详见 docs/licensing_statement.md"
+    },
+    {
+      "path": "data/raw/census2011/2011_BCP_SA3_for_NSW_short-header.zip",
+      "bytes": 5287727,
+      "sha256": "7ee90de8c2b86e571a57c22236c7bfc2d007afa68e52b6543a4878572bdcf924",
+      "dataset": "ABS Census 2011 Basic Community Profile DataPack · SA3 × NSW（B43 行业就业构成，B1/D2 部门 percent 注入，008 落地）",
+      "license": "CC BY 2.5 AU（DataPack 随附声明；署名 Australian Bureau of Statistics）"
+    },
+    {
+      "path": "data/raw/esa_worldcover/ESA_WorldCover_10m_2021_v200_S33E150_Map.tif",
+      "bytes": 63698644,
+      "sha256": "447190f96fe8fd25b0ca5fb6743de247924000d6a26d5d080089afe2670ae00f",
+      "dataset": "ESA WorldCover 10m 2021 v200（S33E150 + S36E150 两 tile）",
+      "license": "CC BY 4.0（ESA WorldCover 官方许可）"
+    },
+    {
+      "path": "data/raw/esa_worldcover/ESA_WorldCover_10m_2021_v200_S36E150_Map.tif",
+      "bytes": 20060792,
+      "sha256": "8948b3d8445111e00f74bb6a751421992a2680e43a3bf0644432983bd86f2de6",
+      "dataset": "ESA WorldCover 10m 2021 v200（S33E150 + S36E150 两 tile）",
+      "license": "CC BY 4.0（ESA WorldCover 官方许可）"
+    },
+    {
+      "path": "data/raw/locations_sample/ausgrid_uhc_full_2025.geojson",
+      "bytes": 102242,
+      "sha256": "870426feeffc906681bde962d610e19142d39171d0d5a9222c60ba5092a08555",
+      "dataset": "NSW ArcGIS Hosted Ausgrid_UHC_Data FeatureServer/0（zone substation 位置，year=2025 切片，extract_date=20240627）",
+      "license": "licenseInfo=\"Data Sharing Agreement in place, please contact Spatial Services for more information\"（非标准开放许可，黄灯——详见 docs/licensing_statement.md）"
+    },
+    {
+      "path": "data/raw/locations_sample/ausgrid_uhc_primary_sample15.geojson",
+      "bytes": 6952,
+      "sha256": "a7beff8ba9e55271859a3b8bd0bc353b70e1fdfd3349ebf4f16034f3c38ac2fd",
+      "dataset": "NSW ArcGIS Hosted Ausgrid_UHC_Data FeatureServer/0（zone substation 位置，year=2025 切片，extract_date=20240627）",
+      "license": "licenseInfo=\"Data Sharing Agreement in place, please contact Spatial Services for more information\"（非标准开放许可，黄灯——详见 docs/licensing_statement.md）"
+    },
+    {
+      "path": "data/raw/osm/overpass_power_substations_bbox.json",
+      "bytes": 215378,
+      "sha256": "2d45b6d623c2f7f96545192e922263f94236a010a28886174fa96a520c3d3e60",
+      "dataset": "OpenStreetMap Overpass API 查询缓存（power=substation，未匹配站兜底定位）",
+      "license": "ODbL 1.0（© OpenStreetMap contributors）；坐标派生使用需署名，注意 share-alike"
+    },
+    {
+      "path": "data/raw/osm/overpass_power_substations_bbox_ext.json",
+      "bytes": 247457,
+      "sha256": "d0c0ce75d0b5cfb7e2079bcfee3dffdfa8f350b383fe6a7e18748c86e21ffc94",
+      "dataset": "OpenStreetMap Overpass API 查询缓存（power=substation，未匹配站兜底定位）",
+      "license": "ODbL 1.0（© OpenStreetMap contributors）；坐标派生使用需署名，注意 share-alike"
+    }
+  ]
+}

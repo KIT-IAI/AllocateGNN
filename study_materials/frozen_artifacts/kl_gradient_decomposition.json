@@ -1,0 +1,293 @@
+{
+  "config": "ntl_prox",
+  "seeds": [
+    42,
+    123,
+    456
+  ],
+  "floor": 1e-08,
+  "valid_threshold": 1e-06,
+  "scope": {
+    "description": "UK ntl_prox（dual-prior）配置；每 seed 每区域取该区域作为 TEST 集的那一折（find_test_fold，与 033 同口径同加载路径）的 grid_demands['gnn_demand']，星形图反解 w_a = gnn_demand_a / D_ITL3（每 source Σw≈1 作锚）。q 由图缓存注入的 ntl_values/proximity_scores/rci_mask 逐字重构，不依赖模型与 seed。source 池 = 3 seeds × 16 区域 × 各区域 ITL3 数（每 seed 每区域恰出现一次）。w 为训练收敛后的冻结产物——本实验回答\"收敛点附近地板项的梯度占比\"。",
+    "n_units": 48,
+    "locations": [
+      "London",
+      "TLH2",
+      "TLH3",
+      "TLJ1",
+      "TLF1",
+      "TLF2",
+      "TLC1",
+      "TLC2",
+      "TLD6",
+      "TLG1",
+      "TLG2",
+      "TLE4",
+      "TLH1",
+      "TLE3",
+      "TLD3",
+      "TLD4"
+    ],
+    "w_source": "exp0_kfold_prior/seed_{seed}/ntl_prox/{test_fold}/grid_demands/{loc}_grid_demands.pickle → gnn_demand",
+    "objective_weights_from_source": {
+      "landuse_prediction_loss": 1.0,
+      "ntl_prior": 0.05,
+      "proximity_prior": 0.05
+    },
+    "lambda_note": "λ_ntl = λ_prox = 0.05 只整体缩放各先验梯度，不影响单个先验内部 off/all 占比。"
+  },
+  "metric_definition": {
+    "gradient": "∂L/∂w_a = −q_a/w_a × 1{w_a≥floor} / n_valid（q 不依赖 w）",
+    "G_off": "Σ_{a∈off(s)} q_a/w_a·1{w_a≥floor}（off = log1p 辅助值触发 floor 的边）",
+    "G_all": "Σ_{a∈s} q_a/w_a·1{w_a≥floor}",
+    "ratio_off": "G_off(s)/G_all(s)，per-source；q 取 KL 内实际使用的 t_safe",
+    "precision": "主指标 float64 numpy（np.bincount 确定性求和）；与训练 float32 管线的偏差经 P5/P6 双重校验约束"
+  },
+  "alignment": {
+    "loss_implementation_files": {
+      "ntl": "SpatialAllocation/GNN/Layer/LossFunction/NTLPriorLoss.py L36-73",
+      "prox": "SpatialAllocation/GNN/Layer/LossFunction/ProximityPriorLoss.py L35-72",
+      "metadata_wiring": "SpatialAllocation/GNN/core/EdgeWeightSolver.py L203-209",
+      "edge_weights": "SpatialAllocation/GNN/Layer/EdgeWeightLayer.py scatter_softmax（每 source Σw=1）"
+    },
+    "q_pipeline_steps_verbatim": [
+      "1. edge_v = aux[a_indices]; edge_v *= rci_mask[a].float()（RCI 外置零）",
+      "2. edge_v = log(1 + clamp(edge_v, min=0))（log1p）",
+      "3. edge_v = clamp(edge_v, min=1e-8)（floor）",
+      "4. v_sum = scatter_add per source; q = edge_v/(v_sum[s]+1e-8)（按 source 归一）",
+      "5. t_safe = clamp(q, 1e-8); w_safe = clamp(w, 1e-8)（KL 双侧 floor）",
+      "6. valid = v_sum > 1e-6; loss = kl_per_s[valid].mean()（掩蔽 source 排除）"
+    ],
+    "verification": {
+      "A_autograd_grad_max_rel_dev": {
+        "ntl": 1.1902768191089897e-07,
+        "prox": 1.3370546237621882e-07
+      },
+      "B_loss_value_max_rel_dev": {
+        "ntl": 0.0002568998044417664,
+        "prox": 0.0002575397144163027
+      },
+      "C_clamp_boundary_probe": [
+        1.0,
+        1.0,
+        0.0
+      ],
+      "note": "A/B 对 96（=3 seeds×16 区域×2 信号）单元全量执行：A 用真实损失类（非复刻）float32 autograd 取 ∂L/∂w 与解析式逐位对比；B 用 float64 复算损失值交叉校验主指标管线；C 确定 clamp 边界梯度门控算子。"
+    }
+  },
+  "preconditions": {
+    "P1_structure_all_locations": {
+      "description": "P1 星形 / P2 索引恒等 / P3 ITL3 域对齐 / P4 列解码 / P5 NTL 注入一致 × 16 区域全通过",
+      "expected": true,
+      "actual": true,
+      "status": "ok"
+    },
+    "P2_objective_dual_prior": {
+      "description": "ntl_prox 目标函数含双先验（005 CONFIG_MAP 源头读出）",
+      "expected": {
+        "landuse_prediction_loss": 1.0,
+        "ntl_prior": 0.05,
+        "proximity_prior": 0.05
+      },
+      "actual": {
+        "landuse_prediction_loss": 1.0,
+        "ntl_prior": 0.05,
+        "proximity_prior": 0.05
+      },
+      "status": "ok"
+    },
+    "P3_sum_w_anchor": {
+      "description": "每 source Σw−1 最大偏差 < 0.0005（scatter_softmax 输出 float32 + 冻结产物重推理漂移）",
+      "expected": "< 0.0005",
+      "actual": 0.00013915572654354946,
+      "status": "ok"
+    },
+    "P4_clamp_boundary_probe": {
+      "description": "clamp(min=floor) 梯度探针 [x==min, x>min, x<min]——解析门控 1{w≥floor} 的依据",
+      "expected": [
+        1.0,
+        1.0,
+        0.0
+      ],
+      "actual": [
+        1.0,
+        1.0,
+        0.0
+      ],
+      "status": "ok"
+    },
+    "P5_autograd_alignment": {
+      "description": "真实损失类 autograd 梯度 vs 解析式最大相对偏差 < 1e-05（96 单元全量，float32 同管线）",
+      "expected": "< 1e-05",
+      "actual": {
+        "ntl": 1.1902768191089897e-07,
+        "prox": 1.3370546237621882e-07
+      },
+      "status": "ok"
+    },
+    "P6_loss_value_alignment": {
+      "description": "float32 真实损失值 vs float64 复算最大相对偏差 < 0.0005",
+      "expected": "< 0.0005",
+      "actual": {
+        "ntl": 0.0002568998044417664,
+        "prox": 0.0002575397144163027
+      },
+      "status": "ok"
+    }
+  },
+  "off_support_breakdown": {
+    "ntl": {
+      "n_edges_total": 821182,
+      "n_off_rci_masked": 698741,
+      "n_off_zero_aux_within_rci": 0
+    },
+    "prox": {
+      "n_edges_total": 821182,
+      "n_off_rci_masked": 698741,
+      "n_off_zero_aux_within_rci": 0
+    }
+  },
+  "per_signal": {
+    "ntl": {
+      "n_sources": 255,
+      "n_sources_excluded_by_valid_mask": 0,
+      "n_sources_zero_gradient": 0,
+      "ratio_off_max": 0.7665779164387307,
+      "ratio_off_median": 0.018844532419172808,
+      "ratio_off_mean": 0.0765977483483652,
+      "ratio_off_p90": 0.22794549646184964,
+      "ratio_off_p99": 0.6901580198035254,
+      "global_ratio_off": 0.13311010618156052,
+      "n_sources_ratio_ge_1pct": 154,
+      "per_seed": {
+        "42": {
+          "ratio_off_max": 0.7665779164387307,
+          "ratio_off_median": 0.029430091721623204,
+          "ratio_off_mean": 0.09943545209179218
+        },
+        "123": {
+          "ratio_off_max": 0.6945783046225412,
+          "ratio_off_median": 0.025479418238935788,
+          "ratio_off_mean": 0.0974507113189006
+        },
+        "456": {
+          "ratio_off_max": 0.6863925919947341,
+          "ratio_off_median": 0.009857920271967224,
+          "ratio_off_mean": 0.032907081634402896
+        }
+      },
+      "edge_stats_per_seed_scope": {
+        "note": "off 掩码由 q 侧决定，seed 无关；此处为 16 区域单 seed 口径",
+        "n_edges_total": 821182,
+        "n_edges_off": 698741,
+        "off_edge_share": 0.8508966343636368
+      },
+      "n_off_edges_gradient_gated_pool": 258636,
+      "max_t_off_after_clamp": 1e-08,
+      "min_w_source": {
+        "seed": 456,
+        "location": "TLD4",
+        "itl3": "TLD46",
+        "source_idx": 4,
+        "ratio_off": 0.014915270373218385,
+        "min_w": 1.4695670083101776e-19,
+        "n_edges": 8355,
+        "n_off": 7353,
+        "off_frac": 0.8800718132854578
+      },
+      "worst_ratio_source": {
+        "seed": 42,
+        "location": "TLF2",
+        "itl3": "TLF24",
+        "source_idx": 2,
+        "ratio_off": 0.7665779164387307,
+        "min_w": 9.93673410221163e-09,
+        "n_edges": 14131,
+        "n_off": 13055,
+        "off_frac": 0.9238553534781686
+      }
+    },
+    "prox": {
+      "n_sources": 255,
+      "n_sources_excluded_by_valid_mask": 0,
+      "n_sources_zero_gradient": 0,
+      "ratio_off_max": 0.7490823749829535,
+      "ratio_off_median": 0.017763621517483466,
+      "ratio_off_mean": 0.07369593600297741,
+      "ratio_off_p90": 0.2160017473068226,
+      "ratio_off_p99": 0.6765556927003608,
+      "global_ratio_off": 0.1283323196219285,
+      "n_sources_ratio_ge_1pct": 153,
+      "per_seed": {
+        "42": {
+          "ratio_off_max": 0.7490823749829535,
+          "ratio_off_median": 0.028445462454920935,
+          "ratio_off_mean": 0.09558475565047073
+        },
+        "123": {
+          "ratio_off_max": 0.6734796658479455,
+          "ratio_off_median": 0.024835871261511478,
+          "ratio_off_mean": 0.09405723977801658
+        },
+        "456": {
+          "ratio_off_max": 0.6801666807445004,
+          "ratio_off_median": 0.00936321215240907,
+          "ratio_off_mean": 0.03144581258044494
+        }
+      },
+      "edge_stats_per_seed_scope": {
+        "note": "off 掩码由 q 侧决定，seed 无关；此处为 16 区域单 seed 口径",
+        "n_edges_total": 821182,
+        "n_edges_off": 698741,
+        "off_edge_share": 0.8508966343636368
+      },
+      "n_off_edges_gradient_gated_pool": 258636,
+      "max_t_off_after_clamp": 1e-08,
+      "min_w_source": {
+        "seed": 456,
+        "location": "TLD4",
+        "itl3": "TLD46",
+        "source_idx": 4,
+        "ratio_off": 0.014906471912880116,
+        "min_w": 1.4695670083101776e-19,
+        "n_edges": 8355,
+        "n_off": 7353,
+        "off_frac": 0.8800718132854578
+      },
+      "worst_ratio_source": {
+        "seed": 42,
+        "location": "TLF2",
+        "itl3": "TLF24",
+        "source_idx": 2,
+        "ratio_off": 0.7490823749829535,
+        "min_w": 9.93673410221163e-09,
+        "n_edges": 14131,
+        "n_off": 13055,
+        "off_frac": 0.9238553534781686
+      }
+    }
+  },
+  "verdict": {
+    "rule": "per_signal: ratio_off_max < 0.01 → 惰性量级(inert); ratio_off_median < 0.01 ≤ ratio_off_max → 总体惰性、个别例外(mostly_inert); 否则 → 非惰性(non_negligible)。overall: 两信号均 inert → 担忧不成立；否则如实分级报告。",
+    "per_signal_class": {
+      "ntl": "non_negligible",
+      "prox": "non_negligible"
+    },
+    "ntl": "ntl: off-support 地板项梯度占比非惰性量级（median=1.884e-02, max=7.666e-01, ≥1% 的 source 数 154/255）——审稿人担忧在该信号上得到实测支持，需在回应中如实处理。",
+    "prox": "prox: off-support 地板项梯度占比非惰性量级（median=1.776e-02, max=7.491e-01, ≥1% 的 source 数 153/255）——审稿人担忧在该信号上得到实测支持，需在回应中如实处理。",
+    "overall": "两信号分级: ntl=non_negligible, prox=non_negligible——存在非惰性成分，按信号判定句如实报告，不做美化。"
+  },
+  "diagnostics": {
+    "sum_w_dev_max": 0.00013915572654354946,
+    "n_rows_per_source_csv": 510
+  },
+  "meta": {
+    "script": "034_exp_r217_kl_gradient.py",
+    "plan_step": "R2-11 off-support 地板项梯度占比实测",
+    "determinism": "固定冻结输入、无随机源、无时间戳；float64 bincount 主指标",
+    "python": "3.13.5",
+    "numpy": "2.3.1",
+    "pandas": "2.3.1",
+    "torch": "2.7.1+cu126"
+  }
+}
