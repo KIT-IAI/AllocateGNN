@@ -172,7 +172,7 @@ If you use this framework in your research, please consider citing our papers ðŸ
 }
 
 @article{Mu2026Antagonism,
-      author={Mu, Xuanhao and Geiges, Jakob and Liu, Nan and Schlachter, Thorsten and Hagenmeyer, Veit},
+      author={Mu, Xuanhao and Thota, Kundan and Liu, Nan and Schlachter, Thorsten and Hagenmeyer, Veit},
       title={Mechanism-Dependent Antagonism of Auxiliary Information in Substation-Level Load Disaggregation for Distribution Network Planning},
       journal={arXiv preprint arXiv:2605.24491},
       year={2026},
