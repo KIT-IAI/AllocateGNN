@@ -1,0 +1,62 @@
+reading_id,manuscript_file,anchor,object,printed_value,unit,scope,source_kind,source_file,derivation,status
+ABS_RQ1_COUNT,paper2_main.tex,abstract,abstract,14,count,GB 16 regions,frozen_result,results/gb_controls.csv,count aggregate-to-selection association more negative than cell-to-selection,verified
+ABS_CONNECTION,paper2_main.tex,abstract,abstract,43.3,percent,GB R10 X300,frozen_result,results/gb_cost_oof.csv,median regional LU-to-GNN change rounded to one decimal,verified
+TAB_CTRL_GNN_CELL,5_results.tex,tab:controls,Table controls,0.251,Spearman,GB R10 seed42,frozen_result,results/gb_controls.csv,mean rho_pointwise for GNN,verified
+TAB_CTRL_GNN_AGG,5_results.tex,tab:controls,Table controls,0.919,Spearman,GB R10 seed42,frozen_result,results/gb_controls.csv,mean rho_aggregate for GNN,verified
+TAB_CTRL_GNN_FIXED,5_results.tex,tab:controls,Table controls,8.582,GBP million,GB R10 X300 seed42,frozen_result,results/gb_controls.csv,mean fixed-site cost error,verified
+TAB_CTRL_GNN_SELECTION,5_results.tex,tab:controls,Table controls,5.824,GBP million,GB R10 X300 seed42,frozen_result,results/gb_controls.csv,mean selection regret,verified
+RQ1_P10,5_results.tex,RQ1 controls,prose,0.0052,p-value,GB R10,frozen_result,results/gb_controls.csv,exact sign-flip on association differences,verified
+RQ1_P20,5_results.tex,RQ1 controls,prose,0.028,p-value,GB R20,frozen_result,results/gb_controls.csv,exact sign-flip on association differences rounded,verified
+RQ1_FIXED_P20,5_results.tex,RQ1 controls,prose,0.000122,p-value,GB R20,frozen_result,results/gb_controls.csv,exact sign-flip,verified
+SCALE_GB_R1,5_results.tex,fig:scale,Figure 1,-13.63,percent,GB R1,frozen_result,results/uk_scale_station.csv,median regional LU-to-GNN decision-scale change,verified
+SCALE_GB_R3,5_results.tex,fig:scale,Figure 1,-34.54,percent,GB R3,frozen_result,results/uk_scale_station.csv,median regional LU-to-GNN decision-scale change,verified
+SCALE_GB_R10,5_results.tex,fig:scale,Figure 1,-44.57,percent,GB R10,frozen_result,results/uk_scale_station.csv,median regional LU-to-GNN decision-scale change,verified
+SCALE_GB_R20,5_results.tex,fig:scale,Figure 1,-49.6,percent,GB R20,frozen_result,results/uk_scale_station.csv,median regional LU-to-GNN decision-scale change rounded,verified
+SCALE_GB_REF_R1,5_results.tex,fig:scale,Figure 1,37.11,percent,GB R1 direct Ref,frozen_result,results/uk_scale_station.csv,median regional LU-to-GNN representation-scale change,verified
+GB_RECON,5_results.tex,tab:tasks,Table tasks,-26.18,percent,GB 16 regions,frozen_result,results/gb_full_matrix_long.csv,three-seed mean then regional median change,verified
+GB_SITING,5_results.tex,tab:tasks,Table tasks,-1.69,percent,GB 16 regions,frozen_result,results/gb_siting_sizing.csv,three-seed mean then regional median change,verified
+GB_SIZING,5_results.tex,tab:tasks,Table tasks,4.50,percent,GB 16 regions,frozen_result,results/gb_siting_sizing.csv,three-seed mean then regional median RSD change,verified
+GB_CONNECTION,5_results.tex,tab:tasks,Table tasks,-43.25,percent,GB R10 X300,frozen_result,results/gb_cost_oof.csv,three-seed mean then regional median change,verified
+AU_RECON,5_results.tex,tab:tasks,Table tasks,33.92,percent,AU 12 regions,frozen_result,results/au_recon.csv,three-seed mean then regional median change,verified
+AU_SITING,5_results.tex,tab:tasks,Table tasks,3.12,percent,AU 12 regions,frozen_result,results/au_siting.csv,three-seed mean then regional median change,verified
+AU_SIZING,5_results.tex,tab:tasks,Table tasks,68.06,percent,AU 12 regions,frozen_result,results/au_sizing.csv,three-seed mean then regional median change,verified
+AU_CONNECTION,5_results.tex,tab:tasks,Table tasks,-6.66,percent,AU eligible 9 of 10 regions,frozen_result,results/au_cost.csv,median over nonzero baseline regional changes,verified
+AU_CONNECTION_P,5_results.tex,tab:tasks,Table tasks,0.082,p-value,AU 10 regions,frozen_result,results/au_cost.csv,exact sign-flip on raw differences,verified
+GB_RECON_AGG,5_results.tex,RQ2 aggregate effects,prose,-25.45,percent,GB 16 regions,frozen_result,results/gb_full_matrix_long.csv,sum differences over sum baseline,verified
+GB_RECON_CI_LO,5_results.tex,RQ2 aggregate effects,prose,-32.2,percent,GB 16 regions,frozen_result,results/gb_full_matrix_long.csv,paired-region percentile bootstrap lower endpoint,verified
+GB_RECON_CI_HI,5_results.tex,RQ2 aggregate effects,prose,-17.6,percent,GB 16 regions,frozen_result,results/gb_full_matrix_long.csv,paired-region percentile bootstrap upper endpoint,verified
+GB_CONNECTION_AGG,5_results.tex,RQ2 aggregate effects,prose,-40.91,percent,GB 16 regions,frozen_result,results/gb_cost_oof.csv,sum differences over sum baseline,verified
+GB_CONNECTION_REF,5_results.tex,RQ2 endpoints,prose,4.572,GBP million,GB R10 X300,frozen_result,results/gb_controls.csv,Ref mean fixed-site error,verified
+GB_CONNECTION_LU,5_results.tex,RQ2 endpoints,prose,14.390,GBP million,GB R10 X300,frozen_result,results/gb_cost_oof.csv,LU mean fixed-site error,verified
+GB_CONNECTION_GNN,5_results.tex,RQ2 endpoints,prose,8.503,GBP million,GB R10 X300,frozen_result,results/gb_cost_oof.csv,GNN three-seed mean fixed-site error,verified
+GB_SIZING_1TO1,5_results.tex,RQ2 matching check,prose,4.08,percent,GB 16 regions,frozen_result,results/gb_siting_sizing.csv,one-to-one RSD median change,verified
+AU_CONNECTION_AGG,5_results.tex,RQ2 AU connection,prose,-26.6,percent,AU 10 regions,frozen_result,results/au_cost.csv,sum differences over sum baseline,verified
+AU_AGGREGATION_R10,5_results.tex,RQ2 AU connection,prose,9.77,percent,AU 12 regions,frozen_result,results/au_scale_station.csv,median regional aggregation change,verified
+ADEQ_GB_TOTAL,5_results.tex,RQ3,prose,1920,count,GB,frozen_result,results/uk_adequacy.csv,candidate-method budget evaluations,verified
+ADEQ_AU_TOTAL,5_results.tex,RQ3,prose,1440,count,AU,frozen_result,results/au_adequacy.csv,candidate-method budget evaluations,verified
+ADEQ_GB_REAL,5_results.tex,RQ3,prose,1467,count,GB,frozen_result,results/uk_adequacy.csv,budget-realised evaluations,verified
+ADEQ_AU_REAL,5_results.tex,RQ3,prose,1080,count,AU,frozen_result,results/au_adequacy.csv,budget-realised evaluations,verified
+ADEQ_GB_E_RATIO_GNN,5_results.tex,RQ3,prose,9.4,ratio,GB eta0.9,frozen_result,results/uk_adequacy.csv,median fixed-site bound over positive actual for GNN,verified
+ADEQ_GB_S_RATIO_GNN,5_results.tex,RQ3,prose,25.3,ratio,GB eta0.9,frozen_result,results/uk_adequacy.csv,median selection bound over positive actual for GNN,verified
+ADEQ_GB_ZERO_BOUND,5_results.tex,RQ3,prose,3.5,percent,GB eta0.9,frozen_result,results/uk_adequacy.csv,pooled zero selection-bound share,verified
+ADEQ_AU_ZERO_BOUND,5_results.tex,RQ3,prose,35.3,percent,AU eta0.9,frozen_result,results/au_adequacy.csv,pooled zero selection-bound share,verified
+ADEQ_AU_ZERO_REGRET,5_results.tex,RQ3,prose,75.0,percent,AU eta0.9,frozen_result,results/au_adequacy.csv,pooled zero realised-regret share,verified
+ADEQ_GB_ZERO_REGRET,5_results.tex,RQ3,prose,19.9,percent,GB eta0.9,frozen_result,results/uk_adequacy.csv,pooled zero realised-regret share,verified
+MODEL_ALPHA_MIN,C_implementation.tex,LU-sharp,appendix,1.23,alpha,GB 16 regions,frozen_summary,model_contract.json,original per-region artifact unavailable,frozen_summary_only
+MODEL_ALPHA_MAX,C_implementation.tex,LU-sharp,appendix,10.07,alpha,GB 16 regions,frozen_summary,model_contract.json,original per-region artifact unavailable,frozen_summary_only
+MODEL_ALPHA_MEDIAN,C_implementation.tex,LU-sharp,appendix,2.54,alpha,GB 16 regions,frozen_summary,model_contract.json,original per-region artifact unavailable,frozen_summary_only
+GB_MEDIAN_SURPLUS,4_experiment.tex,British case,case fact,5.76,MVA,full GB register,case_fact,case_facts/register_summary.json,median firm capacity minus measured demand,verified
+GB_R10_300_COUNT,4_experiment.tex,British case,case fact,691,count,full GB register,case_fact,case_facts/register_summary.json,stations whose 10km neighbourhood surplus reaches 300 MVA,verified
+GB_R5_300_COUNT,4_experiment.tex,British case,case fact,196,count,full GB register,case_fact,case_facts/register_summary.json,stations whose 5km neighbourhood surplus reaches 300 MVA,verified
+GB_R20_300_COUNT,4_experiment.tex,British case,case fact,1844,count,full GB register,case_fact,case_facts/register_summary.json,stations whose 20km neighbourhood surplus reaches 300 MVA,verified
+AU_SUPPORT_OUTLIER,4_experiment.tex,Australian support check,case fact,172,percent,one ineligible region,case_fact,case_facts/register_summary.json,reference-support residual,verified
+AU_ZERO_AVAILABLE,F_australia.tex,Australian register,case fact,72,count,174 stations,case_fact,case_facts/register_summary.json,stations reporting zero available capacity,verified
+AU_EXCLUDED_SURPLUS,F_australia.tex,Australian register,case fact,3943,MVA,42 excluded stations,case_fact,case_facts/register_summary.json,sum available capacity of stations without load record,verified
+GB_ENDPOINT_GNN_PI,5_results.tex,RQ2 endpoints,prose,62.6,percent,GB R10 X300,frozen_result,results/gb_cost_oof.csv,endpoint-normalised GNN improvement,verified
+GB_ENDPOINT_UNI,5_results.tex,RQ2 endpoints,prose,15.076,GBP million,GB R10 X300,frozen_result,results/gb_cost_oof.csv,uniform mean fixed-site error,verified
+BONFERRONI_MANTISSA,C_implementation.tex,multiplicity,appendix,3.66,mantissa,GB four-module family,derived_arithmetic,manuscript_readings.csv,9.16e-5 multiplied by four,verified
+MIN_P_MANTISSA,C_implementation.tex,multiplicity,appendix,3.05,mantissa,GB 16 regions,derived_arithmetic,manuscript_readings.csv,2 divided by 2^16,verified
+MIN_P_DECIMAL,C_implementation.tex,multiplicity,appendix,0.0000305,p-value,GB 16 regions,derived_arithmetic,manuscript_readings.csv,printed form of 3.05e-5,verified
+RECON_P_MANTISSA,C_implementation.tex,multiplicity,appendix,9.16,mantissa,GB reconstruction,derived_result,results/gb_full_matrix_long.csv,printed scientific-notation mantissa,verified
+RECON_P_DECIMAL,C_implementation.tex,multiplicity,appendix,0.0000916,p-value,GB reconstruction,derived_result,results/gb_full_matrix_long.csv,printed form of 9.16e-5,verified
+RQ1_FIXED_P20_MANTISSA,5_results.tex,RQ1 controls,prose,1.22,mantissa,GB R20,frozen_result,results/gb_controls.csv,printed scientific-notation mantissa,verified

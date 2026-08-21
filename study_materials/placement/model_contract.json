@@ -1,0 +1,37 @@
+{
+  "release_id": "task-scale-lu5",
+  "model_family": "heterogeneous graph transformer",
+  "graph_node_types": ["statistical_area", "cell"],
+  "graph_edge_types": ["statistical_area_to_cell", "cell_to_statistical_area"],
+  "cell_to_cell_edges": 0,
+  "cell_features": 5,
+  "statistical_area_features": 5,
+  "cell_feature_names": ["residential", "commercial", "industrial", "agricultural", "other"],
+  "layers": 3,
+  "hidden_width": 256,
+  "embedding_width": 128,
+  "attention_heads": 4,
+  "objective": "land-use reconstruction",
+  "objective_weight": 1.0,
+  "seeds": [42, 123, 456],
+  "folds": 4,
+  "held_out_fields_status": "missing_from_source_workspace",
+  "checkpoints_status": "not_backfilled",
+  "reproducibility_boundary": "derived frozen result CSVs to paper numbers",
+  "feature_matrix_agreement_max_abs": 3e-8,
+  "learnable_feature_to_reference_max_abs_pearson_range": [0.19, 0.30],
+  "lu_sharp_alpha": {
+    "min": 1.23,
+    "max": 10.07,
+    "median": 2.54,
+    "n_regions": 16,
+    "status": "frozen_summary_only",
+    "warning": "The per-region lu5 alpha artifact and held-out fields are unavailable; these values can be provenance-verified but not recomputed from the retained workspace."
+  },
+  "seed_42_folds": [
+    ["London", "TLH2", "TLF2", "TLD3"],
+    ["TLD6", "TLG1", "TLE4", "TLE3"],
+    ["TLH3", "TLF1", "TLC2", "TLD4"],
+    ["TLJ1", "TLC1", "TLG2", "TLH1"]
+  ]
+}

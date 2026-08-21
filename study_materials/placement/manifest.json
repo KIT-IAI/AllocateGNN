@@ -1,0 +1,18 @@
+{
+  "schema": "task-scale-lu5-manifest-v1",
+  "manuscript_sha256": "F7C1B9330909D7952E794D8184D39C0354CA69C5D336CD69D65CAC6285A6021B",
+  "files": [
+    {"path":"au_adequacy.csv","sha256":"7385C9204151FAE66A7E49F9C1AF0D6B1A4B892D389F8BF8489AA045309E22AA","bytes":359120,"rows":2016,"columns":["country","region","arm","radius_km","dc_mw","eta","e_budget_mva","eps_max_mva","budget_realised","L_E","L_E_bound","L_S","L_S_bound","slack_E","slack_S","valid_E","valid_S"]},
+    {"path":"au_cost.csv","sha256":"50A3957D27B98C21266B30DB487E50FA7141EA5B62D0B76E962E6F0EC9F7976D","bytes":6972,"rows":84,"columns":["region","arm","radius_km","dc_mw","L_E_mva","coverage_ratio","coverage_dropped"]},
+    {"path":"au_recon.csv","sha256":"EA2015F15BF0B2B77E1A62EF3C3DFE6E67C2A9B2D27FF8E8BC355CCD288FB015","bytes":4833,"rows":72,"columns":["region","arm","rmse_mva","mae_mva"]},
+    {"path":"au_scale_station.csv","sha256":"21C52430550B2A7E0B3EEE97662B40E749A25B0632606CD2972F9DB53ED74F83","bytes":82658,"rows":672,"columns":["country","region","arm","radius_km","centres","mae_decision","mae_representation","mean_G_mva","zero_station_share","n_stations_mean","n_stations_median","effective_cand_share","n_candidates"]},
+    {"path":"au_siting.csv","sha256":"F8AFA70528093CD8CA4A7664D3150FA16791B1FFFE68432D250F00F8378EF607","bytes":3996,"rows":72,"columns":["region","arm","k","n_candidates","WSD_ref_km"]},
+    {"path":"au_sizing.csv","sha256":"BA6BB466373512CF2766DDF6A9BF4ED7196E50D3538C8CC38174FC2BE5825F01","bytes":37023,"rows":144,"columns":["region","arm","protocol","low_conf_frac","n_matched","TUR_mean","TUR_median","TUR_aggregate","CE_mean","CE_median","OPR","UPR","RSD_mean","RSD_median","FCE_mean","FCE_median","TUR_actual_observed","collision_rate_many_to_one"]},
+    {"path":"gb_controls.csv","sha256":"A9C1BCDC0E937D7BCB0036997FE9631BAB9BE6E9976666E3027160010F18EF5A","bytes":25306,"rows":288,"columns":["region","arm","radius_km","regret_gbp","rho_pointwise","rho_aggregate","cost_mae_gbp"]},
+    {"path":"gb_cost_oof.csv","sha256":"5FA7F06431ADA54AF1AD6ED1E3220A76B4DD445DD98E52A41A73EBF2350C13DE","bytes":43039,"rows":1008,"columns":["region","arm","radius_km","dc_mw","cost_mae_gbp"]},
+    {"path":"gb_full_matrix_long.csv","sha256":"27C450601019BD2E27B4B31B3DA6573358AC97F6D18860CB139CCF4818CBF152","bytes":108381,"rows":1328,"columns":["arm","region","seed","in_sample","corr","rmse","mae"]},
+    {"path":"gb_siting_sizing.csv","sha256":"836CCB61D9C160B2AF9ED14E086E64F869D789A6EB8B9AE9D8DD19D19FBFB7B9","bytes":131616,"rows":576,"columns":["region","mode","method","weight_source","solver","eval_weight","k","WSD","LWFL","LBI","DCR_1km","DCR_2km","DCR_5km","D_region_mva","low_conf_frac","match_dist_median_km","n_matched","TUR_mean","TUR_median","TUR_aggregate","CE_mean","CE_median","OPR","UPR","RSD_mean","RSD_median","FCE_mean","FCE_median","TUR_actual_observed","collision_rate_many_to_one"]},
+    {"path":"uk_adequacy.csv","sha256":"152A501B4376DB7AAA966B28EE1680C55FB4F31079C4185C45FBAB977F000347","bytes":507424,"rows":2688,"columns":["country","region","arm","radius_km","dc_mw","eta","e_budget_mva","eps_max_mva","budget_realised","L_E","L_E_bound","L_S","L_S_bound","slack_E","slack_S","valid_E","valid_S"]},
+    {"path":"uk_scale_station.csv","sha256":"8AB6CCB64152EE7E92F278905467DE33897517152F0BD1CB07A1C7C84AB853D2","bytes":104743,"rows":896,"columns":["country","region","arm","radius_km","centres","mae_decision","mae_representation","mean_G_mva","zero_station_share","n_stations_mean","n_stations_median","effective_cand_share","n_candidates"]}
+  ]
+}
