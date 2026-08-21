@@ -16,7 +16,6 @@ env/
 # Datasets, intermediate artifacts and results (not distributed with this repo)
 data/
 dataset/
-results/
 cache/
 *.tif
 *.tiff
