@@ -8,5 +8,5 @@
 - `manifest.json`: hashes, row counts, and schemas for every result CSV.
 - `PROVENANCE.md`: origin, exclusions, and reproducibility boundary.
 
-Run `python -m StudyCase.Placement.scripts.reproduce_paper_numbers --verify`
+Run `python -m SpatialPlacement.reproduce_paper_numbers --verify`
 from the repository root. Development repositories are not required.

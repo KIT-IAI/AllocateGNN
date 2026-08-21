@@ -24,11 +24,11 @@ import numpy as np
 import pandas as pd
 from scipy.stats import ConstantInputWarning, spearmanr
 
-REPO_ROOT = Path(__file__).resolve().parents[3]
+REPO_ROOT = Path(__file__).resolve().parents[1]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
-from StudyCase.Placement.core.stats import exact_sign_flip_p
+from SpatialPlacement.core.stats import exact_sign_flip_p
 
 
 RELEASE_ROOT = REPO_ROOT / "study_materials" / "placement"

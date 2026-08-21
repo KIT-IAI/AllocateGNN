@@ -2,7 +2,7 @@
 import numpy as np
 import pytest
 
-from StudyCase.Placement.pipeline.metrics import (
+from SpatialPlacement.pipeline.metrics import (
     compute_all_sizing_metrics,
     compute_dcr,
     compute_lbi,
@@ -27,7 +27,7 @@ class TestWSD:
         wsd = compute_wsd(demand_coords, facility_coords, assignment, weights)
         assert wsd > 0
                           
-        from StudyCase.Placement.pipeline.metrics import _haversine_vector
+        from SpatialPlacement.pipeline.metrics import _haversine_vector
         d0 = _haversine_vector(
             np.array([-0.1278]), np.array([51.5074]),
             np.array([-1.0]), np.array([52.5]),

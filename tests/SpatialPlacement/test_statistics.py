@@ -15,7 +15,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from StudyCase.Placement.pipeline.statistics import (
+from SpatialPlacement.pipeline.statistics import (
     bootstrap_ci,
     friedman_test,
     holm,

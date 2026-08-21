@@ -40,7 +40,7 @@ this release claims to recompute them.
 ## Commands
 
 ```powershell
-python -m StudyCase.Placement.scripts.reproduce_paper_numbers --verify
+python -m SpatialPlacement.reproduce_paper_numbers --verify
 ```
 
 The command reads no development result directory, checkpoint, held-out field,

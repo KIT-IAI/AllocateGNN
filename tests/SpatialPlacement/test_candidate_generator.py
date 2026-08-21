@@ -4,7 +4,7 @@ import geopandas as gpd
 import pytest
 from shapely.geometry import Point
 
-from StudyCase.Placement.pipeline.candidate_generator import (
+from SpatialPlacement.pipeline.candidate_generator import (
     aggregate_weights_to_candidates,
     compute_buildability_mask,
     compute_n_candidates,

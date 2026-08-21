@@ -17,7 +17,7 @@ contracts, and a reading-to-source ledger. Reproduce and verify the reported
 numbers with:
 
 ```powershell
-python -m StudyCase.Placement.scripts.reproduce_paper_numbers --verify
+python -m SpatialPlacement.reproduce_paper_numbers --verify
 ```
 
 This is a derived-result reproduction package, not an end-to-end training

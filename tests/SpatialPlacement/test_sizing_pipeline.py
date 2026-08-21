@@ -18,7 +18,7 @@ import geopandas as gpd
 import pytest
 from shapely.geometry import Point
 
-from StudyCase.Placement.pipeline.sizing_pipeline import (
+from SpatialPlacement.pipeline.sizing_pipeline import (
     DEFAULT_SAFETY_MARGIN,
     compute_sizing_metrics,
     match_to_real_substations,
@@ -286,7 +286,7 @@ class TestSizingDetailRows:
                                            
 
     def test_row_contents_and_tags(self) -> None:
-        from StudyCase.Placement.core.sizing import sizing_detail_rows
+        from SpatialPlacement.core.sizing import sizing_detail_rows
 
         rows = sizing_detail_rows(
             d_hat=np.array([80.0, 120.0]),

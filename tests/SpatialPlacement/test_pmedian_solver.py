@@ -2,7 +2,7 @@
 import numpy as np
 import pytest
 
-from StudyCase.Placement.pipeline.pmedian_solver import (
+from SpatialPlacement.pipeline.pmedian_solver import (
     assign_demand_points,
     haversine_distance_matrix,
     solve_pmedian_greedy,

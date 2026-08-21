@@ -1,8 +1,9 @@
 # Task- and scale-matched placement evaluation
 
-This package contains the country-independent methods and derived-result
-reproduction workflow for the forthcoming manuscript "Task- and scale-matched
-evaluation of spatial allocation proxies for network planning".
+This case-study directory documents the British and Australian experiments for
+the forthcoming manuscript "Task- and scale-matched evaluation of spatial
+allocation proxies for network planning". Reusable methods live in the
+top-level `SpatialPlacement/` package.
 
 ## What is included
 
@@ -18,7 +19,7 @@ evaluation of spatial allocation proxies for network planning".
 From the repository root:
 
 ```powershell
-python -m StudyCase.Placement.scripts.reproduce_paper_numbers --verify
+python -m SpatialPlacement.reproduce_paper_numbers --verify
 ```
 
 The output is written to `results/placement_reproduction/paper_numbers.json`.
@@ -35,10 +36,9 @@ end-to-end GNN retraining or held-out-field regeneration.
 alpha range is explicitly marked `frozen_summary_only` because its per-region
 lu5 artifact is unavailable.
 
-## Package map
+## Repository map
 
-- `core/`: country-independent mathematical and optimisation methods.
-- `pipeline/`: candidate generation, metrics, p-median, sizing, and statistics.
-- `British/` and `Australia/`: case roles and data contracts.
-- `scripts/`: frozen-result numerical reproduction.
-- `tests/`: formula, manifest, and headline regression gates.
+- `SpatialPlacement/`: reusable mathematical, optimisation, and evaluation code.
+- `StudyCase/Placement/British/` and `Australia/`: case roles and data contracts.
+- `study_materials/placement/`: manuscript-scoped frozen numerical evidence.
+- `tests/SpatialPlacement/`: formula, manifest, and headline regression gates.

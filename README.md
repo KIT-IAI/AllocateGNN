@@ -19,7 +19,7 @@ Coupling with Graph Neural Networks"</strong> and of its follow-up study on mech
 > The exact code that accompanied the first (EPSR) paper is preserved at the git tag [`paper1-epsr`](https://github.com/KIT-IAI/AllocateGNN/tree/paper1-epsr).
 
 > [!NOTE]
-> **Publication-preparation release:** `StudyCase/Placement/` and
+> **Publication-preparation release:** `SpatialPlacement/`, `StudyCase/Placement/`, and
 > `study_materials/placement/` support the forthcoming manuscript
 > *"Task- and scale-matched evaluation of spatial allocation proxies for network planning"*.
 > The package reproduces manuscript numbers from derived frozen CSVs; it does
@@ -62,6 +62,10 @@ AllocateGNN/
 │
 ├── ClusterBasedVoronoi/             # Baseline: cluster-based Voronoi approach
 │
+├── SpatialPlacement/                # Reusable planning-task evaluation library
+│   ├── core/                        # Reconstruction, siting, sizing, connection bounds
+│   └── pipeline/                    # Candidate generation, metrics and solvers
+│
 ├── StudyCase/                       # Multi-country case studies (follow-up paper)
 │   ├── British/                     # Great Britain case study (notebooks + training scripts)
 │   ├── British_weighter_experiments/# Antagonism experiment suite (main experiments)
@@ -99,6 +103,12 @@ The `Allocator`, `Weighter`, and `FeatureExtractor` subpackages expose registry-
 
 ### 3.5 Cluster-Based Voronoi Baseline
 An alternative approach using clustering (DBSCAN, HDBSCAN, K-Means, etc.) combined with Voronoi tessellation. Supports optimization-based allocation via Pyomo with CIVD/IVD influence methods.
+
+### 3.6 Spatial placement evaluation
+The top-level `SpatialPlacement` package provides reusable peak-reconstruction,
+p-median siting, rule-based sizing, connection-proxy, uncertainty-bound, and
+statistical utilities. Paper-specific case descriptions remain under
+`StudyCase/Placement/`.
 
 ## 4. Case Studies (`StudyCase/`)
 
@@ -169,6 +179,15 @@ result_df = solver.predict_edge_weights(test_data)
 
 ### 6.3 Reproducing the case studies
 Each `StudyCase/<grid>/` folder holds numbered scripts and notebooks. The training scripts (e.g. `005_kfold_prior_training.py` in `British_weighter_experiments/`) and the downstream experiment scripts expect processed inputs to be available locally.
+
+### 6.4 Reproducing the placement-paper numbers
+
+```bash
+python -m SpatialPlacement.reproduce_paper_numbers --verify
+```
+
+This verifies the manuscript-scoped hashes and regenerates the numerical
+summary from `study_materials/placement/`.
 
 ## 7. Citation 📝
 

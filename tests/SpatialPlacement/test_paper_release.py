@@ -5,15 +5,15 @@ from itertools import product
 import numpy as np
 import pytest
 
-from StudyCase.Placement.core.bounds import (
+from SpatialPlacement.core.bounds import (
     connection_cost,
     cost_interval,
     fixed_site_error_and_bound,
     selection_regret_and_rectangular_bound,
 )
-from StudyCase.Placement.core.sizing import compute_sizing_metrics
-from StudyCase.Placement.core.stats import exact_sign_flip_p
-from StudyCase.Placement.scripts import reproduce_paper_numbers as paper
+from SpatialPlacement.core.sizing import compute_sizing_metrics
+from SpatialPlacement.core.stats import exact_sign_flip_p
+from SpatialPlacement import reproduce_paper_numbers as paper
 
 
 def test_exact_sign_flip_is_two_sided_and_scale_symmetric() -> None:
@@ -93,4 +93,3 @@ def test_result_allowlist_excludes_non_manuscript_artifacts() -> None:
     }
     assert not actual.intersection(forbidden)
     assert len(actual) == 12
-
