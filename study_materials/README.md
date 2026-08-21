@@ -8,6 +8,21 @@ statement in the paper or in the response letter.
 
 ## Contents
 
+### `placement/`
+
+Manuscript-scoped derived numerical evidence for *"Task- and scale-matched
+evaluation of spatial allocation proxies for network planning"*. It contains
+twelve allowlisted CSVs, hashes and schemas, case facts, protocol and model
+contracts, and a reading-to-source ledger. Reproduce and verify the reported
+numbers with:
+
+```powershell
+python -m StudyCase.Placement.scripts.reproduce_paper_numbers --verify
+```
+
+This is a derived-result reproduction package, not an end-to-end training
+archive; see `placement/PROVENANCE.md` for the precise boundary.
+
 ### `environment-lock.yml`
 Full machine-readable environment lock (conda export, 221 pinned
 `package=version=build` entries) referenced in the Data Availability

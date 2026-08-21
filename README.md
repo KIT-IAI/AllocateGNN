@@ -7,7 +7,7 @@
 
 <h1 align="center">AllocateGNN</h1>
 
-**Note**: *Last update on 2026.07.20*
+**Note**: *Last update on 2026.08.21*
 
 <div align="left"> This repository is the official code of the paper <strong>"Improving Spatial Allocation for Energy System
 Coupling with Graph Neural Networks"</strong> and of its follow-up study on mechanism-dependent antagonism of auxiliary information.</div>
@@ -17,6 +17,14 @@ Coupling with Graph Neural Networks"</strong> and of its follow-up study on mech
 > *"Mechanism-Dependent Antagonism of Auxiliary Information in Substation-Level Load Disaggregation for Distribution Network Planning"* ([arXiv:2605.24491](https://arxiv.org/abs/2605.24491)) — see the [`SpatialAllocation/`](./SpatialAllocation) library and the multi-country case studies under [`StudyCase/`](./StudyCase).
 >
 > The exact code that accompanied the first (EPSR) paper is preserved at the git tag [`paper1-epsr`](https://github.com/KIT-IAI/AllocateGNN/tree/paper1-epsr).
+
+> [!NOTE]
+> **Publication-preparation release:** `StudyCase/Placement/` and
+> `study_materials/placement/` support the forthcoming manuscript
+> *"Task- and scale-matched evaluation of spatial allocation proxies for network planning"*.
+> The package reproduces manuscript numbers from derived frozen CSVs; it does
+> not claim end-to-end lu5 model retraining because the held-out fields and
+> checkpoints are unavailable.
 
 ## 1. Introduction
 
@@ -58,7 +66,11 @@ AllocateGNN/
 │   ├── British/                     # Great Britain case study (notebooks + training scripts)
 │   ├── British_weighter_experiments/# Antagonism experiment suite (main experiments)
 │   ├── Australia/                   # Australia (Ausgrid) case study
-│   └── Germany/                     # German Börde case study
+│   ├── Germany/                     # German Börde case study
+│   └── Placement/                   # Task/scale-matched planning evaluation
+│
+├── study_materials/
+│   └── placement/                   # Manuscript-scoped frozen numerical evidence
 │
 ├── requirements.txt
 ├── README.md
@@ -66,7 +78,10 @@ AllocateGNN/
 └── icon_kit.png
 ```
 
-> **Note on data:** raw and intermediate datasets, cached artifacts, and result files are **not** distributed with this repository (they are ignored via `.gitignore`). The case-study scripts expect processed inputs to be present locally; the data-ingestion / feature-pipeline steps are intentionally excluded from the release.
+> **Note on data:** raw and intermediate datasets, cached artifacts, and model
+> products are not distributed. The placement release includes only the small
+> derived result CSVs needed to reproduce the manuscript's numerical tables,
+> statistics, and quantitative figure inputs.
 
 ## 3. Key Components
 
@@ -95,6 +110,7 @@ The follow-up paper is reproduced through four case-study folders. Each contains
 | `British_weighter_experiments/` | Great Britain | Main experiment suite for the antagonism study (main results, significance, strength sweeps, mechanism isolation, robustness, r-series ablations). |
 | `Australia/` | Ausgrid (AU) | Static baselines, GNN training, statistical evaluation, feature-fusion training. |
 | `Germany/` | Börde (DE) | Börde training, results tables, LOOCV, additive-correction matrix, pandapower downstream. |
+| `Placement/` | Britain + Australia | Task- and scale-matched reconstruction, siting, sizing, connection, and conditional-bound evaluation. |
 
 ## 5. Installation
 
