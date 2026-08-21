@@ -5,6 +5,11 @@ the forthcoming manuscript "Task- and scale-matched evaluation of spatial
 allocation proxies for network planning". Reusable methods live in the
 top-level `SpatialPlacement/` package.
 
+The numbered scripts are the paper-facing demonstration layer. They select the
+case, assemble the relevant frozen evidence, call reusable `SpatialPlacement`
+functions, and print the reported JSON summaries. No mathematical or
+statistical implementation is duplicated here.
+
 ## What is included
 
 - Peak reconstruction on existing-substation Voronoi cells.
@@ -19,7 +24,7 @@ top-level `SpatialPlacement/` package.
 From the repository root:
 
 ```powershell
-python -m SpatialPlacement.reproduce_paper_numbers --verify
+python StudyCase/Placement/000_reproduce_all.py --verify
 ```
 
 The output is written to `results/placement_reproduction/paper_numbers.json`.
@@ -40,5 +45,6 @@ lu5 artifact is unavailable.
 
 - `SpatialPlacement/`: reusable mathematical, optimisation, and evaluation code.
 - `StudyCase/Placement/British/` and `Australia/`: case roles and data contracts.
+- `StudyCase/Placement/000_reproduce_all.py`: complete paper-facing entry point.
 - `study_materials/placement/`: manuscript-scoped frozen numerical evidence.
 - `tests/SpatialPlacement/`: formula, manifest, and headline regression gates.

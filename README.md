@@ -120,7 +120,7 @@ The follow-up paper is reproduced through four case-study folders. Each contains
 | `British_weighter_experiments/` | Great Britain | Main experiment suite for the antagonism study (main results, significance, strength sweeps, mechanism isolation, robustness, r-series ablations). |
 | `Australia/` | Ausgrid (AU) | Static baselines, GNN training, statistical evaluation, feature-fusion training. |
 | `Germany/` | Börde (DE) | Börde training, results tables, LOOCV, additive-correction matrix, pandapower downstream. |
-| `Placement/` | Britain + Australia | Task- and scale-matched reconstruction, siting, sizing, connection, and conditional-bound evaluation. |
+| `Placement/` | Britain + Australia | Numbered, runnable case scripts for reconstruction, siting, sizing, connection, scale, and conditional-bound evaluation. |
 
 ## 5. Installation
 
