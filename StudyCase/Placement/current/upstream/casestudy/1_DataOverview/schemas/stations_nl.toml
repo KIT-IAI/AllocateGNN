@@ -1,0 +1,86 @@
+schema_version = "sg_artifact_schema_v1"
+artifact_type = "table"
+
+[table]
+allow_extra_columns = true
+exact_rows = 5592
+unique_by = [["station_id"], ["buurt_code"]]
+
+[[table.columns]]
+name = "station_id"
+dtype = "string"
+nullable = false
+
+[[table.columns]]
+name = "buurt_code"
+dtype = "string"
+nullable = false
+
+[[table.columns]]
+name = "wijk_code"
+dtype = "string"
+nullable = false
+
+[[table.columns]]
+name = "analysis_region"
+dtype = "string"
+
+[[table.columns]]
+name = "peak_kw"
+dtype = "number"
+unit = "kW"
+
+[[table.columns]]
+name = "capacity_kw"
+dtype = "number"
+unit = "kW"
+
+[[table.columns]]
+name = "capacity_basis"
+dtype = "string"
+nullable = false
+allowed_values = ["nominal_normal_state"]
+
+[[table.columns]]
+name = "noncoincident_conservative"
+dtype = "boolean"
+nullable = false
+allowed_values = [true]
+
+[[table.columns]]
+name = "generator_eligible"
+dtype = "boolean"
+nullable = false
+allowed_values = [true]
+
+[[table.columns]]
+name = "firm_capacity_eligible"
+dtype = "boolean"
+nullable = false
+allowed_values = [false]
+
+[[table.columns]]
+name = "zero_peak"
+dtype = "boolean"
+nullable = false
+
+[[table.columns]]
+name = "zero_capacity"
+dtype = "boolean"
+nullable = false
+
+[[table.columns]]
+name = "over_capacity"
+dtype = "boolean"
+nullable = false
+
+[[table.columns]]
+name = "n_equipment"
+dtype = "integer"
+nullable = false
+
+[[table.columns]]
+name = "centroid_method"
+dtype = "string"
+nullable = false
+allowed_values = ["capacity_weighted_rd_new", "unweighted_rd_new_zero_capacity_fallback"]

@@ -1,0 +1,215 @@
+schema_version = "sg_dataoverview_country_v1"
+
+[osm_snapshot]
+url = "https://download.geofabrik.de/australia-oceania/australia/new-south-wales-latest.osm.pbf"
+scope = "new-south-wales"
+
+[ntl]
+dataset_id = "NOAA/VIIRS/DNB/ANNUAL_V22"
+bands = ["average_masked","cf_cvg"]
+date_range = ["2024-01-01","2025-01-01"]
+composite_method = "single_image"
+credential_env = "GEE_SERVICE_ACCOUNT_KEY_PATH"
+
+[regions]
+source_key = "SA3"
+source_path = "data/datasets/2_derived/au/bplus/regions_sa3.gpkg"
+source_layer = "regions_sa3"
+group_key = "loc_key"
+
+[canonical]
+regions = "data/datasets/2_derived/au/bplus/regions_sa3.gpkg"
+stations = "data/datasets/2_derived/au/bplus/stations.gpkg"
+
+[[regions.items]]
+id = "Central_Coast"
+source_key_order = ["10201","10202"]
+
+[[regions.items]]
+id = "Hunter_Valley_exc_Newcastle"
+source_key_order = ["10601","10603","10604","10602"]
+
+[[regions.items]]
+id = "Newcastle_and_Lake_Macquarie"
+source_key_order = ["11102","11101","11103"]
+
+[[regions.items]]
+id = "Sydney_City_and_Inner_South"
+source_key_order = ["11701","11702","11703"]
+
+[[regions.items]]
+id = "Sydney_Eastern_Suburbs"
+source_key_order = ["11802","11801"]
+
+[[regions.items]]
+id = "Sydney_Inner_South_West"
+source_key_order = ["11904","11903","11901","11902"]
+
+[[regions.items]]
+id = "Sydney_Inner_West"
+source_key_order = ["12003","12002","12001"]
+
+[[regions.items]]
+id = "Sydney_North_Sydney_and_Hornsby"
+source_key_order = ["12104","12101","12103","12102"]
+
+[[regions.items]]
+id = "Sydney_Northern_Beaches"
+source_key_order = ["12201","12203","12202"]
+
+[[regions.items]]
+id = "Sydney_Parramatta"
+source_key_order = ["12503","12501"]
+
+[[regions.items]]
+id = "Sydney_Ryde"
+source_key_order = ["12602","12601"]
+
+[[regions.items]]
+id = "Sydney_Sutherland"
+source_key_order = ["12802","12801"]
+
+[grid_columns]
+names = ["index_region","SA3","sa3_name","SA4","sa4_name","geometry"]
+
+[datasets.ausgrid_zs]
+category = "station_register"
+license = "NER Rule 5.13A; Ausgrid copyright"
+vintage = "FY2008/FY2009/FY2010/FY2024"
+semantics = "Ausgrid distribution-zone-substation interval demand"
+[[datasets.ausgrid_zs.files]]
+url = "https://aopt-p-001.sitecorecontenthub.cloud/api/public/content/6a1e9f51450b4671a06fd8737d2669d0?v=86c309bd"
+filename = "ausgrid_zs/ausgrid_zs_fy2008.zip"
+kind = "zip"
+[[datasets.ausgrid_zs.files]]
+url = "https://aopt-p-001.sitecorecontenthub.cloud/api/public/content/90e79f62ad484b3aab3faaba0ec8b432?v=f18b8f77"
+filename = "ausgrid_zs/ausgrid_zs_fy2009.zip"
+kind = "zip"
+[[datasets.ausgrid_zs.files]]
+url = "https://aopt-p-001.sitecorecontenthub.cloud/api/public/content/dc1b436b44674ba2a8b1d52fc60453e5?v=f6037d31"
+filename = "ausgrid_zs/ausgrid_zs_fy2010.zip"
+kind = "zip"
+[[datasets.ausgrid_zs.files]]
+url = "https://aopt-p-001.sitecorecontenthub.cloud/api/public/content/7f1264d4b4824a78866c772de7f46c9c?v=44c7aa55"
+filename = "ausgrid_zs/ausgrid_zs_fy2024.zip"
+kind = "zip"
+
+[datasets.asgs]
+category = "boundaries_grid"
+license = "CC BY 4.0"
+vintage = "ASGS Edition 3 (2021)"
+semantics = "SA2/SA3/SA4 digital boundaries"
+[[datasets.asgs.files]]
+url = "https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files/SA2_2021_AUST_SHP_GDA2020.zip"
+filename = "asgs_ed3/SA2_2021_AUST_SHP_GDA2020.zip"
+kind = "zip"
+[[datasets.asgs.files]]
+url = "https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files/SA3_2021_AUST_SHP_GDA2020.zip"
+filename = "asgs_ed3/SA3_2021_AUST_SHP_GDA2020.zip"
+kind = "zip"
+[[datasets.asgs.files]]
+url = "https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files/SA4_2021_AUST_SHP_GDA2020.zip"
+filename = "asgs_ed3/SA4_2021_AUST_SHP_GDA2020.zip"
+kind = "zip"
+
+[datasets.population]
+category = "regional_totals"
+license = "CC BY 4.0"
+vintage = "2001-2025"
+semantics = "ABS SA2 estimated resident population"
+[[datasets.population.files]]
+url = "https://www.abs.gov.au/statistics/people/population/regional-population/2024-25/32180DS0003_2001-25.xlsx"
+filename = "abs_population/32180DS0003_2001-25.xlsx"
+kind = "file"
+
+[datasets.income]
+category = "regional_totals"
+license = "CC BY 4.0"
+vintage = "2005-06 to 2022-23"
+semantics = "ABS personal income"
+[[datasets.income.files]]
+url = "https://www.abs.gov.au/ausstats/subscriber.nsf/log?openagent&6524055002do004_200506201011.xls&6524.0.55.002&Data%20Cubes&9962A8804603D4D8CA257C12000CA346&0&2005-06%20to%202010-11&29.10.2013&Latest"
+filename = "abs_income/6524055002do004_200506201011.xls"
+kind = "file"
+
+[datasets.census2011]
+category = "regional_totals"
+license = "CC BY 2.5 AU"
+vintage = "2011"
+semantics = "NSW SA3 Basic Community Profile"
+[[datasets.census2011.files]]
+url = "https://www.abs.gov.au/census/find-census-data/datapacks/download/2011_BCP_SA3_for_NSW_short-header.zip"
+filename = "census2011/2011_BCP_SA3_for_NSW_short-header.zip"
+kind = "zip"
+
+[datasets.locations]
+category = "station_register"
+license = "Data Sharing Agreement in place"
+vintage = "2025 layer; extraction snapshot disclosed"
+semantics = "Ausgrid UHC station locations"
+query_protocol = "arcgis"
+[datasets.locations.query]
+url = "https://portal.data.nsw.gov.au/arcgis/rest/services/Hosted/Ausgrid_UHC_Data/FeatureServer/0/query?where=year%3D2025&outFields=*&f=geojson"
+filename = "locations_sample/ausgrid_uhc_full_2025.geojson"
+
+[datasets.osm_snapshot]
+category = "landuse"
+license = "ODbL 1.0"
+vintage = "current snapshot"
+semantics = "Geofabrik NSW OSM snapshot"
+[[datasets.osm_snapshot.files]]
+url = "https://download.geofabrik.de/australia-oceania/australia/new-south-wales-latest.osm.pbf"
+filename = "../osm_snapshot_raw/au/new-south-wales.osm.pbf"
+kind = "file"
+
+[datasets.ntl]
+category = "ntl"
+license = "NOAA public data"
+vintage = "2024"
+semantics = "VIIRS annual radiance"
+query_protocol = "gee"
+[datasets.ntl.query]
+credential_env = "GEE_SERVICE_ACCOUNT_KEY_PATH"
+output = "ntl/viirs_dnb_annual_v22_2024_au.tif"
+
+[products.stations]
+category = "station_register"
+depends_on = ["au.ausgrid_zs.download", "au.locations.download"]
+produces = ["data/datasets/2_derived/au/ledger/station_table_fy2024.csv", "data/datasets/2_derived/au/ledger/au_firm_capacity.csv"]
+semantics = "FY2024 station demand and reconstructed firm capacity"
+
+[products.regions]
+category = "boundaries_grid"
+depends_on = ["au.stations.derive", "au.asgs.download", "au.population.download", "au.income.download", "au.census2011.download"]
+produces = ["data/datasets/2_derived/au/bplus/regions_sa3.gpkg", "data/datasets/2_derived/au/bplus/regions_sa4.gpkg", "data/datasets/2_derived/au/bplus/region_attributes.csv", "data/datasets/2_derived/au/bplus/stations.gpkg"]
+semantics = "SA3/SA4 regions with source attributes and FY2024 demand"
+
+[products.ledger]
+category = "station_register"
+depends_on = ["au.ausgrid_zs.download", "au.locations.download"]
+produces = ["data/datasets/2_derived/au/ledger/station_table_fy2024.csv"]
+semantics = "Station lineage ledger"
+
+[products.fy2024]
+category = "regional_totals"
+depends_on = ["au.ledger.derive", "au.regions.derive"]
+produces = ["data/datasets/2_derived/au/ledger/fy2024_region_demand_report.json"]
+semantics = "FY2024 same-year region truth publication"
+
+[products.grid]
+category = "boundaries_grid"
+depends_on = ["au.regions.derive"]
+produces = ["data/datasets/2_derived/au/grid_bplus/bundles"]
+semantics = "B+ grid bundles for every analysis region"
+
+[products.features]
+category = "features_cuz"
+depends_on = ["au.grid.derive", "au.osm_snapshot.download", "au.ntl.download"]
+produces = ["data/datasets/2_derived/au/features_bplus/extracted"]
+semantics = "land-use, Built-S, C/U/Z and NTL arrays"
+
+[products.inventory]
+category = "features_cuz"
+depends_on = ["au.features.derive", "au.fy2024.derive"]
+produces = ["results/1_DataOverview/2_AU/data_inventory.json"]
+semantics = "Schema and coverage inventory"

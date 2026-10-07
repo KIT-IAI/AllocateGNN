@@ -1,0 +1,496 @@
+{
+  "generated_by": "论文冻结登记件(随库)",
+  "years": [
+    2009,
+    2024
+  ],
+  "layer": {
+    "n_features": 216,
+    "n_distinct": 216,
+    "norm_collisions": "",
+    "extract_dates": [
+      "20240627"
+    ],
+    "exceeded_transfer_limit": false
+  },
+  "normalisation": {
+    "suffix_tokens": [
+      "SUBSTATION",
+      "ZS"
+    ],
+    "abbreviations": {
+      "MT": "MOUNT",
+      "NTH": "NORTH",
+      "STH": "SOUTH",
+      "PT": "POINT",
+      "TERR": "TERRACE"
+    },
+    "fuzzy_threshold": 0.85,
+    "ambiguity_gap": 0.03
+  },
+  "fy2009": {
+    "n_csv_all": 211,
+    "n_csv_empty_placeholder": 47,
+    "n_csv_with_data": 164,
+    "n_base_names": 163,
+    "n_exact": 137,
+    "n_fuzzy": 0,
+    "n_unmatched": 26,
+    "auto_match_rate_csv": 0.8414634146341463,
+    "auto_match_rate_base": 0.8404907975460123,
+    "fuzzy_pairs": [],
+    "unmatched": [
+      {
+        "load_base": "Alexandria",
+        "variants": [
+          "Alexandria 33_5kV"
+        ],
+        "best_candidate": "Alexandria STS",
+        "similarity": 0.7143,
+        "note": ""
+      },
+      {
+        "load_base": "Arncliffe",
+        "variants": [
+          "Arncliffe 33_11kV"
+        ],
+        "best_candidate": "Cardiff",
+        "similarity": 0.4444,
+        "note": ""
+      },
+      {
+        "load_base": "Balgowlah",
+        "variants": [
+          "Balgowlah 33_11kV"
+        ],
+        "best_candidate": "Balgowlah North",
+        "similarity": 0.6,
+        "note": ""
+      },
+      {
+        "load_base": "Blackwattle Bay",
+        "variants": [
+          "Blackwattle Bay 33_5kV"
+        ],
+        "best_candidate": "Gwawley Bay",
+        "similarity": 0.4667,
+        "note": ""
+      },
+      {
+        "load_base": "Boolaroo",
+        "variants": [
+          "Boolaroo 33_11kV"
+        ],
+        "best_candidate": "Cooranbong",
+        "similarity": 0.4,
+        "note": ""
+      },
+      {
+        "load_base": "Carlton",
+        "variants": [
+          "Carlton 33_11kV"
+        ],
+        "best_candidate": "Charlestown",
+        "similarity": 0.6364,
+        "note": ""
+      },
+      {
+        "load_base": "Cessnock",
+        "variants": [
+          "Cessnock 33_11kV"
+        ],
+        "best_candidate": "Cessnock South",
+        "similarity": 0.5714,
+        "note": ""
+      },
+      {
+        "load_base": "Dudley",
+        "variants": [
+          "Dudley 33_11kV"
+        ],
+        "best_candidate": "Double Bay",
+        "similarity": 0.5,
+        "note": ""
+      },
+      {
+        "load_base": "Dulwich Hill",
+        "variants": [
+          "Dulwich Hill 33_11kV"
+        ],
+        "best_candidate": "Summer Hill",
+        "similarity": 0.5,
+        "note": ""
+      },
+      {
+        "load_base": "East Maitland",
+        "variants": [
+          "East Maitland 33_11kV"
+        ],
+        "best_candidate": "Maitland",
+        "similarity": 0.6154,
+        "note": ""
+      },
+      {
+        "load_base": "Enfield",
+        "variants": [
+          "Enfield 33_11kV"
+        ],
+        "best_candidate": "Lindfield",
+        "similarity": 0.6667,
+        "note": ""
+      },
+      {
+        "load_base": "Five Dock",
+        "variants": [
+          "Five Dock 33_11kV"
+        ],
+        "best_candidate": "Riverwood",
+        "similarity": 0.4444,
+        "note": ""
+      },
+      {
+        "load_base": "Greenacre Park",
+        "variants": [
+          "Greenacre Park 132_11kV"
+        ],
+        "best_candidate": "Greenacre",
+        "similarity": 0.6429,
+        "note": ""
+      },
+      {
+        "load_base": "Maitland Central",
+        "variants": [
+          "Maitland Central 33_11kV"
+        ],
+        "best_candidate": "City Central",
+        "similarity": 0.625,
+        "note": ""
+      },
+      {
+        "load_base": "Mayfield",
+        "variants": [
+          "Mayfield 33_11kV"
+        ],
+        "best_candidate": "Mayfield West",
+        "similarity": 0.6154,
+        "note": ""
+      },
+      {
+        "load_base": "Morisset Temp",
+        "variants": [
+          "Morisset 33_11kV Temp"
+        ],
+        "best_candidate": "Morisset",
+        "similarity": 0.6154,
+        "note": ""
+      },
+      {
+        "load_base": "Newcastle City Main",
+        "variants": [
+          "Newcastle City Main 33_11kV"
+        ],
+        "best_candidate": "Newcastle CBD",
+        "similarity": 0.5789,
+        "note": ""
+      },
+      {
+        "load_base": "North Ryde",
+        "variants": [
+          "North Ryde 66_11kV"
+        ],
+        "best_candidate": "North Sydney",
+        "similarity": 0.75,
+        "note": ""
+      },
+      {
+        "load_base": "Padstow",
+        "variants": [
+          "Padstow 33_11kV"
+        ],
+        "best_candidate": "Paxton",
+        "similarity": 0.5714,
+        "note": ""
+      },
+      {
+        "load_base": "Randwick",
+        "variants": [
+          "Randwick 33_11kV"
+        ],
+        "best_candidate": "Brandy Hill",
+        "similarity": 0.4545,
+        "note": ""
+      },
+      {
+        "load_base": "Rathmines Temp",
+        "variants": [
+          "Rathmines 132_11kV Temp"
+        ],
+        "best_candidate": "Rathmines",
+        "similarity": 0.6429,
+        "note": ""
+      },
+      {
+        "load_base": "Salt Ash",
+        "variants": [
+          "Salt Ash 33_11kV"
+        ],
+        "best_candidate": "Telarah",
+        "similarity": 0.375,
+        "note": ""
+      },
+      {
+        "load_base": "Shortland",
+        "variants": [
+          "Shortland 33_11kV"
+        ],
+        "best_candidate": "Zetland",
+        "similarity": 0.5556,
+        "note": ""
+      },
+      {
+        "load_base": "Toronto",
+        "variants": [
+          "Toronto 33_11kV"
+        ],
+        "best_candidate": "Thornton",
+        "similarity": 0.625,
+        "note": ""
+      },
+      {
+        "load_base": "Wallalong",
+        "variants": [
+          "Wallalong 33_11kV"
+        ],
+        "best_candidate": "Williamtown",
+        "similarity": 0.4545,
+        "note": ""
+      },
+      {
+        "load_base": "Wallsend",
+        "variants": [
+          "Wallsend 33_11kV"
+        ],
+        "best_candidate": "Gateshead",
+        "similarity": 0.4444,
+        "note": ""
+      }
+    ],
+    "multi_voltage_bases": [
+      {
+        "load_base": "Berkeley Vale",
+        "variants": [
+          "Berkeley Vale 132_11kV",
+          "Berkeley Vale 33_11kV"
+        ]
+      }
+    ]
+  },
+  "fy2024": {
+    "n_csv_all": 176,
+    "n_csv_empty_placeholder": 0,
+    "n_csv_with_data": 176,
+    "n_base_names": 175,
+    "n_exact": 174,
+    "n_fuzzy": 0,
+    "n_unmatched": 1,
+    "auto_match_rate_csv": 0.9943181818181818,
+    "auto_match_rate_base": 0.9942857142857143,
+    "fuzzy_pairs": [],
+    "unmatched": [
+      {
+        "load_base": "Raymond Terr NEW",
+        "variants": [
+          "Raymond Terr NEW 33_11kV"
+        ],
+        "best_candidate": "Raymond Terrace",
+        "similarity": 0.7895,
+        "note": ""
+      }
+    ],
+    "multi_voltage_bases": [
+      {
+        "load_base": "Camperdown",
+        "variants": [
+          "Camperdown 33_11kV",
+          "Camperdown 33_5kV"
+        ]
+      }
+    ]
+  },
+  "layer_only_y1": [
+    "Alexandria STS",
+    "Argenton",
+    "Argenton STS",
+    "Awaba STS",
+    "Balgowlah North",
+    "Bankstown",
+    "Bankstown STS",
+    "Belmore Park",
+    "Beresfield STS",
+    "Brandy Hill",
+    "Bunnerong North STS",
+    "Canterbury STS",
+    "Cessnock South",
+    "Chullora STSS",
+    "Cooranbong",
+    "Croydon",
+    "Empire Bay",
+    "Eraring STS",
+    "Galston",
+    "Gosford 66kV STS",
+    "Gosford STS",
+    "Greenacre",
+    "Homebush STS",
+    "Hunter Valley CPP",
+    "Jesmond",
+    "Kingsford",
+    "Kogarah",
+    "Kooragang STS",
+    "Kuringai STS",
+    "Kurnell South",
+    "Kurri STS",
+    "Lane Cove STSS",
+    "Lucas Heights",
+    "Macquarie STS",
+    "Maitland",
+    "Mason Park STSS",
+    "Mayfield West",
+    "Medowie",
+    "Merewether STS",
+    "Metford",
+    "Mitchell Line STS",
+    "Morisset Annex STS",
+    "Munmorah STS",
+    "Muswellbrook STS",
+    "Myuna",
+    "New Lambton",
+    "Newdell",
+    "North Head",
+    "Olympic Park",
+    "Ourimbah 66kV STS",
+    "Ourimbah STS",
+    "Peakhurst STS",
+    "Port Botany",
+    "Port Hacking STS",
+    "Potts Hill",
+    "Pyrmont STS",
+    "RNS Hospital",
+    "Rathmines",
+    "Rozelle STS",
+    "Singleton",
+    "Singleton STS",
+    "Strathfield South",
+    "Summer Hill",
+    "Surry Hills STS",
+    "Sydney East STS",
+    "Tarro",
+    "Tighes Hill",
+    "Tomago",
+    "Tomago STS",
+    "Tomaree",
+    "Top Ryde",
+    "Toronto West",
+    "Vales Point",
+    "Wamberal",
+    "Waratah STS",
+    "Warringah STS",
+    "Warriwood STSS",
+    "Williamtown",
+    "Willoughby STS"
+  ],
+  "layer_only_y2": [
+    "Alexandria STS",
+    "Argenton STS",
+    "Awaba STS",
+    "Bankstown STS",
+    "Beresfield STS",
+    "Bunnerong North STS",
+    "Canterbury STS",
+    "Chullora STSS",
+    "City East",
+    "Cooranbong",
+    "Eraring STS",
+    "Gosford 66kV STS",
+    "Gosford STS",
+    "Homebush STS",
+    "Hunter Valley CPP",
+    "Kooragang STS",
+    "Kuringai STS",
+    "Kurri STS",
+    "Lane Cove STSS",
+    "Macquarie STS",
+    "Mason Park STSS",
+    "Merewether STS",
+    "Mitchell Line STS",
+    "Morisset Annex STS",
+    "Munmorah STS",
+    "Muswellbrook STS",
+    "Myuna",
+    "Ourimbah 66kV STS",
+    "Ourimbah STS",
+    "Peakhurst STS",
+    "Port Hacking STS",
+    "Pyrmont STS",
+    "Raymond Terrace",
+    "Rozelle STS",
+    "Singleton STS",
+    "Surry Hills STS",
+    "Sydney East STS",
+    "Tomago STS",
+    "Waratah STS",
+    "Warringah STS",
+    "Warriwood STSS",
+    "Willoughby STS"
+  ],
+  "layer_only_both": [
+    "Alexandria STS",
+    "Argenton STS",
+    "Awaba STS",
+    "Bankstown STS",
+    "Beresfield STS",
+    "Bunnerong North STS",
+    "Canterbury STS",
+    "Chullora STSS",
+    "Cooranbong",
+    "Eraring STS",
+    "Gosford 66kV STS",
+    "Gosford STS",
+    "Homebush STS",
+    "Hunter Valley CPP",
+    "Kooragang STS",
+    "Kuringai STS",
+    "Kurri STS",
+    "Lane Cove STSS",
+    "Macquarie STS",
+    "Mason Park STSS",
+    "Merewether STS",
+    "Mitchell Line STS",
+    "Morisset Annex STS",
+    "Munmorah STS",
+    "Muswellbrook STS",
+    "Myuna",
+    "Ourimbah 66kV STS",
+    "Ourimbah STS",
+    "Peakhurst STS",
+    "Port Hacking STS",
+    "Pyrmont STS",
+    "Rozelle STS",
+    "Singleton STS",
+    "Surry Hills STS",
+    "Sydney East STS",
+    "Tomago STS",
+    "Waratah STS",
+    "Warringah STS",
+    "Warriwood STSS",
+    "Willoughby STS"
+  ],
+  "verdict": {
+    "auto_match_rate_ge_85pct": false,
+    "auto_match_rate_ge_85pct_y1": false,
+    "auto_match_rate_ge_85pct_y2": true,
+    "auto_match_rate_ge_70pct": true,
+    "auto_match_rate_csv_y1": 0.8414634146341463,
+    "auto_match_rate_csv_y2": 0.9943181818181818,
+    "risk_note": "自动匹配率未达 85%（FY2009=84.15%，FY2024=99.43%）——剩余靠人工兜底，工作量 = 未匹配 26+1 站；其中最优候选相似度 <0.75 的 25+0 站属图层无近似名（2024 位置快照不含早年已退役/更名站的时间性缺口，非词法归一化失败）"
+  }
+}

@@ -1,0 +1,20 @@
+schema_version = "sg_artifact_schema_v1"
+artifact_type = "npz"
+
+[npz]
+allow_extra_arrays = false
+
+[npz.arrays.data]
+dtype_kind = "f"
+shape = ["n_cells"]
+finite = true
+
+[npz.arrays.source_keys]
+dtype_kind = "US"
+shape = ["n_cells"]
+
+[npz.arrays.source_total_invariance_max_abs]
+dtype_kind = "f"
+shape = []
+finite = true
+

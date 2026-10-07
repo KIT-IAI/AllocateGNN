@@ -1,0 +1,570 @@
+{
+  "specification": {
+    "blocks": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        12
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        11,
+        13
+      ],
+      [
+        14,
+        15
+      ]
+    ],
+    "evidence_scope": "historical_discovery_rerun",
+    "expected_coordinates_sha256": "c0e95a31ebe7cca8a7e4bc2a8a768ff03e4c2783c1132256a57a3c2066898734",
+    "queen_adjacency": [
+      [
+        false,
+        true,
+        true,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        true,
+        false,
+        true,
+        true,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false
+      ],
+      [
+        true,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false
+      ],
+      [
+        true,
+        true,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        true,
+        true,
+        false,
+        true,
+        true,
+        false
+      ],
+      [
+        false,
+        true,
+        false,
+        true,
+        true,
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        false,
+        true,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        true,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        false,
+        false,
+        true,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        true
+      ],
+      [
+        false,
+        true,
+        true,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        true
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        true,
+        false
+      ]
+    ],
+    "regions": [
+      "London",
+      "TLH2",
+      "TLH3",
+      "TLJ1",
+      "TLF1",
+      "TLF2",
+      "TLC1",
+      "TLC2",
+      "TLD6",
+      "TLG1",
+      "TLG2",
+      "TLE4",
+      "TLH1",
+      "TLE3",
+      "TLD3",
+      "TLD4"
+    ],
+    "representative_region": "TLH3",
+    "target_counts": [
+      219,
+      94,
+      97,
+      153,
+      135,
+      105,
+      50,
+      73,
+      94,
+      65,
+      96,
+      151,
+      183,
+      92,
+      173,
+      111
+    ]
+  },
+  "units": {
+    "C1": {},
+    "C2": {},
+    "C3": {
+      "contrasts": [
+        {
+          "coefficients": {
+            "MLP@IDR-fixed": 1.0,
+            "MLP@VD": -1.0
+          },
+          "contrast_id": "C3-01",
+          "experiment_id": "C3-E01",
+          "expression": "1*MLP@IDR-fixed + -1*MLP@VD",
+          "order": 1,
+          "relative_baseline": "MLP@VD",
+          "unit": "MVA"
+        },
+        {
+          "coefficients": {
+            "GNN@IDR-fixed": 1.0,
+            "GNN@VD": -1.0
+          },
+          "contrast_id": "C3-02",
+          "experiment_id": "C3-E01",
+          "expression": "1*GNN@IDR-fixed + -1*GNN@VD",
+          "order": 2,
+          "relative_baseline": "GNN@VD",
+          "unit": "MVA"
+        },
+        {
+          "coefficients": {
+            "GNN@IDR-fixed": 1.0,
+            "GNN@VD": -1.0,
+            "MLP@IDR-fixed": -1.0,
+            "MLP@VD": 1.0
+          },
+          "contrast_id": "C3-03",
+          "experiment_id": "C3-E01",
+          "expression": "1*GNN@IDR-fixed + -1*GNN@VD + -1*MLP@IDR-fixed + 1*MLP@VD",
+          "order": 3,
+          "relative_baseline": null,
+          "unit": "MVA"
+        },
+        {
+          "coefficients": {
+            "MLP@IDR-fixed": -1.0,
+            "MLP@IDR-matched": 1.0
+          },
+          "contrast_id": "C3-04",
+          "experiment_id": "C3-E02",
+          "expression": "1*MLP@IDR-matched + -1*MLP@IDR-fixed",
+          "order": 4,
+          "relative_baseline": "MLP@IDR-fixed",
+          "unit": "MVA"
+        },
+        {
+          "coefficients": {
+            "GNN@IDR-fixed": -1.0,
+            "GNN@IDR-matched": 1.0
+          },
+          "contrast_id": "C3-05",
+          "experiment_id": "C3-E02",
+          "expression": "1*GNN@IDR-matched + -1*GNN@IDR-fixed",
+          "order": 5,
+          "relative_baseline": "GNN@IDR-fixed",
+          "unit": "MVA"
+        }
+      ]
+    },
+    "C4": {
+      "contrasts": [
+        {
+          "coefficients": {
+            "reconstruction:rmse:GNN": 1.0,
+            "reconstruction:rmse:GPM": -1.0
+          },
+          "contrast_id": "C4-01",
+          "experiment_id": "C4-E01",
+          "expression": "GNN - GPM",
+          "metric": "rmse",
+          "order": 1,
+          "relative_baseline": "reconstruction:rmse:GPM",
+          "task_coordinate": "reconstruction",
+          "unit": "MVA"
+        },
+        {
+          "coefficients": {
+            "siting:WSD:GNN": 1.0,
+            "siting:WSD:GPM": -1.0
+          },
+          "contrast_id": "C4-02",
+          "experiment_id": "C4-E01",
+          "expression": "GNN - GPM",
+          "metric": "WSD",
+          "order": 2,
+          "relative_baseline": "siting:WSD:GPM",
+          "task_coordinate": "siting",
+          "unit": "km"
+        },
+        {
+          "coefficients": {
+            "sizing:RSD_median:GNN": 1.0,
+            "sizing:RSD_median:GPM": -1.0
+          },
+          "contrast_id": "C4-03",
+          "experiment_id": "C4-E01",
+          "expression": "GNN - GPM",
+          "metric": "RSD_median",
+          "order": 3,
+          "relative_baseline": "sizing:RSD_median:GPM",
+          "task_coordinate": "sizing",
+          "unit": "percent"
+        },
+        {
+          "coefficients": {
+            "connection_R10_lambda0.25:L_E_over_X:GNN": 1.0,
+            "connection_R10_lambda0.25:L_E_over_X:GPM": -1.0
+          },
+          "contrast_id": "C4-04",
+          "experiment_id": "C4-E02",
+          "expression": "GNN - GPM",
+          "metric": "L_E_over_X",
+          "order": 4,
+          "relative_baseline": "connection_R10_lambda0.25:L_E_over_X:GPM",
+          "task_coordinate": "connection_R10_lambda0.25",
+          "unit": "dimensionless"
+        },
+        {
+          "coefficients": {
+            "connection_R10_lambda0.25:L_S_over_X:GNN": 1.0,
+            "connection_R10_lambda0.25:L_S_over_X:GPM": -1.0
+          },
+          "contrast_id": "C4-05",
+          "experiment_id": "C4-E02",
+          "expression": "GNN - GPM",
+          "metric": "L_S_over_X",
+          "order": 5,
+          "relative_baseline": "connection_R10_lambda0.25:L_S_over_X:GPM",
+          "task_coordinate": "connection_R10_lambda0.25",
+          "unit": "dimensionless"
+        },
+        {
+          "coefficients": {
+            "connection_R10_lambda0.5:L_E_over_X:GNN": 1.0,
+            "connection_R10_lambda0.5:L_E_over_X:GPM": -1.0
+          },
+          "contrast_id": "C4-06",
+          "experiment_id": "C4-E02",
+          "expression": "GNN - GPM",
+          "metric": "L_E_over_X",
+          "order": 6,
+          "relative_baseline": "connection_R10_lambda0.5:L_E_over_X:GPM",
+          "task_coordinate": "connection_R10_lambda0.5",
+          "unit": "dimensionless"
+        },
+        {
+          "coefficients": {
+            "connection_R10_lambda0.5:L_S_over_X:GNN": 1.0,
+            "connection_R10_lambda0.5:L_S_over_X:GPM": -1.0
+          },
+          "contrast_id": "C4-07",
+          "experiment_id": "C4-E02",
+          "expression": "GNN - GPM",
+          "metric": "L_S_over_X",
+          "order": 7,
+          "relative_baseline": "connection_R10_lambda0.5:L_S_over_X:GPM",
+          "task_coordinate": "connection_R10_lambda0.5",
+          "unit": "dimensionless"
+        },
+        {
+          "coefficients": {
+            "connection_R10_lambda1:L_E_over_X:GNN": 1.0,
+            "connection_R10_lambda1:L_E_over_X:GPM": -1.0
+          },
+          "contrast_id": "C4-08",
+          "experiment_id": "C4-E02",
+          "expression": "GNN - GPM",
+          "metric": "L_E_over_X",
+          "order": 8,
+          "relative_baseline": "connection_R10_lambda1:L_E_over_X:GPM",
+          "task_coordinate": "connection_R10_lambda1",
+          "unit": "dimensionless"
+        },
+        {
+          "coefficients": {
+            "connection_R10_lambda1:L_S_over_X:GNN": 1.0,
+            "connection_R10_lambda1:L_S_over_X:GPM": -1.0
+          },
+          "contrast_id": "C4-09",
+          "experiment_id": "C4-E02",
+          "expression": "GNN - GPM",
+          "metric": "L_S_over_X",
+          "order": 9,
+          "relative_baseline": "connection_R10_lambda1:L_S_over_X:GPM",
+          "task_coordinate": "connection_R10_lambda1",
+          "unit": "dimensionless"
+        }
+      ]
+    },
+    "C5": {},
+    "C6": {},
+    "support": {}
+  }
+}

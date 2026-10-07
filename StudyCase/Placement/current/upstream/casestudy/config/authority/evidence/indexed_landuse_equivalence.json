@@ -1,0 +1,511 @@
+{
+  "conclusion": "PASS",
+  "equivalence": {
+    "candidate": "GNN",
+    "country": "nl",
+    "dense_loss": 3.276376724243164,
+    "edge_weight_source": "torch.rand(float32) diagnostic logits from CPU generator, copied unchanged to CUDA, then production torch_scatter.scatter_softmax by source",
+    "fold": null,
+    "gradient_max_abs_difference": 1.724401954561472e-09,
+    "gradient_mean_abs_difference": 2.83541462878234e-12,
+    "indexed_gpu_repeat_gradient_max_abs_difference": 0.0,
+    "indexed_gpu_repeat_loss_max_abs_difference": 0.0,
+    "indexed_loss": 3.276376724243164,
+    "inputs": [
+      {
+        "bytes": 16687104,
+        "path": "data/datasets/2_derived/nl/bplus/source_regions.gpkg",
+        "sha256": "375ab659cbcc4771b7847cfacea0cdb5c49b2a4a186eefdf1b7139eef2f077c8"
+      },
+      {
+        "bytes": 2703360,
+        "path": "data/datasets/2_derived/nl/bplus/buurt_pseudo_stations.gpkg",
+        "sha256": "0fdfb1c03ed616fd20bf7be36f34419c815aca726560f27d16ffafe4923330c3"
+      },
+      {
+        "bytes": 1611,
+        "path": "data/datasets/2_derived/nl/grid_bplus/bundles/NL_GELDERLAND_11/grid_metadata.json",
+        "sha256": "76ef4bd916dcd5a7c79d6d19bc8a8ab45a3b98d88e0ec692402d7755a0e78e95"
+      },
+      {
+        "bytes": 364976,
+        "path": "data/datasets/2_derived/nl/grid_bplus/bundles/NL_GELDERLAND_11/grid_points.parquet",
+        "sha256": "3b5b2418e490f9e65fb57154c71c09508225a2d584c25fc8076fa76f00be767b"
+      },
+      {
+        "bytes": 1997588,
+        "path": "data/datasets/2_derived/nl/features_bplus/extracted/NL_GELDERLAND_11_landuse.npz",
+        "sha256": "573f1832f7dc771bdd30f099cb2d2cf4806c347acd88b7862c8d9f62fddcdc30"
+      },
+      {
+        "bytes": 399920,
+        "path": "data/datasets/2_derived/nl/features_bplus/extracted/NL_GELDERLAND_11_ghsl_built_s.npz",
+        "sha256": "8ce9bd894bffa6a0ec3ff63da286dfc05c12c2d67d04a28a11ab25897e255ec0"
+      },
+      {
+        "bytes": 7346215,
+        "path": "data/datasets/2_derived/nl/features_bplus/extracted/NL_GELDERLAND_11_cuz_support.npz",
+        "sha256": "a9e804fcc98d99478f89c5d4b2bb5026bf06555c04010bbfdda5de0c1a1c6eb5"
+      },
+      {
+        "bytes": 399880,
+        "path": "data/datasets/2_derived/nl/features_bplus/extracted/NL_GELDERLAND_11_ntl.npz",
+        "sha256": "476428468b00b3cbb0bf5ffcee3b92b93a51e56beaab132567a2ed6bc3e60048"
+      },
+      {
+        "bytes": 3266,
+        "path": "casestudy2/1_DataOverview/general/general.toml",
+        "sha256": "3966a18616bcfdc14c7ea78ba55a98a84108d803a55c2e80a11d635cee137a41"
+      },
+      {
+        "bytes": 20675,
+        "path": "casestudy2/1_DataOverview/4_NL/nl.toml",
+        "sha256": "f09531b6484f545cde23c888ebd38c018e117bd54dc03e4b4061021638acb850"
+      },
+      {
+        "bytes": 920,
+        "path": "casestudy2/config/countries/nl.toml",
+        "sha256": "c047b480ecbc43ac59efab1545946fbb2df889369568855bd3ddb6936151fd89"
+      },
+      {
+        "bytes": 23750,
+        "path": "sglib/generator/weighter/learned/models/gnn/graph.py",
+        "sha256": "9f3579772aff7d1a77b2084480bb8f6fe216f4ea08fe8e597d9f4cea7c2bf866"
+      },
+      {
+        "bytes": 17675,
+        "path": "sglib/generator/weighter/learned/models/gnn/losses/base.py",
+        "sha256": "45ad1e583eed11bbfb1916f40be1cfeca4fd6dce7375b8555548b6bce5bd4b85"
+      }
+    ],
+    "loss_abs_difference": 0.0,
+    "n_landuse_channels": 5,
+    "n_source_agent_edges": 49470,
+    "n_sources": 58,
+    "region": "NL_GELDERLAND_11",
+    "seed": 42,
+    "task_group": "B-NL-GNN"
+  },
+  "gpu": {
+    "compute_capability": [
+      8,
+      9
+    ],
+    "cublas_workspace_config": ":4096:8",
+    "cuda_runtime": "12.6",
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": true,
+    "deterministic_algorithms": true,
+    "device": "cuda:0",
+    "name": "NVIDIA RTX 3500 Ada Generation Laptop GPU",
+    "python_version": "3.13.0",
+    "repeat_count": 3,
+    "torch_version": "2.7.1+cu126"
+  },
+  "legacy_representation": "legacy_dense_mapping_matrix_v2",
+  "memory": [
+    {
+      "country": "nl",
+      "formula": "active_source_agent_edges*8 + n_sources*5*4",
+      "maximum": {
+        "active_source_agent_edges": 49470,
+        "flat_index_bytes": 395760,
+        "footprint_bytes": 396920,
+        "footprint_mib": 0.37853240966796875,
+        "input": {
+          "bytes": 7346215,
+          "path": "data/datasets/2_derived/nl/features_bplus/extracted/NL_GELDERLAND_11_cuz_support.npz",
+          "sha256": "a9e804fcc98d99478f89c5d4b2bb5026bf06555c04010bbfdda5de0c1a1c6eb5"
+        },
+        "landuse_ratio_bytes": 1160,
+        "n_sources": 58,
+        "region": "NL_GELDERLAND_11"
+      },
+      "regions": [
+        {
+          "active_source_agent_edges": 47452,
+          "flat_index_bytes": 379616,
+          "footprint_bytes": 381116,
+          "footprint_mib": 0.3634605407714844,
+          "input": {
+            "bytes": 7348066,
+            "path": "data/datasets/2_derived/nl/features_bplus/extracted/NL_FLEVOLAND_0_cuz_support.npz",
+            "sha256": "7530dc130d3c4f678026b351990e6500299649fd5ccfdcb7eda2602d695fee24"
+          },
+          "landuse_ratio_bytes": 1500,
+          "n_sources": 75,
+          "region": "NL_FLEVOLAND_0"
+        },
+        {
+          "active_source_agent_edges": 49214,
+          "flat_index_bytes": 393712,
+          "footprint_bytes": 394292,
+          "footprint_mib": 0.3760261535644531,
+          "input": {
+            "bytes": 7341328,
+            "path": "data/datasets/2_derived/nl/features_bplus/extracted/NL_FLEVOLAND_1_cuz_support.npz",
+            "sha256": "e3a21bf27a93997d8df2db06b35a6f58040c3ecfbff11d26834eb1b8bbbed327"
+          },
+          "landuse_ratio_bytes": 580,
+          "n_sources": 29,
+          "region": "NL_FLEVOLAND_1"
+        },
+        {
+          "active_source_agent_edges": 45146,
+          "flat_index_bytes": 361168,
+          "footprint_bytes": 362428,
+          "footprint_mib": 0.3456382751464844,
+          "input": {
+            "bytes": 7344736,
+            "path": "data/datasets/2_derived/nl/features_bplus/extracted/NL_FRYSLAN_00_cuz_support.npz",
+            "sha256": "8f92b2ccc8f1e0601ca6348ac92990a12ed8a7d85f1b625c72873b7669bfe582"
+          },
+          "landuse_ratio_bytes": 1260,
+          "n_sources": 63,
+          "region": "NL_FRYSLAN_00"
+        },
+        {
+          "active_source_agent_edges": 43133,
+          "flat_index_bytes": 345064,
+          "footprint_bytes": 346524,
+          "footprint_mib": 0.3304710388183594,
+          "input": {
+            "bytes": 7349128,
+            "path": "data/datasets/2_derived/nl/features_bplus/extracted/NL_FRYSLAN_01_cuz_support.npz",
+            "sha256": "51bebd33ce768122d2a4caefa8eb1b10a09cdd5e7c9954dce66acc37a707d959"
+          },
+          "landuse_ratio_bytes": 1460,
+          "n_sources": 73,
+          "region": "NL_FRYSLAN_01"
+        },
+        {
+          "active_source_agent_edges": 48442,
+          "flat_index_bytes": 387536,
+          "footprint_bytes": 388956,
+          "footprint_mib": 0.3709373474121094,
+          "input": {
+            "bytes": 7346662,
+            "path": "data/datasets/2_derived/nl/features_bplus/extracted/NL_FRYSLAN_10_cuz_support.npz",
+            "sha256": "0685454f128c009f4e49b50005014784ab174dba08f3f95167f59609ffc8dde4"
+          },
+          "landuse_ratio_bytes": 1420,
+          "n_sources": 71,
+          "region": "NL_FRYSLAN_10"
+        },
+        {
+          "active_source_agent_edges": 44250,
+          "flat_index_bytes": 354000,
+          "footprint_bytes": 354760,
+          "footprint_mib": 0.33832550048828125,
+          "input": {
+            "bytes": 7345075,
+            "path": "data/datasets/2_derived/nl/features_bplus/extracted/NL_FRYSLAN_11_cuz_support.npz",
+            "sha256": "ef34ae817e08482b0aa210d05cac30153f59786fc13e9d2f3e419c22a86011bd"
+          },
+          "landuse_ratio_bytes": 760,
+          "n_sources": 38,
+          "region": "NL_FRYSLAN_11"
+        },
+        {
+          "active_source_agent_edges": 48003,
+          "flat_index_bytes": 384024,
+          "footprint_bytes": 385084,
+          "footprint_mib": 0.3672447204589844,
+          "input": {
+            "bytes": 7349605,
+            "path": "data/datasets/2_derived/nl/features_bplus/extracted/NL_GELDERLAND_000_cuz_support.npz",
+            "sha256": "8d96d583fb3d1889856eb7989a02e23ad9a2cee6d77afa95ed0014387e28585e"
+          },
+          "landuse_ratio_bytes": 1060,
+          "n_sources": 53,
+          "region": "NL_GELDERLAND_000"
+        },
+        {
+          "active_source_agent_edges": 47856,
+          "flat_index_bytes": 382848,
+          "footprint_bytes": 385388,
+          "footprint_mib": 0.3675346374511719,
+          "input": {
+            "bytes": 7351324,
+            "path": "data/datasets/2_derived/nl/features_bplus/extracted/NL_GELDERLAND_001_cuz_support.npz",
+            "sha256": "db799644dc8d6591ddf3fa98451e08f87bafd709374d7f6a452adfd154cc9158"
+          },
+          "landuse_ratio_bytes": 2540,
+          "n_sources": 127,
+          "region": "NL_GELDERLAND_001"
+        },
+        {
+          "active_source_agent_edges": 47503,
+          "flat_index_bytes": 380024,
+          "footprint_bytes": 381224,
+          "footprint_mib": 0.36356353759765625,
+          "input": {
+            "bytes": 7347946,
+            "path": "data/datasets/2_derived/nl/features_bplus/extracted/NL_GELDERLAND_01_cuz_support.npz",
+            "sha256": "8e83dd715b2a13058168a838307f85701524b3698e96981ecbf2c128be20b86b"
+          },
+          "landuse_ratio_bytes": 1200,
+          "n_sources": 60,
+          "region": "NL_GELDERLAND_01"
+        },
+        {
+          "active_source_agent_edges": 49248,
+          "flat_index_bytes": 393984,
+          "footprint_bytes": 395144,
+          "footprint_mib": 0.37683868408203125,
+          "input": {
+            "bytes": 7346656,
+            "path": "data/datasets/2_derived/nl/features_bplus/extracted/NL_GELDERLAND_10_cuz_support.npz",
+            "sha256": "42a11007fd03f07f4b86a6d10bc962c663032d8e723b1ed10ad30dfc89ad9c9d"
+          },
+          "landuse_ratio_bytes": 1160,
+          "n_sources": 58,
+          "region": "NL_GELDERLAND_10"
+        },
+        {
+          "active_source_agent_edges": 49470,
+          "flat_index_bytes": 395760,
+          "footprint_bytes": 396920,
+          "footprint_mib": 0.37853240966796875,
+          "input": {
+            "bytes": 7346215,
+            "path": "data/datasets/2_derived/nl/features_bplus/extracted/NL_GELDERLAND_11_cuz_support.npz",
+            "sha256": "a9e804fcc98d99478f89c5d4b2bb5026bf06555c04010bbfdda5de0c1a1c6eb5"
+          },
+          "landuse_ratio_bytes": 1160,
+          "n_sources": 58,
+          "region": "NL_GELDERLAND_11"
+        },
+        {
+          "active_source_agent_edges": 45219,
+          "flat_index_bytes": 361752,
+          "footprint_bytes": 364512,
+          "footprint_mib": 0.347625732421875,
+          "input": {
+            "bytes": 7355185,
+            "path": "data/datasets/2_derived/nl/features_bplus/extracted/NL_NOORD_HOLLAND_00_cuz_support.npz",
+            "sha256": "d5cdd39be593abf9d4efd6c2e5b78ed08aad86edd7e3444e5f12cf3e6bdc08cd"
+          },
+          "landuse_ratio_bytes": 2760,
+          "n_sources": 138,
+          "region": "NL_NOORD_HOLLAND_00"
+        },
+        {
+          "active_source_agent_edges": 45053,
+          "flat_index_bytes": 360424,
+          "footprint_bytes": 363524,
+          "footprint_mib": 0.3466835021972656,
+          "input": {
+            "bytes": 7354096,
+            "path": "data/datasets/2_derived/nl/features_bplus/extracted/NL_NOORD_HOLLAND_01_cuz_support.npz",
+            "sha256": "3728c41d0cbb547afe1f2fb0d1ea8f06e6f85c78cdcb5c8ed0605c0543078a77"
+          },
+          "landuse_ratio_bytes": 3100,
+          "n_sources": 155,
+          "region": "NL_NOORD_HOLLAND_01"
+        },
+        {
+          "active_source_agent_edges": 48000,
+          "flat_index_bytes": 384000,
+          "footprint_bytes": 386340,
+          "footprint_mib": 0.3684425354003906,
+          "input": {
+            "bytes": 7348402,
+            "path": "data/datasets/2_derived/nl/features_bplus/extracted/NL_NOORD_HOLLAND_10_cuz_support.npz",
+            "sha256": "4f510f375ee767d48e94cb22e38eb5e1c7f6426883fce1e67e74c9f4ec274d68"
+          },
+          "landuse_ratio_bytes": 2340,
+          "n_sources": 117,
+          "region": "NL_NOORD_HOLLAND_10"
+        },
+        {
+          "active_source_agent_edges": 47409,
+          "flat_index_bytes": 379272,
+          "footprint_bytes": 380652,
+          "footprint_mib": 0.3630180358886719,
+          "input": {
+            "bytes": 7348312,
+            "path": "data/datasets/2_derived/nl/features_bplus/extracted/NL_NOORD_HOLLAND_11_cuz_support.npz",
+            "sha256": "576f7f2e3096cf2af95d005d31d1765049eac9375eb8cf7f8806350045fe0c3b"
+          },
+          "landuse_ratio_bytes": 1380,
+          "n_sources": 69,
+          "region": "NL_NOORD_HOLLAND_11"
+        },
+        {
+          "active_source_agent_edges": 44942,
+          "flat_index_bytes": 359536,
+          "footprint_bytes": 361516,
+          "footprint_mib": 0.3447685241699219,
+          "input": {
+            "bytes": 7350022,
+            "path": "data/datasets/2_derived/nl/features_bplus/extracted/NL_ZUID_HOLLAND_R_cuz_support.npz",
+            "sha256": "00bf4429070609cefda3fd271a5444e0e24e92bbe609a400f5f3089fc40f94d6"
+          },
+          "landuse_ratio_bytes": 1980,
+          "n_sources": 99,
+          "region": "NL_ZUID_HOLLAND_R"
+        }
+      ],
+      "representation": "edge_flat_id_scatter_add_v1"
+    },
+    {
+      "country": "nz",
+      "formula": "active_source_agent_edges*8 + n_sources*5*4",
+      "maximum": {
+        "active_source_agent_edges": 38267,
+        "flat_index_bytes": 306136,
+        "footprint_bytes": 308436,
+        "footprint_mib": 0.2941474914550781,
+        "input": {
+          "bytes": 5712386,
+          "path": "data/datasets/2_derived/nz/features_bplus/extracted/Vector_Lines__historical_spatial_3_cuz_support.npz",
+          "sha256": "cc9c1214e36db1304a6d0b8a1adec2b92c2c1310dfda6f5a428ac163749d735a"
+        },
+        "landuse_ratio_bytes": 2300,
+        "n_sources": 115,
+        "region": "Vector_Lines__historical_spatial_3"
+      },
+      "regions": [
+        {
+          "active_source_agent_edges": 10316,
+          "flat_index_bytes": 82528,
+          "footprint_bytes": 83648,
+          "footprint_mib": 0.07977294921875,
+          "input": {
+            "bytes": 1970951,
+            "path": "data/datasets/2_derived/nz/features_bplus/extracted/Orion_NZ__historical_spatial_1_cuz_support.npz",
+            "sha256": "a8331b5dd132d4b0661a591a329d4a600bb8f836e3d816e21a9d1130eb7b6dc3"
+          },
+          "landuse_ratio_bytes": 1120,
+          "n_sources": 56,
+          "region": "Orion_NZ__historical_spatial_1"
+        },
+        {
+          "active_source_agent_edges": 17227,
+          "flat_index_bytes": 137816,
+          "footprint_bytes": 138196,
+          "footprint_mib": 0.13179397583007812,
+          "input": {
+            "bytes": 6960072,
+            "path": "data/datasets/2_derived/nz/features_bplus/extracted/Orion_NZ__historical_spatial_2_cuz_support.npz",
+            "sha256": "012b961facbbdbf489c931046d0d087af57eebe9fff1ee59a575baf29c9a10c3"
+          },
+          "landuse_ratio_bytes": 380,
+          "n_sources": 19,
+          "region": "Orion_NZ__historical_spatial_2"
+        },
+        {
+          "active_source_agent_edges": 14450,
+          "flat_index_bytes": 115600,
+          "footprint_bytes": 115860,
+          "footprint_mib": 0.11049270629882812,
+          "input": {
+            "bytes": 6963809,
+            "path": "data/datasets/2_derived/nz/features_bplus/extracted/Orion_NZ__historical_spatial_3_cuz_support.npz",
+            "sha256": "65f9f7e9c6b4d2e2bf7807068e8ccd37cedd8cedde4b2585ab3d69cb3b9d86a8"
+          },
+          "landuse_ratio_bytes": 260,
+          "n_sources": 13,
+          "region": "Orion_NZ__historical_spatial_3"
+        },
+        {
+          "active_source_agent_edges": 37314,
+          "flat_index_bytes": 298512,
+          "footprint_bytes": 299692,
+          "footprint_mib": 0.2858085632324219,
+          "input": {
+            "bytes": 6974264,
+            "path": "data/datasets/2_derived/nz/features_bplus/extracted/Vector_Lines__historical_spatial_1_cuz_support.npz",
+            "sha256": "30f729750105daadc0bc5d221cde720ef79737c95326171d8515e3e0566048da"
+          },
+          "landuse_ratio_bytes": 1180,
+          "n_sources": 59,
+          "region": "Vector_Lines__historical_spatial_1"
+        },
+        {
+          "active_source_agent_edges": 13859,
+          "flat_index_bytes": 110872,
+          "footprint_bytes": 113532,
+          "footprint_mib": 0.10827255249023438,
+          "input": {
+            "bytes": 3408926,
+            "path": "data/datasets/2_derived/nz/features_bplus/extracted/Vector_Lines__historical_spatial_2_cuz_support.npz",
+            "sha256": "21c18e20e177cb84fadd923f30d5343db6d0cea22504d9d1a47d6d81a6bf6faa"
+          },
+          "landuse_ratio_bytes": 2660,
+          "n_sources": 133,
+          "region": "Vector_Lines__historical_spatial_2"
+        },
+        {
+          "active_source_agent_edges": 38267,
+          "flat_index_bytes": 306136,
+          "footprint_bytes": 308436,
+          "footprint_mib": 0.2941474914550781,
+          "input": {
+            "bytes": 5712386,
+            "path": "data/datasets/2_derived/nz/features_bplus/extracted/Vector_Lines__historical_spatial_3_cuz_support.npz",
+            "sha256": "cc9c1214e36db1304a6d0b8a1adec2b92c2c1310dfda6f5a428ac163749d735a"
+          },
+          "landuse_ratio_bytes": 2300,
+          "n_sources": 115,
+          "region": "Vector_Lines__historical_spatial_3"
+        },
+        {
+          "active_source_agent_edges": 3007,
+          "flat_index_bytes": 24056,
+          "footprint_bytes": 24476,
+          "footprint_mib": 0.023342132568359375,
+          "input": {
+            "bytes": 643454,
+            "path": "data/datasets/2_derived/nz/features_bplus/extracted/Wellington_Electricity__historical_spatial_1_cuz_support.npz",
+            "sha256": "f4686e1e146e8fddb8e73368641b26cc70ff517a0507005546e80e0d80f87682"
+          },
+          "landuse_ratio_bytes": 420,
+          "n_sources": 21,
+          "region": "Wellington_Electricity__historical_spatial_1"
+        },
+        {
+          "active_source_agent_edges": 2199,
+          "flat_index_bytes": 17592,
+          "footprint_bytes": 17912,
+          "footprint_mib": 0.01708221435546875,
+          "input": {
+            "bytes": 508379,
+            "path": "data/datasets/2_derived/nz/features_bplus/extracted/Wellington_Electricity__historical_spatial_2_cuz_support.npz",
+            "sha256": "582d349953a892fa1a00ed355b601a1e30d50cbcb752d26d585e9bad23d7a48e"
+          },
+          "landuse_ratio_bytes": 320,
+          "n_sources": 16,
+          "region": "Wellington_Electricity__historical_spatial_2"
+        },
+        {
+          "active_source_agent_edges": 2407,
+          "flat_index_bytes": 19256,
+          "footprint_bytes": 19916,
+          "footprint_mib": 0.018993377685546875,
+          "input": {
+            "bytes": 403294,
+            "path": "data/datasets/2_derived/nz/features_bplus/extracted/Wellington_Electricity__historical_spatial_3_cuz_support.npz",
+            "sha256": "ecd72b6abc292b78584756ee0973661a74bc32ea9e4b89cdf491f0f77d447f76"
+          },
+          "landuse_ratio_bytes": 660,
+          "n_sources": 33,
+          "region": "Wellington_Electricity__historical_spatial_3"
+        }
+      ],
+      "representation": "edge_flat_id_scatter_add_v1"
+    }
+  ],
+  "previous_session_verified_summary": {
+    "gradient_abs_difference": 4.66e-10,
+    "indexed_gpu_repeat_error": 0.0,
+    "loss_abs_difference": 1.79e-07,
+    "nl_peak_mib_rounded": 0.379,
+    "nz_peak_mib_rounded": 0.294,
+    "role": "archived prior observation; the independently reproducible measurement below is the authority evidence"
+  },
+  "representation": "edge_flat_id_scatter_add_v1",
+  "schema_version": "sg_indexed_landuse_equivalence_diagnostic_v1",
+  "status": "DIAGNOSTIC_ONLY"
+}

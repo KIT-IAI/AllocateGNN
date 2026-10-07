@@ -1,0 +1,35 @@
+schema_version = "sg_experiment_general_v1"
+
+# Shared scientific protocol of the Experiment stage. Per-unit-type registered
+# parameters live in registrations.json (extracted from the sealed 006 receipts);
+# country-level registrations live in <dir>/registrations.json; everything else
+# (regions, fields, sweeps, allocators, units, CRS) is derived from upstream
+# handoffs and the central country profile at run time.
+
+[authorities]
+candidate_registry = "casestudy/2_Generator/general/candidate_registry.json"
+candidate_registry_sha256 = "564f3a2dec94119bb8f7b9ec942bb8859c05c76b5c0a1763d8a448715617b311"
+registrations = "casestudy/3_Experiment/general/registrations.json"
+
+[node_ids]
+preflight_connection = "experiment.W0.connection.{country}"
+preflight_planning_pool = "experiment.W0.planning_pool.{country}"
+observe = "experiment.006.regional.{country}.{region}"
+planning = "experiment.Planning.{country}.{region}.{field}.seed{seed}"
+bounds = "experiment.C6.{country}"
+defense = "experiment.support006.{country}.v2"
+
+[observe]
+families = ["reconstruction", "correction", "sweeps", "allocator", "connection", "context"]
+t1_family = "T1"
+
+[planning]
+# siting-eligible materialized candidates from the candidate registry; static
+# families carry the single pseudo-seed 0 (directory seed_0, node suffix seed0)
+eligibility = "siting"
+static_seed_directory = "seed_0"
+
+[paths]
+formal_root = "{results_root}/3_Experiment/{directory}"
+smoke_root = "{results_root}/3_Experiment/{directory}"
+preflight_root = "{results_root}/3_Experiment/{directory}"

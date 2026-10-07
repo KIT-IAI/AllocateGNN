@@ -1,0 +1,166 @@
+{
+  "schema": "paper2_fixed_load_connection_v1",
+  "unit": "paper2_fixed_load_connection",
+  "run_id": "fixedload_20260925_r2",
+  "release_id": "refactor_20260922_r2",
+  "upstream_commit": "69c4008732ed83dfb876020504baacbfa526d1aa",
+  "protocol": {
+    "loads_mw": [
+      100.0,
+      300.0,
+      500.0
+    ],
+    "main_load_mw": 300.0,
+    "main_radius_km": 10.0,
+    "bound_radii_km": [
+      10.0,
+      20.0
+    ],
+    "scale_radii_km": [
+      1.0,
+      2.0,
+      3.0,
+      5.0,
+      7.5,
+      10.0,
+      15.0,
+      20.0
+    ],
+    "candidate_count": 2000,
+    "shortlist_k": 20,
+    "tie_rule": "numpy argsort kind=stable on raw grid-row order",
+    "neighbourhood": "closed ball d(i,y) <= R in the national projected working CRS; members restricted to the region's own grid/stations",
+    "etas": [
+      0.5,
+      0.8,
+      0.9,
+      1.0
+    ],
+    "quantile_method": "linear (numpy)",
+    "budget_domain": "all regions of the country with a valid 2000-candidate pool; not Ref-screened; per method/seed/radius; LOO over regions; budget independent of X",
+    "ref_threshold": 0.25,
+    "ref_radii_km": [
+      10.0,
+      20.0
+    ],
+    "ref_rule": "q_r = max_R mean_y|A_ref,R - G_R| / median_y G_R <= 0.25 with every denominator defined (median G > 0)",
+    "annuity": {
+      "rate": 0.035,
+      "years": 20,
+      "formula": "(1-(1+r)^-n)/r at full precision"
+    },
+    "uk_cost": "C_y = 430000 GBP/MVA * max(0, G_y + X - F_y) + X_MW*1000*t_y*AF",
+    "au_cost": "C_y = 1 * max(0, G_y + X - F_y); T=0; PF=1 MVA-equivalent, not a monetary cost",
+    "t25_sensitivity": {
+      "country": "uk",
+      "radius_km": 10.0,
+      "load_mw": 300.0,
+      "component": "T25 2026/27 Final Year Round (unfloored locational)"
+    },
+    "panel": [
+      "Ref",
+      "PERM-R/3",
+      "PERM-R",
+      "PERM-3R",
+      "SMOOTH-0.5",
+      "SMOOTH-1",
+      "SMOOTH-2",
+      "LU",
+      "GNN"
+    ],
+    "panel_gnn_seed": 42,
+    "control_seed": 42,
+    "methods": {
+      "Uni": "Uni",
+      "LU": "GPM (categorical)",
+      "GNN": "GNN held-out TEST fold, seeds 42/123/456"
+    },
+    "zero_tolerance": "D14 (decided 2026-09-25): value <= 1e-9 * max(1, max_y C_y) counts as zero (L_S, bound_S)",
+    "violation_tolerance": "1e-10 * max(1, L_E, B_E, L_S, B_S) as in upstream conditional_bounds",
+    "aggregate_rank_primary": "Spearman(Ghat, G) against the station-register neighbourhood demand",
+    "smooth_crosscheck_rel_tol": 1e-12,
+    "tariff_unmatched_rule": "D12 (decided 2026-09-25): a position outside every DNO polygon takes the nearest polygon; position, zone and distance are listed in uk_tariff_mapping.csv",
+    "aggregate_rank_secondary": "Spearman(Ghat, A_ref) against the VD-Ref aggregate (upstream panel definition)"
+  },
+  "countries": {
+    "uk": {
+      "directory": "1_UK",
+      "working_crs": "EPSG:27700",
+      "demand_unit": "MVA",
+      "capacity_unit": "MVA",
+      "demand_column": "Demand (MVA)",
+      "capacity_column": "Firm Capacity (MVA)",
+      "source_key": "ITL3",
+      "region_demand_column": "Demand (MVA)",
+      "regions_path": "data/datasets/2_derived/uk/bplus/regions.gpkg",
+      "stations_path": "data/datasets/2_derived/uk/bplus/stations.gpkg",
+      "cost_unit": "GBP",
+      "c_per_mva": 430000.0,
+      "tariff": "T9"
+    },
+    "au": {
+      "directory": "2_AU",
+      "working_crs": "EPSG:7856",
+      "demand_unit": "MW",
+      "capacity_unit": "MVA",
+      "demand_column": "G_fy2024_mw",
+      "capacity_column": "F_mva",
+      "source_key": "SA3",
+      "region_demand_column": "demand_peak_mw",
+      "regions_path": "data/datasets/2_derived/au/bplus/regions_sa3.gpkg",
+      "stations_path": "data/datasets/2_derived/au/bplus/stations.gpkg",
+      "cost_unit": "MVA_equivalent_PF1",
+      "c_per_mva": 1.0,
+      "tariff": null
+    }
+  },
+  "annuity_factor_full_precision": 14.212403301952268,
+  "tariffs": {
+    "T9": {
+      "Northern Scotland": 0.0,
+      "Southern Scotland": 0.0,
+      "Northern": 0.0,
+      "North West": 0.0,
+      "Yorkshire": 0.0,
+      "N Wales & Mersey": 0.0,
+      "East Midlands": 0.0,
+      "Midlands": 2.633945,
+      "Eastern": 0.063093,
+      "South Wales": 5.969709,
+      "South East": 4.368073,
+      "London": 6.453239,
+      "Southern": 7.35415,
+      "South Western": 14.130209
+    },
+    "T25": {
+      "Northern Scotland": -37.24883194657608,
+      "Southern Scotland": -24.81172570329442,
+      "Northern": -9.661553429842682,
+      "North West": -4.386530065675605,
+      "Yorkshire": -1.9470451228773138,
+      "N Wales & Mersey": -0.995453617365834,
+      "East Midlands": 1.3057420745023403,
+      "Midlands": 3.359693798669075,
+      "Eastern": -1.5974448515463953,
+      "South Wales": 9.071596754339835,
+      "South East": 0.00668463539200472,
+      "London": 1.448998086840998,
+      "Southern": 4.631222694905339,
+      "South Western": 11.137042220313917
+    },
+    "source": {
+      "workbook": "inputs/connection_pricing/tnuos_tariffs_2026_27.xlsx",
+      "sha256": "3c608c80ce10e1786a3fe65a60e067b7aa44da6d7ab5ee3432cbe53c60590d9b",
+      "T9": "sheet T9 rows 4-17, column 'HH Demand Tariff (£/kW)' (2026/27, zero-floored)",
+      "T25": "sheet T25 rows 5-18, '2026/27 Final' 'Year Round (£/kW)' (unfloored locational)"
+    }
+  },
+  "distance_implementation": {
+    "connection_and_scale": "projected planar distance in the national working CRS (UK EPSG:27700, AU EPSG:7856), cKDTree closed ball",
+    "siting_and_sizing": "reused C4 products (haversine distance), not recomputed here"
+  },
+  "input_freeze_receipt": {
+    "path": "manifests/active_input_freeze_20260925T113746Z.json",
+    "sha256": "d2fafa6accc3aae4961fb1462883622ffdf347850b848c1843accf3696946ec5"
+  }
+}

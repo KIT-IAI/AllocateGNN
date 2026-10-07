@@ -1,0 +1,21 @@
+schema_version = "sg_country_engineering_admission_contract_v3"
+country = "nz"
+scope = "core9"
+status = "FROZEN"
+frozen_at = "2026-09-03"
+working_crs = "EPSG:2193"
+generation_crs = "EPSG:3857"
+region_algorithm = "edb_stratified_longest_axis_recursive_median_v1"
+region_count_rule = "minimum_count_passing_all_hard_gates"
+source_assignment = "same_edb_nearest_cluster_centroid"
+sort_key = ["edb", "northing_desc", "easting_asc", "site_id_asc"]
+tie_break = "lexicographically_smallest_partition"
+
+[shared_authority]
+path = "casestudy2/config/authority/engineering_admission_v3.toml"
+schema_version = "sg_engineering_admission_authority_v3"
+
+[idr_matched]
+formal_candidates = 38
+seeds = 3
+max_realizations_all_regions = 2000

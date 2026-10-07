@@ -1,0 +1,27 @@
+schema_version = "sg_artifact_schema_v1"
+artifact_type = "table"
+
+[table]
+allow_extra_columns = true
+unique_by = [["station_id"]]
+
+[[table.columns]]
+name = "station_id"
+dtype = "string"
+nullable = false
+
+[[table.columns]]
+name = "Kennzeichen"
+dtype = "string"
+nullable = false
+
+[[table.columns]]
+name = "p_mw"
+dtype = "number"
+unit = "MW"
+
+[[table.columns]]
+name = "capacity_basis"
+dtype = "string"
+nullable = false
+allowed_values = ["not_applicable"]

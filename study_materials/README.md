@@ -8,6 +8,20 @@ statement in the paper or in the response letter.
 
 ## Contents
 
+### `placement/`
+
+The revised paper **Task- and Scale-Matched Evaluation of Spatial Demand Allocation
+for Power Grid Planning** uses [placement/current/](placement/current/README.md).
+It includes frozen regional evidence and the scientific source archive. The
+default command recomputes and verifies its statistics:
+
+```bash
+python -m SpatialPlacement.reproduce_paper_numbers --verify
+```
+
+The files directly under `placement/` describe the historical lu5 release and
+are accessed through `SpatialPlacement.reproduce_legacy_paper_numbers`.
+
 ### `environment-lock.yml`
 Full machine-readable environment lock (conda export, 221 pinned
 `package=version=build` entries) referenced in the Data Availability

@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "spatialgranularity-sglib"
+version = "0.1.0"
+description = "Reusable staged spatial-granularity research pipeline"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "earthengine-api",
+  "geopandas",
+  "numpy",
+  "openpyxl",
+  "pandas",
+  "pyogrio",
+  "pyproj",
+  "rasterio",
+  "requests",
+  "scipy",
+  "shapely",
+  "xlrd",
+]
+
+[tool.setuptools.packages.find]
+include = ["sglib*"]
+
+[tool.setuptools.package-data]
+"sglib" = ["**/*.json", "**/*.ini", "**/*.toml"]

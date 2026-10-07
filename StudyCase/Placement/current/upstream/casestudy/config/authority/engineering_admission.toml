@@ -1,0 +1,37 @@
+schema_version = "sg_engineering_admission_authority_v2"
+status = "FROZEN"
+authority_class = "B"
+frozen_at = "2026-09-02"
+
+[grid]
+policy = "bounded_equal_area_budget_v1"
+target_points = 50000
+min_ground_step_m = 100.0
+max_ground_step_m = 500.0
+min_cells_per_source_hard = 4
+min_cells_per_target_hard = 4
+# These are disclosure references, not admission gates.  Small official source
+# polygons and closely spaced targets can legitimately fall below them.
+cells_per_source_oversampling_disclosure = 256
+cells_per_target_oversampling_disclosure = 200
+max_cells_per_region = 100000
+
+[graph]
+max_source_nodes_per_region = 1000
+max_target_nodes_per_region = 1000
+max_active_agent_nodes_per_region = 60000
+# Derived from the observed B+ structural envelope: at most ten directed
+# graph edges per admitted grid cell, including source-agent edges.
+directed_edges_per_cell_envelope = 10
+max_directed_edges_per_region = 1000000
+planning_k_max = 1000
+
+[memory]
+max_dense_tensor_mib = 32.0
+dense_feature_channels = 5
+dense_value_bytes = 4
+dense_dry_run_binding = "advisory_upper_bound"
+dense_formal_binding = "fail_closed_real_active_cells_before_training_submission"
+max_cdist_workspace_mib = 128.0
+cdist_strategy = "country_neutral_chunked_rows_v1"
+max_worker_rss_gib = 4.0

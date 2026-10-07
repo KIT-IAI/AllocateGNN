@@ -1,0 +1,5 @@
+schema_version = "sg_experiment_country_v1"
+regions = ["Central_Coast", "Hunter_Valley_exc_Newcastle", "Newcastle_and_Lake_Macquarie", "Sydney_City_and_Inner_South", "Sydney_Eastern_Suburbs", "Sydney_Inner_South_West", "Sydney_Inner_West", "Sydney_North_Sydney_and_Hornsby", "Sydney_Northern_Beaches", "Sydney_Parramatta", "Sydney_Ryde", "Sydney_Sutherland"]
+representative_region = "Sydney_North_Sydney_and_Hornsby"
+t1_regions = []
+

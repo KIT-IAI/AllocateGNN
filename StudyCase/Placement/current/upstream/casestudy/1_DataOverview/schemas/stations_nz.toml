@@ -1,0 +1,83 @@
+schema_version = "sg_artifact_schema_v1"
+artifact_type = "table"
+
+[table]
+allow_extra_columns = true
+exact_rows = 135
+unique_by = [["station_id"]]
+
+[[table.columns]]
+name = "station_id"
+dtype = "string"
+nullable = false
+
+[[table.columns]]
+name = "matched_d5_name"
+dtype = "string"
+nullable = false
+
+[[table.columns]]
+name = "SA22023_V1_00"
+dtype = "string"
+nullable = false
+
+[[table.columns]]
+name = "analysis_region"
+dtype = "string"
+nullable = false
+
+[[table.columns]]
+name = "actual_peak_mva"
+dtype = "number"
+unit = "MVA"
+
+[[table.columns]]
+name = "firm_capacity_mva"
+dtype = "number"
+unit = "MVA"
+
+[[table.columns]]
+name = "capacity_basis"
+dtype = "string"
+nullable = false
+allowed_values = ["declared_security_class"]
+
+[[table.columns]]
+name = "security_class"
+dtype = "string"
+nullable = false
+allowed_values = ["N-1", "N-1 switched", "mixed_declared_secure"]
+
+[[table.columns]]
+name = "capacity_basis_detail"
+dtype = "string"
+nullable = false
+allowed_values = ["sum_sections_single_declared_security_class", "sum_sections_mixed_declared_secure_classes"]
+
+[[table.columns]]
+name = "demand_vintage"
+dtype = "string"
+nullable = false
+allowed_values = ["2024_actual_annual_peak"]
+
+[[table.columns]]
+name = "capacity_vintage"
+dtype = "string"
+nullable = false
+allowed_values = ["2024_installed_firm_capacity"]
+
+[[table.columns]]
+name = "noncoincident_conservative"
+dtype = "boolean"
+nullable = false
+
+[[table.columns]]
+name = "strict_n1_eligible"
+dtype = "boolean"
+nullable = false
+
+[[table.columns]]
+name = "assignment_eligible"
+dtype = "boolean"
+nullable = false
+allowed_values = [true]

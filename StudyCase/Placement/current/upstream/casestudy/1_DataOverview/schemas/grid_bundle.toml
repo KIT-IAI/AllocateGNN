@@ -1,0 +1,5 @@
+schema_version = "sg_artifact_schema_v1"
+artifact_type = "json"
+
+[json]
+required_paths = ["schema_version", "grid_policy", "columns", "n_cells", "n_sources", "source_key", "source_key_order", "target_ground_step_m", "projected_step_m", "scale_factor_method", "reference_latitude", "clamp_branch", "area_crs", "working_crs", "ground_neighbour_distance_m.min", "ground_neighbour_distance_m.median", "ground_neighbour_distance_m.max"]

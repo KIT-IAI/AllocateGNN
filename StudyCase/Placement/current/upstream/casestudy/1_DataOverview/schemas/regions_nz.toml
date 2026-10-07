@@ -1,0 +1,59 @@
+schema_version = "sg_artifact_schema_v1"
+artifact_type = "table"
+
+[table]
+allow_extra_columns = true
+exact_rows = 465
+unique_by = [["source_id"], ["SA22023_V1_00"]]
+
+[[table.columns]]
+name = "source_id"
+dtype = "string"
+nullable = false
+
+[[table.columns]]
+name = "SA22023_V1_00"
+dtype = "string"
+nullable = false
+
+[[table.columns]]
+name = "analysis_region"
+dtype = "string"
+nullable = false
+
+[[table.columns]]
+name = "demand_peak_mva"
+dtype = "number"
+unit = "MVA"
+
+[[table.columns]]
+name = "residential_percent"
+dtype = "number"
+
+[[table.columns]]
+name = "commercial_percent"
+dtype = "number"
+
+[[table.columns]]
+name = "industrial_percent"
+dtype = "number"
+
+[[table.columns]]
+name = "agricultural_percent"
+dtype = "number"
+
+[[table.columns]]
+name = "others_percent"
+dtype = "number"
+
+[[table.columns]]
+name = "demand_vintage"
+dtype = "string"
+nullable = false
+allowed_values = ["2024_actual_annual_peak"]
+
+[[table.columns]]
+name = "feature_vintage"
+dtype = "string"
+nullable = false
+allowed_values = ["2023_census_sa2"]

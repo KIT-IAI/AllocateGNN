@@ -1,0 +1,15 @@
+schema_version = "sg_generator_country_v1"
+regions = ["London","TLH2","TLH3","TLJ1","TLF1","TLF2","TLC1","TLC2","TLD6","TLG1","TLG2","TLE4","TLH1","TLE3","TLD3","TLD4"]
+task_groups = ["B-UK-GNN","B-UK-MLP","P-UK-N","P-UK-P","P-UK-NP","F-UK-N","F-UK-P","F-UK-NP","L-UK-N","L-UK-P","T-UK"]
+
+[execution]
+civd_enabled = true
+
+[checks]
+requires_engineering_admission = true
+admission_contract = "casestudy/2_Generator/1_UK/engineering_admission_v3.toml"
+
+[idr]
+b_tv = 0.10
+b_tv_provenance = "L3 historical UK development anchor"
+planner_semantics = "maximum 20 percent station-mass redistribution"

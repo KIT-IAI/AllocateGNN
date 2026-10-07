@@ -1,0 +1,21 @@
+schema_version = "sg_experiment_country_v1"
+regions = ["London", "TLH2", "TLH3", "TLJ1", "TLF1", "TLF2", "TLC1", "TLC2", "TLD6", "TLG1", "TLG2", "TLE4", "TLH1", "TLE3", "TLD3", "TLD4"]
+representative_region = "TLH3"
+t1_regions = ["London", "TLC1", "TLC2", "TLE3", "TLE4", "TLH1", "TLH2", "TLH3"]
+
+[t1]
+reference = "data/datasets/1_raw/uk/t1/GB_primary_substation_service_areas_v1.0.0.geojson"
+reference_sha256 = "7990eb35af1442ed26da8ec0360db23bcd945b4af41135899eaa3b25e88bf595"
+station_name_column = "PS Name"
+
+[t1.protocol]
+claim = "limited_independent_geometry_diagnostic_not_network_truth"
+footprint = "CU_cells_median_nearest_neighbour_square_discrete_area"
+matching = "within_then_exact_or_indel90_gap10"
+quantile = 0.8
+quantile_method = "linear"
+reference_filter = ["UKPN", "NPG"]
+region_gate = "matched>=5_and_coverage>=0.30_no_new_regions"
+timing = "after_C1_C3_reconstruction_before_new_T1_scores"
+views = "VD_IDR_fixed_CIVD_and_all_formal_matched_candidate_seed_views"
+working_crs = "EPSG:27700"

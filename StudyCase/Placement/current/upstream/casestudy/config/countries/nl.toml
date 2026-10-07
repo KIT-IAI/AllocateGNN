@@ -1,0 +1,37 @@
+schema_version = "sg_country_profile_v1"
+
+[country]
+code = "nl"
+directory = "4_NL"
+label = "Netherlands (Liander service territory)"
+evaluation_scope = "four_task_chain"
+
+[crs]
+native = "EPSG:28992"
+area = "EPSG:28992"
+generation = "EPSG:3857"
+storage = "EPSG:4326"
+working = "EPSG:28992"
+
+[temporal]
+protocol = "Liander_equipment_peak_window_2024-09_to_2025-07__CBS_KWB_2025"
+demand_vintage = "2024-09..2025-07 equipment-specific annual-peak dates"
+feature_vintage = "CBS KWB 2025"
+
+[units]
+demand = "kW"
+capacity = "kW"
+area = "m2"
+
+[station_contract]
+id_column = "station_id"
+demand_column = "peak_kw"
+capacity_column = "capacity_kw"
+region_column = "wijk_code"
+source_key = "wijk_code"
+region_demand_column = "demand_peak_kw"
+capacity_basis = "nominal_normal_state"
+security_class_column = ""
+noncoincident_flag_column = "noncoincident_conservative"
+target_level = "buurt_pseudo_station"
+lineage_level = "equipment"

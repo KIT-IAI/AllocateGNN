@@ -1,0 +1,36 @@
+schema_version = "sg_artifact_schema_v1"
+artifact_type = "table"
+
+[table]
+allow_extra_columns = true
+unique_by = [["station_id"]]
+
+[[table.columns]]
+name = "station_id"
+dtype = "string"
+nullable = false
+
+[[table.columns]]
+name = "station"
+dtype = "string"
+nullable = false
+
+[[table.columns]]
+name = "G_fy2024_mw"
+dtype = "number"
+unit = "MW"
+
+[[table.columns]]
+name = "F_mva"
+dtype = "number"
+unit = "MVA"
+
+[[table.columns]]
+name = "SA3"
+dtype = "string"
+
+[[table.columns]]
+name = "capacity_basis"
+dtype = "string"
+nullable = false
+allowed_values = ["reconstructed_firm_n1"]

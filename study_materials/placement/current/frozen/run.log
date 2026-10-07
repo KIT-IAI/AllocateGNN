@@ -1,0 +1,34 @@
+2026-09-25T14:49:25.051611+00:00 input freeze: active_input_freeze_20260925T113746Z.json
+2026-09-25T14:49:25.503608+00:00 upstream code 69c4008732ed83dfb876020504baacbfa526d1aa extracted from code/upstream_release_69c4008732ed.zip (sha256 a8ef11fad856f8bbb549eeffb7782211f29181bfea9ba59ad50db1d7efa9f150)
+2026-09-25T14:49:29.416546+00:00 28 region tasks, 8 workers
+2026-09-25T14:50:15.287810+00:00 uk/London: 32.3s crosscheck_fail=[] ref_q=0.050656728882995855 eligible=True
+2026-09-25T14:50:15.287982+00:00 uk/TLH2: 21.5s crosscheck_fail=[] ref_q=0.10382151185094808 eligible=True
+2026-09-25T14:50:15.288033+00:00 uk/TLH3: 17.5s crosscheck_fail=[] ref_q=0.1476519205955997 eligible=True
+2026-09-25T14:50:15.288073+00:00 uk/TLJ1: 13.3s crosscheck_fail=[] ref_q=0.17709031436974096 eligible=True
+2026-09-25T14:50:15.288651+00:00 uk/TLF1: 15.3s crosscheck_fail=[] ref_q=0.20223981295920937 eligible=True
+2026-09-25T14:50:15.288725+00:00 uk/TLF2: 14.8s crosscheck_fail=[] ref_q=0.24141875413542063 eligible=True
+2026-09-25T14:50:15.288758+00:00 uk/TLC1: 19.7s crosscheck_fail=[] ref_q=0.23638115563121617 eligible=True
+2026-09-25T14:50:15.288790+00:00 uk/TLC2: 13.2s crosscheck_fail=[] ref_q=None eligible=False
+2026-09-25T14:50:21.500837+00:00 uk/TLD6: 25.5s crosscheck_fail=[] ref_q=0.11449987347243741 eligible=True
+2026-09-25T14:50:21.501048+00:00 uk/TLG1: 11.7s crosscheck_fail=[] ref_q=0.37876227366329973 eligible=False
+2026-09-25T14:50:21.501098+00:00 uk/TLG2: 12.2s crosscheck_fail=[] ref_q=0.3108926686657071 eligible=False
+2026-09-25T14:50:26.103239+00:00 uk/TLE4: 27.6s crosscheck_fail=[] ref_q=0.07156670980700501 eligible=True
+2026-09-25T14:50:26.103450+00:00 uk/TLH1: 8.4s crosscheck_fail=[] ref_q=0.20832932122291092 eligible=True
+2026-09-25T14:50:36.501288+00:00 uk/TLE3: 33.7s crosscheck_fail=[] ref_q=0.07282578818136115 eligible=True
+2026-09-25T14:50:44.786506+00:00 uk/TLD3: 39.9s crosscheck_fail=[] ref_q=0.0465527657102312 eligible=True
+2026-09-25T14:50:44.786638+00:00 uk/TLD4: 20.5s crosscheck_fail=[] ref_q=0.1434511347951357 eligible=True
+2026-09-25T14:50:44.786674+00:00 au/Central_Coast: 28.2s crosscheck_fail=[] ref_q=1.7292219204324717 eligible=False
+2026-09-25T14:50:44.786791+00:00 au/Hunter_Valley_exc_Newcastle: 8.0s crosscheck_fail=[] ref_q=None eligible=False
+2026-09-25T14:50:54.395503+00:00 au/Newcastle_and_Lake_Macquarie: 38.9s crosscheck_fail=[] ref_q=0.23003847946387057 eligible=True
+2026-09-25T14:50:54.395673+00:00 au/Sydney_City_and_Inner_South: 17.0s crosscheck_fail=[] ref_q=0.007860824954747617 eligible=True
+2026-09-25T14:50:54.395757+00:00 au/Sydney_Eastern_Suburbs: 14.4s crosscheck_fail=[] ref_q=0.030220149290028205 eligible=True
+2026-09-25T14:50:56.665889+00:00 au/Sydney_Inner_South_West: 30.5s crosscheck_fail=[] ref_q=0.03841460003063565 eligible=True
+2026-09-25T14:50:56.666025+00:00 au/Sydney_Inner_West: 16.5s crosscheck_fail=[] ref_q=0.0064581072689855155 eligible=True
+2026-09-25T14:51:04.055523+00:00 au/Sydney_North_Sydney_and_Hornsby: 28.5s crosscheck_fail=[] ref_q=0.07982754377657544 eligible=True
+2026-09-25T14:51:07.068603+00:00 au/Sydney_Northern_Beaches: 30.9s crosscheck_fail=[] ref_q=0.07455521661024697 eligible=True
+2026-09-25T14:51:07.068677+00:00 au/Sydney_Parramatta: 19.3s crosscheck_fail=[] ref_q=0.043324481940500335 eligible=True
+2026-09-25T14:51:07.068698+00:00 au/Sydney_Ryde: 16.4s crosscheck_fail=[] ref_q=0.027391336008965223 eligible=True
+2026-09-25T14:51:12.920118+00:00 au/Sydney_Sutherland: 28.0s crosscheck_fail=[] ref_q=0.17529342083258845 eligible=True
+2026-09-25T14:51:15.917764+00:00 uk adequacy: {'units_total': 1920, 'units_budget_realised': 1470, 'violations_budget_realised': 0, 'violations_budget_not_realised': 4}
+2026-09-25T14:51:16.822693+00:00 au adequacy: {'units_total': 1440, 'units_budget_realised': 1080, 'violations_budget_realised': 0, 'violations_budget_not_realised': 128}
+2026-09-25T14:51:16.863525+00:00 status PASS; crosscheck failures {}

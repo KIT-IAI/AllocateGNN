@@ -1,0 +1,3242 @@
+{
+  "generated_by": "论文冻结登记件(随库)",
+  "years": [
+    2009,
+    2024
+  ],
+  "thresholds": {
+    "neg_frac_suspect": 0.01,
+    "ratio_suspect": 1.0,
+    "neg_frac_mild": 0.001,
+    "ratio_mild": 1.15,
+    "dip_mild": 0.1,
+    "early_frac_suspected_lt": 0.1
+  },
+  "windows": {
+    "night": "00:00-04:00",
+    "day": "10:00-14:00",
+    "midday": "11:00-14:00",
+    "shoulder": "08:00-10:00 + 16:00-18:00"
+  },
+  "strategy": {
+    "recommended_strategy": "early_years",
+    "early_ok": true,
+    "recent_ok": false,
+    "rationale": "早年 FY2009 疑似污染占比 3.05% < 10%，而近年 FY2024 达 50.57%（≥ 10%）——主分析用早年（PV 渗透前），近年仅作 gross 校正后的稳健性附检。"
+  },
+  "verdict": {
+    "pv_suspected_early_lt_10pct": true,
+    "frac_suspected_early": 0.03048780487804878,
+    "frac_suspected_recent": 0.5056818181818182,
+    "recommended_strategy": "early_years",
+    "risk_note": "全部条款通过，无需登记风险。"
+  },
+  "fy2009": {
+    "fy": 2009,
+    "n_stations_with_data": 164,
+    "n_empty_placeholder": 47,
+    "n_suspected": 5,
+    "n_suspected_neg_evidence": 0,
+    "n_suspected_ratio_only": 5,
+    "n_mild": 31,
+    "n_clean": 128,
+    "frac_suspected": 0.03048780487804878,
+    "frac_mild": 0.18902439024390244,
+    "frac_clean": 0.7804878048780488,
+    "n_any_negative": 3,
+    "neg_frac_median": 0.0,
+    "neg_frac_p90": 0.0,
+    "ratio_median": 1.4524417015419364,
+    "ratio_p10": 1.1132743354473356,
+    "n_ratio_lt_1": 5,
+    "n_ratio_lt_115": 20,
+    "dip_median": 0.02580807867041318,
+    "dip_p90": 0.13486838604192813,
+    "n_dip_gt_010": 32,
+    "suspected_stations": [
+      "Singleton North 66_11kV",
+      "Menai 132_11kV",
+      "Jannali 33_11kV",
+      "Lake Munmorah 33_11kV",
+      "Berowra 132_11kV"
+    ],
+    "stations": [
+      {
+        "station": "Auburn 33_11kV",
+        "neg_frac": 0.004398366321080742,
+        "day_night_ratio": 3.125515707924644,
+        "midday_dip": -0.18572957265967238,
+        "n_valid_cells": 31830,
+        "n_neg_cells": 140,
+        "level": "mild"
+      },
+      {
+        "station": "Avoca 66_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.0448101450606038,
+        "midday_dip": 0.16290905909401365,
+        "n_valid_cells": 34443,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Avondale 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.1043349678519148,
+        "midday_dip": 0.11359585002987505,
+        "n_valid_cells": 35036,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Baerami 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.3351616215257518,
+        "midday_dip": 0.0051548498811616605,
+        "n_valid_cells": 35005,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Balgowlah 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.4398778166388202,
+        "midday_dip": 0.1296713424811231,
+        "n_valid_cells": 34645,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Bass Hill 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.239647225227486,
+        "midday_dip": 0.04856403243954943,
+        "n_valid_cells": 34503,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Beacon Hill 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.9006913500409952,
+        "midday_dip": 0.005598008824376777,
+        "n_valid_cells": 34477,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Belrose 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.4154533038846109,
+        "midday_dip": 0.11309077517215105,
+        "n_valid_cells": 34461,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Berkeley Vale 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.6535454995919434,
+        "midday_dip": -0.03675634657334004,
+        "n_valid_cells": 31387,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Berkeley Vale 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.710244762048819,
+        "midday_dip": -0.09117998172033204,
+        "n_valid_cells": 2602,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Berowra 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.9827739598430477,
+        "midday_dip": 0.114816995284034,
+        "n_valid_cells": 34388,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Blackwattle Bay 33_5kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.4663467758088902,
+        "midday_dip": -0.023411731682056347,
+        "n_valid_cells": 34656,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Blakehurst 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.4744427066804193,
+        "midday_dip": 0.048986560459517436,
+        "n_valid_cells": 34652,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Boolaroo 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.2919594222885467,
+        "midday_dip": 0.04260772573019045,
+        "n_valid_cells": 35026,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Botany 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.5801029947294494,
+        "midday_dip": -0.031380603675544405,
+        "n_valid_cells": 34649,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Branxton 66_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.115970231081143,
+        "midday_dip": 0.17783703238693083,
+        "n_valid_cells": 35031,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Broadmeadow 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.9602285972261875,
+        "midday_dip": -0.09483050493827117,
+        "n_valid_cells": 35036,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Brookvale 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 2.6918785485781473,
+        "midday_dip": -0.1190307765069254,
+        "n_valid_cells": 34649,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Burwood 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.5897388828859464,
+        "midday_dip": -0.016232810923055396,
+        "n_valid_cells": 34368,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Campbell St 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.7004556766937549,
+        "midday_dip": -0.04443641369845208,
+        "n_valid_cells": 34305,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Camperdown 33_5kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.6285050196871271,
+        "midday_dip": -0.030515286952929488,
+        "n_valid_cells": 34654,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Campsie 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.499121194373209,
+        "midday_dip": 0.018640173959831197,
+        "n_valid_cells": 34651,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Cardiff 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.5681754104753443,
+        "midday_dip": -0.02024788881429318,
+        "n_valid_cells": 35036,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Careel Bay 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.4357705325460464,
+        "midday_dip": 0.10849908707072209,
+        "n_valid_cells": 34566,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Caringbah 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.7937497961288973,
+        "midday_dip": -0.07155441794118156,
+        "n_valid_cells": 34581,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Carlton 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.6168081029700736,
+        "midday_dip": -0.023945518651615982,
+        "n_valid_cells": 34648,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Castle Cove 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.963291598483549,
+        "midday_dip": -0.03219949502379493,
+        "n_valid_cells": 34631,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Cessnock 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.3674121918438686,
+        "midday_dip": 0.08859042723605903,
+        "n_valid_cells": 35033,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Charlestown 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.765772148117614,
+        "midday_dip": 0.0035893152684707275,
+        "n_valid_cells": 35035,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Charmhaven 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.3055221377324226,
+        "midday_dip": 0.0714464304031931,
+        "n_valid_cells": 34601,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Chatswood 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.7429734928493015,
+        "midday_dip": 0.0175753375320975,
+        "n_valid_cells": 34572,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "City Central 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 2.0400140474324084,
+        "midday_dip": -0.07204098141343396,
+        "n_valid_cells": 34089,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "City East 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 2.2086096675066935,
+        "midday_dip": -0.06975805843746619,
+        "n_valid_cells": 34650,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "City North 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 2.0390230967850265,
+        "midday_dip": -0.05348953123080302,
+        "n_valid_cells": 34658,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "City South 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 2.089095573337834,
+        "midday_dip": -0.08189405268379324,
+        "n_valid_cells": 34491,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Clovelly 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.5819425566366885,
+        "midday_dip": 0.042280076484470075,
+        "n_valid_cells": 34649,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Concord 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.5623533331661585,
+        "midday_dip": -0.017311387918497623,
+        "n_valid_cells": 34399,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Cronulla 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.1667298628944314,
+        "midday_dip": 0.16447116957613905,
+        "n_valid_cells": 34578,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Croudace Bay 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.1926515082996687,
+        "midday_dip": 0.16232419647156648,
+        "n_valid_cells": 35032,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Crows Nest 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 2.010517952680355,
+        "midday_dip": 0.00012401421645769073,
+        "n_valid_cells": 33567,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Dalley St 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.9464248273938487,
+        "midday_dip": -0.05945854148359775,
+        "n_valid_cells": 33906,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Darling Harbour 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.4891581396612736,
+        "midday_dip": -0.04474440701613469,
+        "n_valid_cells": 34643,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Darlinghurst 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.6334616459174167,
+        "midday_dip": -0.03936303621538162,
+        "n_valid_cells": 34647,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Dee Why West 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.5370958079893078,
+        "midday_dip": 0.09137606176107149,
+        "n_valid_cells": 34652,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Denman 66_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.4009926397917922,
+        "midday_dip": 0.021840641373436664,
+        "n_valid_cells": 35036,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Double Bay 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.8959624772989367,
+        "midday_dip": -0.011672283074586565,
+        "n_valid_cells": 34651,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Drummoyne 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.4513963674936459,
+        "midday_dip": 0.08788207653332669,
+        "n_valid_cells": 34292,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Dudley 33_11kV",
+        "neg_frac": 0.0010012873694750393,
+        "day_night_ratio": 1.112118951604275,
+        "midday_dip": 0.178916253283677,
+        "n_valid_cells": 27964,
+        "n_neg_cells": 28,
+        "level": "mild"
+      },
+      {
+        "station": "Dulwich Hill 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.4735401795345096,
+        "midday_dip": 0.03783557255295378,
+        "n_valid_cells": 34648,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "East Maitland 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.6729090708517644,
+        "midday_dip": 0.043662532385932984,
+        "n_valid_cells": 35036,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Edgeworth 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.1623213183034824,
+        "midday_dip": 0.07481898924509889,
+        "n_valid_cells": 34936,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Enfield 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.2593437982214921,
+        "midday_dip": 0.06289949451743604,
+        "n_valid_cells": 34562,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Engadine 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.0001858937288113,
+        "midday_dip": 0.16265178256188662,
+        "n_valid_cells": 32691,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Epping 66_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.6262812426987956,
+        "midday_dip": 0.0065657876420458505,
+        "n_valid_cells": 34316,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Erina 66_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.621411572581641,
+        "midday_dip": 0.012439494301823895,
+        "n_valid_cells": 34251,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Five Dock 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.4568498634207148,
+        "midday_dip": 0.05092333202324306,
+        "n_valid_cells": 34472,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Flemington 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.447607489254022,
+        "midday_dip": -0.03700413292378779,
+        "n_valid_cells": 34134,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Gateshead 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.5278424866814704,
+        "midday_dip": -0.005570958011153149,
+        "n_valid_cells": 35036,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Gore Hill 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.6963856426576545,
+        "midday_dip": -0.05087639132019217,
+        "n_valid_cells": 34639,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Green Square 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.8365591394115894,
+        "midday_dip": -0.11330965179095509,
+        "n_valid_cells": 34467,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Greenacre Park 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.4879187914248604,
+        "midday_dip": -0.04900929299152712,
+        "n_valid_cells": 34644,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Gwawley Bay 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.584686541469889,
+        "midday_dip": 0.003676570614660424,
+        "n_valid_cells": 34579,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Harbord 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.5393395098843612,
+        "midday_dip": 0.10318960601194893,
+        "n_valid_cells": 34649,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Homebush Bay 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.8037965256724309,
+        "midday_dip": -0.07855080716702867,
+        "n_valid_cells": 34093,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Hornsby 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.4843609500369854,
+        "midday_dip": 0.02456752324196887,
+        "n_valid_cells": 34314,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Hunters Hill 66_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.6709547463947854,
+        "midday_dip": 0.03658890752077815,
+        "n_valid_cells": 34583,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Hurstville North 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.6982569658924136,
+        "midday_dip": -0.03243360892957292,
+        "n_valid_cells": 34649,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Jannali 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.8724833975500136,
+        "midday_dip": 0.21464966946682518,
+        "n_valid_cells": 34575,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Jewells 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.1643448852614051,
+        "midday_dip": 0.11171460597613903,
+        "n_valid_cells": 35036,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Killarney 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.4101227395742522,
+        "midday_dip": 0.1316179683800538,
+        "n_valid_cells": 34564,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Kirrawee 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.3971923258763665,
+        "midday_dip": 0.05733128360851891,
+        "n_valid_cells": 34582,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Kotara 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.965129856658143,
+        "midday_dip": -0.027922034827305486,
+        "n_valid_cells": 35036,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Kurri 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.3044794002571682,
+        "midday_dip": 0.08339592779268379,
+        "n_valid_cells": 35036,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Lake Munmorah 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.8869474780448162,
+        "midday_dip": 0.18712474695036752,
+        "n_valid_cells": 34555,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Leichhardt 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.6790233798651186,
+        "midday_dip": -0.0012587700400512603,
+        "n_valid_cells": 34236,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Leightonfield 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.4188881865872727,
+        "midday_dip": -0.023742075028051035,
+        "n_valid_cells": 34531,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Lemington 66_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.1612295076900636,
+        "midday_dip": 0.07044682390036816,
+        "n_valid_cells": 34960,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Lidcombe 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.6627235841876697,
+        "midday_dip": -0.061313837209624245,
+        "n_valid_cells": 34405,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Lindfield 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.3983559653093718,
+        "midday_dip": 0.09628497658135482,
+        "n_valid_cells": 34571,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Lisarow 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.2017764219688079,
+        "midday_dip": 0.09220050382761491,
+        "n_valid_cells": 34558,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Long Jetty 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.209602800070016,
+        "midday_dip": 0.09150895623957611,
+        "n_valid_cells": 33981,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Macquarie Park 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.594258226943599,
+        "midday_dip": -0.043001350766951774,
+        "n_valid_cells": 34283,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Maitland Central 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.7586014562835819,
+        "midday_dip": -0.017389185945853702,
+        "n_valid_cells": 35036,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Manly 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.7478039554836577,
+        "midday_dip": 0.005981505874053217,
+        "n_valid_cells": 34644,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Maroubra 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.4310765398181795,
+        "midday_dip": -0.010756606115562617,
+        "n_valid_cells": 34314,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Marrickville 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.7831485328313552,
+        "midday_dip": -0.036606173372297324,
+        "n_valid_cells": 34627,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Maryland 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.310330089119693,
+        "midday_dip": 0.0942855888540386,
+        "n_valid_cells": 35036,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Mascot 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.8354624029471582,
+        "midday_dip": -0.08136130885976667,
+        "n_valid_cells": 34635,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Matraville 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.2125001244720466,
+        "midday_dip": 0.015632854125964046,
+        "n_valid_cells": 34624,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Mayfield 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.4584396464588247,
+        "midday_dip": -0.019895456373909548,
+        "n_valid_cells": 35036,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Meadowbank 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.4413538212594639,
+        "midday_dip": -0.01138210868291667,
+        "n_valid_cells": 34583,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Menai 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.8600658238814398,
+        "midday_dip": 0.18500063426669855,
+        "n_valid_cells": 33946,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Merriwa 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.2861921780523533,
+        "midday_dip": 0.05530379024382259,
+        "n_valid_cells": 35004,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Milperra 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.924600213426652,
+        "midday_dip": -0.08798375476277154,
+        "n_valid_cells": 34616,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Miranda 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.6604043512989795,
+        "midday_dip": 0.015863628410812902,
+        "n_valid_cells": 34582,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Mitchell Line 66_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.5426602642911096,
+        "midday_dip": -0.014359538873469191,
+        "n_valid_cells": 34920,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Mitchells Flat 66_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.0045254483839376,
+        "midday_dip": 0.19214754637581632,
+        "n_valid_cells": 34975,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Mona Vale 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.7688542695520306,
+        "midday_dip": 0.020286375939019385,
+        "n_valid_cells": 34619,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Moonan 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.2312278560860834,
+        "midday_dip": 0.04713836111175884,
+        "n_valid_cells": 34999,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Morisset 33_11kV Temp",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.2519273924157324,
+        "midday_dip": 0.05646766216538446,
+        "n_valid_cells": 1088,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Morisset 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.30726237900292,
+        "midday_dip": 0.03250265714711631,
+        "n_valid_cells": 34887,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Mortdale 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.3884127884431225,
+        "midday_dip": 0.10875440398540193,
+        "n_valid_cells": 34648,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Mosman 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.6002925716173662,
+        "midday_dip": 0.06703090240859522,
+        "n_valid_cells": 34470,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Mt Hutton 33_11kV",
+        "neg_frac": 0.0016556291390728477,
+        "day_night_ratio": 1.0337579995945942,
+        "midday_dip": 0.08728725279090599,
+        "n_valid_cells": 35032,
+        "n_neg_cells": 58,
+        "level": "mild"
+      },
+      {
+        "station": "Mt Thorley 66_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.496792630739119,
+        "midday_dip": -0.03746527488738893,
+        "n_valid_cells": 35036,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Muswellbrook 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.4228071288385136,
+        "midday_dip": 0.07824989530089121,
+        "n_valid_cells": 35036,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Narrabeen 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.620296265697066,
+        "midday_dip": 0.07325358246098534,
+        "n_valid_cells": 34599,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Nelson Bay 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.2262325912970378,
+        "midday_dip": 0.08471546914474504,
+        "n_valid_cells": 35034,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Newcastle CBD 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 2.00651758395115,
+        "midday_dip": -0.08249613821648483,
+        "n_valid_cells": 34022,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Newcastle City Main 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.8285149966285261,
+        "midday_dip": -0.05212701444696233,
+        "n_valid_cells": 2904,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Newport 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.418100768677447,
+        "midday_dip": 0.1474739187809897,
+        "n_valid_cells": 34572,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Noraville 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.0894907565059946,
+        "midday_dip": 0.1362614221827313,
+        "n_valid_cells": 34594,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "North Ryde 66_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.403530619000567,
+        "midday_dip": 0.0461626807077089,
+        "n_valid_cells": 34504,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "North Sydney 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 2.15900490046706,
+        "midday_dip": -0.03848266750200824,
+        "n_valid_cells": 33835,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Nulkaba 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.4035141773774362,
+        "midday_dip": 0.0076576742570844125,
+        "n_valid_cells": 32140,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Paddington 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.4411153740429037,
+        "midday_dip": 0.0036866867969173045,
+        "n_valid_cells": 34653,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Padstow 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.883332427262595,
+        "midday_dip": -0.09361411303271883,
+        "n_valid_cells": 34586,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Paxton 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.0933625747298794,
+        "midday_dip": 0.1389756420680014,
+        "n_valid_cells": 35012,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Peats Ridge 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.5829054465059167,
+        "midday_dip": -0.006569944831593899,
+        "n_valid_cells": 34108,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Pelican 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.283900800343112,
+        "midday_dip": 0.04908229725433688,
+        "n_valid_cells": 35036,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Pennant Hills 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.283835025912804,
+        "midday_dip": 0.09415408931357372,
+        "n_valid_cells": 34155,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Punchbowl 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.551706184402933,
+        "midday_dip": -0.006010904034169595,
+        "n_valid_cells": 34586,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Pymble 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.6311710723599102,
+        "midday_dip": 0.04095723383027661,
+        "n_valid_cells": 34198,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Randwick 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.4294876636576093,
+        "midday_dip": 0.03461240547902722,
+        "n_valid_cells": 33477,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Rathmines 132_11kV Temp",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.120460639664861,
+        "midday_dip": 0.17864045014104868,
+        "n_valid_cells": 34758,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Raymond Terrace 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.4434151990835316,
+        "midday_dip": -0.01540638906317393,
+        "n_valid_cells": 35036,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Revesby 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.1312805365409466,
+        "midday_dip": 0.12531914947326206,
+        "n_valid_cells": 34612,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Riverwood 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.3108694647592356,
+        "midday_dip": 0.05883759649049225,
+        "n_valid_cells": 34651,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Rockdale 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.6892336842582163,
+        "midday_dip": -0.022343772529566763,
+        "n_valid_cells": 34651,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Rose Bay 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.4534870355902272,
+        "midday_dip": 0.08442564910786166,
+        "n_valid_cells": 33261,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Rothbury 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.6473622669440127,
+        "midday_dip": -0.06680547866767261,
+        "n_valid_cells": 35036,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Rouchel 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.1790351019169787,
+        "midday_dip": 0.018782712788115385,
+        "n_valid_cells": 34997,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Rutherford 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.6125783412775065,
+        "midday_dip": -0.0020981780785205295,
+        "n_valid_cells": 35036,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Salt Ash 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.383351457657444,
+        "midday_dip": 0.07246166532238729,
+        "n_valid_cells": 35035,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Sans Souci 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.3188507661304387,
+        "midday_dip": 0.09321153452948905,
+        "n_valid_cells": 34425,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Scone 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.3414319704171758,
+        "midday_dip": 0.07341338649833595,
+        "n_valid_cells": 35036,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Sefton 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.286992862869139,
+        "midday_dip": 0.027917362038137106,
+        "n_valid_cells": 34546,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Shortland 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.5406887687552187,
+        "midday_dip": -0.014298767036353022,
+        "n_valid_cells": 35036,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Singleton North 66_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.8264977461009452,
+        "midday_dip": 0.09478754554583046,
+        "n_valid_cells": 35036,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Somersby 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.5621461354062285,
+        "midday_dip": -0.030882921846727696,
+        "n_valid_cells": 34561,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "St Ives 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.3300826797321386,
+        "midday_dip": 0.12415979655080034,
+        "n_valid_cells": 34452,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "St Peters 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.6698824405026005,
+        "midday_dip": -0.05848908372318662,
+        "n_valid_cells": 34561,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Stockton 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.3503313424147325,
+        "midday_dip": 0.06986986914624627,
+        "n_valid_cells": 35036,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Surry Hills 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.9140927918897586,
+        "midday_dip": -0.05862590147966462,
+        "n_valid_cells": 34648,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Swansea 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.0163042520444678,
+        "midday_dip": 0.12401372625332097,
+        "n_valid_cells": 35036,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Tanilba Bay 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.2848428861309023,
+        "midday_dip": 0.1532157248583591,
+        "n_valid_cells": 35032,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Telarah 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.4474119715039317,
+        "midday_dip": 0.048587553396938876,
+        "n_valid_cells": 35036,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Terrey Hills 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 2.25356928956433,
+        "midday_dip": -0.06633655807340211,
+        "n_valid_cells": 34474,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Thornton 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.4361805414563835,
+        "midday_dip": 0.09668645660426467,
+        "n_valid_cells": 35036,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Tomalpin 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.0097147946307312,
+        "midday_dip": 0.004107470803970448,
+        "n_valid_cells": 34882,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Toronto 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.2668382448979694,
+        "midday_dip": 0.07113766141620459,
+        "n_valid_cells": 34931,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Turramurra 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.2782110872525323,
+        "midday_dip": 0.11608329122956329,
+        "n_valid_cells": 34543,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Umina 66_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.042659239216029,
+        "midday_dip": 0.1522641403889462,
+        "n_valid_cells": 34551,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Wallalong 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.3083287784626414,
+        "midday_dip": 0.12702186110608638,
+        "n_valid_cells": 34736,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Wallsend 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.199133563183371,
+        "midday_dip": 0.14278294817977022,
+        "n_valid_cells": 34940,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Waverley 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.7226158798291236,
+        "midday_dip": 0.036370561811882585,
+        "n_valid_cells": 34647,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "West Gosford 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.559211746548169,
+        "midday_dip": -0.02235082886180395,
+        "n_valid_cells": 34639,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Woy Woy 66_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.1095208659697358,
+        "midday_dip": 0.10821416397626826,
+        "n_valid_cells": 34562,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Wyong 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.443801947789999,
+        "midday_dip": 0.005927086230012479,
+        "n_valid_cells": 34022,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Zetland 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.8395365666207055,
+        "midday_dip": -0.0729880861178247,
+        "n_valid_cells": 34590,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Aberdeen 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.1645100868582554,
+        "midday_dip": 0.08196350486670179,
+        "n_valid_cells": 35036,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Adamstown 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.386991917772581,
+        "midday_dip": 0.08082789640228205,
+        "n_valid_cells": 35036,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Alexandria 33_5kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.613082044548373,
+        "midday_dip": -0.16037326715348565,
+        "n_valid_cells": 34658,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Arncliffe 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.4174946842351537,
+        "midday_dip": 0.027048634098857494,
+        "n_valid_cells": 34649,
+        "n_neg_cells": 0,
+        "level": "clean"
+      }
+    ]
+  },
+  "fy2024": {
+    "fy": 2024,
+    "n_stations_with_data": 176,
+    "n_empty_placeholder": 0,
+    "n_suspected": 89,
+    "n_suspected_neg_evidence": 28,
+    "n_suspected_ratio_only": 61,
+    "n_mild": 45,
+    "n_clean": 42,
+    "frac_suspected": 0.5056818181818182,
+    "frac_mild": 0.2556818181818182,
+    "frac_clean": 0.23863636363636365,
+    "n_any_negative": 43,
+    "neg_frac_median": 0.0,
+    "neg_frac_p90": 0.05566761151025296,
+    "ratio_median": 0.9975352994915455,
+    "ratio_p10": 0.34323740807534947,
+    "n_ratio_lt_1": 89,
+    "n_ratio_lt_115": 109,
+    "dip_median": 0.2284507928648032,
+    "dip_p90": 0.6806161680563172,
+    "n_dip_gt_010": 128,
+    "suspected_stations": [
+      "Maryland 132_11kV",
+      "Medowie 33_11kV",
+      "Mitchells Flat 66_11kV",
+      "Rathmines 132_11kV",
+      "Branxton 66_11kV",
+      "Swansea 33_11kV",
+      "Rothbury 132_11kV",
+      "Avondale 33_11kV",
+      "Thornton 33_11kV",
+      "Brandy Hill 132_11kV",
+      "Stockton 33_11kV",
+      "Empire Bay 66_11kV",
+      "Croudace Bay 33_11kV",
+      "Tanilba Bay 33_11kV",
+      "Jewells 33_11kV",
+      "Telarah 33_11kV",
+      "Lake Munmorah 132_11kV",
+      "Morisset 132_11kV",
+      "Wamberal 132_11kV",
+      "Cessnock South 33_11kV",
+      "Somersby 132_11kV",
+      "Wyong 132_11kV",
+      "Maitland 33_11kV",
+      "Tomaree 33_11kV",
+      "Aberdeen 66_11kV",
+      "Metford 33_11kV",
+      "Jannali 33_11kV",
+      "Rutherford 33_11kV",
+      "Raymond Terr NEW 33_11kV",
+      "Toronto West 132_11kV",
+      "Nelson Bay 33_11kV",
+      "Denman 66_11kV",
+      "Galston 132_11kV",
+      "Cardiff 33_11kV",
+      "Avoca 66_11kV",
+      "Nulkaba 33_11kV",
+      "Merriwa 33_11kV",
+      "Engadine 132_11kV",
+      "Mitchell Line 66_11kV",
+      "Mt Thorley 66_11kV",
+      "Paxton 33_11kV",
+      "Adamstown 132_11kV",
+      "Edgeworth 33_11kV",
+      "Noraville 33_11kV",
+      "Menai 132_11kV",
+      "Charmhaven 132_11kV",
+      "Long Jetty 66_11kV",
+      "Mt Hutton 33_11kV",
+      "Singleton North 66_11kV",
+      "Umina 66_11kV",
+      "Woy Woy 66_11kV",
+      "Revesby 132_11kV",
+      "Kurri 132_11kV",
+      "Pennant Hills 132_11kV",
+      "Killarney 33_11kV",
+      "Lisarow 33_11kV",
+      "Muswellbrook 33_11kV",
+      "Pelican 33_11kV",
+      "Berowra 132_11kV",
+      "St Ives 33_11kV",
+      "Riverwood 33_11kV",
+      "Belrose 33_11kV",
+      "Cronulla 132_11kV",
+      "Jesmond 132_11kV",
+      "Sefton 132_11kV",
+      "Argenton 132_11kV",
+      "New Lambton 33_11kV",
+      "Mortdale 33_11kV",
+      "Baerami 33_11kV",
+      "Harbord 33_11kV",
+      "Scone 66_11kV",
+      "Blakehurst 33_11kV",
+      "Newport 33_11kV",
+      "Williamtown 33_11kV",
+      "North Head 33_11kV",
+      "Rouchel 33_11kV",
+      "Vales Point 33_11kV",
+      "Kurnell South 132_11kV",
+      "Gateshead 33_11kV",
+      "Matraville 33_11kV",
+      "Peats Ridge 33_11kV",
+      "Lindfield 33_11kV",
+      "Newdell 66_11kV",
+      "Potts Hill 132_11kV",
+      "Sans Souci 33_11kV",
+      "Singleton 66_11kV",
+      "Kirrawee 132_11kV",
+      "Moonan 33_11kV",
+      "Bass Hill 33_11kV"
+    ],
+    "stations": [
+      {
+        "station": "Aberdeen 66_11kV",
+        "neg_frac": 0.01625,
+        "day_night_ratio": 0.5297051273543387,
+        "midday_dip": 0.48648509799165196,
+        "n_valid_cells": 33600,
+        "n_neg_cells": 546,
+        "level": "suspected"
+      },
+      {
+        "station": "Adamstown 132_11kV",
+        "neg_frac": 2.9849855228202142e-05,
+        "day_night_ratio": 0.7795091630712785,
+        "midday_dip": 0.3867688001097376,
+        "n_valid_cells": 33501,
+        "n_neg_cells": 1,
+        "level": "suspected"
+      },
+      {
+        "station": "Argenton 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.8151417161104562,
+        "midday_dip": 0.3346740423356146,
+        "n_valid_cells": 33331,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Auburn 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.6774077855619351,
+        "midday_dip": -0.0580179371177576,
+        "n_valid_cells": 33574,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Avoca 66_11kV",
+        "neg_frac": 0.0022916666666666667,
+        "day_night_ratio": 0.5759666580808198,
+        "midday_dip": 0.4958169616460377,
+        "n_valid_cells": 33600,
+        "n_neg_cells": 77,
+        "level": "suspected"
+      },
+      {
+        "station": "Avondale 33_11kV",
+        "neg_frac": 0.10360119047619047,
+        "day_night_ratio": 0.15613146231939842,
+        "midday_dip": 0.8588458523547411,
+        "n_valid_cells": 33600,
+        "n_neg_cells": 3481,
+        "level": "suspected"
+      },
+      {
+        "station": "Baerami 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.84151049994526,
+        "midday_dip": 0.2476418651224329,
+        "n_valid_cells": 33504,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Balgowlah North 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.0618895472465153,
+        "midday_dip": 0.33096625781485356,
+        "n_valid_cells": 33600,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Bankstown 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.2254628381257322,
+        "midday_dip": 0.13210086630473872,
+        "n_valid_cells": 33538,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Bass Hill 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.9982418965570293,
+        "midday_dip": 0.17996353580279334,
+        "n_valid_cells": 33600,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Beacon Hill 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.2167791650046822,
+        "midday_dip": 0.15779431729899707,
+        "n_valid_cells": 33516,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Belmore Park 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 2.06896000864654,
+        "midday_dip": -0.08252845140051934,
+        "n_valid_cells": 33504,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Belrose 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.7832117818578679,
+        "midday_dip": 0.3789792290136429,
+        "n_valid_cells": 33377,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Berkeley Vale 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.104159588863578,
+        "midday_dip": 0.1441037377888934,
+        "n_valid_cells": 33600,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Berowra 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.769933271194337,
+        "midday_dip": 0.301224693087599,
+        "n_valid_cells": 27184,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Blakehurst 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.8697160937296895,
+        "midday_dip": 0.32121820952128033,
+        "n_valid_cells": 33569,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Botany 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.1979322894478623,
+        "midday_dip": 0.09404908702153092,
+        "n_valid_cells": 33315,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Brandy Hill 132_11kV",
+        "neg_frac": 0.09350984630163305,
+        "day_night_ratio": 0.17022084845356297,
+        "midday_dip": 0.8210868522151311,
+        "n_valid_cells": 33312,
+        "n_neg_cells": 3115,
+        "level": "suspected"
+      },
+      {
+        "station": "Branxton 66_11kV",
+        "neg_frac": 0.12497015281757402,
+        "day_night_ratio": 0.06527952856208075,
+        "midday_dip": 0.9316920301917512,
+        "n_valid_cells": 33504,
+        "n_neg_cells": 4187,
+        "level": "suspected"
+      },
+      {
+        "station": "Broadmeadow 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.26174474707933,
+        "midday_dip": 0.15126548495556036,
+        "n_valid_cells": 33573,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Brookvale 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.8803363117686707,
+        "midday_dip": -0.005802534738737597,
+        "n_valid_cells": 33042,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Burwood 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.3369423007390135,
+        "midday_dip": 0.07582370991068721,
+        "n_valid_cells": 32957,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Campbell St 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.636436948278094,
+        "midday_dip": -0.03547120871238896,
+        "n_valid_cells": 33478,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Camperdown 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.5378056209504778,
+        "midday_dip": -0.0014970951113104647,
+        "n_valid_cells": 33408,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Camperdown 33_5kV",
+        "neg_frac": 2.898382702452032e-05,
+        "day_night_ratio": 1.4166375521174224,
+        "midday_dip": -0.010050134632649366,
+        "n_valid_cells": 34502,
+        "n_neg_cells": 1,
+        "level": "clean"
+      },
+      {
+        "station": "Campsie 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.0654855146526352,
+        "midday_dip": 0.22581634350290547,
+        "n_valid_cells": 33565,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Cardiff 33_11kV",
+        "neg_frac": 0.002380952380952381,
+        "day_night_ratio": 0.7621135696479862,
+        "midday_dip": 0.39330810579550135,
+        "n_valid_cells": 33600,
+        "n_neg_cells": 80,
+        "level": "suspected"
+      },
+      {
+        "station": "Careel Bay 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.0267482251507665,
+        "midday_dip": 0.3193605407007023,
+        "n_valid_cells": 30913,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Caringbah 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.289081255343653,
+        "midday_dip": 0.06842728830844524,
+        "n_valid_cells": 33516,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Castle Cove 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.578991132058202,
+        "midday_dip": 0.05644614741132914,
+        "n_valid_cells": 33525,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Cessnock South 33_11kV",
+        "neg_frac": 0.03369047619047619,
+        "day_night_ratio": 0.4941483621676205,
+        "midday_dip": 0.5599427353952988,
+        "n_valid_cells": 33600,
+        "n_neg_cells": 1132,
+        "level": "suspected"
+      },
+      {
+        "station": "Charlestown 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.0309873870930018,
+        "midday_dip": 0.29889969758535684,
+        "n_valid_cells": 33516,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Charmhaven 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.4476046954701179,
+        "midday_dip": 0.5706462611226999,
+        "n_valid_cells": 33256,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Chatswood 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.38385579057983,
+        "midday_dip": 0.13410741208338428,
+        "n_valid_cells": 32713,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "City Central 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 2.0430561014401234,
+        "midday_dip": -0.03566753656140165,
+        "n_valid_cells": 33513,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "City North 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.9695330360908874,
+        "midday_dip": -0.07538839643795692,
+        "n_valid_cells": 30712,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "City South 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 2.0592221237931403,
+        "midday_dip": -0.08900855244261541,
+        "n_valid_cells": 33574,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Clovelly 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.4257657087823519,
+        "midday_dip": 0.09408343126227026,
+        "n_valid_cells": 33561,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Concord 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.2511510188539008,
+        "midday_dip": 0.11520420607168769,
+        "n_valid_cells": 30418,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Cronulla 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.7863689835816606,
+        "midday_dip": 0.3939905553123261,
+        "n_valid_cells": 33568,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Croudace Bay 33_11kV",
+        "neg_frac": 0.08389880952380953,
+        "day_night_ratio": 0.25406793813071854,
+        "midday_dip": 0.7751163894457775,
+        "n_valid_cells": 33600,
+        "n_neg_cells": 2819,
+        "level": "suspected"
+      },
+      {
+        "station": "Crows Nest 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.6507072507506646,
+        "midday_dip": 0.04751748777068188,
+        "n_valid_cells": 33548,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Croydon 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.1880385755189262,
+        "midday_dip": 0.21395296270595443,
+        "n_valid_cells": 28224,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Dalley St 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 2.2341253901288085,
+        "midday_dip": -0.08655149964529985,
+        "n_valid_cells": 33542,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Darling Harbour 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.432953138900801,
+        "midday_dip": -0.014268034950164932,
+        "n_valid_cells": 33543,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Darlinghurst 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.613667721655985,
+        "midday_dip": -0.022709928916298416,
+        "n_valid_cells": 33378,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Dee Why West 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.0317310406964646,
+        "midday_dip": 0.28744481312434567,
+        "n_valid_cells": 33573,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Denman 66_11kV",
+        "neg_frac": 0.0036023054755043226,
+        "day_night_ratio": 0.6443881481433349,
+        "midday_dip": 0.4031125696846184,
+        "n_valid_cells": 33312,
+        "n_neg_cells": 120,
+        "level": "suspected"
+      },
+      {
+        "station": "Double Bay 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.6209812676966608,
+        "midday_dip": 0.03573319270366404,
+        "n_valid_cells": 33447,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Drummoyne 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.2457245916903672,
+        "midday_dip": 0.17701056487157518,
+        "n_valid_cells": 33468,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Edgeworth 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.33541741957002325,
+        "midday_dip": 0.6791745449024155,
+        "n_valid_cells": 33600,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Empire Bay 66_11kV",
+        "neg_frac": 0.08470630372492836,
+        "day_night_ratio": 0.18136724876411314,
+        "midday_dip": 0.8180247221992988,
+        "n_valid_cells": 33504,
+        "n_neg_cells": 2838,
+        "level": "suspected"
+      },
+      {
+        "station": "Engadine 132_11kV",
+        "neg_frac": 0.0013819623865889564,
+        "day_night_ratio": 0.46540060977722614,
+        "midday_dip": 0.5398102840235546,
+        "n_valid_cells": 33286,
+        "n_neg_cells": 46,
+        "level": "suspected"
+      },
+      {
+        "station": "Epping 66_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.2953979681415317,
+        "midday_dip": 0.11458641252321555,
+        "n_valid_cells": 31008,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Erina 66_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.1829867973755683,
+        "midday_dip": 0.1729324445145496,
+        "n_valid_cells": 33158,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Flemington 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.2276573019351025,
+        "midday_dip": 0.03309482012334408,
+        "n_valid_cells": 33433,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Galston 132_11kV",
+        "neg_frac": 0.0029464285714285716,
+        "day_night_ratio": 0.6705266623689125,
+        "midday_dip": 0.43441679330599403,
+        "n_valid_cells": 33600,
+        "n_neg_cells": 99,
+        "level": "suspected"
+      },
+      {
+        "station": "Gateshead 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.9245069073942184,
+        "midday_dip": 0.2952900988003144,
+        "n_valid_cells": 33571,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Gore Hill 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.4995001872502938,
+        "midday_dip": -0.0010615712393968746,
+        "n_valid_cells": 33600,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Green Square 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.6305207886948923,
+        "midday_dip": -0.036936666192701306,
+        "n_valid_cells": 32222,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Greenacre 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.2516176634316276,
+        "midday_dip": 0.08085665103205653,
+        "n_valid_cells": 28074,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Gwawley Bay 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.2381096890880365,
+        "midday_dip": 0.1729389996450088,
+        "n_valid_cells": 32169,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Harbord 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.8561099605049403,
+        "midday_dip": 0.41347129769999547,
+        "n_valid_cells": 30542,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Homebush Bay 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.475017587838001,
+        "midday_dip": -0.03193885014653053,
+        "n_valid_cells": 33257,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Hornsby 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.0602359533319043,
+        "midday_dip": 0.17426220953901816,
+        "n_valid_cells": 33478,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Hunters Hill 66_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.1250298788555195,
+        "midday_dip": 0.2319391083207828,
+        "n_valid_cells": 31008,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Hurstville North 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.1644540779283397,
+        "midday_dip": 0.15199318053398259,
+        "n_valid_cells": 33408,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Jannali 33_11kV",
+        "neg_frac": 0.012171372930866602,
+        "day_night_ratio": 0.43049788807687256,
+        "midday_dip": 0.5676910587248358,
+        "n_valid_cells": 32864,
+        "n_neg_cells": 400,
+        "level": "suspected"
+      },
+      {
+        "station": "Jesmond 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.8026814142969599,
+        "midday_dip": 0.309474157802359,
+        "n_valid_cells": 33574,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Jewells 33_11kV",
+        "neg_frac": 0.057470238095238095,
+        "day_night_ratio": 0.3388694110967805,
+        "midday_dip": 0.682057791210219,
+        "n_valid_cells": 33600,
+        "n_neg_cells": 1931,
+        "level": "suspected"
+      },
+      {
+        "station": "Killarney 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.6596984793788551,
+        "midday_dip": 0.42393319066213564,
+        "n_valid_cells": 33478,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Kingsford 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.3100256319607284,
+        "midday_dip": 0.09160076930581706,
+        "n_valid_cells": 33600,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Kirrawee 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.9901954984066513,
+        "midday_dip": 0.23707677609797662,
+        "n_valid_cells": 33504,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Kogarah 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.3127537041963309,
+        "midday_dip": 0.09456935280339829,
+        "n_valid_cells": 32806,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Kotara 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.3659967897534795,
+        "midday_dip": 0.19700209613593855,
+        "n_valid_cells": 32640,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Kurnell South 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.9118517677115001,
+        "midday_dip": 0.18513337963702337,
+        "n_valid_cells": 33064,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Kurri 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.653161786912424,
+        "midday_dip": 0.3933000353366022,
+        "n_valid_cells": 30816,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Lake Munmorah 132_11kV",
+        "neg_frac": 0.05592261904761905,
+        "day_night_ratio": 0.2756690360044226,
+        "midday_dip": 0.7153193242669631,
+        "n_valid_cells": 33600,
+        "n_neg_cells": 1879,
+        "level": "suspected"
+      },
+      {
+        "station": "Leichhardt 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.2336539137640383,
+        "midday_dip": 0.12776222547878502,
+        "n_valid_cells": 32928,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Leightonfield 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.1483163221396793,
+        "midday_dip": 0.09115248266707665,
+        "n_valid_cells": 33412,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Lemington 66_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.0873142273386196,
+        "midday_dip": 0.11387688852132083,
+        "n_valid_cells": 33023,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Lidcombe 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.2487292818431368,
+        "midday_dip": 0.07275991279883565,
+        "n_valid_cells": 33412,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Lindfield 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.9494398576072227,
+        "midday_dip": 0.2752467799110827,
+        "n_valid_cells": 33393,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Lisarow 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.6848075835386271,
+        "midday_dip": 0.37086662662198955,
+        "n_valid_cells": 33439,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Long Jetty 66_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.48334786697933074,
+        "midday_dip": 0.5594073532922622,
+        "n_valid_cells": 30757,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Lucas Heights 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.0758700868226967,
+        "midday_dip": -0.029472753403668284,
+        "n_valid_cells": 30962,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Macquarie Park 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.352552377542658,
+        "midday_dip": -0.03582129766001341,
+        "n_valid_cells": 33600,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Maitland 33_11kV",
+        "neg_frac": 0.02074404761904762,
+        "day_night_ratio": 0.7181733474228333,
+        "midday_dip": 0.4767147505719742,
+        "n_valid_cells": 33600,
+        "n_neg_cells": 697,
+        "level": "suspected"
+      },
+      {
+        "station": "Manly 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.6001840639221194,
+        "midday_dip": 0.08363618567258546,
+        "n_valid_cells": 30887,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Maroubra 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.2825369200154073,
+        "midday_dip": 0.0892884611788819,
+        "n_valid_cells": 33549,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Marrickville 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.3956439735176436,
+        "midday_dip": 0.11563119529886168,
+        "n_valid_cells": 33312,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Maryland 132_11kV",
+        "neg_frac": 0.24340377268385865,
+        "day_night_ratio": -1.2746494992761552,
+        "midday_dip": 2.58306805681664,
+        "n_valid_cells": 33504,
+        "n_neg_cells": 8155,
+        "level": "suspected"
+      },
+      {
+        "station": "Mascot 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.37250858954199,
+        "midday_dip": -0.0027260397792119306,
+        "n_valid_cells": 33524,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Matraville 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.9260556298016361,
+        "midday_dip": 0.2310852422267009,
+        "n_valid_cells": 28310,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Mayfield West 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.0528269274890427,
+        "midday_dip": 0.14713182142691794,
+        "n_valid_cells": 33600,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Meadowbank 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.0411663598605414,
+        "midday_dip": 0.13085659131335647,
+        "n_valid_cells": 33478,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Medowie 33_11kV",
+        "neg_frac": 0.1738598376313276,
+        "day_night_ratio": -0.21677210446639328,
+        "midday_dip": 1.2924399902488457,
+        "n_valid_cells": 33504,
+        "n_neg_cells": 5825,
+        "level": "suspected"
+      },
+      {
+        "station": "Menai 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.418106224984842,
+        "midday_dip": 0.48749896323218644,
+        "n_valid_cells": 33567,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Merriwa 33_11kV",
+        "neg_frac": 0.0019997612225405924,
+        "day_night_ratio": 0.5806803717634109,
+        "midday_dip": 0.45301512064640403,
+        "n_valid_cells": 33504,
+        "n_neg_cells": 67,
+        "level": "suspected"
+      },
+      {
+        "station": "Metford 33_11kV",
+        "neg_frac": 0.012679326150366094,
+        "day_night_ratio": 0.6781259635099337,
+        "midday_dip": 0.46385768621944135,
+        "n_valid_cells": 33598,
+        "n_neg_cells": 426,
+        "level": "suspected"
+      },
+      {
+        "station": "Milperra 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.1931883852379201,
+        "midday_dip": 0.11195834188256126,
+        "n_valid_cells": 33466,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Miranda 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.2467294689094401,
+        "midday_dip": 0.16707994524150793,
+        "n_valid_cells": 33490,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Mitchell Line 66_11kV",
+        "neg_frac": 0.0011607142857142858,
+        "day_night_ratio": 0.800853872303847,
+        "midday_dip": 0.3384274057454357,
+        "n_valid_cells": 33600,
+        "n_neg_cells": 39,
+        "level": "suspected"
+      },
+      {
+        "station": "Mitchells Flat 66_11kV",
+        "neg_frac": 0.13914756446991405,
+        "day_night_ratio": -0.017324533019127952,
+        "midday_dip": 1.0274404781715099,
+        "n_valid_cells": 33504,
+        "n_neg_cells": 4662,
+        "level": "suspected"
+      },
+      {
+        "station": "Mona Vale 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.1546019577058018,
+        "midday_dip": 0.24505221806119726,
+        "n_valid_cells": 28285,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Moonan 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.9968287024260617,
+        "midday_dip": 0.11328476412967559,
+        "n_valid_cells": 33251,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Morisset 132_11kV",
+        "neg_frac": 0.05571022302050591,
+        "day_night_ratio": 0.34760540505391846,
+        "midday_dip": 0.6833234263861424,
+        "n_valid_cells": 33405,
+        "n_neg_cells": 1861,
+        "level": "suspected"
+      },
+      {
+        "station": "Mortdale 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.8333822469946511,
+        "midday_dip": 0.36429180206332723,
+        "n_valid_cells": 33494,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Mosman 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.296283958632436,
+        "midday_dip": 0.1649224022808612,
+        "n_valid_cells": 33574,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Mt Hutton 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.5181328826463885,
+        "midday_dip": 0.48056685148283174,
+        "n_valid_cells": 29997,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Mt Thorley 66_11kV",
+        "neg_frac": 0.0004761904761904762,
+        "day_night_ratio": 0.8121456694372255,
+        "midday_dip": 0.27968660739291273,
+        "n_valid_cells": 33600,
+        "n_neg_cells": 16,
+        "level": "suspected"
+      },
+      {
+        "station": "Muswellbrook 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.698957759497503,
+        "midday_dip": 0.386558336873294,
+        "n_valid_cells": 33199,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Narrabeen 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.0195737603054666,
+        "midday_dip": 0.30485790399104973,
+        "n_valid_cells": 33562,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Nelson Bay 33_11kV",
+        "neg_frac": 0.0038095238095238095,
+        "day_night_ratio": 0.5747632715987468,
+        "midday_dip": 0.5186815019074005,
+        "n_valid_cells": 33600,
+        "n_neg_cells": 128,
+        "level": "suspected"
+      },
+      {
+        "station": "New Lambton 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.8322928511391999,
+        "midday_dip": 0.2681555147503145,
+        "n_valid_cells": 33479,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Newcastle CBD 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.618065834647278,
+        "midday_dip": 0.050132679695810034,
+        "n_valid_cells": 33600,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Newdell 66_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.9514861647123184,
+        "midday_dip": 0.05188150086737631,
+        "n_valid_cells": 33600,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Newport 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.8736328475427001,
+        "midday_dip": 0.34842078557420664,
+        "n_valid_cells": 33516,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Noraville 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.40816440729840037,
+        "midday_dip": 0.5873690993541205,
+        "n_valid_cells": 33243,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "North Head 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.8930377074798421,
+        "midday_dip": -0.016422701126010297,
+        "n_valid_cells": 33338,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "North Sydney 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.899710738388049,
+        "midday_dip": -0.018395119211820354,
+        "n_valid_cells": 33542,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Nulkaba 33_11kV",
+        "neg_frac": 0.0022916666666666667,
+        "day_night_ratio": 0.8980992088361789,
+        "midday_dip": 0.28498123656975816,
+        "n_valid_cells": 33600,
+        "n_neg_cells": 77,
+        "level": "suspected"
+      },
+      {
+        "station": "Olympic Park 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.3787018163235354,
+        "midday_dip": 0.04734200554811585,
+        "n_valid_cells": 30782,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Paddington 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.5438462134167847,
+        "midday_dip": 0.0019758358529124997,
+        "n_valid_cells": 33552,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Paxton 33_11kV",
+        "neg_frac": 3.0083330826389097e-05,
+        "day_night_ratio": 0.44680359044286083,
+        "midday_dip": 0.5003660882228357,
+        "n_valid_cells": 33241,
+        "n_neg_cells": 1,
+        "level": "suspected"
+      },
+      {
+        "station": "Peats Ridge 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.9320555148467758,
+        "midday_dip": 0.22574261105042626,
+        "n_valid_cells": 33504,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Pelican 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.7294742391224713,
+        "midday_dip": 0.383226972982847,
+        "n_valid_cells": 33600,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Pennant Hills 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.6560302219187023,
+        "midday_dip": 0.4102294440258263,
+        "n_valid_cells": 33573,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Port Botany 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.0354513229871094,
+        "midday_dip": 0.011223345199506185,
+        "n_valid_cells": 33600,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Potts Hill 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.9625396567312083,
+        "midday_dip": 0.15766145535516352,
+        "n_valid_cells": 33558,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Punchbowl 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.1886045716290712,
+        "midday_dip": 0.14809978770235754,
+        "n_valid_cells": 33504,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Pymble 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.0508532594650344,
+        "midday_dip": 0.20751745328391402,
+        "n_valid_cells": 33574,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Rathmines 132_11kV",
+        "neg_frac": 0.125625,
+        "day_night_ratio": 0.0387456704924127,
+        "midday_dip": 0.9863188322566391,
+        "n_valid_cells": 33600,
+        "n_neg_cells": 4221,
+        "level": "suspected"
+      },
+      {
+        "station": "Raymond Terr NEW 33_11kV",
+        "neg_frac": 0.008413891872538489,
+        "day_night_ratio": 0.6217953353540977,
+        "midday_dip": 0.429370657359314,
+        "n_valid_cells": 33516,
+        "n_neg_cells": 282,
+        "level": "suspected"
+      },
+      {
+        "station": "Revesby 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.6338943923540228,
+        "midday_dip": 0.4140919238020311,
+        "n_valid_cells": 33540,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Riverwood 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.7792124901625271,
+        "midday_dip": 0.34381393199876864,
+        "n_valid_cells": 33516,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "RNS Hospital 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.4444692539308779,
+        "midday_dip": -0.03701594974285971,
+        "n_valid_cells": 33504,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Rockdale 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.1768104907149377,
+        "midday_dip": 0.11678561662504583,
+        "n_valid_cells": 33600,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Rose Bay 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.338880133876221,
+        "midday_dip": 0.15160332776366414,
+        "n_valid_cells": 33516,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Rothbury 132_11kV",
+        "neg_frac": 0.1037510939433262,
+        "day_night_ratio": 0.16656650661877598,
+        "midday_dip": 0.8245401908805168,
+        "n_valid_cells": 33137,
+        "n_neg_cells": 3438,
+        "level": "suspected"
+      },
+      {
+        "station": "Rouchel 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.8995003946308369,
+        "midday_dip": 0.2780680587010371,
+        "n_valid_cells": 32905,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Rutherford 33_11kV",
+        "neg_frac": 0.010952380952380953,
+        "day_night_ratio": 0.7261800722132018,
+        "midday_dip": 0.40196164855856886,
+        "n_valid_cells": 33600,
+        "n_neg_cells": 368,
+        "level": "suspected"
+      },
+      {
+        "station": "Sans Souci 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.9763500831267193,
+        "midday_dip": 0.31358069696935764,
+        "n_valid_cells": 30715,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Scone 66_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.8649820309842468,
+        "midday_dip": 0.30364234956688696,
+        "n_valid_cells": 33600,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Sefton 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.8138804242859689,
+        "midday_dip": 0.2707568053643593,
+        "n_valid_cells": 33574,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Singleton 66_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.9832403951582501,
+        "midday_dip": 0.17017873162613073,
+        "n_valid_cells": 33394,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Singleton North 66_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.5341678498853336,
+        "midday_dip": 0.43722110156688354,
+        "n_valid_cells": 33574,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Somersby 132_11kV",
+        "neg_frac": 0.02848214285714286,
+        "day_night_ratio": 0.7074219742185367,
+        "midday_dip": 0.3639695739778688,
+        "n_valid_cells": 33600,
+        "n_neg_cells": 957,
+        "level": "suspected"
+      },
+      {
+        "station": "St Ives 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.7758234933031787,
+        "midday_dip": 0.35340927593099136,
+        "n_valid_cells": 33186,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "St Peters 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.464138248867905,
+        "midday_dip": 0.0045634298774787085,
+        "n_valid_cells": 33504,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Stockton 33_11kV",
+        "neg_frac": 0.08616071428571428,
+        "day_night_ratio": 0.25971534642147787,
+        "midday_dip": 0.8026417532427772,
+        "n_valid_cells": 33600,
+        "n_neg_cells": 2895,
+        "level": "suspected"
+      },
+      {
+        "station": "Strathfield South 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.0853882762093767,
+        "midday_dip": 0.14986008641199766,
+        "n_valid_cells": 33600,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Summer Hill 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.1560124778280136,
+        "midday_dip": 0.17666077475572728,
+        "n_valid_cells": 33600,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Surry Hills 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.4902796448247835,
+        "midday_dip": -0.033397336739354744,
+        "n_valid_cells": 33600,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Swansea 33_11kV",
+        "neg_frac": 0.1144047619047619,
+        "day_night_ratio": 0.08188908239625238,
+        "midday_dip": 0.9359952632374801,
+        "n_valid_cells": 33600,
+        "n_neg_cells": 3844,
+        "level": "suspected"
+      },
+      {
+        "station": "Tanilba Bay 33_11kV",
+        "neg_frac": 0.07652817574021012,
+        "day_night_ratio": 0.23956707101614197,
+        "midday_dip": 0.7880741771195552,
+        "n_valid_cells": 33504,
+        "n_neg_cells": 2564,
+        "level": "suspected"
+      },
+      {
+        "station": "Tarro 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.0308444434623742,
+        "midday_dip": 0.15088201647222244,
+        "n_valid_cells": 33504,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Telarah 33_11kV",
+        "neg_frac": 0.056428571428571425,
+        "day_night_ratio": 0.45689136550141196,
+        "midday_dip": 0.5841822193236148,
+        "n_valid_cells": 33600,
+        "n_neg_cells": 1896,
+        "level": "suspected"
+      },
+      {
+        "station": "Terrey Hills 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.4767607074895441,
+        "midday_dip": 0.05407971485535623,
+        "n_valid_cells": 33314,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Thornton 33_11kV",
+        "neg_frac": 0.09840607775957098,
+        "day_night_ratio": 0.24545454091812738,
+        "midday_dip": 0.7815380143620996,
+        "n_valid_cells": 33565,
+        "n_neg_cells": 3303,
+        "level": "suspected"
+      },
+      {
+        "station": "Tighes Hill 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.1904154250790033,
+        "midday_dip": 0.12890899164277803,
+        "n_valid_cells": 33408,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Tomago 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.5094425223587935,
+        "midday_dip": -0.0682032634582721,
+        "n_valid_cells": 33600,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Tomalpin 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 3.7506608490106306,
+        "midday_dip": 0.021872560154537757,
+        "n_valid_cells": 33600,
+        "n_neg_cells": 0,
+        "level": "clean"
+      },
+      {
+        "station": "Tomaree 33_11kV",
+        "neg_frac": 0.01805754536771729,
+        "day_night_ratio": 0.49569882814783767,
+        "midday_dip": 0.5698691574294382,
+        "n_valid_cells": 33504,
+        "n_neg_cells": 605,
+        "level": "suspected"
+      },
+      {
+        "station": "Top Ryde 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.1849060239754121,
+        "midday_dip": 0.16846727527052996,
+        "n_valid_cells": 33286,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Toronto West 132_11kV",
+        "neg_frac": 0.0066071428571428574,
+        "day_night_ratio": 0.5728747413506798,
+        "midday_dip": 0.46724903789439154,
+        "n_valid_cells": 33600,
+        "n_neg_cells": 222,
+        "level": "suspected"
+      },
+      {
+        "station": "Turramurra 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.0855442107959212,
+        "midday_dip": 0.23177465424252086,
+        "n_valid_cells": 33504,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Umina 66_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.545668615995712,
+        "midday_dip": 0.48852766816224014,
+        "n_valid_cells": 30613,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Vales Point 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.9057483707944916,
+        "midday_dip": -0.03497971476747308,
+        "n_valid_cells": 30657,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Wamberal 132_11kV",
+        "neg_frac": 0.055625,
+        "day_night_ratio": 0.33302983430276206,
+        "midday_dip": 0.693347621323944,
+        "n_valid_cells": 33600,
+        "n_neg_cells": 1869,
+        "level": "suspected"
+      },
+      {
+        "station": "Waverley 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.5026145466853875,
+        "midday_dip": 0.15454588687268966,
+        "n_valid_cells": 33574,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "West Gosford 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.1487289346861567,
+        "midday_dip": 0.14772983254960315,
+        "n_valid_cells": 33600,
+        "n_neg_cells": 0,
+        "level": "mild"
+      },
+      {
+        "station": "Williamtown 33_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.8818441458844029,
+        "midday_dip": 0.3568462759034364,
+        "n_valid_cells": 33478,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Woy Woy 66_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 0.6103433344608056,
+        "midday_dip": 0.39556299869394707,
+        "n_valid_cells": 33572,
+        "n_neg_cells": 0,
+        "level": "suspected"
+      },
+      {
+        "station": "Wyong 132_11kV",
+        "neg_frac": 0.024066091954022987,
+        "day_night_ratio": 0.5529975049397887,
+        "midday_dip": 0.5321410177462701,
+        "n_valid_cells": 33408,
+        "n_neg_cells": 804,
+        "level": "suspected"
+      },
+      {
+        "station": "Zetland 132_11kV",
+        "neg_frac": 0.0,
+        "day_night_ratio": 1.4463679672130128,
+        "midday_dip": -0.014547948886613371,
+        "n_valid_cells": 33570,
+        "n_neg_cells": 0,
+        "level": "clean"
+      }
+    ]
+  }
+}

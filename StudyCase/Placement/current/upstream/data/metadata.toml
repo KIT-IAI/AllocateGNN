@@ -1,0 +1,259 @@
+# 数据集唯一登记(入库)—— metadata.toml
+# 2026-08-10 拍板(参照 granularitycasestudy 约定):原 metadata.json 转 TOML。
+# 本文件 = **人写**的每数据集事实(layer/path/country/source/regenerate/license/validation);
+# 下载目录中的 manifest_*_landing.json 只记录本机落地字节，不作运行时校验。
+# 文件名与落地路径由 casestudy/1_DataOverview/<国家目录>/<cc>.toml 的台账和 sglib.dataoverview.processing 决定,本文件不登记文件清单。
+# 兼任仓库根定位 fail-fast 标记(sglib.core.infra.paths.find_repo_root 探测本文件)。
+
+[_meta]
+schema = "spatialgranularity:data-metadata/2.0"
+note = "数据集登记表:每个落地到 data/datasets/ 的数据集在此登记一条,登记时机 = 数据落地的同一提交;字段见 _示例。"
+deanchoring = "所有数据从公开源重新下载；不使用旧字节或哈希作为运行闸门。DataOverview 当前通过三国 PBF、GHSL 官方瓦片和离线 NTL GeoTIFF 再生。"
+
+[uk_gb_ps_info]
+layer = "1_raw"
+path = "data/datasets/1_raw/uk/HDRah-Data-PS-GB-1f63a32"
+country = "UK"
+source = "GB-PS-info 数据集(Zhou/Essayeh/Morstyn):Zenodo record 10866260(v1.0.2 zip,概念 DOI 10.5281/zenodo.10736516);描述论文 DOI 10.1016/j.dib.2024.110483;zip 内部文件夹即 HDRah-Data-PS-GB-1f63a32(GitHub 归档命名);含 GB 一次变电站(容量/峰值需求/位置/GSP)+ Geo_data(LAD 边界 shp)+ Census 供暖数据"
+regenerate = "python -m sglib.dataoverview --country uk --dataset gb_ps_info --step download"
+license = "CC BY 4.0(Zenodo 记录;论文③数据源声明核验);引用要求:Zhou et al., Data in Brief 2024 + Zenodo DOI 双引"
+registered = "2026-08-09"
+
+[uk_ons_lad_itl_lookup]
+layer = "1_raw"
+path = "data/datasets/1_raw/uk/Local_Authority_District_(April_2021)_to_LAU1_to_ITL3_to_ITL2_to_ITL1_(January_2021)_Lookup_in_United_Kingdom.csv"
+country = "UK"
+source = "ONS Open Geography Portal(ArcGIS Hub dataset id 8c4d546ee4a446819b5ff39ff81cf009_0):LAD(2021)→LAU1→ITL3→ITL2→ITL1 查找表;门户页 https://geoportal.statistics.gov.uk/datasets/local-authority-district-april-2021-to-lau1-to-itl3-to-itl2-to-itl1-january-2021-lookup-in-the-uk"
+regenerate = "python -m sglib.dataoverview --country uk --dataset itl_lookup --step download"
+license = "OGL v3(ONS 开放政府许可)"
+registered = "2026-08-09"
+
+[uk_ons_population_mye23]
+layer = "1_raw"
+path = "data/datasets/1_raw/uk/mye23tablesew.xlsx"
+country = "UK"
+source = "ONS mid-2023 人口估计(England & Wales,mid-2023 local authority boundaries edition,版本被 URL 路径锁定):数据集页 https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/estimatesofthepopulationforenglandandwales"
+regenerate = "python -m sglib.dataoverview --country uk --dataset population --step download"
+license = "OGL v3"
+registered = "2026-08-09"
+
+[uk_ons_regional_gva]
+layer = "1_raw"
+path = "data/datasets/1_raw/uk/regionalgrossvalueaddedbalancedbyindustryandallitlregions.xlsx"
+country = "UK"
+source = "ONS 区域 GVA(balanced, by industry, all ITL regions):https://www.ons.gov.uk/economy/grossvalueaddedgva/datasets/nominalandrealregionalgrossvalueaddedbalancedbyindustry/current(⚠ /current/ 为移动指针,2026-08-09 与论文版本逐字节一致;官网更新后下载到新版,对照提示标 △,分析按现行数据进行;需论文版本时去 previous versions 找 2022 数据年份版)"
+regenerate = "python -m sglib.dataoverview --country uk --dataset gva --step download"
+license = "OGL v3"
+registered = "2026-08-09"
+
+[uk_itl3_region]
+layer = "2_derived"
+path = "data/datasets/2_derived/uk/ITL3_region.gpkg"
+country = "UK"
+source = "由 uk 四个 raw 数据集派生(LAD 边界 + LAD→ITL 映射 + ONS 人口 + ONS GVA + 变电站需求聚合);138 个 ITL3 区域。⚠ 权威口径:区域总需求 = 本文件 Demand (MVA) 列(不是源项目 002b pickle 的第二元素——那是格点步长米)"
+regenerate = "python -m sglib.dataoverview --country uk --dataset regions --step derive"
+license = "衍生自 OGL v3 与 CC BY 4.0 数据"
+registered = "2026-08-09"
+
+[uk_substations]
+layer = "2_derived"
+path = "data/datasets/2_derived/uk/substations.gpkg"
+country = "UK"
+source = "由 GB-PS-info 的 GB_PS_data_extend.csv 派生:同址聚合 + 清洗 + ITL3/ITL2 空间归属;4176 座一次变电站;8 列(2026-08-10 R9 解冻 #4 增 Firm Capacity (MVA):同一同址聚合链算出,选址/定容/成本判据消费;既有 7 列位级不变,新列对外部同口径对照件 4176/4176 全精确)"
+regenerate = "python -m sglib.dataoverview --country uk --dataset substations --step derive"
+license = "衍生自 CC BY 4.0 数据(GB-PS-info,引用要求见 raw 条目)"
+registered = "2026-08-09"
+
+[au_pv_screening]
+layer = "2_derived"
+path = "data/datasets/2_derived/au/a4_pv_screening.json"
+country = "AU"
+source = "PV 净负荷筛查(FY2009/FY2024 逐站三指标 + 数字规则分层;R9 解冻 #6 生成链补迁,2026-08-11):由 ausgrid_zs raw 再生;再生件 vs 论文登记件(au_registry/a4,降纯对照)全 payload 逐位 EXACT(仅 generated_by 溯源字段差);消费面 = 站表 pv_level_fy2009 列 + 010 显著性 pv_excl 分支剔站集(FY2009 疑似 5 站)"
+regenerate = "python -m sglib.dataoverview --country au --phase processing"
+license = "衍生自 Ausgrid Rule 5.13A 公布数据"
+registered = "2026-08-11"
+
+[au_ausgrid_zs]
+layer = "1_raw"
+path = "data/datasets/1_raw/au/ausgrid_zs"
+country = "AU"
+source = "Ausgrid Distribution Zone Substation Data(15min 负荷,FY2008/2009/2010/2024):官网 Sitecore 直链;页面 https://www.ausgrid.com.au/about-us/about-ausgrid/research-data-sets/distribution-zone-substation-data。⚠ 未经校验原始 SCADA/计量数据,部分站 MW 由 Amps 折算;保密站不含(Rule 5.13A(g));报告年 May-to-May"
+regenerate = "python -m sglib.dataoverview --country au --dataset ausgrid_zs --step download"
+license = "依 NER Rule 5.13A 公布,Ausgrid 保留版权;data.NSW 登记 CC-BY(两处并引,详见源项目 licensing_statement)"
+registered = "2026-08-09"
+
+[au_asgs_ed3]
+layer = "1_raw"
+path = "data/datasets/1_raw/au/asgs_ed3"
+country = "AU"
+source = "ABS ASGS Edition 3 (2021) 数字边界 SA2/SA3/SA4(GDA2020 Shapefile),abs.gov.au 直链"
+regenerate = "python -m sglib.dataoverview --country au --dataset asgs --step download"
+license = "CC BY 4.0"
+registered = "2026-08-09"
+
+[au_abs_population]
+layer = "1_raw"
+path = "data/datasets/1_raw/au/abs_population"
+country = "AU"
+source = "ABS Regional population 2024-25:SA2 级 ERP 2001–2025 时序(2021 边界回铸,FY2009 可直取)"
+regenerate = "python -m sglib.dataoverview --country au --dataset population --step download"
+license = "CC BY 4.0"
+registered = "2026-08-09"
+
+[au_abs_income]
+layer = "1_raw"
+path = "data/datasets/1_raw/au/abs_income"
+country = "AU"
+source = "ABS 个人收入:6524.0.55.002 历史表 do004(2005-06~2010-11,SA 层级,旧式 .xls)+ Personal Income in Australia 2022-23 Table 1"
+regenerate = "python -m sglib.dataoverview --country au --dataset income --step download"
+license = "CC BY 4.0"
+registered = "2026-08-09"
+
+[au_abares_clum]
+layer = "1_raw"
+path = "data/datasets/1_raw/au/abares_clum"
+country = "AU"
+source = "ABARES CLUM 50m 双版本:2023-12 v2(DOI 10.25814/2w2p-ph98)+ 2015-03(NSW 成分≈2007 测绘,与 FY2009 最贴);data.gov.au 直链"
+regenerate = "python -m sglib.dataoverview --country au --phase processing"
+license = "CC BY 4.0 / CC BY"
+registered = "2026-08-09"
+
+[au_census2011_bcp]
+layer = "1_raw"
+path = "data/datasets/1_raw/au/census2011"
+country = "AU"
+source = "ABS Census 2011 Basic Community Profile DataPack,SA3 × NSW(B43 行业就业构成)"
+regenerate = "python -m sglib.dataoverview --country au --dataset census2011 --step download"
+license = "CC BY 2.5 AU(署名 Australian Bureau of Statistics)"
+registered = "2026-08-09"
+
+[au_nsw_locations_snapshot]
+layer = "1_raw"
+path = "data/datasets/1_raw/au/locations_sample"
+country = "AU"
+source = "NSW ArcGIS Hosted Ausgrid_UHC_Data FeatureServer/0(zone substation 位置,year=2025 切片)。本机为论文时点快照(extract_date=2024-06-27);fresh 重查得现行图层,时点快照不可复得"
+regenerate = "python -m sglib.dataoverview --country au --dataset locations --step download"
+license = "licenseInfo=Data Sharing Agreement in place(黄灯;源项目 2026-07-16 结案:只发布衍生分析结果)"
+registered = "2026-08-09"
+
+[au_osm_overpass_snapshot]
+layer = "1_raw"
+path = "data/datasets/1_raw/au/osm"
+country = "AU"
+source = "OSM Overpass power=substation 两级 bbox dump(未匹配站兜底定位)。本机为论文时点快照(2024-06/2026-07);fresh 重查得现行数据"
+regenerate = "python -m sglib.dataoverview --country au --dataset osm_snapshot --step download"
+license = "ODbL 1.0(© OpenStreetMap contributors;坐标派生使用需署名)"
+registered = "2026-08-09"
+
+[au_asgs_nsw_gpkg]
+layer = "2_derived"
+path = "data/datasets/2_derived/au/asgs_nsw_sa2_sa3_sa4_gda2020.gpkg"
+country = "AU"
+source = "由 asgs_ed3 三层 SHP 裁 NSW 子集(STE_CODE21=1,剔无几何行)合写单 GPKG:sa2(642)/sa3(92)/sa4(28) 三层"
+regenerate = "python -m sglib.dataoverview --country au --dataset regions --step derive"
+license = "衍生自 CC BY 4.0 数据"
+registered = "2026-08-09"
+
+[au_station_tables]
+layer = "2_derived"
+path = "data/datasets/2_derived/au/station_table_fy{2008,2009,2010}.csv"
+country = "AU"
+source = "三年窗站表(FY2009 主分析):Ausgrid 负荷清洗(单位断言 MW/缺测 10% 阈值/变体切换-并行判型)+ 位置匹配(归一化+编辑距离)+ OSM 兜底 + 互斥归因;FY2009 = 163 站,usable 143,25.196 TWh"
+regenerate = "python -m sglib.dataoverview --country au --dataset stations --step derive"
+license = "衍生数据;上游许可混合(Ausgrid Rule 5.13A + ODbL 坐标 + DSA 图层)——只发布衍生分析结果"
+registered = "2026-08-09"
+
+[au_station_points]
+layer = "2_derived"
+path = "data/datasets/2_derived/au/station_points_fy2009.geojson"
+country = "AU"
+source = "FY2009 已定位站点空间分布(143 点,WGS84,带归因状态属性)"
+regenerate = "python -m sglib.dataoverview --country au --dataset stations --step derive"
+license = "同 au_station_tables"
+registered = "2026-08-09"
+
+[de_geoserver_snapshot]
+layer = "1_raw"
+path = "data/datasets/1_raw/de/geoserver"
+country = "DE"
+source = "regiocom GeoServer WFS 四图层(https://webapp.regiocom.net/geoserver):Gemeinden/Kreis 边界(v_lkb_vg250_*)+ UW 位置与负荷快照(v_epa_uw*)。本机为论文时点快照;UW 负荷为活值,fresh 重查必然漂移。⚠ Gemeinden 图层含脏数据(Berlin 等),派生时质心过滤"
+regenerate = "python -m sglib.dataoverview --country de --dataset geoserver --step download"
+license = "项目伙伴 GeoServer(regiocom);VG250 边界底源 = BKG,dl-de/by-2-0"
+registered = "2026-08-09"
+
+[de_eurostat_gva_sdmx]
+layer = "1_raw"
+path = "data/datasets/1_raw/de/eurostat/nama_10r_3gva_sdmx.csv"
+country = "DE"
+source = "Eurostat SDMX 2.1 API:nama_10r_3gva(NUTS3 GVA),CP_MEUR,DE+DEE07,15 NACE,2015–2024。⚠ Data Browser 2026-02 改版后旧 xlsx 导出不可复得,故以 SDMX CSV 为 raw"
+regenerate = "python -m sglib.dataoverview --country de --dataset gva --step download"
+license = "Eurostat 免费再利用政策(署名 Eurostat)"
+registered = "2026-08-09"
+
+[de_gva_xlsx]
+layer = "2_derived"
+path = "data/datasets/2_derived/de/nama_10r_3gva.xlsx"
+country = "DE"
+source = "由 SDMX CSV 按源 001 期望布局重建的 GVA xlsx(15 sheet;2022 七组锚定值与论文一致 ✓)"
+regenerate = "python -m sglib.dataoverview --country de --dataset gva --step derive"
+license = "衍生自 Eurostat 数据"
+registered = "2026-08-09"
+
+[de_source_regions]
+layer = "2_derived"
+path = "data/datasets/2_derived/de/source_regions.gpkg"
+country = "DE"
+source = "Börde(NUTS3 DEE07)34 Gemeinden:人口(含缺失填补策略)+ GVA 四扇区 percent(NUTS3 整体值共享)+ 面积占比;总人口 178,563"
+regenerate = "python -m sglib.dataoverview --country de --dataset regions --step derive"
+license = "衍生数据(GeoServer + Eurostat)"
+registered = "2026-08-09"
+
+[de_substations]
+layer = "2_derived"
+path = "data/datasets/2_derived/de/substations.gpkg"
+country = "DE"
+source = "Börde 13 座非零负荷 UW(p_mw = Last aktuell 快照,合计 207.5 MW)+ Gemeinde 归属(within + 最近邻兜底)"
+regenerate = "python -m sglib.dataoverview --country de --dataset substations --step derive"
+license = "衍生数据(GeoServer)"
+registered = "2026-08-09"
+
+[uk_features]
+layer = "2_derived"
+path = "data/datasets/2_derived/uk/features"
+country = "UK"
+source = "共同 runner 生成的 16 个 grid bundles、区域 OSM GeoParquet/GHSL crop，以及 landuse/Built-S/C-U-Z/NTL 四类 NPZ"
+regenerate = "python -m sglib.dataoverview --country uk"
+license = "VIIRS NTL: NOAA 公开;GHSL: EC JRC;OSM: ODbL"
+anchoring = "2026-08-18 从公开源全量重建；16 区 n_cells/n_sources/source_key_order 与上一轮 structural anchor 一致"
+registered = "2026-08-10"
+
+[au_regions]
+layer = "2_derived"
+path = "data/datasets/2_derived/au/{regions_sa3.gpkg,regions_sa4.gpkg,region_attributes.csv}"
+country = "AU"
+source = "含可用站 SA3×34 / SA4×12；宏观三源 = ERP 2009 + 收入 2008-09 + 2011 Census B43；需求 = 域内可用站 peak_mw 和"
+regenerate = "python -m sglib.dataoverview --country au --dataset regions --step derive"
+license = "ABS/Census: CC BY;ASGS Ed3: CC BY 4.0"
+anchoring = "2026-08-10 vs 源:region_attributes 精确相等;regions_sa3/sa4 属性精确 + 几何 1e-12"
+registered = "2026-08-10"
+
+[au_features]
+layer = "2_derived"
+path = "data/datasets/2_derived/au/{grid,features}"
+country = "AU"
+source = "共同 runner 生成的 12 个 grid bundles、区域 OSM GeoParquet/GHSL crop，以及 landuse/Built-S/C-U-Z/NTL 四类 NPZ"
+regenerate = "python -m sglib.dataoverview --country au"
+license = "VIIRS NTL: NOAA 公开;GHSL: EC JRC;OSM: ODbL"
+anchoring = "2026-08-18 从公开源全量重建；12 区 n_cells/n_sources/source_key_order 与上一轮 structural anchor 一致"
+registered = "2026-08-10"
+
+[de_features]
+layer = "2_derived"
+path = "data/datasets/2_derived/de/features"
+country = "DE"
+source = "共同 runner 生成的 Börde grid bundle、OSM GeoParquet/GHSL crop，以及 landuse/Built-S/C-U-Z/NTL 四类 NPZ"
+regenerate = "python -m sglib.dataoverview --country de"
+license = "VIIRS NTL: NOAA 公开;GHSL: EC JRC;OSM: ODbL"
+validation = "2026-08-18 DE 单区冒烟通过：51,619 cells、34 sources、C/U/Z 与独立输入重算一致，NTL 与 GeoTIFF 直接采样一致"
+registered = "2026-08-10"
+

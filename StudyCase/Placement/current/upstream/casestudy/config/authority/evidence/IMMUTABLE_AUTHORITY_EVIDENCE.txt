@@ -1,0 +1,14 @@
+# Immutable authority evidence
+
+This directory holds evidence referenced by the frozen Generator V3 class-B
+engineering authority. It records the design basis of an admission rule, not a
+result, so it lives in Git next to the authority that binds it. The following
+artifact is an immutable evidence object and must not be regenerated or
+rewritten; an intentional replacement requires a versioned authority revision.
+
+- `casestudy2/config/authority/evidence/indexed_landuse_equivalence.json`
+- SHA-256: `49206fd2218f54806a0f13e17edad3cc59ab7f22f24377d7086373a565b5ca03`
+
+Origin: byte-identical copy of
+`results/_diagnostic/004_actual_active_repartition_2026-09-03/indexed_landuse_equivalence.json`
+(moved into Git on 2026-09-18; the original stays with the archived diagnostic).

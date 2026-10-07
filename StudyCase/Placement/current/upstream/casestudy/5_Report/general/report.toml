@@ -1,0 +1,76 @@
+# Mechanical rendering choices transcribed from the retired renderer.
+[shared]
+countries = ["uk", "au", "nl", "nz"]
+claims = ["C1", "C2", "C3", "C4", "C5", "C6"]
+colors = { uk = "#3366aa", au = "#cc6677", nl = "#228833", nz = "#aa4499" }
+
+[units.C1]
+figures = ["F-C1-01", "F-C1-02", "F-C1-03"]
+tables = ["T-C1-01"]
+[units.C1.spec]
+metrics = ["predictive_r2", "wape"]
+scatter_metric = "wape"
+candidate_order = ["EqualGrid", "EqualGridaddN", "EqualGridaddNP", "EqualGridaddP", "EqualGridpostN", "EqualGridpostNP", "EqualGridpostP", "GNN", "GNNaddN", "GNNaddNP", "GNNaddP", "GNNfusionN", "GNNfusionNP", "GNNfusionP", "GNNpostN", "GNNpostNP", "GNNpostP", "GNNpriorN", "GNNpriorNP", "GNNpriorP", "GPM", "GPMaddN", "GPMaddNP", "GPMaddP", "GPMpostN", "GPMpostNP", "GPMpostP", "MLP", "MLPaddN", "MLPaddNP", "MLPaddP", "MLPpostN", "MLPpostNP", "MLPpostP", "Uni", "UnipostN", "UnipostNP", "UnipostP", "EqualStation", "EqualRegion"]
+route_columns = ["rmse_direct", "rmse_grid"]
+route_labels = ["EqualRegion", "EqualGrid"]
+percent_scale = 100
+
+[units.C2]
+figures = ["F-C2-01", "F-C2-02", "F-C2-03"]
+tables = ["T-C2-01", "T-C2-02", "T-C2-03"]
+[units.C2.spec]
+mechanism_operator = "multiply"
+scan_metric = "rmse"
+scan_axes = { x = "parameter_value", y = "mean", series = "parameter_name" }
+
+[units.C3]
+figures = ["F-C3-01", "F-C3-02", "F-C3-03"]
+tables = ["T-C3-01", "T-C3-02"]
+[units.C3.spec]
+fixed_order_max = 3
+program_order_min = 4
+gate_group = "allocator"
+sections = ["T1", "CIVD", "structural_duplicate"]
+
+[units.C4]
+figures = ["F-C4-01", "F-C4-02", "F-C4-03"]
+tables = ["T-C4-01", "T-C4-02", "T-C4-03"]
+[units.C4.spec]
+map_candidate = "GNN"
+map_values = ["q_true", "q_estimated"]
+map_labels = ["True connection requirement", "Estimated connection requirement"]
+map_selectors = ["oracle", "selected"]
+map_coordinate_scale = 1000
+secondary_status = "VALID"
+secondary_label = "task_coordinate"
+sections = ["secondary", "matching", "status"]
+
+[units.C5]
+figures = ["F-C5-01", "F-C5-02", "F-C5-03"]
+tables = ["T-C5-01", "T-C5-02"]
+[units.C5.spec]
+scale_metric = "spearman"
+scale_candidates = ["GPM", "GNN"]
+scale_axes = { x = "radius_km", y = "mean", series = "candidate" }
+support_axes = { x = "radius_km", y = "mean_true_zero_q_fraction", series = "lambda" }
+
+[units.C6]
+figures = ["F-C6-01", "F-C6-02", "F-C6-03"]
+tables = ["T-C6-01", "T-C6-02"]
+[units.C6.spec]
+tolerance_curve = { radius_km = 10, lambda = 0.5, eta = 0.9, loss = "S" }
+budget_realization = { radius_km = 10, lambda = 0.5, loss = "S" }
+saturation = { radius_km = 10, eta = 0.9 }
+tolerance_axes = { x = "tau_normalized", y = "all_registered_share", series = "candidate" }
+budget_axes = { x = "eta", y = "budget_coverage_all", series = "candidate" }
+saturation_axes = { x = "lambda", y = "mean_true_zero_q", series = "candidate" }
+sections = ["calibration", "status"]
+
+[units.SYN]
+figures = ["F-SYN-02"]
+tables = ["T-SYN-01", "T-SYN-02", "T-SYN-03", "T-SYN-04", "T-INV-01"]
+[units.SYN.spec]
+status_columns = ["country", "claim_id", "expected", "produced", "eligible", "valid", "fallback", "status", "reason", "locator"]
+heatmap_index = ["claim_id", "country"]
+heatmap_numerator = "valid"
+heatmap_denominator = "expected"

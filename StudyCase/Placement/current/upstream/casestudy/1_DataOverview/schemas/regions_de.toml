@@ -1,0 +1,21 @@
+schema_version = "sg_artifact_schema_v1"
+artifact_type = "table"
+
+[table]
+allow_extra_columns = true
+unique_by = [["Name"]]
+
+[[table.columns]]
+name = "Name"
+dtype = "string"
+nullable = false
+
+[[table.columns]]
+name = "NUTS3"
+dtype = "string"
+nullable = false
+
+[[table.columns]]
+name = "area_m2"
+dtype = "number"
+unit = "m2"

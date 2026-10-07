@@ -1,0 +1,34 @@
+schema_version = "sg_artifact_schema_v1"
+artifact_type = "table"
+
+[table]
+allow_extra_columns = true
+exact_rows = 9
+unique_by = [["analysis_region"]]
+
+[[table.columns]]
+name = "edb"
+dtype = "string"
+nullable = false
+allowed_values = ["Vector Lines", "Orion NZ", "Wellington Electricity"]
+
+[[table.columns]]
+name = "analysis_region"
+dtype = "string"
+nullable = false
+
+[[table.columns]]
+name = "n_source_rows"
+dtype = "integer"
+
+[[table.columns]]
+name = "n_site_targets"
+dtype = "integer"
+
+[[table.columns]]
+name = "n_section_rows"
+dtype = "integer"
+
+[[table.columns]]
+name = "n_strict_n1_sites"
+dtype = "integer"

@@ -1,0 +1,73 @@
+﻿# =============================================================================
+# SpatialGranularity —— 空间粒度转换器 依赖清单(环境文件)
+# 由 allocategnn-vibe/requirements.txt 逐项审计而来(2026-08-08,拍板 D8:
+# 剔除 SLP 时间轴专属 7 项 xarray/netCDF4/holidays/tempdisagg/demandlib/pyarrow/cdsapi)
+# 版本参照源环境锁 allocategnn-vibe/requirements.lock.txt(Python 3.13,torch 2.7.1+cu126)
+#
+# 安装(Windows,CUDA 12.6):
+#   py -3.13 -m venv .venv
+#   .venv\Scripts\python -m pip install torch==2.7.1 --index-url https://download.pytorch.org/whl/cu126
+#   .venv\Scripts\python -m pip install torch-scatter -f https://data.pyg.org/whl/torch-2.7.1+cu126.html
+#   .venv\Scripts\python -m pip install -r requirements.txt
+# 无 GPU 环境:省略 --index-url(装 CPU 版),torch-scatter 改用 cpu 轮子索引。
+# =============================================================================
+
+# ---- 深度学习框架 ----
+torch>=2.7.1            # 源锁 2.7.1+cu126;CUDA 轮子走 pytorch 官方索引(见头部)
+torch-geometric>=2.6.0  # 异构图 HeteroData / HGT 等
+torch-scatter>=2.1.2    # scatter-softmax(边权重层);轮子须与 torch/CUDA 匹配(见头部)
+# torch-sparse:源 requirements 声明但源环境锁未安装,审计判定不引入(迁移中确有脚本用到再加回并登记)
+
+# ---- 地理空间(⚓ 迁移期钉扎:与源环境锁逐版本对齐,服务 E-2 锚定;S5 收尾时重估)----
+geopandas==1.1.1
+shapely==2.1.1
+pyproj==3.7.1           # 注:即便版本一致,conda 与 pip 的 PROJ C 库构建仍有坐标 ULP 级差异(已按容差登记,见 2_derive/001)
+pyogrio==0.11.0         # geopandas IO 引擎(源锁版本,显式钉扎)
+fiona>=1.9
+networkx>=3.0
+
+# ---- 遥感 ----
+earthengine-api>=1.7    # GEE:Sentinel-2 / NTL / WorldCover
+rasterio>=1.5
+requests>=2.28
+
+# ---- 科学计算(⚓ pandas/numpy 迁移期钉扎,同上)----
+pandas==2.3.0
+numpy==2.3.1            # 消除源锁 2.3.1 vs 新版的浮点漂移风险(审计表遗留注意项③就此关闭)
+scipy>=1.10
+
+# ---- 机器学习/聚类 ----
+scikit-learn>=1.7
+hdbscan>=0.8.44          # CIVD 论文重建实验的冻结站点聚类(min_cluster_size=2)
+statsmodels>=0.14        # exp_inference 的 mixedlm 稳健性支线用到,承 D8「用到再加回」
+# pyomo / pandapower 仍随第一代论文支退出:
+#   恢复的 CIVD 使用 HDBSCAN + 可分离 row-wise argmax，不依赖 Pyomo/SCIP;
+#   pandapower 只服务 DE 下游潮流(DE 已收缩为 DataOverview-only)。
+#   若将来重新引入二者，必须连同实现一起登记。
+
+# ---- 可视化与报表 ----
+matplotlib>=3.6
+scienceplots>=2.1       # 论文期刊样式图
+tabulate>=0.9           # DataFrame.to_markdown 摘要
+pypdf==6.16.1           # Report 902 与 promotion 共用的严格 PDF 结构校验器
+
+# ---- 数据解析 ----
+xlrd>=2.0.1             # AU ABS 旧式二进制 .xls(空间线 AU 案例用,保留)
+openpyxl>=3.1           # ONS xlsx 解析(pandas read_excel 后端;源 requirements 漏列、源锁 3.1.5,2026-08-09 补登)
+
+# ---- 工具 ----
+python-dotenv>=1.0
+joblib>=1.2
+tqdm>=4.65
+pyarrow>=14             # load 层磁盘解析缓存(GeoParquet/Parquet;D8 曾按 SLP 专属剔除,2026-08-09 因新用途加回)
+
+# ---- 测试 ----
+pytest>=7.3
+pytest-cov>=4.1
+pytest-mock>=3.10
+
+# ---- Jupyter（阶段入口：DataOverview/Experiment/Analysis/Report 按编号执行；
+# Generator notebook 只展示，批处理由编号脚本执行） ----
+jupyter>=1.0
+ipykernel>=6.20
+ipywidgets>=8.0

@@ -1,0 +1,83 @@
+schema_version = "sg_artifact_schema_v1"
+artifact_type = "npz"
+
+[npz]
+allow_extra_arrays = false
+
+[npz.arrays.schema_version]
+dtype_kind = "US"
+shape = []
+
+[npz.arrays.landuse_categories]
+dtype_kind = "US"
+shape = [6]
+
+[npz.arrays.osm_landuse]
+dtype_kind = "f"
+shape = ["n_cells", 5]
+finite = true
+
+[npz.arrays.built_fraction]
+dtype_kind = "f"
+shape = ["n_cells"]
+finite = true
+
+[npz.arrays.features]
+dtype_kind = "f"
+shape = ["n_cells", 6]
+finite = true
+
+[npz.arrays.covered_mask]
+dtype_kind = "b"
+shape = ["n_cells"]
+
+[npz.arrays.unknown_mask]
+dtype_kind = "b"
+shape = ["n_cells"]
+
+[npz.arrays.zero_mask]
+dtype_kind = "b"
+shape = ["n_cells"]
+
+[npz.arrays.covered_full_indices]
+dtype_kind = "iu"
+shape = ["n_covered"]
+
+[npz.arrays.unknown_full_indices]
+dtype_kind = "iu"
+shape = ["n_unknown"]
+
+[npz.arrays.zero_full_indices]
+dtype_kind = "iu"
+shape = ["n_zero"]
+
+[npz.arrays.source_keys]
+dtype_kind = "US"
+shape = ["n_cells"]
+
+[npz.arrays.source_key_order]
+dtype_kind = "US"
+shape = ["n_sources"]
+
+[npz.arrays.source_index]
+dtype_kind = "iu"
+shape = ["n_cells"]
+
+[npz.arrays.source_built_covered]
+dtype_kind = "f"
+shape = ["n_sources"]
+finite = true
+
+[npz.arrays.source_built_unknown]
+dtype_kind = "f"
+shape = ["n_sources"]
+finite = true
+
+[npz.arrays.source_unknown_share]
+dtype_kind = "f"
+shape = ["n_sources"]
+finite = true
+
+[npz.arrays.source_capacity_positive]
+dtype_kind = "b"
+shape = ["n_sources"]

@@ -1,0 +1,4 @@
+schema_version = "sg_artifact_schema_v1"
+artifact_type = "json"
+[json]
+required_paths = ["schema", "task_id", "country", "group", "family", "seed", "fold", "selector", "training_weighting_policy", "training_batch_size", "region_order", "input_fingerprints", "artifacts", "runtime.device_resolved"]

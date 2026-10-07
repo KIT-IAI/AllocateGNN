@@ -1,0 +1,6 @@
+schema_version = "sg_artifact_schema_v1"
+artifact_type = "json"
+
+[json]
+required_paths = ["schema_version", "country", "country_directory", "evaluation_scope", "temporal_protocol", "capacity_basis", "prediction_total_matches_observed_total", "mass_alignment_basis", "n_region_rows", "n_station_rows", "regions", "regions.*.region", "regions.*.n_cells", "regions.*.grid_metadata", "artifacts"]
+unique_by = ["regions.*.region", "artifacts.*.path"]

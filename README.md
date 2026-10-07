@@ -7,7 +7,7 @@
 
 <h1 align="center">AllocateGNN</h1>
 
-**Note**: *Last update on 2026.07.20*
+**Note**: *Last update on 2026.10.07*
 
 <div align="left"> This repository is the official code of the paper <strong>"Improving Spatial Allocation for Energy System
 Coupling with Graph Neural Networks"</strong> and of its follow-up study on mechanism-dependent antagonism of auxiliary information.</div>
@@ -17,6 +17,10 @@ Coupling with Graph Neural Networks"</strong> and of its follow-up study on mech
 > *"Mechanism-Dependent Antagonism of Auxiliary Information in Substation-Level Load Disaggregation for Distribution Network Planning"* ([arXiv:2605.24491](https://arxiv.org/abs/2605.24491)) — see the [`SpatialAllocation/`](./SpatialAllocation) library and the multi-country case studies under [`StudyCase/`](./StudyCase).
 >
 > The exact code that accompanied the first (EPSR) paper is preserved at the git tag [`paper1-epsr`](https://github.com/KIT-IAI/AllocateGNN/tree/paper1-epsr).
+
+> [!NOTE]
+> **Current placement-paper release:**
+> *"Task- and Scale-Matched Evaluation of Spatial Demand Allocation for Power Grid Planning"*.
 
 ## 1. Introduction
 
@@ -54,11 +58,19 @@ AllocateGNN/
 │
 ├── ClusterBasedVoronoi/             # Baseline: cluster-based Voronoi approach
 │
+├── SpatialPlacement/                # Reusable planning-task evaluation library
+│   ├── core/                        # Reconstruction, siting, sizing, connection bounds
+│   └── pipeline/                    # Candidate generation, metrics and solvers
+│
 ├── StudyCase/                       # Multi-country case studies (follow-up paper)
 │   ├── British/                     # Great Britain case study (notebooks + training scripts)
 │   ├── British_weighter_experiments/# Antagonism experiment suite (main experiments)
 │   ├── Australia/                   # Australia (Ausgrid) case study
-│   └── Germany/                     # German Börde case study
+│   ├── Germany/                     # German Börde case study
+│   └── Placement/                   # Task/scale-matched planning evaluation
+│
+├── study_materials/
+│   └── placement/                   # Manuscript-scoped frozen numerical evidence
 │
 ├── requirements.txt
 ├── README.md
@@ -66,7 +78,10 @@ AllocateGNN/
 └── icon_kit.png
 ```
 
-> **Note on data:** raw and intermediate datasets, cached artifacts, and result files are **not** distributed with this repository (they are ignored via `.gitignore`). The case-study scripts expect processed inputs to be present locally; the data-ingestion / feature-pipeline steps are intentionally excluded from the release.
+> **Note on data:** raw and intermediate datasets, cached artifacts, and model
+> products are not distributed. The placement release includes only the small
+> derived result CSVs needed to reproduce the manuscript's numerical tables,
+> statistics, and quantitative figure inputs.
 
 ## 3. Key Components
 
@@ -85,6 +100,13 @@ The `Allocator`, `Weighter`, and `FeatureExtractor` subpackages expose registry-
 ### 3.5 Cluster-Based Voronoi Baseline
 An alternative approach using clustering (DBSCAN, HDBSCAN, K-Means, etc.) combined with Voronoi tessellation. Supports optimization-based allocation via Pyomo with CIVD/IVD influence methods.
 
+### 3.6 Spatial placement evaluation
+The current paper uses `sglib` under `StudyCase/Placement/current/upstream/`
+and the fixed-load scripts under `StudyCase/Placement/current/scripts/`.
+The top-level `SpatialPlacement` package provides the public reproduction entry
+point. Its earlier `core/` and `pipeline/` utilities are retained for compatibility
+with the historical lu5 study.
+
 ## 4. Case Studies (`StudyCase/`)
 
 The follow-up paper is reproduced through four case-study folders. Each contains the analysis notebooks and the training/experiment scripts (numbered by execution order); raw-data ingestion and feature construction are excluded.
@@ -95,6 +117,7 @@ The follow-up paper is reproduced through four case-study folders. Each contains
 | `British_weighter_experiments/` | Great Britain | Main experiment suite for the antagonism study (main results, significance, strength sweeps, mechanism isolation, robustness, r-series ablations). |
 | `Australia/` | Ausgrid (AU) | Static baselines, GNN training, statistical evaluation, feature-fusion training. |
 | `Germany/` | Börde (DE) | Börde training, results tables, LOOCV, additive-correction matrix, pandapower downstream. |
+| `Placement/` | Britain + Australia | Numbered, runnable case scripts for reconstruction, siting, sizing, connection, scale, and conditional-bound evaluation. |
 
 ## 5. Installation
 
@@ -153,6 +176,22 @@ result_df = solver.predict_edge_weights(test_data)
 
 ### 6.3 Reproducing the case studies
 Each `StudyCase/<grid>/` folder holds numbered scripts and notebooks. The training scripts (e.g. `005_kfold_prior_training.py` in `British_weighter_experiments/`) and the downstream experiment scripts expect processed inputs to be available locally.
+
+### 6.4 Reproducing the placement-paper numbers
+
+The current numerical reproduction needs only the lightweight dependencies:
+
+```bash
+pip install -r StudyCase/Placement/current/requirements-current.txt
+python -m SpatialPlacement.reproduce_paper_numbers --verify
+```
+
+This checks the current release hashes, recomputes statistics from the published
+regional results and verifies them against `fixedload_20260925_r2`.
+The British 300 MW mean fixed-location cost errors are GBP 11.59 million for LU
+and GBP 8.63 million for GNN-based allocation.
+See [the reproduction guide](StudyCase/Placement/current/README.md) for figures,
+the full source pipeline, and the separate historical entry point.
 
 ## 7. Citation 📝
 

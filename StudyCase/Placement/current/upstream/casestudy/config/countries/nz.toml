@@ -1,0 +1,45 @@
+schema_version = "sg_country_profile_v1"
+
+[country]
+code = "nz"
+directory = "5_NZ"
+label = "New Zealand (Vector, Orion, Wellington Electricity)"
+evaluation_scope = "four_task_chain"
+
+[crs]
+native = "EPSG:2193"
+area = "EPSG:2193"
+generation = "EPSG:3857"
+storage = "EPSG:4326"
+working = "EPSG:2193"
+
+[temporal]
+protocol = "NZ_2024_actual_peak_and_installed_firm__2025_geospatial__2023_census"
+demand_vintage = "2024 actual annual peak"
+capacity_vintage = "2024 Installed Firm Capacity"
+geospatial_vintage = "2025 Commerce Commission D5"
+feature_vintage = "2023 Census SA2"
+forecast_prototype_vintage = "2026 disclosure; excluded from truth"
+
+[units]
+demand = "MVA"
+capacity = "MVA"
+area = "m2"
+
+[station_contract]
+id_column = "station_id"
+demand_column = "actual_peak_mva"
+capacity_column = "firm_capacity_mva"
+region_column = "SA22023_V1_00"
+source_key = "SA22023_V1_00"
+region_demand_column = "demand_peak_mva"
+capacity_basis = "declared_security_class"
+security_class_column = "security_class"
+noncoincident_flag_column = "noncoincident_conservative"
+core_edbs = ["Vector Lines", "Orion NZ", "Wellington Electricity"]
+declared_secure_classes = ["N-1", "N-1 switched"]
+strict_robustness_class = "N-1"
+assignment_granularity = "site"
+lineage_granularity = "station_section"
+site_capacity_aggregation = "sum_sections_with_declared_security_class_lineage"
+site_peak_aggregation = "sum_noncoincident_conservative"

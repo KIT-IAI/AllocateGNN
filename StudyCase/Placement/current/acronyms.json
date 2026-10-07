@@ -1,0 +1,58 @@
+{
+  "uni": [
+    "Uni",
+    "uniform allocation"
+  ],
+  "lu": [
+    "LU",
+    "land-use weighting"
+  ],
+  "gnn": [
+    "GNN",
+    "graph neural network"
+  ],
+  "ref": [
+    "Ref",
+    "reported-demand reference allocation"
+  ],
+  "rmse": [
+    "RMSE",
+    "root mean square error"
+  ],
+  "mae": [
+    "MAE",
+    "mean absolute error"
+  ],
+  "wsd": [
+    "WSD",
+    "weighted service distance"
+  ],
+  "rsd": [
+    "RSD",
+    "rule-based sizing deviation"
+  ],
+  "tnuos": [
+    "TNUoS",
+    "Transmission Network Use of System"
+  ],
+  "itl2": [
+    "ITL2",
+    "International Territorial Level~2"
+  ],
+  "itl3": [
+    "ITL3",
+    "International Territorial Level~3"
+  ],
+  "sa3": [
+    "SA3",
+    "Statistical Area Level~3"
+  ],
+  "sa4": [
+    "SA4",
+    "Statistical Area Level~4"
+  ],
+  "sic": [
+    "SIC",
+    "Standard Industrial Classification"
+  ]
+}

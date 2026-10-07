@@ -1,0 +1,7 @@
+schema_version = "sg_artifact_schema_v1"
+artifact_type = "json"
+
+[json]
+required_paths = ["schema_version", "country", "entries", "entries.*.region", "entries.*.n_clusters", "entries.*.n_noise", "entries.*.path", "entries.*.sha256"]
+unique_by = ["entries.*.region", "entries.*.path"]
+

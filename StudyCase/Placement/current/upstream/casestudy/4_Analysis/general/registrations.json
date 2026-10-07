@@ -1,0 +1,867 @@
+{
+  "specification": {
+    "method_order": [
+      "Uni",
+      "UnipostN",
+      "UnipostP",
+      "UnipostNP",
+      "GPM",
+      "GPMpostN",
+      "GPMpostP",
+      "GPMpostNP",
+      "GPMaddN",
+      "GPMaddP",
+      "GPMaddNP",
+      "EqualGrid",
+      "EqualGridpostN",
+      "EqualGridpostP",
+      "EqualGridpostNP",
+      "EqualGridaddN",
+      "EqualGridaddP",
+      "EqualGridaddNP",
+      "MLP",
+      "MLPpostN",
+      "MLPpostP",
+      "MLPpostNP",
+      "MLPaddN",
+      "MLPaddP",
+      "MLPaddNP",
+      "GNN",
+      "GNNpostN",
+      "GNNpostP",
+      "GNNpostNP",
+      "GNNaddN",
+      "GNNaddP",
+      "GNNaddNP",
+      "GNNpriorN",
+      "GNNpriorP",
+      "GNNpriorNP",
+      "GNNfusionN",
+      "GNNfusionP",
+      "GNNfusionNP",
+      "EqualStation",
+      "EqualRegion"
+    ],
+    "methods": {
+      "EqualGrid": {
+        "evidence": [
+          "LX"
+        ],
+        "scope": "transductive_known_sites",
+        "seeds": [
+          null
+        ]
+      },
+      "EqualGridaddN": {
+        "evidence": [
+          "LX"
+        ],
+        "scope": "transductive_known_sites",
+        "seeds": [
+          null
+        ]
+      },
+      "EqualGridaddNP": {
+        "evidence": [
+          "LX"
+        ],
+        "scope": "transductive_known_sites",
+        "seeds": [
+          null
+        ]
+      },
+      "EqualGridaddP": {
+        "evidence": [
+          "LX"
+        ],
+        "scope": "transductive_known_sites",
+        "seeds": [
+          null
+        ]
+      },
+      "EqualGridpostN": {
+        "evidence": [
+          "LX"
+        ],
+        "scope": "transductive_known_sites",
+        "seeds": [
+          null
+        ]
+      },
+      "EqualGridpostNP": {
+        "evidence": [
+          "LX"
+        ],
+        "scope": "transductive_known_sites",
+        "seeds": [
+          null
+        ]
+      },
+      "EqualGridpostP": {
+        "evidence": [
+          "LX"
+        ],
+        "scope": "transductive_known_sites",
+        "seeds": [
+          null
+        ]
+      },
+      "EqualRegion": {
+        "evidence": [
+          "direct_reference"
+        ],
+        "scope": "known_site",
+        "seeds": [
+          null
+        ]
+      },
+      "EqualStation": {
+        "evidence": [
+          "direct_reference"
+        ],
+        "scope": "known_site",
+        "seeds": [
+          null
+        ]
+      },
+      "GNN": {
+        "evidence": [
+          "L11",
+          "L22"
+        ],
+        "scope": "task_defined",
+        "seeds": [
+          42,
+          123,
+          456
+        ]
+      },
+      "GNNaddN": {
+        "evidence": [
+          "L11",
+          "L22"
+        ],
+        "scope": "task_defined",
+        "seeds": [
+          42,
+          123,
+          456
+        ]
+      },
+      "GNNaddNP": {
+        "evidence": [
+          "L22"
+        ],
+        "scope": "transductive_known_sites",
+        "seeds": [
+          42,
+          123,
+          456
+        ]
+      },
+      "GNNaddP": {
+        "evidence": [
+          "L22"
+        ],
+        "scope": "transductive_known_sites",
+        "seeds": [
+          42,
+          123,
+          456
+        ]
+      },
+      "GNNfusionN": {
+        "evidence": [
+          "LX"
+        ],
+        "scope": "task_defined",
+        "seeds": [
+          42,
+          123,
+          456
+        ]
+      },
+      "GNNfusionNP": {
+        "evidence": [
+          "L22"
+        ],
+        "scope": "transductive_known_sites",
+        "seeds": [
+          42,
+          123,
+          456
+        ]
+      },
+      "GNNfusionP": {
+        "evidence": [
+          "LX"
+        ],
+        "scope": "transductive_known_sites",
+        "seeds": [
+          42,
+          123,
+          456
+        ]
+      },
+      "GNNpostN": {
+        "evidence": [
+          "L11",
+          "L22"
+        ],
+        "scope": "task_defined",
+        "seeds": [
+          42,
+          123,
+          456
+        ]
+      },
+      "GNNpostNP": {
+        "evidence": [
+          "L22"
+        ],
+        "scope": "transductive_known_sites",
+        "seeds": [
+          42,
+          123,
+          456
+        ]
+      },
+      "GNNpostP": {
+        "evidence": [
+          "L22"
+        ],
+        "scope": "transductive_known_sites",
+        "seeds": [
+          42,
+          123,
+          456
+        ]
+      },
+      "GNNpriorN": {
+        "evidence": [
+          "L22"
+        ],
+        "scope": "task_defined",
+        "seeds": [
+          42,
+          123,
+          456
+        ]
+      },
+      "GNNpriorNP": {
+        "evidence": [
+          "L22"
+        ],
+        "scope": "transductive_known_sites",
+        "seeds": [
+          42,
+          123,
+          456
+        ]
+      },
+      "GNNpriorP": {
+        "evidence": [
+          "L22"
+        ],
+        "scope": "transductive_known_sites",
+        "seeds": [
+          42,
+          123,
+          456
+        ]
+      },
+      "GPM": {
+        "evidence": [
+          "L11",
+          "L22"
+        ],
+        "scope": "task_defined",
+        "seeds": [
+          null
+        ]
+      },
+      "GPMaddN": {
+        "evidence": [
+          "L11",
+          "L22"
+        ],
+        "scope": "task_defined",
+        "seeds": [
+          null
+        ]
+      },
+      "GPMaddNP": {
+        "evidence": [
+          "L22"
+        ],
+        "scope": "transductive_known_sites",
+        "seeds": [
+          null
+        ]
+      },
+      "GPMaddP": {
+        "evidence": [
+          "L22"
+        ],
+        "scope": "transductive_known_sites",
+        "seeds": [
+          null
+        ]
+      },
+      "GPMpostN": {
+        "evidence": [
+          "L11",
+          "L22"
+        ],
+        "scope": "task_defined",
+        "seeds": [
+          null
+        ]
+      },
+      "GPMpostNP": {
+        "evidence": [
+          "L22"
+        ],
+        "scope": "transductive_known_sites",
+        "seeds": [
+          null
+        ]
+      },
+      "GPMpostP": {
+        "evidence": [
+          "L22"
+        ],
+        "scope": "transductive_known_sites",
+        "seeds": [
+          null
+        ]
+      },
+      "MLP": {
+        "evidence": [
+          "L11",
+          "LX"
+        ],
+        "scope": "task_defined",
+        "seeds": [
+          42,
+          123,
+          456
+        ]
+      },
+      "MLPaddN": {
+        "evidence": [
+          "L11",
+          "LX"
+        ],
+        "scope": "task_defined",
+        "seeds": [
+          42,
+          123,
+          456
+        ]
+      },
+      "MLPaddNP": {
+        "evidence": [
+          "LX"
+        ],
+        "scope": "transductive_known_sites",
+        "seeds": [
+          42,
+          123,
+          456
+        ]
+      },
+      "MLPaddP": {
+        "evidence": [
+          "LX"
+        ],
+        "scope": "transductive_known_sites",
+        "seeds": [
+          42,
+          123,
+          456
+        ]
+      },
+      "MLPpostN": {
+        "evidence": [
+          "L11",
+          "LX"
+        ],
+        "scope": "task_defined",
+        "seeds": [
+          42,
+          123,
+          456
+        ]
+      },
+      "MLPpostNP": {
+        "evidence": [
+          "LX"
+        ],
+        "scope": "transductive_known_sites",
+        "seeds": [
+          42,
+          123,
+          456
+        ]
+      },
+      "MLPpostP": {
+        "evidence": [
+          "LX"
+        ],
+        "scope": "transductive_known_sites",
+        "seeds": [
+          42,
+          123,
+          456
+        ]
+      },
+      "Uni": {
+        "evidence": [
+          "L11",
+          "L22"
+        ],
+        "scope": "task_defined",
+        "seeds": [
+          null
+        ]
+      },
+      "UnipostN": {
+        "evidence": [
+          "L11",
+          "L22"
+        ],
+        "scope": "task_defined",
+        "seeds": [
+          null
+        ]
+      },
+      "UnipostNP": {
+        "evidence": [
+          "L22"
+        ],
+        "scope": "transductive_known_sites",
+        "seeds": [
+          null
+        ]
+      },
+      "UnipostP": {
+        "evidence": [
+          "L22"
+        ],
+        "scope": "transductive_known_sites",
+        "seeds": [
+          null
+        ]
+      }
+    }
+  },
+  "synthesis": {
+    "completion_scope": "cross_country_descriptive_assembly_and_authoritative_coverage_audit",
+    "countries": [
+      "uk",
+      "au",
+      "nl",
+      "nz"
+    ],
+    "country_pooling": false,
+    "coverage_normalization": "append_only_correction_without_mutating_country_receipts",
+    "new_bootstrap": false,
+    "new_holm_family": false,
+    "version": "006_cross_country_analysis_v1"
+  },
+  "units": {
+    "C1": {
+      "alpha": 0.05,
+      "bootstrap_repetitions": 10000,
+      "bootstrap_seed": 20260906,
+      "compute_threads": 1,
+      "contrasts": [
+        [
+          "GPM",
+          "Uni"
+        ],
+        [
+          "MLP",
+          "GPM"
+        ],
+        [
+          "GNN",
+          "GPM"
+        ],
+        [
+          "GNN",
+          "MLP"
+        ],
+        [
+          "MLP",
+          "EqualGrid"
+        ],
+        [
+          "GNN",
+          "EqualGrid"
+        ],
+        [
+          "MLP",
+          "EqualStation"
+        ],
+        [
+          "GNN",
+          "EqualStation"
+        ],
+        [
+          "MLP",
+          "EqualRegion"
+        ],
+        [
+          "GNN",
+          "EqualRegion"
+        ]
+      ],
+      "degradation_unit": "single_contrast",
+      "family_size": 10,
+      "moran_alpha": 0.05,
+      "moran_permutations": 999
+    },
+    "C2": {
+      "alpha": 0.05,
+      "bootstrap_repetitions": 10000,
+      "bootstrap_seed": 20260906,
+      "compute_threads": 1,
+      "contrasts": [
+        {
+          "coefficients": {
+            "GNN": -1.0,
+            "GNNpostN": 1.0,
+            "GPM": 1.0,
+            "GPMpostN": -1.0
+          },
+          "contrast_id": "C2-01",
+          "experiment_id": "C2-E01",
+          "expression": "[GNNpostN-GNN]-[GPMpostN-GPM]",
+          "kind": "interaction",
+          "order": 1,
+          "primary": true,
+          "relative_baseline": null
+        },
+        {
+          "coefficients": {
+            "GNN": -1.0,
+            "GNNaddN": 1.0,
+            "GPM": 1.0,
+            "GPMaddN": -1.0
+          },
+          "contrast_id": "C2-02",
+          "experiment_id": "C2-E01",
+          "expression": "[GNNaddN-GNN]-[GPMaddN-GPM]",
+          "kind": "interaction",
+          "order": 2,
+          "primary": true,
+          "relative_baseline": null
+        },
+        {
+          "coefficients": {
+            "GNN": -1.0,
+            "GNNpostP": 1.0,
+            "GPM": 1.0,
+            "GPMpostP": -1.0
+          },
+          "contrast_id": "C2-03",
+          "experiment_id": "C2-E01",
+          "expression": "[GNNpostP-GNN]-[GPMpostP-GPM]",
+          "kind": "interaction",
+          "order": 3,
+          "primary": true,
+          "relative_baseline": null
+        },
+        {
+          "coefficients": {
+            "GNN": -1.0,
+            "GNNaddP": 1.0,
+            "GPM": 1.0,
+            "GPMaddP": -1.0
+          },
+          "contrast_id": "C2-04",
+          "experiment_id": "C2-E01",
+          "expression": "[GNNaddP-GNN]-[GPMaddP-GPM]",
+          "kind": "interaction",
+          "order": 4,
+          "primary": true,
+          "relative_baseline": null
+        },
+        {
+          "coefficients": {
+            "GNN": -1.0,
+            "GNNpostNP": 1.0,
+            "GPM": 1.0,
+            "GPMpostNP": -1.0
+          },
+          "contrast_id": "C2-05",
+          "experiment_id": "C2-E01",
+          "expression": "[GNNpostNP-GNN]-[GPMpostNP-GPM]",
+          "kind": "interaction",
+          "order": 5,
+          "primary": true,
+          "relative_baseline": null
+        },
+        {
+          "coefficients": {
+            "GNN": -1.0,
+            "GNNaddNP": 1.0,
+            "GPM": 1.0,
+            "GPMaddNP": -1.0
+          },
+          "contrast_id": "C2-06",
+          "experiment_id": "C2-E01",
+          "expression": "[GNNaddNP-GNN]-[GPMaddNP-GPM]",
+          "kind": "interaction",
+          "order": 6,
+          "primary": true,
+          "relative_baseline": null
+        },
+        {
+          "coefficients": {
+            "GNNaddN": 1.0,
+            "GNNpostN": -1.0
+          },
+          "contrast_id": "C2-07",
+          "experiment_id": "C2-E02",
+          "expression": "GNNaddN-GNNpostN",
+          "kind": "program_difference",
+          "order": 7,
+          "primary": true,
+          "relative_baseline": null
+        },
+        {
+          "coefficients": {
+            "GNNaddP": 1.0,
+            "GNNpostP": -1.0
+          },
+          "contrast_id": "C2-08",
+          "experiment_id": "C2-E02",
+          "expression": "GNNaddP-GNNpostP",
+          "kind": "program_difference",
+          "order": 8,
+          "primary": true,
+          "relative_baseline": null
+        },
+        {
+          "coefficients": {
+            "GNNaddNP": 1.0,
+            "GNNpostNP": -1.0
+          },
+          "contrast_id": "C2-09",
+          "experiment_id": "C2-E02",
+          "expression": "GNNaddNP-GNNpostNP",
+          "kind": "program_difference",
+          "order": 9,
+          "primary": true,
+          "relative_baseline": null
+        },
+        {
+          "coefficients": {
+            "GPMpostN": -1.0,
+            "MLPpostN": 1.0
+          },
+          "contrast_id": "C2-10",
+          "experiment_id": "C2-E08",
+          "expression": "MLPpostN-GPMpostN",
+          "kind": "level_difference",
+          "order": 10,
+          "primary": false,
+          "relative_baseline": "GPMpostN"
+        },
+        {
+          "coefficients": {
+            "GNNpostN": 1.0,
+            "GPMpostN": -1.0
+          },
+          "contrast_id": "C2-11",
+          "experiment_id": "C2-E08",
+          "expression": "GNNpostN-GPMpostN",
+          "kind": "level_difference",
+          "order": 11,
+          "primary": false,
+          "relative_baseline": "GPMpostN"
+        },
+        {
+          "coefficients": {
+            "GPMaddN": -1.0,
+            "MLPaddN": 1.0
+          },
+          "contrast_id": "C2-12",
+          "experiment_id": "C2-E08",
+          "expression": "MLPaddN-GPMaddN",
+          "kind": "level_difference",
+          "order": 12,
+          "primary": false,
+          "relative_baseline": "GPMaddN"
+        },
+        {
+          "coefficients": {
+            "GNNaddN": 1.0,
+            "GPMaddN": -1.0
+          },
+          "contrast_id": "C2-13",
+          "experiment_id": "C2-E08",
+          "expression": "GNNaddN-GPMaddN",
+          "kind": "level_difference",
+          "order": 13,
+          "primary": false,
+          "relative_baseline": "GPMaddN"
+        }
+      ],
+      "degradation_unit": "single_contrast",
+      "family_size": 9,
+      "moran_alpha": 0.05,
+      "moran_permutations": 999,
+      "secondary_count": 4
+    },
+    "C3": {
+      "alpha": 0.05,
+      "bootstrap_repetitions": 10000,
+      "bootstrap_seed": 20260906,
+      "compute_threads": 1,
+      "degradation_unit": "single_contrast",
+      "family_size": 5,
+      "moran_alpha": 0.05,
+      "moran_permutations": 999
+    },
+    "C4": {
+      "alpha": 0.05,
+      "bootstrap_repetitions": 10000,
+      "bootstrap_seed": 20260906,
+      "compute_threads": 1,
+      "degradation_unit": "single_contrast",
+      "family_size": 9,
+      "moran_alpha": 0.05,
+      "moran_permutations": 999
+    },
+    "C5": {
+      "alpha": 0.05,
+      "bootstrap_repetitions": 10000,
+      "bootstrap_seed": 20260906,
+      "compute_threads": 1,
+      "contrasts": [
+        {
+          "coefficients": {
+            "R10:aggregate": 1.0,
+            "R10:cell": -1.0
+          },
+          "contrast_id": "C5-01",
+          "experiment_id": "C5-E01",
+          "expression": "aggregate-regret rho minus cell-regret rho",
+          "order": 1,
+          "radius_km": 10.0,
+          "relative_baseline": null,
+          "unit": "dimensionless"
+        },
+        {
+          "coefficients": {
+            "R20:aggregate": 1.0,
+            "R20:cell": -1.0
+          },
+          "contrast_id": "C5-02",
+          "experiment_id": "C5-E01",
+          "expression": "aggregate-regret rho minus cell-regret rho",
+          "order": 2,
+          "radius_km": 20.0,
+          "relative_baseline": null,
+          "unit": "dimensionless"
+        }
+      ],
+      "degradation_unit": "single_contrast",
+      "family_size": 2,
+      "moran_alpha": 0.05,
+      "moran_permutations": 999
+    },
+    "C6": {
+      "C6_etas": [
+        0.5,
+        0.8,
+        0.9,
+        1.0
+      ],
+      "C6_quantile": "linear_type7",
+      "C6_tolerance": "all_finite_normalized_bound_breakpoints_including_zero",
+      "compute_threads": 1,
+      "external_budget": null,
+      "planner_tolerance": null
+    },
+    "support": {
+      "C2": {
+        "mechanism": "retain_mean_term_and_exact_identity",
+        "old_threshold": "retrospective_only",
+        "parameter_selection": false,
+        "protocols": 6,
+        "scan_parameter_order": [
+          "alpha",
+          "gamma",
+          "beta",
+          "lambda",
+          "kappa",
+          "tau"
+        ]
+      },
+      "C3": {
+        "CIVD_scope": "UK_AU_historical_defense_only",
+        "T1_scope": "UK_eight_independent_non_VD_reference_regions",
+        "fallback_included": true,
+        "planning_allocators": "structural_duplicates"
+      },
+      "C4": {
+        "MILP": "not_authorized",
+        "UK_GBP_TNUoS": "missing_required_versioned_tariff_and_conversion_contract",
+        "fixed_load_countries": [
+          "uk",
+          "au",
+          "nz"
+        ],
+        "fixed_load_native_unit": 300.0,
+        "legacy_operator": "not_reused",
+        "nl_fixed_load": "not_evaluated_without_unit_conversion",
+        "secondary_inference": "effect_and_interval_without_test"
+      },
+      "C5": {
+        "main": "R10_R20_lambda0.5_seed42_LS",
+        "panel_order": [
+          "Ref",
+          "PERM-R/3",
+          "PERM-R",
+          "PERM-3R",
+          "SMOOTH-0.5",
+          "SMOOTH-1",
+          "SMOOTH-2",
+          "GPM",
+          "GNN"
+        ],
+        "scan_radii_km": [
+          1,
+          2,
+          3,
+          5,
+          7.5,
+          10,
+          15,
+          20
+        ]
+      },
+      "C6": {
+        "budget": "country_leave_one_region_out_retrospective_type7",
+        "external_budget": null,
+        "no_new_family": true,
+        "planner_tolerance": null,
+        "retain_all_finite_breakpoints": true
+      },
+      "bootstrap": {
+        "quantile_method": "linear",
+        "repetitions": 10000,
+        "seed": 20260906
+      },
+      "completion_scope": "support_analysis_not_figures_or_report",
+      "compute_threads": 1,
+      "country_pooling": false,
+      "version": "006_support_v1"
+    }
+  }
+}

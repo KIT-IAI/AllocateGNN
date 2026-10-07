@@ -1,0 +1,11 @@
+schema_version = "sg_artifact_schema_v1"
+artifact_type = "json"
+
+[json]
+required_paths = ["schema", "task_id", "training_task_id", "country", "group", "family", "seed", "fold", "selector", "execution_backend", "device", "input_fingerprints", "supervision_sanitized", "artifacts", "runtime", "chain.schema_version", "chain.node_id", "chain.commitment.inputs", "chain.commitment.scientific_parameters_sha256", "chain.commitment.code_sha256", "chain.commitment.commitment_sha256", "chain.outputs", "chain.receipt_sha256"]
+
+[identity]
+schema = "cuz_inference_task_completion_v2"
+chain_schema = "sg_content_chain_receipt_v1"
+operational_fields = ["execution_backend", "runtime", "chain.observations"]
+identity_binding = "chain_only"

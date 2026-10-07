@@ -1,0 +1,53 @@
+# 工程纪律 E-4/E-9:冻结件字节稳定 —— 防 git 换行改写破坏哈希守卫
+# 各层冻结时把对应冻结件路径补进本文件
+
+# Byte-stable hashed evidence (never normalized).
+/data/metadata.json -text
+/casestudy/2_Generator/general/*.csv -text
+/casestudy/2_Generator/general/*.json -text
+/casestudy/config/authority/engineering_admission_v3.toml -text
+/casestudy/config/authority/evidence/*.json -text
+
+# Shell scripts run on Linux (HAICORE); keep LF regardless of the checkout platform.
+*.sh text eol=lf
+
+# Hash-gate notebooks remain LF on Windows checkouts.
+casestudy/2_Generator/*/07_audit_handoff.ipynb text eol=lf
+casestudy/1_DataOverview/*/06_inventory.ipynb text eol=lf
+
+# Explicit parameter inputs.
+casestudy/1_DataOverview/general/general.toml text eol=lf
+casestudy/config/countries/uk.toml text eol=lf
+casestudy/config/countries/au.toml text eol=lf
+casestudy/config/countries/de.toml text eol=lf
+casestudy/config/countries/nl.toml text eol=lf
+casestudy/config/countries/nz.toml text eol=lf
+casestudy/1_DataOverview/1_UK/uk.toml text eol=lf
+casestudy/1_DataOverview/2_AU/au.toml text eol=lf
+casestudy/1_DataOverview/3_DE/de.toml text eol=lf
+casestudy/1_DataOverview/4_NL/nl.toml text eol=lf
+casestudy/1_DataOverview/5_NZ/nz.toml text eol=lf
+casestudy/2_Generator/general/candidate_registry.json text eol=lf
+casestudy/2_Generator/general/idr_mainline_contract.json text eol=lf
+casestudy/2_Generator/general/training_task_matrix.csv text eol=lf
+casestudy/2_Generator/general/training_task_matrix_scientific_v2.csv text eol=lf
+casestudy/2_Generator/*/engineering_admission_v3.toml text eol=lf
+
+# Numbered Experiment/Analysis registrations and notebooks retain LF on checkout.
+casestudy/3_Experiment/**/*.json text eol=lf
+casestudy/3_Experiment/**/*.toml text eol=lf
+casestudy/3_Experiment/**/*.csv text eol=lf
+casestudy/3_Experiment/**/*.ipynb text eol=lf
+casestudy/4_Analysis/**/*.json text eol=lf
+casestudy/4_Analysis/**/*.toml text eol=lf
+casestudy/4_Analysis/**/*.ipynb text eol=lf
+docs/plan/007_validation/*.json text eol=lf
+
+# Frozen authorities override general checkout normalization rules above.
+/casestudy/config/authority/*.toml -text
+/casestudy/config/authority/evidence/* -text whitespace=cr-at-eol
+/casestudy/2_Generator/general/*.csv -text
+/casestudy/2_Generator/general/*.json -text
+/casestudy/2_Generator/*/engineering_admission_v3.toml -text
+/casestudy/1_DataOverview/4_NL/admission.toml -text
+/casestudy/1_DataOverview/5_NZ/admission_contract.toml -text

@@ -1,0 +1,16 @@
+schema_version = "sg_generator_country_v1"
+regions = ["Central_Coast","Hunter_Valley_exc_Newcastle","Newcastle_and_Lake_Macquarie","Sydney_City_and_Inner_South","Sydney_Eastern_Suburbs","Sydney_Inner_South_West","Sydney_Inner_West","Sydney_North_Sydney_and_Hornsby","Sydney_Northern_Beaches","Sydney_Parramatta","Sydney_Ryde","Sydney_Sutherland"]
+task_groups = ["B-AU-GNN","B-AU-MLP","P-AU-N","P-AU-P","P-AU-NP","F-AU-N","F-AU-P","F-AU-NP","L-AU-N","L-AU-P","T-AU"]
+
+[execution]
+civd_enabled = true
+
+[checks]
+usable_statuses = ["usable"]
+requires_engineering_admission = true
+admission_contract = "casestudy/2_Generator/2_AU/engineering_admission_v3.toml"
+
+[idr]
+b_tv = 0.10
+b_tv_provenance = "L3 prospective AU 38/38 result anchor"
+planner_semantics = "maximum 20 percent station-mass redistribution"

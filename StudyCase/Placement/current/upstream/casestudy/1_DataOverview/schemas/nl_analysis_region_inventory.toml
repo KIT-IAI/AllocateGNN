@@ -1,0 +1,6 @@
+schema_version = "sg_artifact_schema_v1"
+artifact_type = "json"
+
+[json]
+required_paths = ["schema_version", "status", "country", "working_crs", "partition_contract", "partition_contract_sha256", "shared_engineering_authority", "shared_engineering_authority_sha256", "source_level", "target_level", "lineage_level", "stratum_merges", "minimum_region_count", "maximum_region_count", "n_regions", "regions", "regions.*.id", "regions.*.operational_stratum", "regions.*.leaf_path", "regions.*.n_sources", "regions.*.n_targets", "regions.*.n_lineage_equipment", "regions.*.source_key_order"]
+unique_by = ["regions.*.id"]

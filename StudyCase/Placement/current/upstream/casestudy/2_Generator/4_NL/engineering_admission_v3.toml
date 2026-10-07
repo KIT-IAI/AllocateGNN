@@ -1,0 +1,52 @@
+schema_version = "sg_country_engineering_admission_contract_v3"
+status = "FROZEN"
+
+[shared_authority]
+path = "casestudy2/config/authority/engineering_admission_v3.toml"
+schema_version = "sg_engineering_admission_authority_v3"
+
+[partition]
+working_crs = "EPSG:28992"
+source_level = "wijk"
+target_level = "buurt_pseudo_station"
+lineage_level = "equipment"
+stratum_column = "operational_stratum"
+coordinate_order = ["x", "y"]
+longest_axis_tie_break = "x_before_y"
+median_tie_break = "axis_coordinate_then_other_coordinate_then_equipment_id"
+source_assignment = "nearest_leaf_centroid_within_merged_operational_stratum"
+source_assignment_tie_break = "leaf_path_lexicographic"
+region_id_order = "merged_operational_stratum_slug_then_leaf_path"
+inputs = ["equipment_coordinates", "merged_operational_stratum", "wijk_polygon_centroid"]
+prohibited_inputs = ["model_output", "evaluation_metric", "candidate_result"]
+low_stratum_equipment_threshold = 100
+low_stratum_merge_rule = "longest_shared_PDOK_buurt_boundary_m_then_stratum_lexicographic"
+max_lineage_equipment_per_region = 3500
+minimum_analysis_regions = 14
+maximum_analysis_regions = 16
+region_count_rule = "minimum_preregistered_count_passing_all_shared_hard_gates"
+
+[crosswalk]
+conflict_policy = "unique_or_lexicographic_pip_spatial_support__declared_code_lineage_only"
+outside_policy = "retain_in_equipment_lineage_exclude_from_formal_target_with_mass_ledger"
+bu_to_wk = "official_PDOK_wijkcode_verified_against_code_prefix"
+
+[target_aggregation]
+group_key = "buurt_code"
+demand = "sum_equipment_peak_kw"
+capacity = "sum_equipment_capacity_kw"
+centroid = "capacity_weighted_in_EPSG_28992"
+zero_capacity_centroid_fallback = "unweighted_equipment_centroid_in_EPSG_28992"
+noncoincident = "conservative"
+over_zero_flags = "recomputed_after_buurt_aggregation"
+
+[idr_matched]
+formal_candidates = 38
+seeds = 3
+max_realizations_all_regions = 2000
+
+[idr]
+version = "v1"
+b_tv = 0.10
+fixed_and_matched = true
+v2_status = "withdrawn_prohibited"

@@ -1,0 +1,61 @@
+schema_version = "sg_artifact_schema_v1"
+artifact_type = "table"
+
+[table]
+allow_extra_columns = true
+exact_rows = 140
+unique_by = [["lineage_id"]]
+
+[[table.columns]]
+name = "lineage_id"
+dtype = "string"
+nullable = false
+
+[[table.columns]]
+name = "station_id"
+dtype = "string"
+nullable = false
+
+[[table.columns]]
+name = "sub_category"
+dtype = "string"
+nullable = false
+
+[[table.columns]]
+name = "disc_yr"
+dtype = "number"
+unit = "year"
+
+[[table.columns]]
+name = "actual_peak_mva"
+dtype = "number"
+unit = "MVA"
+
+[[table.columns]]
+name = "firm_capacity_mva"
+dtype = "number"
+unit = "MVA"
+
+[[table.columns]]
+name = "security_class"
+dtype = "string"
+nullable = false
+allowed_values = ["N-1", "N-1 switched"]
+
+[[table.columns]]
+name = "capacity_basis"
+dtype = "string"
+nullable = false
+allowed_values = ["declared_security_class"]
+
+[[table.columns]]
+name = "truth_role"
+dtype = "string"
+nullable = false
+allowed_values = ["lineage_and_section_sensitivity_only"]
+
+[[table.columns]]
+name = "assignment_eligible"
+dtype = "boolean"
+nullable = false
+allowed_values = [false]
