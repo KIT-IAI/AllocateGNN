@@ -21,12 +21,6 @@ Coupling with Graph Neural Networks"</strong> and of its follow-up study on mech
 > [!NOTE]
 > **Current placement-paper release:**
 > *"Task- and Scale-Matched Evaluation of Spatial Demand Allocation for Power Grid Planning"*.
-> The default [placement entry point](StudyCase/Placement/README.md) now reproduces
-> `fixedload_20260925_r2`, including the fixed 100, 300 and 500 MW connection experiments.
-> [Current source and provenance](StudyCase/Placement/current/README.md) contain the
-> `sglib` pipeline and the paper-specific connection and statistical scripts.
-> The earlier lu5 numerical package remains available through the explicitly named
-> legacy entry point.
 
 ## 1. Introduction
 
