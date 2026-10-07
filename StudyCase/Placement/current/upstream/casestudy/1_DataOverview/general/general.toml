@@ -1,0 +1,72 @@
+schema_version = "sg_dataoverview_general_v1"
+
+[grid]
+grid_policy = "bounded_equal_area_budget_v1"
+target_points = 50000
+min_ground_step_m = 100.0
+max_ground_step_m = 500.0
+generation_crs = "EPSG:3857"
+storage_crs = "EPSG:4326"
+query_buffer_m = 1000.0
+query_buffer_unit = "EPSG:3857 projected metres"
+backend = "geoparquet_bundle"
+ground_spacing_relative_tolerance = 0.15
+
+[categories]
+ids = ["boundaries_grid", "regional_totals", "station_register", "landuse", "built_surface", "ntl", "features_cuz"]
+
+[features.osm]
+enabled = true
+buffer_m = 0.0
+mode = "snapshot_pbf"
+
+[features.ghsl_built_s]
+enabled = true
+product_id = "GHS_BUILT_S_E2020_GLOBE_R2023A_54009_100_V1_0"
+resolution_m = 100
+source_pixel_area_m2 = 10000
+nodata_policy = "official_65535_preserved_and_target_validity_required"
+
+[features.ntl]
+enabled = true
+mode = "offline_geotiff"
+radius_m = 0.0
+
+[features.landuse]
+mode = "proportions"
+default_category = "others"
+
+[features.landuse.sectors.residential]
+osm_values = ["residential","retail;residential","driveway"]
+
+[features.landuse.sectors.commercial]
+osm_values = ["depot","commercial","retail","hospitality","tourism","commerce","commercial;greenfield"]
+
+[features.landuse.sectors.industrial]
+osm_values = ["industrial","quarry","construction","landfill","yard","storage","demolition","concrete","logistics","power","logging","water_wellfield","maintenance_work","lumberyard","harbour","construction; industrial","ware"]
+
+[features.landuse.sectors.agricultural]
+osm_values = ["farm","animal_keeping","meadow","allotments","plant_nursery","farmland","farmyard","orchard","greenhouse_horticulture","vineyard","apiary","animal_enclosure","community_food_growing","aquaculture","paddock","horticulture","plantation","gardening","fallow","lifestock","animal","x-meadow"]
+
+[features.landuse.sectors.others]
+osm_values = ["military","recreation_ground","brownfield","cemetery","grass","village_green","railway","forest","conservation","religious","observatory","garages","traffic_island","education","basin","healthcare","nursery","flowerbed","churchyard","platform","civic","sport","mixed","road","greenfield","teaching_area","arboretum","fire_station","governmental","runway","university","shrubs","institutional","greenery","courtyard","civic_admin","unclear","planting","leisure","trees","playing_fields","transport","shelter","fairground","winter_sports","piste","exercise_area","highway","reservoir","garden","proposed","Insect reserve"]
+
+[cuz]
+z_exact_zero_channels = 6
+landuse_categories = ["residential", "commercial", "industrial", "agricultural", "others"]
+
+[artifacts]
+raw_root = "data/datasets/1_raw/{country}"
+derived_root = "data/datasets/2_derived/{country}"
+results_root = "results/1_DataOverview/{directory}"
+hash_algorithm = "sha256"
+
+[artifacts.patterns]
+grid = "{derived_root}/grid_bplus/bundles/{region}"
+landuse = "{derived_root}/features_bplus/extracted/{region}_landuse.npz"
+built_surface = "{derived_root}/features_bplus/extracted/{region}_ghsl_built_s.npz"
+cuz_support = "{derived_root}/features_bplus/extracted/{region}_cuz_support.npz"
+ntl = "{derived_root}/features_bplus/extracted/{region}_ntl.npz"
+
+[display]
+required_sections = ["source_and_license", "schema", "coverage_stats", "unit_and_vintage", "standard_figures"]

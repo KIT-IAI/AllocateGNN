@@ -1,0 +1,17 @@
+schema_version = "sg_country_engineering_admission_contract_v3"
+country = "uk"
+scope = "configured_16_regions"
+status = "FROZEN"
+frozen_at = "2026-09-03"
+working_crs = "EPSG:27700"
+region_algorithm = "published_ITL2_or_London_grouping_v1"
+region_count_rule = "configured_DataOverview_region_order"
+
+[shared_authority]
+path = "casestudy2/config/authority/engineering_admission_v3.toml"
+schema_version = "sg_engineering_admission_authority_v3"
+
+[idr_matched]
+formal_candidates = 38
+seeds = 3
+max_realizations_all_regions = 2000

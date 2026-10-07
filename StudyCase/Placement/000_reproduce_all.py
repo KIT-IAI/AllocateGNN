@@ -1,4 +1,8 @@
-"""Reproduce and verify every numerical result in the placement manuscript."""
+"""Recompute current margin-criterion statistics and claims from frozen CSVs.
+
+Use --verify to check the public subset manifest and frozen statistical tables.
+This entry point does not retrain models or regenerate the spatial inputs.
+"""
 from pathlib import Path
 import sys
 

@@ -1,0 +1,18 @@
+schema_version = "sg_generator_country_v1"
+regions = ["NL_FLEVOLAND_0", "NL_FLEVOLAND_1", "NL_FRYSLAN_00", "NL_FRYSLAN_01", "NL_FRYSLAN_10", "NL_FRYSLAN_11", "NL_GELDERLAND_000", "NL_GELDERLAND_001", "NL_GELDERLAND_01", "NL_GELDERLAND_10", "NL_GELDERLAND_11", "NL_NOORD_HOLLAND_00", "NL_NOORD_HOLLAND_01", "NL_NOORD_HOLLAND_10", "NL_NOORD_HOLLAND_11", "NL_ZUID_HOLLAND_R"]
+task_groups = ["B-NL-GNN", "B-NL-MLP", "P-NL-N", "P-NL-P", "P-NL-NP", "F-NL-N", "F-NL-P", "F-NL-NP", "L-NL-N", "L-NL-P", "T-NL"]
+
+[execution]
+civd_enabled = true
+
+[checks]
+usable_statuses = ["generator_eligible"]
+requires_gate_a = true
+requires_engineering_admission = true
+admission_contract = "casestudy/2_Generator/4_NL/engineering_admission_v3.toml"
+capacity_interpretation = "declared_nominal_normal_state_not_secure_firm"
+
+[idr]
+b_tv = 0.10
+b_tv_provenance = "prospective planner tolerance; numeric L3 anchor only"
+planner_semantics = "maximum 20 percent station-mass redistribution"

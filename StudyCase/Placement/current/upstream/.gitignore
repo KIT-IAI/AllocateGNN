@@ -1,0 +1,42 @@
+# ---- 数据与凭据(整体不入库)----
+/data/datasets/
+/data/secrets/
+# 论文材料在仓库外的 spatialgranularity-writing-archive,不放回本仓库
+/paper/
+.env
+
+# ---- 结果:整目录不入库(2026-08-09 用户拍板,承源仓库惯例)----
+# 论文级冻结件将来按 E-1 三件套用 git add -f 显式强制入库(承源 14 冻结件先例);
+# 产物登记(results/metadata.json)随目录外置,备份纳入 E-15
+/results/
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+build/
+dist/
+.venv/
+
+# ---- IDE ----
+.idea/
+.vscode/*
+!.vscode/settings.json
+*.swp
+*.swo
+
+# ---- 测试 ----
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ---- 其他 ----
+*.log
+.DS_Store
+nul
+/cache/
+
+# private (HPC shells, campaign archives, research archives) never enters the repository
+private/
+/tmp/

@@ -1,0 +1,502 @@
+{
+  "bounds": {
+    "bound_tolerance": "1e-10*max(1,losses,bounds)",
+    "budget_rule": "other_regions_max_error_over_given_source_total_type7_then_target_given_total_scaling",
+    "coverage_tolerance": "1e-12*max(1,normalized_error,normalized_budget)",
+    "etas": [
+      0.5,
+      0.8,
+      0.9,
+      1.0
+    ],
+    "quantile": "linear_type7",
+    "shortlist_k": 20
+  },
+  "defense": {
+    "C2": {
+      "mechanism": "retain_mean_term_and_exact_identity",
+      "old_threshold": "retrospective_only",
+      "parameter_selection": false,
+      "protocols": 6,
+      "scan_parameter_order": [
+        "alpha",
+        "gamma",
+        "beta",
+        "lambda",
+        "kappa",
+        "tau"
+      ]
+    },
+    "C3": {
+      "CIVD_scope": "UK_AU_historical_defense_only",
+      "T1_scope": "UK_eight_independent_non_VD_reference_regions",
+      "fallback_included": true,
+      "planning_allocators": "structural_duplicates"
+    },
+    "C4": {
+      "MILP": "not_authorized",
+      "UK_GBP_TNUoS": "missing_required_versioned_tariff_and_conversion_contract",
+      "fixed_load_countries": [
+        "uk",
+        "au",
+        "nz"
+      ],
+      "fixed_load_native_unit": 300.0,
+      "legacy_operator": "not_reused",
+      "nl_fixed_load": "not_evaluated_without_unit_conversion",
+      "secondary_inference": "effect_and_interval_without_test"
+    },
+    "C5": {
+      "main": "R10_R20_lambda0.5_seed42_LS",
+      "panel_order": [
+        "Ref",
+        "PERM-R/3",
+        "PERM-R",
+        "PERM-3R",
+        "SMOOTH-0.5",
+        "SMOOTH-1",
+        "SMOOTH-2",
+        "GPM",
+        "GNN"
+      ],
+      "scan_radii_km": [
+        1,
+        2,
+        3,
+        5,
+        7.5,
+        10,
+        15,
+        20
+      ]
+    },
+    "C6": {
+      "budget": "country_leave_one_region_out_retrospective_type7",
+      "external_budget": null,
+      "no_new_family": true,
+      "planner_tolerance": null,
+      "retain_all_finite_breakpoints": true
+    },
+    "bootstrap": {
+      "quantile_method": "linear",
+      "repetitions": 10000,
+      "seed": 20260906
+    },
+    "completion_scope": "registered_defense_observations_not_support_analysis_or_report",
+    "compute_threads": 1,
+    "country_pooling": false,
+    "version": "006_support_v1"
+  },
+  "observe": {
+    "compute_threads": 1,
+    "connection_protocol": {
+      "AU_power_factor": 1.0,
+      "candidate_count": 2000,
+      "candidate_rule": "raw_grid_stable_stride_floor_n_over_2000_first_2000",
+      "distance": "closed_euclidean_ball_in_central_country_working_crs_metres",
+      "external_buffer": false,
+      "lambdas": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "load": "lambda_times_median_all_candidates_F_at_R0_fixed_across_R",
+      "operator_version": "006_neighbourhood_connection_v1",
+      "preflight_scope": "ledger_grid_canonical_VD_only_no_candidate_predictions",
+      "quantile_method": "linear",
+      "radii_km": [
+        10.0,
+        20.0
+      ],
+      "ref_score": "max_R_mean_abs_A_minus_G_over_median_G",
+      "ref_threshold": 0.25,
+      "reference": "canonical_VD_station_truth_equal_mass_per_assigned_cell",
+      "reference_radius_km": 10.0,
+      "shortlist_k": 20,
+      "ties": "ascending_raw_grid_row_candidate_id",
+      "zero_ref_denominator": "not_assessable_no_epsilon",
+      "zero_reference_capacity_median": "scenario_undefined"
+    },
+    "correction_pairs": [
+      {
+        "base": "Uni",
+        "corrected": "UnipostN",
+        "family": "Uni",
+        "operator": "multiply",
+        "seeds": [
+          null
+        ],
+        "signal": "N"
+      },
+      {
+        "base": "Uni",
+        "corrected": "UnipostP",
+        "family": "Uni",
+        "operator": "multiply",
+        "seeds": [
+          null
+        ],
+        "signal": "P"
+      },
+      {
+        "base": "Uni",
+        "corrected": "UnipostNP",
+        "family": "Uni",
+        "operator": "multiply",
+        "seeds": [
+          null
+        ],
+        "signal": "NP"
+      },
+      {
+        "base": "GPM",
+        "corrected": "GPMpostN",
+        "family": "GPM",
+        "operator": "multiply",
+        "seeds": [
+          null
+        ],
+        "signal": "N"
+      },
+      {
+        "base": "GPM",
+        "corrected": "GPMpostP",
+        "family": "GPM",
+        "operator": "multiply",
+        "seeds": [
+          null
+        ],
+        "signal": "P"
+      },
+      {
+        "base": "GPM",
+        "corrected": "GPMpostNP",
+        "family": "GPM",
+        "operator": "multiply",
+        "seeds": [
+          null
+        ],
+        "signal": "NP"
+      },
+      {
+        "base": "GPM",
+        "corrected": "GPMaddN",
+        "family": "GPM",
+        "operator": "add",
+        "seeds": [
+          null
+        ],
+        "signal": "N"
+      },
+      {
+        "base": "GPM",
+        "corrected": "GPMaddP",
+        "family": "GPM",
+        "operator": "add",
+        "seeds": [
+          null
+        ],
+        "signal": "P"
+      },
+      {
+        "base": "GPM",
+        "corrected": "GPMaddNP",
+        "family": "GPM",
+        "operator": "add",
+        "seeds": [
+          null
+        ],
+        "signal": "NP"
+      },
+      {
+        "base": "EqualGrid",
+        "corrected": "EqualGridpostN",
+        "family": "Equal",
+        "operator": "multiply",
+        "seeds": [
+          null
+        ],
+        "signal": "N"
+      },
+      {
+        "base": "EqualGrid",
+        "corrected": "EqualGridpostP",
+        "family": "Equal",
+        "operator": "multiply",
+        "seeds": [
+          null
+        ],
+        "signal": "P"
+      },
+      {
+        "base": "EqualGrid",
+        "corrected": "EqualGridpostNP",
+        "family": "Equal",
+        "operator": "multiply",
+        "seeds": [
+          null
+        ],
+        "signal": "NP"
+      },
+      {
+        "base": "EqualGrid",
+        "corrected": "EqualGridaddN",
+        "family": "Equal",
+        "operator": "add",
+        "seeds": [
+          null
+        ],
+        "signal": "N"
+      },
+      {
+        "base": "EqualGrid",
+        "corrected": "EqualGridaddP",
+        "family": "Equal",
+        "operator": "add",
+        "seeds": [
+          null
+        ],
+        "signal": "P"
+      },
+      {
+        "base": "EqualGrid",
+        "corrected": "EqualGridaddNP",
+        "family": "Equal",
+        "operator": "add",
+        "seeds": [
+          null
+        ],
+        "signal": "NP"
+      },
+      {
+        "base": "MLP",
+        "corrected": "MLPpostN",
+        "family": "MLP",
+        "operator": "multiply",
+        "seeds": [
+          42,
+          123,
+          456
+        ],
+        "signal": "N"
+      },
+      {
+        "base": "MLP",
+        "corrected": "MLPpostP",
+        "family": "MLP",
+        "operator": "multiply",
+        "seeds": [
+          42,
+          123,
+          456
+        ],
+        "signal": "P"
+      },
+      {
+        "base": "MLP",
+        "corrected": "MLPpostNP",
+        "family": "MLP",
+        "operator": "multiply",
+        "seeds": [
+          42,
+          123,
+          456
+        ],
+        "signal": "NP"
+      },
+      {
+        "base": "MLP",
+        "corrected": "MLPaddN",
+        "family": "MLP",
+        "operator": "add",
+        "seeds": [
+          42,
+          123,
+          456
+        ],
+        "signal": "N"
+      },
+      {
+        "base": "MLP",
+        "corrected": "MLPaddP",
+        "family": "MLP",
+        "operator": "add",
+        "seeds": [
+          42,
+          123,
+          456
+        ],
+        "signal": "P"
+      },
+      {
+        "base": "MLP",
+        "corrected": "MLPaddNP",
+        "family": "MLP",
+        "operator": "add",
+        "seeds": [
+          42,
+          123,
+          456
+        ],
+        "signal": "NP"
+      },
+      {
+        "base": "GNN",
+        "corrected": "GNNpostN",
+        "family": "GNN",
+        "operator": "multiply",
+        "seeds": [
+          42,
+          123,
+          456
+        ],
+        "signal": "N"
+      },
+      {
+        "base": "GNN",
+        "corrected": "GNNpostP",
+        "family": "GNN",
+        "operator": "multiply",
+        "seeds": [
+          42,
+          123,
+          456
+        ],
+        "signal": "P"
+      },
+      {
+        "base": "GNN",
+        "corrected": "GNNpostNP",
+        "family": "GNN",
+        "operator": "multiply",
+        "seeds": [
+          42,
+          123,
+          456
+        ],
+        "signal": "NP"
+      },
+      {
+        "base": "GNN",
+        "corrected": "GNNaddN",
+        "family": "GNN",
+        "operator": "add",
+        "seeds": [
+          42,
+          123,
+          456
+        ],
+        "signal": "N"
+      },
+      {
+        "base": "GNN",
+        "corrected": "GNNaddP",
+        "family": "GNN",
+        "operator": "add",
+        "seeds": [
+          42,
+          123,
+          456
+        ],
+        "signal": "P"
+      },
+      {
+        "base": "GNN",
+        "corrected": "GNNaddNP",
+        "family": "GNN",
+        "operator": "add",
+        "seeds": [
+          42,
+          123,
+          456
+        ],
+        "signal": "NP"
+      }
+    ],
+    "planning_labels": [
+      "Uni",
+      "UnipostN",
+      "GPM",
+      "GPMpostN",
+      "GPMaddN",
+      "MLP",
+      "MLPpostN",
+      "MLPaddN",
+      "GNN",
+      "GNNpostN",
+      "GNNaddN"
+    ],
+    "source_total_order": "DataOverview_source_table_order_preserved_in_arrays",
+    "timing": "HPC_reproduction_after_local_observations_preserve_original_science_not_independent_confirmation"
+  },
+  "planning": {
+    "compute_threads": 1,
+    "matching_max_distance_multiplier": 3.0,
+    "matching_max_km": 20.0,
+    "no_local_refine": true,
+    "primary_matching": "many_to_one",
+    "safety_margin": 1.5,
+    "scope": "siting_sizing_only_shared_Connection_is_separate",
+    "secondary_matching": "one_to_one_global_assignment",
+    "siting_distance": "haversine_earth_radius_6371_km",
+    "siting_evaluation_weight": "fixed_canonical_VD_ledger_reference",
+    "sizing_prediction_total": "Generator_field_total",
+    "sizing_zero_policy": "each_metric_own_denominator_keep_valid_zero_prediction_in_RSD_CE",
+    "sklearn_version": "1.9.0",
+    "solver": {
+      "max_iter": 1000,
+      "random_restarts": 3,
+      "restart_seed": 42
+    },
+    "strict_k": "actual_station_count_no_clamp",
+    "timing": "after_C1_and_shared_observations_before_new_siting_sizing_results"
+  },
+  "preflight_connection": {
+    "AU_power_factor": 1.0,
+    "candidate_count": 2000,
+    "candidate_rule": "raw_grid_stable_stride_floor_n_over_2000_first_2000",
+    "distance": "closed_euclidean_ball_in_central_country_working_crs_metres",
+    "external_buffer": false,
+    "lambdas": [
+      0.25,
+      0.5,
+      1.0
+    ],
+    "load": "lambda_times_median_all_candidates_F_at_R0_fixed_across_R",
+    "operator_version": "006_neighbourhood_connection_v1",
+    "preflight_scope": "ledger_grid_canonical_VD_only_no_candidate_predictions",
+    "quantile_method": "linear",
+    "radii_km": [
+      10.0,
+      20.0
+    ],
+    "ref_score": "max_R_mean_abs_A_minus_G_over_median_G",
+    "ref_threshold": 0.25,
+    "reference": "canonical_VD_station_truth_equal_mass_per_assigned_cell",
+    "reference_radius_km": 10.0,
+    "shortlist_k": 20,
+    "ties": "ascending_raw_grid_row_candidate_id",
+    "zero_ref_denominator": "not_assessable_no_epsilon",
+    "zero_reference_capacity_median": "scenario_undefined"
+  },
+  "preflight_planning_pool": {
+    "M": "max(min(max(n_buildable//100,300),1000),2*k)",
+    "after_grid_mapping_unique_minimum": "2*k",
+    "authorization": "2026-09-06_D3_approved",
+    "buildability": "non_Z_C_or_U_explicit_active_unification_including_UK",
+    "dtype": "float64",
+    "field_weights": "uniform_ones",
+    "insufficient_policy": "ineligible_no_adaptive_pool_enlargement_no_k_clamp",
+    "kmeans": {
+      "algorithm": "lloyd",
+      "copy_x": true,
+      "init": "k-means++",
+      "max_iter": 300,
+      "n_init": 10,
+      "random_state": 42,
+      "tol": 0.0001,
+      "verbose": 0
+    },
+    "sklearn_version": "1.9.0"
+  }
+}

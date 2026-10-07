@@ -1,4 +1,4 @@
-"""Show the British fixed-site connection-cost error comparison."""
+"""Recompute the current British fixed-site connection-cost error comparison."""
 import json
 from pathlib import Path
 import sys

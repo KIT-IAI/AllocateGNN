@@ -1,0 +1,54 @@
+{
+  "schema_version": "idr_g01_mainline_v1",
+  "status": "ACTIVE_EXPLORATORY_CANDIDATE",
+  "method": "IDR-VD + G0 + G1",
+  "alpha": {
+    "value": -0.5,
+    "provenance": "L3 historical UK discovery; AU no-retuning effect-size check",
+    "first_principles": false
+  },
+  "kernel": {
+    "name": "gaussian",
+    "provenance": "frozen structural convention; alternatives not scanned in v1"
+  },
+  "bandwidth": {
+    "rule": "median station nearest-neighbour distance",
+    "fitted_parameter": false
+  },
+  "g0": [
+    "grid/station coordinate Euclidean argmin exactly reproduces canonical frozen assignment",
+    "finite_positive_site_weights",
+    "valid_assignment_labels",
+    "mass_conservation",
+    "no_empty_station"
+  ],
+  "g1": {
+    "metric": "TV of normalized station public-mass distributions: raw IDR vs canonical VD",
+    "budget": "required explicit planner input",
+    "calculation_options": [
+      "allowed WAPE-like total absolute shift / 2",
+      "allowed absolute RMSE prediction shift * sqrt(K) / (2 * total mass)",
+      "allowed RMSE shift relative to mean station mass / (2 * sqrt(K))"
+    ],
+    "historical_anchor": 0.1,
+    "hidden_default": false
+  },
+  "parameter_research": {
+    "status": "ARCHIVED_NEGATIVE_SIDE_ARM",
+    "alpha_formula": "-seed_reliability/geometry_response_elasticity",
+    "result": "0 of 20 seeded candidates per country beat historical alpha; not adopted",
+    "static_fields": "not assessable without credible uncertainty ensemble"
+  },
+  "fallback": "canonical frozen Euclidean VD",
+  "excluded": [
+    "G2 CV-gain selector",
+    "Power-OT",
+    "buffer variant",
+    "adaptive bandwidth",
+    "candidate/alpha/budget search",
+    "v2 prefix-continuous shrink-to-fit research implementation"
+  ],
+  "confirmation_gate": "one frozen new-vintage or third-country run after direct public-field materialization"
+}
+
+

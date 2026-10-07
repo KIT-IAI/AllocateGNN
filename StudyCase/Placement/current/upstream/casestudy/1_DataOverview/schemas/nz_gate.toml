@@ -1,0 +1,5 @@
+schema_version = "sg_artifact_schema_v1"
+artifact_type = "json"
+
+[json]
+required_paths = ["schema_version", "status", "country", "scope", "truth_granularity", "formal_truth_rows", "section_lineage_rows", "source_rows", "analysis_regions", "strict_n1_robustness_rows", "noncoincident_aggregate_rows", "capacity_basis", "mixed_security_site_rule", "noncoincident_rule", "temporal_protocol", "forecast_2026_role", "checks"]

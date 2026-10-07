@@ -1,4 +1,4 @@
-"""Show the Australian connection-bound coverage and zero-bound audit."""
+"""Recompute the current Australian connection-bound coverage and zero-bound audit."""
 import json
 from pathlib import Path
 import sys

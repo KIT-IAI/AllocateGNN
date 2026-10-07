@@ -1,0 +1,101 @@
+{
+  "schema": "paper2_fixed_load_connection_v1",
+  "run_id": "fixedload_20260925_r2",
+  "completed_utc": "2026-09-25T14:51:16.835880+00:00",
+  "status": "PASS",
+  "config_sha256": "1a9282ac1b92e0ce2d20a8ccaefad5f146b96116ce80280a34ba54824e69566c",
+  "inputs_manifest_sha256": "7da5924d0ceb8d6dbb7448b2b4aeb61dd7cf1df621cb607058ff4859ff57e65c",
+  "code": {
+    "script": "code/paper2_fixed_load_connection.py",
+    "script_sha256": "d703bb3b05c6d1a7ec30823e7665576cf59ca62f6e0bfea7bfb3a4a22b723b56",
+    "upstream_zip": "code/upstream_release_69c4008732ed.zip",
+    "upstream_zip_sha256": "a8ef11fad856f8bbb549eeffb7782211f29181bfea9ba59ad50db1d7efa9f150",
+    "upstream_modules": {
+      "sglib/experiment/connection.py": "616421470c65bb03bd31b6698ee6b120003e8596b934dc476dbdd6c0d592b9a5",
+      "sglib/experiment/control_fields.py": "d5fdcbabc9856cdbad037ba7f5f810da5e80c690239c70051452a285c392a045",
+      "sglib/experiment/connection_observations.py": "dab730db4be22259af733d7aef9a46484a4c4c1eda983cb510d7176ae2a1bb67",
+      "sglib/experiment/conditional_bounds.py": "dabbf7f96968849a62b6e89ba90dc4165f3a4cb149223786f2ba9f821610ecc0",
+      "sglib/dataoverview/processing/features/grid_bundle.py": "132baf355d8161b6d8f4c2716b3758c20fcf4d1324921d99f3e01ceed48188b3"
+    },
+    "python": "3.13.0",
+    "numpy": "2.3.1",
+    "pandas": "2.3.0"
+  },
+  "outputs": {
+    "candidates/uk_candidates.parquet": {
+      "sha256": "7c37059589b8b2528e50b050079bbd094f2779633d78155ad0af25c181797dea",
+      "rows": 1152000
+    },
+    "uk_region_support.csv": {
+      "sha256": "146f7484dcec06251696e6a460631b9afcc237a3c4ee8ef1d4194c6248e279dc",
+      "rows": 16
+    },
+    "uk_ref_eligibility.csv": {
+      "sha256": "e44f87515101e8138503c2081c9a5bf09b5b2ebc62b869480f3438a3978017b1",
+      "rows": 32
+    },
+    "uk_cost_oof.csv": {
+      "sha256": "7c765ea0aa578efea463ddb3e5810d85fb278283f715852bdcc8ae7caccb63a3",
+      "rows": 576
+    },
+    "uk_controls.csv": {
+      "sha256": "efeec768a345d4909970399e51221e0a089315d35d032f3afc5b2753f11ddf81",
+      "rows": 864
+    },
+    "uk_scale_station.csv": {
+      "sha256": "501fe0e98b5707176433342ecb5f5b2775288e0e83b4715ae181097bb956fa13",
+      "rows": 640
+    },
+    "uk_scale_grid.csv": {
+      "sha256": "3dd59b8701d0f344c9abf2ae6478c280111b7d088c4513377cf2305e58fcc607",
+      "rows": 640
+    },
+    "uk_tariff_mapping.csv": {
+      "sha256": "8e3146876e6e868ea0953459b6fb9330ade3f2dd02b53298c44c5aaeeb1447f0",
+      "rows": 32000
+    },
+    "uk_t25_sensitivity.csv": {
+      "sha256": "69dc2adab726681e33b78812c2aac91ae8687cb7752ef31ee1543ad25d6dbed0",
+      "rows": 96
+    },
+    "uk_adequacy.csv": {
+      "sha256": "3be788cbb1fe54803018768b1a96dc9276adfb99e294627727550ddc0c28cbe1",
+      "rows": 1920
+    },
+    "candidates/au_candidates.parquet": {
+      "sha256": "6cf3db9995322e1fa2cebe6b26368645b0e621b2bb1b81153f5b6ad9802e7b79",
+      "rows": 864000
+    },
+    "au_region_support.csv": {
+      "sha256": "96cfaabfcbde570c118d575b30bf9d6bd80abff24b65d6f7a822a215c33a4985",
+      "rows": 12
+    },
+    "au_ref_eligibility.csv": {
+      "sha256": "90f91239b915563b31c36c0fd5558128ef1e42276f47050c73f630c8fd5d3f85",
+      "rows": 24
+    },
+    "au_cost_oof.csv": {
+      "sha256": "661d004c2c089860a5b3a413b3d9e11182fb2fa91fe67fa116b2a2aa7e225492",
+      "rows": 432
+    },
+    "au_controls.csv": {
+      "sha256": "6399c7d98a6df3fca335ae28251b2fed3796a8f0fa689314a2df2f57552d2ef1",
+      "rows": 648
+    },
+    "au_scale_station.csv": {
+      "sha256": "8624418b82fccdf8a51a37582046b8e62bb3a43cfc39319ae8fcff7c2ebba225",
+      "rows": 480
+    },
+    "au_scale_grid.csv": {
+      "sha256": "b4326f4e9d4bcbfb92967d5cd886b08f3e4b3341c4a701f25b49a87ceddeaec2",
+      "rows": 480
+    },
+    "au_adequacy.csv": {
+      "sha256": "4c81380b3336cd863f42d9a8be4090f7932c5050a47874b46c014840fc333902",
+      "rows": 1440
+    },
+    "checks.json": {
+      "sha256": "6fad8117af5f556e98c06c1641939ea44456fbdc8d723f1af5ff101493cd0c1a"
+    }
+  }
+}

@@ -1,0 +1,180 @@
+schema_version = "sg_dataoverview_country_v1"
+
+[osm_snapshot]
+url = "https://download.geofabrik.de/europe/united-kingdom/england-latest.osm.pbf"
+scope = "england"
+
+[ntl]
+dataset_id = "NOAA/VIIRS/DNB/MONTHLY_V1/VCMSLCFG"
+bands = ["avg_rad"]
+date_range = ["2022-01-01","2023-12-31"]
+composite_method = "median"
+credential_env = "GEE_SERVICE_ACCOUNT_KEY_PATH"
+
+[regions]
+source_key = "ITL3"
+source_path = "data/datasets/2_derived/uk/bplus/regions.gpkg"
+group_key = "ITL2"
+
+[canonical]
+regions = "data/datasets/2_derived/uk/bplus/regions.gpkg"
+stations = "data/datasets/2_derived/uk/bplus/stations.gpkg"
+
+[[regions.items]]
+id = "London"
+source_key_order = ["TLI62","TLI61","TLI63","TLI75","TLI51","TLI45","TLI44","TLI34","TLI74","TLI33","TLI32","TLI42","TLI52","TLI73","TLI41","TLI31","TLI43","TLI72","TLI53","TLI71","TLI54"]
+
+[[regions.items]]
+id = "TLH2"
+source_key_order = ["TLH23","TLH25","TLH21","TLH24"]
+
+[[regions.items]]
+id = "TLH3"
+source_key_order = ["TLH32","TLH37","TLH31","TLH36","TLH35","TLH34"]
+
+[[regions.items]]
+id = "TLJ1"
+source_key_order = ["TLJ11","TLJ14","TLJ13","TLJ12"]
+
+[[regions.items]]
+id = "TLF1"
+source_key_order = ["TLF13","TLF16","TLF11","TLF14","TLF15","TLF12"]
+
+[[regions.items]]
+id = "TLF2"
+source_key_order = ["TLF24","TLF25","TLF22","TLF21"]
+
+[[regions.items]]
+id = "TLC1"
+source_key_order = ["TLC14","TLC13","TLC11","TLC12"]
+
+[[regions.items]]
+id = "TLC2"
+source_key_order = ["TLC21","TLC23","TLC22"]
+
+[[regions.items]]
+id = "TLD6"
+source_key_order = ["TLD62","TLD63","TLD61"]
+
+[[regions.items]]
+id = "TLG1"
+source_key_order = ["TLG11","TLG13","TLG12"]
+
+[[regions.items]]
+id = "TLG2"
+source_key_order = ["TLG22","TLG24","TLG21","TLG23"]
+
+[[regions.items]]
+id = "TLE4"
+source_key_order = ["TLE44","TLE45","TLE42","TLE41"]
+
+[[regions.items]]
+id = "TLH1"
+source_key_order = ["TLH14","TLH12","TLH17","TLH16","TLH11","TLH15"]
+
+[[regions.items]]
+id = "TLE3"
+source_key_order = ["TLE31","TLE32"]
+
+[[regions.items]]
+id = "TLD3"
+source_key_order = ["TLD35","TLD33","TLD34","TLD36","TLD37"]
+
+[[regions.items]]
+id = "TLD4"
+source_key_order = ["TLD47","TLD46","TLD41","TLD45","TLD42","TLD44"]
+
+[grid_columns]
+names = ["index_region","ITL3","ITL2","geometry"]
+
+[datasets.gb_ps_info]
+category = "station_register"
+license = "CC BY 4.0"
+vintage = "2023"
+semantics = "GB primary-substation demand, firm capacity and geometry"
+[[datasets.gb_ps_info.files]]
+url = "https://zenodo.org/records/10866260/files/HDRah/Data-PS-GB-v1.0.2.zip?download=1"
+filename = "HDRah-Data-PS-GB-1f63a32.zip"
+kind = "zip_extract"
+extract_root = "HDRah-Data-PS-GB-1f63a32"
+zip_probe = "HDRah-Data-PS-GB-1f63a32/GB_PS_data_extend.csv"
+
+[datasets.itl_lookup]
+category = "boundaries_grid"
+license = "OGL v3"
+vintage = "2021"
+semantics = "LAD to ITL lookup"
+[[datasets.itl_lookup.files]]
+url = "https://opendata.arcgis.com/api/v3/datasets/8c4d546ee4a446819b5ff39ff81cf009_0/downloads/data?format=csv&spatialRefId=4326"
+filename = "Local_Authority_District_(April_2021)_to_LAU1_to_ITL3_to_ITL2_to_ITL1_(January_2021)_Lookup_in_United_Kingdom.csv"
+kind = "file"
+
+[datasets.population]
+category = "regional_totals"
+license = "OGL v3"
+vintage = "mid-2023"
+semantics = "ONS local-authority population"
+[[datasets.population.files]]
+url = "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/estimatesofthepopulationforenglandandwales/mid20232023localauthorityboundarieseditionofthisdataset/mye23tablesew.xlsx"
+filename = "mye23tablesew.xlsx"
+kind = "file"
+
+[datasets.gva]
+category = "regional_totals"
+license = "OGL v3"
+vintage = "2022 paper reference; current endpoint"
+semantics = "ONS balanced regional GVA by industry"
+[[datasets.gva.files]]
+url = "https://www.ons.gov.uk/file?uri=/economy/grossvalueaddedgva/datasets/nominalandrealregionalgrossvalueaddedbalancedbyindustry/current/regionalgrossvalueaddedbalancedbyindustryandallitlregions.xlsx"
+filename = "regionalgrossvalueaddedbalancedbyindustryandallitlregions.xlsx"
+kind = "file"
+
+[datasets.osm_snapshot]
+category = "landuse"
+license = "ODbL 1.0"
+vintage = "current snapshot"
+semantics = "Geofabrik England OSM snapshot"
+[[datasets.osm_snapshot.files]]
+url = "https://download.geofabrik.de/europe/united-kingdom/england-latest.osm.pbf"
+filename = "../osm_snapshot_raw/uk/england.osm.pbf"
+kind = "file"
+
+[datasets.ntl]
+category = "ntl"
+license = "NOAA public data"
+vintage = "2022-2023"
+semantics = "VIIRS monthly median radiance"
+query_protocol = "gee"
+[datasets.ntl.query]
+credential_env = "GEE_SERVICE_ACCOUNT_KEY_PATH"
+output = "ntl/viirs_2022_2023_median.tif"
+
+[products.regions]
+category = "boundaries_grid"
+depends_on = ["uk.gb_ps_info.download", "uk.itl_lookup.download", "uk.population.download", "uk.gva.download"]
+produces = ["data/datasets/2_derived/uk/bplus/regions.gpkg"]
+semantics = "ITL3 region totals and source attributes"
+
+[products.substations]
+category = "station_register"
+depends_on = ["uk.gb_ps_info.download", "uk.regions.derive"]
+produces = ["data/datasets/2_derived/uk/bplus/stations.gpkg"]
+semantics = "Primary substations assigned to ITL regions"
+
+[products.grid]
+category = "boundaries_grid"
+depends_on = ["uk.regions.derive"]
+produces = ["data/datasets/2_derived/uk/grid_bplus/bundles"]
+semantics = "B+ grid bundles for every analysis region"
+
+[products.features]
+category = "features_cuz"
+depends_on = ["uk.grid.derive", "uk.osm_snapshot.download", "uk.ntl.download"]
+produces = ["data/datasets/2_derived/uk/features_bplus/extracted"]
+semantics = "land-use, Built-S, C/U/Z and NTL arrays"
+
+[products.inventory]
+category = "features_cuz"
+depends_on = ["uk.features.derive", "uk.substations.derive"]
+produces = ["results/1_DataOverview/1_UK/data_inventory.json"]
+semantics = "Schema and coverage inventory"

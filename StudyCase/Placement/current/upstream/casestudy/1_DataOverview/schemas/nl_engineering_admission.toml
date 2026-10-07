@@ -1,0 +1,6 @@
+schema_version = "sg_artifact_schema_v1"
+artifact_type = "json"
+
+[json]
+required_paths = ["schema_version", "status", "country", "contract", "contract_sha256", "shared_authority", "shared_authority_sha256", "feature_free", "forbidden_feature_inputs", "idr_matched.realizations", "idr_matched.maximum", "idr_matched.pass", "regions", "regions.*.region", "regions.*.n_cells", "regions.*.n_sources", "regions.*.n_targets", "regions.*.cells_per_source", "regions.*.cells_per_target", "regions.*.min_cells_per_source", "regions.*.min_cells_per_target", "regions.*.canonical_empty_targets", "regions.*.oversampling_disclosure", "regions.*.memory_advisory", "regions.*.working_crs", "regions.*.checks", "failures"]
+unique_by = ["regions.*.region"]

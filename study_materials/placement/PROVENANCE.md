@@ -1,6 +1,9 @@
+> **Historical lu5 release.** This material describes an earlier manuscript.
+> Use [current/](current/README.md) for the revised paper and its default reproduction command.
+
 # Task-scale lu5 paper release
 
-This directory is the sole numerical authority for the manuscript
+This directory records the numerical authority for the historical manuscript
 "Task- and scale-matched evaluation of spatial allocation proxies for network
 planning" scoped by manuscript archive SHA-256
 `F7C1B9330909D7952E794D8184D39C0354CA69C5D336CD69D65CAC6285A6021B`.
@@ -40,7 +43,7 @@ this release claims to recompute them.
 ## Commands
 
 ```powershell
-python -m SpatialPlacement.reproduce_paper_numbers --verify
+python -m SpatialPlacement.reproduce_legacy_paper_numbers --verify
 ```
 
 The command reads no development result directory, checkpoint, held-out field,

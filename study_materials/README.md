@@ -10,18 +10,17 @@ statement in the paper or in the response letter.
 
 ### `placement/`
 
-Manuscript-scoped derived numerical evidence for *"Task- and scale-matched
-evaluation of spatial allocation proxies for network planning"*. It contains
-twelve allowlisted CSVs, hashes and schemas, case facts, protocol and model
-contracts, and a reading-to-source ledger. Reproduce and verify the reported
-numbers with:
+The revised paper **Task- and Scale-Matched Evaluation of Spatial Demand Allocation
+for Power Grid Planning** uses [placement/current/](placement/current/README.md).
+It includes frozen regional evidence and the scientific source archive. The
+default command recomputes and verifies its statistics:
 
-```powershell
+```bash
 python -m SpatialPlacement.reproduce_paper_numbers --verify
 ```
 
-This is a derived-result reproduction package, not an end-to-end training
-archive; see `placement/PROVENANCE.md` for the precise boundary.
+The files directly under `placement/` describe the historical lu5 release and
+are accessed through `SpatialPlacement.reproduce_legacy_paper_numbers`.
 
 ### `environment-lock.yml`
 Full machine-readable environment lock (conda export, 221 pinned

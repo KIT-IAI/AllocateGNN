@@ -25,15 +25,18 @@ def run_case(relative_path: str, *arguments: str) -> subprocess.CompletedProcess
 def test_british_reconstruction_script() -> None:
     completed = run_case("StudyCase/Placement/British/001_reconstruction.py")
     payload = json.loads(completed.stdout)
-    assert payload["median_change_pct"] == pytest.approx(-26.182790015227475)
+    assert payload["base_mean"] == pytest.approx(10.462268014399758)
+    assert payload["gnn_mean"] == pytest.approx(9.635992845183765)
+    assert payload["median_change_pct"] == pytest.approx(-9.937638649044747)
     assert set(payload["per_seed"]) == {"42", "123", "456"}
 
 
 def test_australian_connection_script() -> None:
     completed = run_case("StudyCase/Placement/Australia/003_connection.py")
     payload = json.loads(completed.stdout)
-    assert payload["median_change_pct"] == pytest.approx(-6.663739158049074)
-    assert payload["p_signflip"] == pytest.approx(0.08203125)
+    assert payload["median_change_pct"] == pytest.approx(17.926037848320426)
+    assert payload["gnn_mean"] > payload["base_mean"]
+    assert payload["p_signflip"] == pytest.approx(0.07421875)
 
 
 def test_complete_case_entrypoint() -> None:

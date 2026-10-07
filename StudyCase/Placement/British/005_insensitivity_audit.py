@@ -1,4 +1,4 @@
-"""Show the British connection-bound coverage and conservatism audit."""
+"""Recompute the current British connection-bound coverage and conservatism audit."""
 import json
 from pathlib import Path
 import sys

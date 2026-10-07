@@ -1,3 +1,6 @@
+> **Historical lu5 release.** This material describes an earlier manuscript.
+> Use [current/](current/README.md) for the revised paper and its default reproduction command.
+
 # Manuscript-scoped numerical package
 
 - `results/`: the twelve allowlisted derived CSVs used by the manuscript.
@@ -8,5 +11,5 @@
 - `manifest.json`: hashes, row counts, and schemas for every result CSV.
 - `PROVENANCE.md`: origin, exclusions, and reproducibility boundary.
 
-Run `python -m SpatialPlacement.reproduce_paper_numbers --verify`
+Run `python -m SpatialPlacement.reproduce_legacy_paper_numbers --verify`
 from the repository root. Development repositories are not required.

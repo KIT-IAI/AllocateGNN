@@ -1,0 +1,116 @@
+{
+  "validated_on": "2026-10-07",
+  "baseline_public_commit": "bce97b9",
+  "paper_run_id": "fixedload_20260925_r2",
+  "tests": [
+    {
+      "command": "python -m pytest tests/SpatialPlacement -q -p no:cacheprovider",
+      "working_directory": ".",
+      "passed": 85
+    },
+    {
+      "command": "python -m pytest tests/test_006_bounds.py tests/test_006_connection.py tests/test_006_planning_pool.py tests/test_006_planning_acceleration.py tests/test_algorithm_properties.py -q -p no:cacheprovider",
+      "working_directory": "StudyCase/Placement/current/upstream",
+      "passed": 36
+    }
+  ],
+  "verification": {
+    "source_files_hashed": 558,
+    "evidence_files_hashed": 46,
+    "staged_blob_hash_mismatches": 0,
+    "recomputed_statistical_tables": 12,
+    "claim_ledger_rows": 1308,
+    "country_entry_points_passed": 11,
+    "legacy_entry_point": "PASS",
+    "non_map_figures_generated": 3
+  },
+  "environment": {
+    "numpy": "2.3.1",
+    "pandas": "2.3.0",
+    "scipy": "1.18.0",
+    "matplotlib": "3.11.1",
+    "scienceplots": "2.2.2",
+    "pytest": "9.1.1"
+  },
+  "scope": "Statistical reproduction from published task and connection outputs. Original GIS processing, allocation training and Step B connection recomputation require external frozen inputs.",
+  "recomputed_files": [
+    {
+      "path": "stats/adequacy_pass_curves.csv",
+      "recomputed_sha256": "f8753ec57bf7efbdbca94d67bd0dac85b69d030c9c74bdc1e8b581fe06f992d7",
+      "frozen_sha256": "f8753ec57bf7efbdbca94d67bd0dac85b69d030c9c74bdc1e8b581fe06f992d7",
+      "byte_equal": true
+    },
+    {
+      "path": "stats/adequacy_summary.csv",
+      "recomputed_sha256": "732ee870b1890d32fcf7f71857f7d571c639688b340d4057b9c6a21cdf771485",
+      "frozen_sha256": "732ee870b1890d32fcf7f71857f7d571c639688b340d4057b9c6a21cdf771485",
+      "byte_equal": true
+    },
+    {
+      "path": "stats/connection_endpoints.csv",
+      "recomputed_sha256": "0696cea833068f9f1a9978c971ad58d7163ceb6377c80cb4d7c9211ef66b73c9",
+      "frozen_sha256": "0696cea833068f9f1a9978c971ad58d7163ceb6377c80cb4d7c9211ef66b73c9",
+      "byte_equal": true
+    },
+    {
+      "path": "stats/holm_family_disclosure.csv",
+      "recomputed_sha256": "ed25b6059fcb1f37f0b76fc1643aca1ff6432b96e4e535e8e82eae9825fd4903",
+      "frozen_sha256": "ed25b6059fcb1f37f0b76fc1643aca1ff6432b96e4e535e8e82eae9825fd4903",
+      "byte_equal": true
+    },
+    {
+      "path": "stats/module_contrasts.csv",
+      "recomputed_sha256": "5285c9cd420c76b47244bd8103b30dbf6501d0c76a40497462762e91a1260417",
+      "frozen_sha256": "5285c9cd420c76b47244bd8103b30dbf6501d0c76a40497462762e91a1260417",
+      "byte_equal": true
+    },
+    {
+      "path": "stats/panel_levels.csv",
+      "recomputed_sha256": "315f0634c361057d423d22c583ac44692fd4ea14ef23a33606c570eedc4fbe6c",
+      "frozen_sha256": "315f0634c361057d423d22c583ac44692fd4ea14ef23a33606c570eedc4fbe6c",
+      "byte_equal": true
+    },
+    {
+      "path": "stats/panel_region_associations.csv",
+      "recomputed_sha256": "14f270a25a0e3868b424e1bb0ae8723d0afc098ffe06350088509348c07ec116",
+      "frozen_sha256": "14f270a25a0e3868b424e1bb0ae8723d0afc098ffe06350088509348c07ec116",
+      "byte_equal": true
+    },
+    {
+      "path": "stats/panel_summary.csv",
+      "recomputed_sha256": "17cdffa5223634250991372b459640c9c576bfd9edaea85815710e27e4f7338b",
+      "frozen_sha256": "17cdffa5223634250991372b459640c9c576bfd9edaea85815710e27e4f7338b",
+      "byte_equal": true
+    },
+    {
+      "path": "stats/per_seed_contrasts.csv",
+      "recomputed_sha256": "e18d08f23aefacbdf4a7f05c97c036802d0a0515882060d25e12f85eaf0bdf1a",
+      "frozen_sha256": "e18d08f23aefacbdf4a7f05c97c036802d0a0515882060d25e12f85eaf0bdf1a",
+      "byte_equal": true
+    },
+    {
+      "path": "stats/scale_curves.csv",
+      "recomputed_sha256": "f29bc565a6b89763d0cd5b9926adba573a901d4f1ccaa9b0bc68152ffd593650",
+      "frozen_sha256": "f29bc565a6b89763d0cd5b9926adba573a901d4f1ccaa9b0bc68152ffd593650",
+      "byte_equal": true
+    },
+    {
+      "path": "stats/t25_summary.csv",
+      "recomputed_sha256": "995179c64ce1f2e53e2668b6cefc45bc57fa4f1317d0657fdda2e4df8658e825",
+      "frozen_sha256": "995179c64ce1f2e53e2668b6cefc45bc57fa4f1317d0657fdda2e4df8658e825",
+      "byte_equal": true
+    },
+    {
+      "path": "stats/table3_four_module.csv",
+      "recomputed_sha256": "e5899a7095f1e849fb4ccff945a6a58289ce0709f3994458bc7bf078bed43ed0",
+      "frozen_sha256": "e5899a7095f1e849fb4ccff945a6a58289ce0709f3994458bc7bf078bed43ed0",
+      "byte_equal": true
+    },
+    {
+      "path": "ledger/claim_ledger.csv",
+      "recomputed_sha256": "dfcfe9a169c1afc5fff86e00192e68fd771eb4270c0406c6626d1eeb5d605fbb",
+      "frozen_sha256": "dfcfe9a169c1afc5fff86e00192e68fd771eb4270c0406c6626d1eeb5d605fbb",
+      "byte_equal": true
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+schema_version = "sg_artifact_schema_v1"
+artifact_type = "npz"
+
+[npz]
+allow_extra_arrays = false
+
+[npz.arrays.data]
+dtype_kind = "f"
+shape = ["n_cells", 5]
+finite = true
+
+[npz.arrays.columns]
+dtype_kind = "US"
+shape = [5]

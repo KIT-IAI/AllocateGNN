@@ -1,0 +1,18 @@
+schema_version = "sg_generator_country_v1"
+regions = ["Orion_NZ__historical_spatial_1","Orion_NZ__historical_spatial_2","Orion_NZ__historical_spatial_3","Vector_Lines__historical_spatial_1","Vector_Lines__historical_spatial_2","Vector_Lines__historical_spatial_3","Wellington_Electricity__historical_spatial_1","Wellington_Electricity__historical_spatial_2","Wellington_Electricity__historical_spatial_3"]
+task_groups = ["B-NZ-GNN","B-NZ-MLP","P-NZ-N","P-NZ-P","P-NZ-NP","F-NZ-N","F-NZ-P","F-NZ-NP","L-NZ-N","L-NZ-P","T-NZ"]
+
+[execution]
+civd_enabled = true
+
+[checks]
+truth_granularity = "site"
+section_ledger_role = "lineage_and_sensitivity_only"
+temporal_protocol = "NZ_2024_actual_peak_and_installed_firm__2025_geospatial__2023_census"
+admission_contract = "casestudy/2_Generator/5_NZ/engineering_admission_v3.toml"
+requires_engineering_admission = true
+
+[idr]
+b_tv = 0.10
+b_tv_provenance = "prospective planner tolerance; numerically equal to the L3 anchor"
+planner_semantics = "maximum 20 percent station-mass redistribution"

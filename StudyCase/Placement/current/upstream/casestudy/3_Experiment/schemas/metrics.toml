@@ -1,0 +1,38 @@
+schema_version = "sg_artifact_schema_v1"
+artifact_type = "table"
+[table]
+min_rows = 1
+allow_extra_columns = true
+unique_by = [["country", "region", "candidate", "seed", "metric"]]
+[[table.columns]]
+name = "metric"
+dtype = "string"
+nullable = false
+allowed_values = ["rmse", "mae", "wape", "predictive_r2", "corr"]
+[[table.columns]]
+name = "value"
+dtype = "number"
+nullable = true
+[[table.columns]]
+name = "status"
+allowed_values = ["VALID", "METRIC_NOT_ASSESSABLE"]
+nullable = false
+[[table.columns]]
+name = "reason"
+[[table.columns]]
+name = "prediction_total_matches_observed_total"
+dtype = "boolean"
+[[table.columns]]
+name = "mass_alignment_basis"
+[[table.columns]]
+name = "lineage_fingerprint"
+dtype = "string"
+nullable = false
+[formula]
+rmse = "sqrt(mean((pred-obs)^2))"
+mae = "mean(abs(pred-obs))"
+wape = "sum(abs(pred-obs))/sum(obs)"
+predictive_r2 = "1-sum((pred-obs)^2)/sum((obs-mean(obs))^2)"
+corr = "Pearson correlation; constant truth or prediction is not assessable"
+zero_denominator = "null with explicit reason; no epsilon"
+units = "RMSE/MAE inherit country demand units; others dimensionless"

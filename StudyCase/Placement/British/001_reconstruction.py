@@ -1,4 +1,4 @@
-"""Show the British peak-reconstruction result and per-seed readings."""
+"""Recompute the current British peak-reconstruction result and per-seed readings."""
 import json
 from pathlib import Path
 import sys

@@ -13,7 +13,7 @@ from SpatialPlacement.core.bounds import (
 )
 from SpatialPlacement.core.sizing import compute_sizing_metrics
 from SpatialPlacement.core.stats import exact_sign_flip_p
-from SpatialPlacement import reproduce_paper_numbers as paper
+from SpatialPlacement import reproduce_legacy_paper_numbers as legacy_paper
 
 
 def test_exact_sign_flip_is_two_sided_and_scale_symmetric() -> None:
@@ -74,16 +74,16 @@ def test_rectangular_selection_bound_matches_endpoint_bruteforce() -> None:
     assert bound == pytest.approx(worst)
 
 
-def test_manifest_and_headline_contracts() -> None:
-    paper.verify_manifest()
-    data = paper.reproduce()
-    paper.verify_headlines(data)
+def test_legacy_manifest_and_headline_contracts() -> None:
+    legacy_paper.verify_manifest()
+    data = legacy_paper.reproduce()
+    legacy_paper.verify_headlines(data)
     assert data["tasks"]["AU"]["connection"]["p_holm_four_module"] > 0.05
     assert data["tasks"]["AU"]["sizing"]["p_holm_four_module"] < 0.05
 
 
-def test_result_allowlist_excludes_non_manuscript_artifacts() -> None:
-    actual = {path.name for path in paper.RESULTS.iterdir() if path.is_file()}
+def test_legacy_result_allowlist_excludes_non_manuscript_artifacts() -> None:
+    actual = {path.name for path in legacy_paper.RESULTS.iterdir() if path.is_file()}
     forbidden = {
         "au_vintage_recon.csv",
         "au_vintage_summary.json",

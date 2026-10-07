@@ -1,4 +1,4 @@
-"""Show the Australian station-centred geographic-support sweep."""
+"""Recompute the current Australian station-centred geographic-support sweep."""
 import json
 from pathlib import Path
 import sys

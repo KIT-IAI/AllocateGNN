@@ -1,4 +1,4 @@
-"""Show British p-median siting and both sizing-matching protocols."""
+"""Recompute current British p-median siting and both sizing-matching protocols."""
 import json
 from pathlib import Path
 import sys

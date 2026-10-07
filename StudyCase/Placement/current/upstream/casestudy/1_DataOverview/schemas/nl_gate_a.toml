@@ -1,0 +1,5 @@
+schema_version = "sg_artifact_schema_v1"
+artifact_type = "json"
+
+[json]
+required_paths = ["schema_version", "status", "country", "checks", "levels.source", "levels.n_sources", "levels.target", "levels.n_targets", "levels.lineage", "pdok.pages", "pdok.pagination_total", "crosswalk.counts.exact_code", "crosswalk.counts.pip_fallback", "crosswalk.counts.conflict", "crosswalk.counts.outside_all_polygons", "crosswalk.conflict_spatial_support_rows", "industry.fallback_rule", "robustness.aggregation_level", "robustness.zero_peak", "robustness.zero_capacity", "robustness.over_capacity", "robustness.within_buurt_overload_purification_count", "temporal.protocol", "demand_conservation.raw_equipment_peak_sum_kw", "demand_conservation.buurt_pseudo_station_peak_sum_kw", "demand_conservation.source_region_peak_sum_kw", "inputs"]

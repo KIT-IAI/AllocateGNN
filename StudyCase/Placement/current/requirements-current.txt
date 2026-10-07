@@ -1,0 +1,10 @@
+# Numerical reproduction from the published derived CSV subset.
+# Training and GIS processing use upstream/requirements.txt instead.
+numpy==2.3.1
+pandas==2.3.0
+scipy>=1.10
+# Optional figure reproduction.
+matplotlib>=3.6
+scienceplots>=2.1
+# Verification tests.
+pytest>=7.3

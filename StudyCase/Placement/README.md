@@ -1,50 +1,50 @@
-# Task- and scale-matched placement evaluation
+# Current placement-paper experiments
 
-This case-study directory documents the British and Australian experiments for
-the forthcoming manuscript "Task- and scale-matched evaluation of spatial
-allocation proxies for network planning". Reusable methods live in the
-top-level `SpatialPlacement/` package.
-
-The numbered scripts are the paper-facing demonstration layer. They select the
-case, assemble the relevant frozen evidence, call reusable `SpatialPlacement`
-functions, and print the reported JSON summaries. No mathematical or
-statistical implementation is duplicated here.
-
-## What is included
-
-- Peak reconstruction on existing-substation Voronoi cells.
-- Demand-weighted p-median siting with greedy/local-exchange and optional MILP implementations.
-- Rule-based sizing and rule-based sizing deviation (RSD).
-- A headroom-based connection proxy, fixed-site error, top-set regret, and rectangular uncertainty bounds.
-- PERM/SMOOTH diagnostic fields and regional statistical utilities.
-- A manuscript-scoped numerical package under `study_materials/placement`.
-
-## Reproduce the reported numbers
+This directory supports **Task- and Scale-Matched Evaluation of Spatial Demand
+Allocation for Power Grid Planning**. Its numerical release is
+`fixedload_20260925_r2`, based on `refactor_20260922_r2` and the paper's
+fixed-load connection calculations.
 
 From the repository root:
 
-```powershell
+```bash
+pip install -r StudyCase/Placement/current/requirements-current.txt
 python StudyCase/Placement/000_reproduce_all.py --verify
 ```
 
-The output is written to `results/placement_reproduction/paper_numbers.json`.
+The command recomputes the reported statistics from frozen derived result
+tables and checks the current release. Outputs go to
+`results/placement_current_reproduction/`.
 
-## Reproducibility boundary
+The [current reproduction guide](current/README.md) describes the source
+versions, figure commands, data requirements and verification scope.
 
-The command reproduces the reported tables, statistics, and quantitative
-figure inputs from twelve frozen derived CSV files. Raw source data, the lu5
-held-out fields, and training checkpoints are not distributed and were not
-retained in the source workspace. Consequently, this release does not claim
-end-to-end GNN retraining or held-out-field regeneration.
+## Experiments
 
-`model_contract.json` records the missing-artifact boundary. The LU-sharp
-alpha range is explicitly marked `frozen_summary_only` because its per-region
-lu5 artifact is unavailable.
+- [Britain](British/README.md): 16 regions, including monetary connection-cost error.
+- [Australia](Australia/README.md): 12 regions, with PF=1 reinforcement requirements.
+- Peak-demand reconstruction, substation siting, rule-based sizing and connection
+  are evaluated separately. Siting determines the locations used for sizing.
+  The new data-center load enters the connection task only.
 
-## Repository map
+The numbered case scripts display the current results. They do not imply that
+the four evaluations form a sequential construction project.
 
-- `SpatialPlacement/`: reusable mathematical, optimisation, and evaluation code.
-- `StudyCase/Placement/British/` and `Australia/`: case roles and data contracts.
-- `StudyCase/Placement/000_reproduce_all.py`: complete paper-facing entry point.
-- `study_materials/placement/`: manuscript-scoped frozen numerical evidence.
-- `tests/SpatialPlacement/`: formula, manifest, and headline regression gates.
+## Source layout
+
+- `current/upstream/`: exported public `sglib` source, case configurations and tests.
+- `current/scripts/`: paper-specific calculations and figure generators.
+- `current/SOURCE.json`: exact source versions and file hashes.
+- [Current numerical evidence](../../study_materials/placement/current/README.md):
+  the public subset and its manifest.
+- `SpatialPlacement/current_paper.py` at the repository root: public reproduction adapter.
+
+## Historical lu5 release
+
+The original lu5 evidence remains under `study_materials/placement/` outside
+its `current/` subdirectory. It describes an earlier manuscript and must not be
+used to verify the current paper. Its command is:
+
+```bash
+python -m SpatialPlacement.reproduce_legacy_paper_numbers --verify
+```

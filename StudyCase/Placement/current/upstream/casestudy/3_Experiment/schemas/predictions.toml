@@ -1,0 +1,35 @@
+schema_version = "sg_artifact_schema_v1"
+artifact_type = "table"
+[table]
+min_rows = 1
+allow_extra_columns = true
+unique_by = [["country", "region", "candidate", "seed", "target_id"]]
+[[table.columns]]
+name = "target_id"
+dtype = "string"
+nullable = false
+[[table.columns]]
+name = "source_id"
+dtype = "string"
+nullable = false
+[[table.columns]]
+name = "observed"
+dtype = "number"
+nullable = false
+minimum = 0
+[[table.columns]]
+name = "predicted"
+dtype = "number"
+nullable = false
+minimum = 0
+[[table.columns]]
+name = "unit"
+dtype = "string"
+nullable = false
+[[table.columns]]
+name = "lineage_fingerprint"
+dtype = "string"
+nullable = false
+[[table.columns]]
+name = "allocator"
+allowed_values = ["VD", "DIRECT"]

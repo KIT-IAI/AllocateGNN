@@ -1,4 +1,4 @@
-"""Show the Australian PF=1 connection-requirement comparison."""
+"""Recompute the current Australian PF=1 connection-requirement comparison."""
 import json
 from pathlib import Path
 import sys

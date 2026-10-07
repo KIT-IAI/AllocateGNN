@@ -1,23 +1,21 @@
-# Australia case
+# Australia: current paper
 
-Australia is a 12-region composite-register stress test; the comparative
-connection task uses the 10 regions that pass the reference-support check.
-Capacity-coupled outputs are PF=1 MVA-equivalent requirements, not monetary
-costs. Raw Ausgrid inputs and lu5 held-out fields are not distributed.
+The current study covers 12 Australian regions and 173 substations. All four
+task comparisons, including connection, use all 12 regions. Reference-dependent
+diagnostics use the 10 regions that pass the reference-allocation screen.
 
-See `study_materials/placement/case_facts/register_summary.json` for the
-reported register facts and `protocol.json` for fixed settings.
+The four main task comparisons favor LU over GNN-based allocation. Connection
+outputs are reinforcement requirements in MVA-equivalent units under PF=1.
+They are not monetary costs. This supersedes the earlier lu5 comparison with
+only 10 connection regions and the opposite aggregate connection direction.
 
-## Execution order
+The numbered scripts display reconstruction, siting and sizing, connection,
+scale and conditional bounds. Run them independently from the repository root:
 
-1. `001_reconstruction.py` - peak reconstruction stress test.
-2. `002_siting_sizing.py` - siting and both sizing-matching protocols.
-3. `003_connection.py` - PF=1 connection-requirement comparison.
-4. `004_scale_analysis.py` - station-centred geographic-support sweep.
-5. `005_insensitivity_audit.py` - coverage and zero-bound audit.
-
-Run a script from the repository root, for example:
-
-```powershell
+```bash
 python StudyCase/Placement/Australia/003_connection.py
 ```
+
+Protocol and region counts are recorded in
+`study_materials/placement/current/frozen/config.json` and `au_region_support.csv`.
+See the [current reproduction guide](../current/README.md).

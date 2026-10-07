@@ -1,0 +1,35 @@
+schema_version = "sg_country_profile_v1"
+
+[country]
+code = "au"
+directory = "2_AU"
+label = "Australia (NSW/Ausgrid)"
+evaluation_scope = "four_task_chain"
+
+[crs]
+native = "EPSG:7856"
+area = "EPSG:7856"
+generation = "EPSG:3857"
+storage = "EPSG:4326"
+working = "EPSG:7856"
+
+[temporal]
+protocol = "FY2024_same_year"
+demand_vintage = "FY2024"
+feature_vintage = "FY2024"
+
+[units]
+demand = "MW"
+capacity = "MVA"
+area = "m2"
+
+[station_contract]
+id_column = "station_id"
+demand_column = "G_fy2024_mw"
+capacity_column = "F_mva"
+region_column = "SA3"
+source_key = "SA3"
+region_demand_column = "demand_peak_mw"
+capacity_basis = "reconstructed_firm_n1"
+security_class_column = ""
+noncoincident_flag_column = ""

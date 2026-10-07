@@ -1,0 +1,697 @@
+{
+  "defense": {
+    "specification": {
+      "blocks": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          9
+        ],
+        [
+          10
+        ],
+        [
+          11
+        ]
+      ],
+      "country": "au",
+      "evidence_scope": "historical_discovery_rerun",
+      "expected_coordinates_sha256": "cb0a571ee9abb146ae74b831252ad4165b7d17d52bd8bf511cf11e89fc2795f1",
+      "method_order": [
+        "Uni",
+        "UnipostN",
+        "UnipostP",
+        "UnipostNP",
+        "GPM",
+        "GPMpostN",
+        "GPMpostP",
+        "GPMpostNP",
+        "GPMaddN",
+        "GPMaddP",
+        "GPMaddNP",
+        "EqualGrid",
+        "EqualGridpostN",
+        "EqualGridpostP",
+        "EqualGridpostNP",
+        "EqualGridaddN",
+        "EqualGridaddP",
+        "EqualGridaddNP",
+        "MLP",
+        "MLPpostN",
+        "MLPpostP",
+        "MLPpostNP",
+        "MLPaddN",
+        "MLPaddP",
+        "MLPaddNP",
+        "GNN",
+        "GNNpostN",
+        "GNNpostP",
+        "GNNpostNP",
+        "GNNaddN",
+        "GNNaddP",
+        "GNNaddNP",
+        "GNNpriorN",
+        "GNNpriorP",
+        "GNNpriorNP",
+        "GNNfusionN",
+        "GNNfusionP",
+        "GNNfusionNP",
+        "EqualStation",
+        "EqualRegion"
+      ],
+      "methods": {
+        "EqualGrid": {
+          "evidence": [
+            "LX"
+          ],
+          "scope": "transductive_known_sites",
+          "seeds": [
+            null
+          ]
+        },
+        "EqualGridaddN": {
+          "evidence": [
+            "LX"
+          ],
+          "scope": "transductive_known_sites",
+          "seeds": [
+            null
+          ]
+        },
+        "EqualGridaddNP": {
+          "evidence": [
+            "LX"
+          ],
+          "scope": "transductive_known_sites",
+          "seeds": [
+            null
+          ]
+        },
+        "EqualGridaddP": {
+          "evidence": [
+            "LX"
+          ],
+          "scope": "transductive_known_sites",
+          "seeds": [
+            null
+          ]
+        },
+        "EqualGridpostN": {
+          "evidence": [
+            "LX"
+          ],
+          "scope": "transductive_known_sites",
+          "seeds": [
+            null
+          ]
+        },
+        "EqualGridpostNP": {
+          "evidence": [
+            "LX"
+          ],
+          "scope": "transductive_known_sites",
+          "seeds": [
+            null
+          ]
+        },
+        "EqualGridpostP": {
+          "evidence": [
+            "LX"
+          ],
+          "scope": "transductive_known_sites",
+          "seeds": [
+            null
+          ]
+        },
+        "EqualRegion": {
+          "evidence": [
+            "direct_reference"
+          ],
+          "scope": "known_site",
+          "seeds": [
+            null
+          ]
+        },
+        "EqualStation": {
+          "evidence": [
+            "direct_reference"
+          ],
+          "scope": "known_site",
+          "seeds": [
+            null
+          ]
+        },
+        "GNN": {
+          "evidence": [
+            "L11",
+            "L22"
+          ],
+          "scope": "task_defined",
+          "seeds": [
+            42,
+            123,
+            456
+          ]
+        },
+        "GNNaddN": {
+          "evidence": [
+            "L11",
+            "L22"
+          ],
+          "scope": "task_defined",
+          "seeds": [
+            42,
+            123,
+            456
+          ]
+        },
+        "GNNaddNP": {
+          "evidence": [
+            "L22"
+          ],
+          "scope": "transductive_known_sites",
+          "seeds": [
+            42,
+            123,
+            456
+          ]
+        },
+        "GNNaddP": {
+          "evidence": [
+            "L22"
+          ],
+          "scope": "transductive_known_sites",
+          "seeds": [
+            42,
+            123,
+            456
+          ]
+        },
+        "GNNfusionN": {
+          "evidence": [
+            "LX"
+          ],
+          "scope": "task_defined",
+          "seeds": [
+            42,
+            123,
+            456
+          ]
+        },
+        "GNNfusionNP": {
+          "evidence": [
+            "L22"
+          ],
+          "scope": "transductive_known_sites",
+          "seeds": [
+            42,
+            123,
+            456
+          ]
+        },
+        "GNNfusionP": {
+          "evidence": [
+            "LX"
+          ],
+          "scope": "transductive_known_sites",
+          "seeds": [
+            42,
+            123,
+            456
+          ]
+        },
+        "GNNpostN": {
+          "evidence": [
+            "L11",
+            "L22"
+          ],
+          "scope": "task_defined",
+          "seeds": [
+            42,
+            123,
+            456
+          ]
+        },
+        "GNNpostNP": {
+          "evidence": [
+            "L22"
+          ],
+          "scope": "transductive_known_sites",
+          "seeds": [
+            42,
+            123,
+            456
+          ]
+        },
+        "GNNpostP": {
+          "evidence": [
+            "L22"
+          ],
+          "scope": "transductive_known_sites",
+          "seeds": [
+            42,
+            123,
+            456
+          ]
+        },
+        "GNNpriorN": {
+          "evidence": [
+            "L22"
+          ],
+          "scope": "task_defined",
+          "seeds": [
+            42,
+            123,
+            456
+          ]
+        },
+        "GNNpriorNP": {
+          "evidence": [
+            "L22"
+          ],
+          "scope": "transductive_known_sites",
+          "seeds": [
+            42,
+            123,
+            456
+          ]
+        },
+        "GNNpriorP": {
+          "evidence": [
+            "L22"
+          ],
+          "scope": "transductive_known_sites",
+          "seeds": [
+            42,
+            123,
+            456
+          ]
+        },
+        "GPM": {
+          "evidence": [
+            "L11",
+            "L22"
+          ],
+          "scope": "task_defined",
+          "seeds": [
+            null
+          ]
+        },
+        "GPMaddN": {
+          "evidence": [
+            "L11",
+            "L22"
+          ],
+          "scope": "task_defined",
+          "seeds": [
+            null
+          ]
+        },
+        "GPMaddNP": {
+          "evidence": [
+            "L22"
+          ],
+          "scope": "transductive_known_sites",
+          "seeds": [
+            null
+          ]
+        },
+        "GPMaddP": {
+          "evidence": [
+            "L22"
+          ],
+          "scope": "transductive_known_sites",
+          "seeds": [
+            null
+          ]
+        },
+        "GPMpostN": {
+          "evidence": [
+            "L11",
+            "L22"
+          ],
+          "scope": "task_defined",
+          "seeds": [
+            null
+          ]
+        },
+        "GPMpostNP": {
+          "evidence": [
+            "L22"
+          ],
+          "scope": "transductive_known_sites",
+          "seeds": [
+            null
+          ]
+        },
+        "GPMpostP": {
+          "evidence": [
+            "L22"
+          ],
+          "scope": "transductive_known_sites",
+          "seeds": [
+            null
+          ]
+        },
+        "MLP": {
+          "evidence": [
+            "L11",
+            "LX"
+          ],
+          "scope": "task_defined",
+          "seeds": [
+            42,
+            123,
+            456
+          ]
+        },
+        "MLPaddN": {
+          "evidence": [
+            "L11",
+            "LX"
+          ],
+          "scope": "task_defined",
+          "seeds": [
+            42,
+            123,
+            456
+          ]
+        },
+        "MLPaddNP": {
+          "evidence": [
+            "LX"
+          ],
+          "scope": "transductive_known_sites",
+          "seeds": [
+            42,
+            123,
+            456
+          ]
+        },
+        "MLPaddP": {
+          "evidence": [
+            "LX"
+          ],
+          "scope": "transductive_known_sites",
+          "seeds": [
+            42,
+            123,
+            456
+          ]
+        },
+        "MLPpostN": {
+          "evidence": [
+            "L11",
+            "LX"
+          ],
+          "scope": "task_defined",
+          "seeds": [
+            42,
+            123,
+            456
+          ]
+        },
+        "MLPpostNP": {
+          "evidence": [
+            "LX"
+          ],
+          "scope": "transductive_known_sites",
+          "seeds": [
+            42,
+            123,
+            456
+          ]
+        },
+        "MLPpostP": {
+          "evidence": [
+            "LX"
+          ],
+          "scope": "transductive_known_sites",
+          "seeds": [
+            42,
+            123,
+            456
+          ]
+        },
+        "Uni": {
+          "evidence": [
+            "L11",
+            "L22"
+          ],
+          "scope": "task_defined",
+          "seeds": [
+            null
+          ]
+        },
+        "UnipostN": {
+          "evidence": [
+            "L11",
+            "L22"
+          ],
+          "scope": "task_defined",
+          "seeds": [
+            null
+          ]
+        },
+        "UnipostNP": {
+          "evidence": [
+            "L22"
+          ],
+          "scope": "transductive_known_sites",
+          "seeds": [
+            null
+          ]
+        },
+        "UnipostP": {
+          "evidence": [
+            "L22"
+          ],
+          "scope": "transductive_known_sites",
+          "seeds": [
+            null
+          ]
+        }
+      },
+      "queen_adjacency": [
+        [
+          false,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        [
+          true,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        [
+          true,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        [
+          false,
+          false,
+          false,
+          false,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        [
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        [
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          true,
+          false,
+          false,
+          true,
+          false,
+          true
+        ],
+        [
+          false,
+          false,
+          false,
+          true,
+          false,
+          true,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false
+        ],
+        [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          true,
+          false
+        ],
+        [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false
+        ],
+        [
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false
+        ],
+        [
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      ],
+      "regions": [
+        "Central_Coast",
+        "Hunter_Valley_exc_Newcastle",
+        "Newcastle_and_Lake_Macquarie",
+        "Sydney_City_and_Inner_South",
+        "Sydney_Eastern_Suburbs",
+        "Sydney_Inner_South_West",
+        "Sydney_Inner_West",
+        "Sydney_North_Sydney_and_Hornsby",
+        "Sydney_Northern_Beaches",
+        "Sydney_Parramatta",
+        "Sydney_Ryde",
+        "Sydney_Sutherland"
+      ],
+      "representative_region": "Sydney_North_Sydney_and_Hornsby",
+      "target_counts": [
+        17,
+        34,
+        25,
+        17,
+        8,
+        16,
+        7,
+        13,
+        14,
+        6,
+        6,
+        10
+      ],
+      "unit": "MW"
+    }
+  },
+  "observe": {
+    "connection_unit": "MVA-equivalent_PF1"
+  }
+}

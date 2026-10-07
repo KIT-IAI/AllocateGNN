@@ -1,0 +1,32 @@
+schema_version = "sg_artifact_schema_v1"
+artifact_type = "table"
+
+[table]
+allow_extra_columns = true
+unique_by = [["ITL3"]]
+
+[[table.columns]]
+name = "ITL3"
+dtype = "string"
+nullable = false
+
+[[table.columns]]
+name = "ITL2"
+dtype = "string"
+nullable = false
+
+[[table.columns]]
+name = "Demand (MVA)"
+dtype = "number"
+unit = "MVA"
+
+[[table.columns]]
+name = "area"
+dtype = "number"
+unit = "m2"
+
+[[table.columns]]
+name = "area_crs"
+dtype = "string"
+nullable = false
+allowed_values = ["EPSG:27700"]

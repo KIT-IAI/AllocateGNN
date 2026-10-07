@@ -1,4 +1,4 @@
-"""Show Australian siting and both sizing-matching protocols."""
+"""Recompute current Australian siting and both sizing-matching protocols."""
 import json
 from pathlib import Path
 import sys

@@ -1,4 +1,4 @@
-"""Show the British nine-distribution RQ1 diagnostic panel."""
+"""Recompute the current British nine-distribution RQ1 diagnostic panel."""
 import json
 from pathlib import Path
 import sys
@@ -11,4 +11,4 @@ from SpatialPlacement.reproduce_paper_numbers import reproduce_controls
 
 
 if __name__ == "__main__":
-    print(json.dumps(reproduce_controls(), indent=2, sort_keys=True))
+    print(json.dumps(reproduce_controls()["GB"], indent=2, sort_keys=True))

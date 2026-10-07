@@ -1,0 +1,133 @@
+schema_version = "sg_generator_general_v1"
+
+[authorities]
+candidate_registry = "casestudy/2_Generator/general/candidate_registry.json"
+candidate_registry_sha256 = "564f3a2dec94119bb8f7b9ec942bb8859c05c76b5c0a1763d8a448715617b311"
+training_task_matrix = "casestudy/2_Generator/general/training_task_matrix_scientific_v2.csv"
+training_task_matrix_sha256 = "ea615f2c0f1a423f7379c7688c942a1b5d4541ec7ec9acb0c77b8d7214272c3a"
+idr_contract = "casestudy/2_Generator/general/idr_mainline_contract.json"
+idr_contract_sha256 = "b843dcd25b82844855d26f35efea1f24bbe125e82f66f90829aa695afdf8fc55"
+engineering_admission = "casestudy/config/authority/engineering_admission_v3.toml"
+engineering_admission_sha256 = "86ddeb18dcae46178960bb9f26a222e38ea114a240ffaa7ee238cb55d2f6c645"
+
+[training]
+seeds = [42, 123, 456]
+n_folds = 4
+kfold_shuffle = true
+checkpoint_selector = "outer_train_min_training_loss"
+weighting_policy = "uniform_region_cyclic_sgd__source_mean_v1"
+batch_size = 1
+region_order_policy = "configured_order"
+smoke_epochs = 2
+
+[features]
+agent_columns = ["lu_residential_prop", "lu_commercial_prop", "lu_industrial_prop", "lu_agricultural_prop", "lu_others_prop", "lu_unknown_prop"]
+source_columns = ["residential_percent", "commercial_percent", "industrial_percent", "agricultural_percent", "others_percent"]
+landuse_columns = ["lu_residential_prop", "lu_commercial_prop", "lu_industrial_prop", "lu_agricultural_prop", "lu_others_prop"]
+
+[features.landuse_mapping]
+lu_residential_prop = "residential"
+lu_commercial_prop = "commercial"
+lu_industrial_prop = "industrial"
+lu_agricultural_prop = "agricultural"
+lu_others_prop = "others"
+
+[gpm]
+mode = "categorical"
+
+[corrections]
+proximity_gamma = 2.0
+dist_clamp_km = 0.01
+rci_threshold = 0.5
+np_combine = "product"
+
+[gnn]
+conv_type = "hgt"
+hidden_dim = 256
+embedding_dim = 128
+num_layers = 3
+allocation_temperature_start = 0.01
+learning_rate = 0.001
+weight_decay = 0.0001
+warmup_epochs = 20
+decay_epochs = 20
+cosine_eta_min = 0.00001
+learnable = false
+conservation_rtol = 0.0001
+
+[mlp]
+learning_rate = 0.001
+weight_decay = 0.0001
+cosine_eta_min = 0.00001
+
+[training.configs.baseline]
+epochs = 200
+landuse_prediction_loss = 1.0
+
+[training.configs.prior_ntl]
+epochs = 200
+landuse_prediction_loss = 1.0
+ntl_prior = 0.05
+
+[training.configs.prior_proximity]
+epochs = 200
+landuse_prediction_loss = 1.0
+proximity_prior = 0.05
+
+[training.configs.prior_ntl_proximity]
+epochs = 400
+landuse_prediction_loss = 1.0
+ntl_prior = 0.05
+proximity_prior = 0.05
+
+[training.configs.fusion_ntl]
+epochs = 200
+landuse_prediction_loss = 1.0
+feature_set = "fusionN"
+
+[training.configs.fusion_proximity]
+epochs = 200
+landuse_prediction_loss = 1.0
+feature_set = "fusionP"
+
+[training.configs.fusion_ntl_proximity]
+epochs = 200
+landuse_prediction_loss = 1.0
+feature_set = "fusionNP"
+
+[sweeps]
+lambda = [0.01, 0.05, 0.1, 0.2, 0.5]
+tau = [0.005, 0.01, 0.05, 0.5, 2.0]
+alpha = [0.0, 0.25, 0.5, 0.75, 1.0, 1.5, 2.0]
+gamma = [0.0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0]
+beta = [0.0, 0.25, 0.5, 0.75, 1.0, 1.25, 1.5]
+kappa = [0.25, 0.5, 1.0, 2.0, 4.0]
+
+[priors.N]
+source_artifact = "dataoverview.ntl"
+normalization = "log1p_p05_epsilon_over_median_v1"
+support_rule = "all_cells__statistics_from_valid_positive_support"
+
+[priors.P]
+source_artifact = "generator.static.proximity"
+normalization = "log1p_over_median_v1"
+support_rule = "known_station_geometry__all_cells"
+
+# CIVD layer protocol shared by every enabled country (the corrected four-country
+# protocol of 2026-09-14). Country facts (working CRS, capacity column and basis)
+# come from the country profile; countries switch the layer with execution.civd_enabled.
+[civd]
+clustering = "hdbscan(min_cluster_size=2,min_samples=None,eom,core_dist_n_jobs=1)"
+noise_rule = "each_noise_station_becomes_singleton"
+cluster_assignment = "sorted_cluster_label_ordinal"
+weight_rule = "max(max(station_capacity,1e-10)/max(distance_m,1e-10))_within_cluster"
+capacity_floor = 1e-10
+distance_floor_m = 1e-10
+station_prediction_rule = "equal_split_cluster_demand"
+station_identity = "canonical_VD_target_ids"
+
+[paths]
+formal_root = "{results_root}/2_Generator/{directory}"
+preflight_root = "{results_root}/2_Generator/{directory}"
+smoke_root = "{results_root}/2_Generator/{directory}"
+diagnostic_root = "{results_root}/_diagnostic/{directory}"

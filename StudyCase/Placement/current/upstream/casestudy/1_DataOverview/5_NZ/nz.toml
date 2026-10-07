@@ -1,0 +1,246 @@
+schema_version = "sg_dataoverview_country_v1"
+
+[canonical]
+regions = "data/datasets/2_derived/nz/bplus/regions.gpkg"
+stations = "data/datasets/2_derived/nz/bplus/stations.gpkg"
+
+[handoff_artifacts.station_ledger_2024]
+path = "data/datasets/2_derived/nz/lineage/station_ledger_2024.gpkg"
+schema = "station_ledger_nz.toml"
+
+[handoff_artifacts.analysis_region_inventory]
+path = "data/datasets/2_derived/nz/bplus/analysis_regions.gpkg"
+schema = "analysis_regions_nz.toml"
+
+[handoff_artifacts.nz_gate]
+path = "data/datasets/2_derived/nz/audit/nz_gate.json"
+schema = "nz_gate.toml"
+formal_required = true
+required_status = "PASS"
+
+[handoff_artifacts.admission_gate]
+path = "data/datasets/2_derived/nz/audit/nz_size_gate.json"
+schema = "engineering_admission.toml"
+formal_required = true
+required_status = "PASS"
+
+[osm_snapshot]
+url = "https://download.geofabrik.de/australia-oceania/new-zealand-latest.osm.pbf"
+scope = "new-zealand"
+
+[ntl]
+dataset_id = "NOAA/VIIRS/DNB/ANNUAL_V22"
+bands = ["average_masked","cf_cvg"]
+date_range = ["2024-01-01","2025-01-01"]
+composite_method = "single_image"
+credential_env = "GEE_SERVICE_ACCOUNT_KEY_PATH"
+
+[industry_sectors]
+source_vintage = "Stats NZ 2023 Census SA2"
+preference = "workplace_then_usual_residence"
+residential = ["population_2023"]
+agricultural = ["agriculture_forestry_fishing"]
+industrial = ["mining","manufacturing","utilities_waste","construction"]
+commercial = ["wholesale","retail","accommodation_food","transport_postal_warehousing","information_media_telecommunications","finance_insurance","rental_real_estate","professional_scientific_technical","administrative_support"]
+others = ["public_administration_safety","education_training","health_social_assistance","arts_recreation","other_services","not_elsewhere_included"]
+
+[regions]
+source_key = "SA22023_V1_00"
+source_path = "data/datasets/2_derived/nz/bplus/regions.gpkg"
+source_layer = "source_regions"
+group_key = "analysis_region"
+
+[[regions.items]]
+id = "Orion_NZ__historical_spatial_1"
+source_key_order = ["318501","318901","319400","319500","319700","320000","320100","320200","320300","320400","320501","320600","320700","320900","321000","321101","321102","321200","321500","322100","322200","322300","322400","323500","323800","323900","324300","324501","324502","324800","324900","325500","325700","325800","326100","326301","326400","326600","326701","327000","327100","327301","327400","327700","328001","328100","328700","328800","329001","329002","329400","329500","329700","329900","332200","336400"]
+
+[[regions.items]]
+id = "Orion_NZ__historical_spatial_2"
+source_key_order = ["318200","319101","333600","333700","333800","333901","334200","334400","334501","334601","334700","335001","335400","335800","336001","336002","336101","336102","336200"]
+
+[[regions.items]]
+id = "Orion_NZ__historical_spatial_3"
+source_key_order = ["326500","328300","329600","330200","330400","330700","331700","331801","332801","333100","333201","333300","333500"]
+
+[[regions.items]]
+id = "Vector_Lines__historical_spatial_1"
+source_key_order = ["110400","110501","110900","111100","111300","111500","112102","112301","112401","112600","112701","112702","112901","112902","113000","113600","113900","114000","114101","114102","114701","114801","115001","115002","115200","115501","115800","115901","116101","116701","117003","117300","117400","117600","117800","118100","118600","118800","119201","119600","120201","120202","120203","120600","120900","121001","121401","121600","122101","122300","122600","122801","122802","123400","123600","124401","125600","125800","126200"]
+
+[[regions.items]]
+id = "Vector_Lines__historical_spatial_2"
+source_key_order = ["114300","121100","121701","122501","122901","124301","124700","124900","125100","125701","126000","126100","126401","126701","126702","126901","127001","127002","127500","127601","127701","127801","127900","128301","128401","128501","128700","128901","128902","129201","129400","129501","129901","129902","130000","130400","130601","131200","131300","131700","131801","131802","132001","132002","132300","132400","132501","132600","132700","132900","133100","133200","133301","133400","133700","133800","133900","134100","134301","134302","134400","134500","134600","134700","134800","134900","135000","135100","135300","135401","135600","135700","135900","136001","136300","136400","136501","136502","136700","137000","137100","137400","137600","137901","138200","138501","138502","138700","138800","139100","139400","139700","139801","139802","140000","140200","140300","140400","140500","140601","140700","140800","141000","141101","141102","141201","141300","141500","141600","141700","142001","142101","142301","142400","143100","143700","143900","144001","144101","144300","144500","144700","145000","145101","145102","145200","145300","145400","145600","145800","146000","146201","146400"]
+
+[[regions.items]]
+id = "Vector_Lines__historical_spatial_3"
+source_key_order = ["145500","145900","146501","146600","147201","147202","147400","147700","147900","148300","148501","148901","149100","149500","149600","149701","149702","150000","150101","150200","150301","150302","150500","150700","150800","150900","151000","151200","151400","151500","151600","151800","151900","152101","152201","152300","152600","152700","152800","152900","153000","153200","153301","153600","154001","154101","154201","154202","154500","154600","154801","154802","154901","154902","155200","155401","155500","155601","155602","155901","156000","156201","156500","156601","156700","156901","157000","157301","157400","157500","157600","157800","158001","158002","158101","158102","158200","158300","158401","158402","158601","158602","158603","158800","158900","159101","159201","159202","159900","160000","160100","160601","160800","160901","160902","161400","162300","162601","162602","162800","163001","163200","163301","163302","163501","163502","163600","163901","163902","164100","164601","164602","164603","165101","166301"]
+
+[[regions.items]]
+id = "Wellington_Electricity__historical_spatial_1"
+source_key_order = ["239000","239300","239801","239900","240500","240801","240802","240900","243700","244700","245000","247600","247700","247800","247900","248400","248600","248900","249200","249501","249702"]
+
+[[regions.items]]
+id = "Wellington_Electricity__historical_spatial_2"
+source_key_order = ["241400","241500","242500","243000","244400","245200","245500","245700","245800","246100","246600","246900","247000","247100","247300","247400"]
+
+[[regions.items]]
+id = "Wellington_Electricity__historical_spatial_3"
+source_key_order = ["248800","249401","249402","249600","249701","249900","250401","250600","250700","251000","251100","251300","251400","251601","251602","251700","251800","252001","252002","252100","252400","253101","253102","253200","253300","253400","253700","254100","254200","254401","254800","254900","255000"]
+
+[grid_columns]
+names = ["index_region","SA22023_V1_00","SA22023_V1_00_NAME","analysis_region","geometry"]
+
+[datasets.comcom_geospatial]
+category = "station_register"
+license = "Commerce Commission CC BY 4.0"
+vintage = "2025-09-01 D5"
+semantics = "EDB zone-substation geospatial point register"
+[[datasets.comcom_geospatial.files]]
+url = "https://www.comcom.govt.nz/assets/Uploads/EDB_ID_zone_substations_geospatial_2025.09.1.parquet"
+filename = "comcom/zone_substations_geospatial_2025.parquet"
+kind = "file"
+
+[datasets.comcom_disclosure]
+category = "station_register"
+license = "Commerce Commission CC BY 4.0"
+vintage = "2026 full archive; select disclosure year 2024"
+semantics = "2024 actual peak, Installed Firm Capacity and security class"
+[[datasets.comcom_disclosure.files]]
+url = "https://www.comcom.govt.nz/assets/file/0035/366299/EDB_ID_Full_2026-06-01.parquet"
+filename = "comcom/edb_id_full_2026.parquet"
+kind = "file"
+
+[datasets.statsnz_sa2]
+category = "boundaries_grid"
+license = "Stats NZ CC BY 4.0"
+vintage = "2023 generalised"
+semantics = "SA2 source geography; formal adapter must paginate and bbox-filter"
+query_protocol = "arcgis"
+[datasets.statsnz_sa2.query]
+url = "https://services2.arcgis.com/vKb0s8tBIA3bdocZ/ArcGIS/rest/services/Statistical_Area_2_2023/FeatureServer/0/query?where=1%3D1&outFields=*&returnGeometry=true&outSR=4326&f=geojson"
+filename = "statsnz/sa2_2023_generalised.geojson"
+identity_field = "OBJECTID"
+page_size = 100
+bbox_source = "D5 extents for Vector Lines, Orion NZ, Wellington Electricity and WEL Networks, padded by 0.20 degrees"
+
+[datasets.statsnz_sa3]
+category = "boundaries_grid"
+license = "Stats NZ CC BY 4.0"
+vintage = "2023"
+semantics = "SA3 audit geography"
+query_protocol = "arcgis"
+[datasets.statsnz_sa3.query]
+url = "https://services2.arcgis.com/vKb0s8tBIA3bdocZ/ArcGIS/rest/services/Statistical_Area_3_2023/FeatureServer/0/query?where=1%3D1&outFields=*&returnGeometry=true&outSR=4326&f=geojson"
+filename = "statsnz/sa3_2023.geojson"
+identity_field = "OBJECTID"
+page_size = 100
+bbox_source = "D5 extents for Vector Lines, Orion NZ, Wellington Electricity and WEL Networks, padded by 0.20 degrees"
+
+[datasets.census_population]
+category = "regional_totals"
+license = "Stats NZ CC BY 4.0"
+vintage = "2023 Census"
+semantics = "SA2 usually resident population"
+query_protocol = "arcgis"
+[datasets.census_population.query]
+url = "https://services2.arcgis.com/vKb0s8tBIA3bdocZ/arcgis/rest/services/2023_Census_totals_by_topic_for_individuals_by_SA2/FeatureServer/1/query?where=1%3D1&outFields=OBJECTID%2CSA22023_V1_00%2CSA22023_V1_00_NAME%2CVAR_1_3&returnGeometry=false&f=json"
+filename = "statsnz/census_2023_sa2_population.json"
+identity_field = "OBJECTID"
+page_size = 100
+
+[datasets.census_industry]
+category = "regional_totals"
+license = "Stats NZ CC BY 4.0"
+vintage = "2023 Census"
+semantics = "SA2 industry by workplace with residence fallback"
+query_protocol = "arcgis"
+[datasets.census_industry.query]
+url = "https://services2.arcgis.com/vKb0s8tBIA3bdocZ/arcgis/rest/services/2023_Census_totals_by_topic_for_individuals_by_SA2/FeatureServer/3/query?where=1%3D1&outFields=*&returnGeometry=false&f=json"
+filename = "statsnz/census_2023_sa2_industry.json"
+identity_field = "OBJECTID"
+page_size = 100
+
+[datasets.determination_2023]
+category = "station_register"
+license = "Commerce Commission CC BY 4.0"
+vintage = "consolidated 2023-07-06"
+semantics = "historical actual-peak and Installed Firm Capacity definitions"
+[[datasets.determination_2023.files]]
+url = "https://www.comcom.govt.nz/assets/pdf_file/0015/321171/Electricity-Distribution-Information-Disclosure-Determination-2012-Consolidated-6-July-2023.pdf"
+filename = "determinations/id_determination_consolidated_2023-07-06.pdf"
+kind = "file"
+
+[datasets.determination_2026]
+category = "station_register"
+license = "Commerce Commission CC BY 4.0"
+vintage = "consolidated 2026-08-13"
+semantics = "forecast-definition prototype only; prohibited from formal truth"
+[[datasets.determination_2026.files]]
+url = "https://www.comcom.govt.nz/assets/Uploads/Electricity-Distribution-Information-Disclosure-Determination-2012-consolidated-13-August-2026.pdf"
+filename = "determinations/id_determination_consolidated_2026-08-13.pdf"
+kind = "file"
+
+[datasets.osm_snapshot]
+category = "landuse"
+license = "ODbL 1.0"
+vintage = "current snapshot"
+semantics = "Geofabrik New Zealand OSM snapshot"
+[[datasets.osm_snapshot.files]]
+url = "https://download.geofabrik.de/australia-oceania/new-zealand-latest.osm.pbf"
+filename = "../osm_snapshot_raw/nz/new-zealand.osm.pbf"
+kind = "file"
+
+[datasets.ntl]
+category = "ntl"
+license = "NOAA public data"
+vintage = "2024"
+semantics = "VIIRS annual radiance"
+query_protocol = "gee"
+[datasets.ntl.query]
+credential_env = "GEE_SERVICE_ACCOUNT_KEY_PATH"
+output = "ntl/viirs_dnb_annual_v22_2024_nz.tif"
+bounds_source = "data/datasets/2_derived/nz/bplus/regions.gpkg"
+bounds_layer = "source_regions"
+output_crs = "EPSG:4326"
+scale_m = 500
+
+[products.station_ledger_2024]
+category = "station_register"
+depends_on = ["nz.comcom_geospatial.download","nz.comcom_disclosure.download","nz.determination_2023.download","nz.determination_2026.download"]
+produces = ["data/datasets/2_derived/nz/lineage/station_ledger_2024.gpkg"]
+semantics = "fresh official-source build only: 140-row section-level lineage and robustness input; assignment prohibited; research anchor is validation-only"
+
+[products.station_sites]
+category = "station_register"
+depends_on = ["nz.station_ledger_2024.derive"]
+produces = ["data/datasets/2_derived/nz/bplus/stations.gpkg"]
+semantics = "135-row site-level formal Generator truth"
+
+[products.analysis_regions]
+category = "boundaries_grid"
+depends_on = ["nz.station_sites.derive","nz.statsnz_sa2.download","nz.statsnz_sa3.download","nz.census_population.download","nz.census_industry.download"]
+produces = ["data/datasets/2_derived/nz/bplus/regions.gpkg","data/datasets/2_derived/nz/bplus/analysis_regions.gpkg","data/datasets/2_derived/nz/audit/nz_gate.json"]
+semantics = "465 SA2 sources assigned to nine frozen EDB-balanced regions"
+
+[products.admission_gate]
+category = "boundaries_grid"
+depends_on = ["nz.analysis_regions.derive"]
+produces = ["data/datasets/2_derived/nz/audit/nz_size_gate.json"]
+semantics = "lightweight grid/static/proximity/graph-size admission dry-run"
+
+[products.grid]
+category = "boundaries_grid"
+depends_on = ["nz.admission_gate.derive"]
+produces = ["data/datasets/2_derived/nz/grid_bplus/bundles"]
+semantics = "B+ grid bundles for all frozen core-9 regions"
+
+[products.features]
+category = "features_cuz"
+depends_on = ["nz.grid.derive","nz.osm_snapshot.download","nz.ntl.download"]
+produces = ["data/datasets/2_derived/nz/features_bplus/extracted"]
+semantics = "land-use, Built-S, C/U/Z and NTL arrays; formal execution on HPC"
+
+[products.inventory]
+category = "features_cuz"
+depends_on = ["nz.features.derive"]
+produces = ["results/1_DataOverview/5_NZ/data_inventory.json"]
+semantics = "NZ schema, provenance and coverage inventory"

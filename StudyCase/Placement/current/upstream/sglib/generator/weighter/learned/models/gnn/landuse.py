@@ -1,0 +1,15 @@
+"""Versioned land-use supervision representation identifiers."""
+
+LEGACY_DENSE_LANDUSE_REPRESENTATION = "legacy_dense_mapping_matrix_v2"
+INDEXED_LANDUSE_REPRESENTATION = "edge_flat_id_scatter_add_v1"
+LANDUSE_REPRESENTATIONS = (
+    LEGACY_DENSE_LANDUSE_REPRESENTATION,
+    INDEXED_LANDUSE_REPRESENTATION,
+)
+
+
+__all__ = [
+    "INDEXED_LANDUSE_REPRESENTATION",
+    "LANDUSE_REPRESENTATIONS",
+    "LEGACY_DENSE_LANDUSE_REPRESENTATION",
+]

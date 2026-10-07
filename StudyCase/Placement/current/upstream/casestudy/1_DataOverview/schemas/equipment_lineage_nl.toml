@@ -1,0 +1,56 @@
+schema_version = "sg_artifact_schema_v1"
+artifact_type = "table"
+
+[table]
+allow_extra_columns = true
+exact_rows = 31367
+unique_by = [["equipment_id"], ["lineage_id"]]
+
+[[table.columns]]
+name = "equipment_id"
+dtype = "string"
+nullable = false
+
+[[table.columns]]
+name = "lineage_id"
+dtype = "string"
+nullable = false
+
+[[table.columns]]
+name = "declared_buurt_code"
+dtype = "string"
+nullable = false
+
+[[table.columns]]
+name = "buurt_code"
+dtype = "string"
+
+[[table.columns]]
+name = "wijk_code"
+dtype = "string"
+
+[[table.columns]]
+name = "formal_target_id"
+dtype = "string"
+
+[[table.columns]]
+name = "peak_kw"
+dtype = "number"
+unit = "kW"
+
+[[table.columns]]
+name = "capacity_kw"
+dtype = "number"
+unit = "kW"
+
+[[table.columns]]
+name = "crosswalk_class"
+dtype = "string"
+nullable = false
+allowed_values = ["exact_code", "pip_fallback", "conflict", "outside_all_polygons"]
+
+[[table.columns]]
+name = "formal_evaluation_eligible"
+dtype = "boolean"
+nullable = false
+allowed_values = [false]

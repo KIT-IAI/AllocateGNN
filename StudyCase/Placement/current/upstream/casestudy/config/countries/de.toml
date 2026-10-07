@@ -1,0 +1,35 @@
+schema_version = "sg_country_profile_v1"
+
+[country]
+code = "de"
+directory = "3_DE"
+label = "Germany (Börde)"
+evaluation_scope = "dataoverview_only"
+
+[crs]
+native = "EPSG:25832"
+area = "EPSG:25832"
+generation = "EPSG:3857"
+storage = "EPSG:4326"
+working = "EPSG:25832"
+
+[temporal]
+protocol = "Börde_partner_snapshot__Eurostat_2022"
+demand_vintage = "partner_snapshot"
+feature_vintage = "VIIRS_2022_2023"
+
+[units]
+demand = "MW"
+capacity = "not_available"
+area = "m2"
+
+[station_contract]
+id_column = "station_id"
+demand_column = "p_mw"
+capacity_column = ""
+region_column = "Gemeinde"
+source_key = "Name"
+region_demand_column = ""
+capacity_basis = "not_applicable"
+security_class_column = ""
+noncoincident_flag_column = ""

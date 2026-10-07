@@ -1,0 +1,356 @@
+{
+  "specification": {
+    "blocks": [
+      [
+        0,
+        1
+      ],
+      [
+        2
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        5
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        8
+      ]
+    ],
+    "evidence_scope": "preregistered_new_evaluation",
+    "expected_coordinates_sha256": "4a8534ab329c580b7c9a352d7a3c71b3b1051e3b8f1101d6b3ab564b81280621",
+    "queen_adjacency": [
+      [
+        false,
+        true,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        true
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false
+      ]
+    ],
+    "regions": [
+      "Orion_NZ__historical_spatial_1",
+      "Orion_NZ__historical_spatial_2",
+      "Orion_NZ__historical_spatial_3",
+      "Vector_Lines__historical_spatial_1",
+      "Vector_Lines__historical_spatial_2",
+      "Vector_Lines__historical_spatial_3",
+      "Wellington_Electricity__historical_spatial_1",
+      "Wellington_Electricity__historical_spatial_2",
+      "Wellington_Electricity__historical_spatial_3"
+    ],
+    "representative_region": "Wellington_Electricity__historical_spatial_3",
+    "target_counts": [
+      14,
+      6,
+      5,
+      21,
+      33,
+      28,
+      8,
+      8,
+      12
+    ]
+  },
+  "units": {
+    "C1": {},
+    "C2": {},
+    "C3": {
+      "contrasts": [
+        {
+          "coefficients": {
+            "MLP@IDR-fixed": 1.0,
+            "MLP@VD": -1.0
+          },
+          "contrast_id": "C3-01",
+          "experiment_id": "C3-E01",
+          "expression": "1*MLP@IDR-fixed + -1*MLP@VD",
+          "order": 1,
+          "relative_baseline": "MLP@VD",
+          "unit": "MVA"
+        },
+        {
+          "coefficients": {
+            "GNN@IDR-fixed": 1.0,
+            "GNN@VD": -1.0
+          },
+          "contrast_id": "C3-02",
+          "experiment_id": "C3-E01",
+          "expression": "1*GNN@IDR-fixed + -1*GNN@VD",
+          "order": 2,
+          "relative_baseline": "GNN@VD",
+          "unit": "MVA"
+        },
+        {
+          "coefficients": {
+            "GNN@IDR-fixed": 1.0,
+            "GNN@VD": -1.0,
+            "MLP@IDR-fixed": -1.0,
+            "MLP@VD": 1.0
+          },
+          "contrast_id": "C3-03",
+          "experiment_id": "C3-E01",
+          "expression": "1*GNN@IDR-fixed + -1*GNN@VD + -1*MLP@IDR-fixed + 1*MLP@VD",
+          "order": 3,
+          "relative_baseline": null,
+          "unit": "MVA"
+        },
+        {
+          "coefficients": {
+            "MLP@IDR-fixed": -1.0,
+            "MLP@IDR-matched": 1.0
+          },
+          "contrast_id": "C3-04",
+          "experiment_id": "C3-E02",
+          "expression": "1*MLP@IDR-matched + -1*MLP@IDR-fixed",
+          "order": 4,
+          "relative_baseline": "MLP@IDR-fixed",
+          "unit": "MVA"
+        },
+        {
+          "coefficients": {
+            "GNN@IDR-fixed": -1.0,
+            "GNN@IDR-matched": 1.0
+          },
+          "contrast_id": "C3-05",
+          "experiment_id": "C3-E02",
+          "expression": "1*GNN@IDR-matched + -1*GNN@IDR-fixed",
+          "order": 5,
+          "relative_baseline": "GNN@IDR-fixed",
+          "unit": "MVA"
+        }
+      ]
+    },
+    "C4": {
+      "contrasts": [
+        {
+          "coefficients": {
+            "reconstruction:rmse:GNN": 1.0,
+            "reconstruction:rmse:GPM": -1.0
+          },
+          "contrast_id": "C4-01",
+          "experiment_id": "C4-E01",
+          "expression": "GNN - GPM",
+          "metric": "rmse",
+          "order": 1,
+          "relative_baseline": "reconstruction:rmse:GPM",
+          "task_coordinate": "reconstruction",
+          "unit": "MVA"
+        },
+        {
+          "coefficients": {
+            "siting:WSD:GNN": 1.0,
+            "siting:WSD:GPM": -1.0
+          },
+          "contrast_id": "C4-02",
+          "experiment_id": "C4-E01",
+          "expression": "GNN - GPM",
+          "metric": "WSD",
+          "order": 2,
+          "relative_baseline": "siting:WSD:GPM",
+          "task_coordinate": "siting",
+          "unit": "km"
+        },
+        {
+          "coefficients": {
+            "sizing:RSD_median:GNN": 1.0,
+            "sizing:RSD_median:GPM": -1.0
+          },
+          "contrast_id": "C4-03",
+          "experiment_id": "C4-E01",
+          "expression": "GNN - GPM",
+          "metric": "RSD_median",
+          "order": 3,
+          "relative_baseline": "sizing:RSD_median:GPM",
+          "task_coordinate": "sizing",
+          "unit": "percent"
+        },
+        {
+          "coefficients": {
+            "connection_R10_lambda0.25:L_E_over_X:GNN": 1.0,
+            "connection_R10_lambda0.25:L_E_over_X:GPM": -1.0
+          },
+          "contrast_id": "C4-04",
+          "experiment_id": "C4-E02",
+          "expression": "GNN - GPM",
+          "metric": "L_E_over_X",
+          "order": 4,
+          "relative_baseline": "connection_R10_lambda0.25:L_E_over_X:GPM",
+          "task_coordinate": "connection_R10_lambda0.25",
+          "unit": "dimensionless"
+        },
+        {
+          "coefficients": {
+            "connection_R10_lambda0.25:L_S_over_X:GNN": 1.0,
+            "connection_R10_lambda0.25:L_S_over_X:GPM": -1.0
+          },
+          "contrast_id": "C4-05",
+          "experiment_id": "C4-E02",
+          "expression": "GNN - GPM",
+          "metric": "L_S_over_X",
+          "order": 5,
+          "relative_baseline": "connection_R10_lambda0.25:L_S_over_X:GPM",
+          "task_coordinate": "connection_R10_lambda0.25",
+          "unit": "dimensionless"
+        },
+        {
+          "coefficients": {
+            "connection_R10_lambda0.5:L_E_over_X:GNN": 1.0,
+            "connection_R10_lambda0.5:L_E_over_X:GPM": -1.0
+          },
+          "contrast_id": "C4-06",
+          "experiment_id": "C4-E02",
+          "expression": "GNN - GPM",
+          "metric": "L_E_over_X",
+          "order": 6,
+          "relative_baseline": "connection_R10_lambda0.5:L_E_over_X:GPM",
+          "task_coordinate": "connection_R10_lambda0.5",
+          "unit": "dimensionless"
+        },
+        {
+          "coefficients": {
+            "connection_R10_lambda0.5:L_S_over_X:GNN": 1.0,
+            "connection_R10_lambda0.5:L_S_over_X:GPM": -1.0
+          },
+          "contrast_id": "C4-07",
+          "experiment_id": "C4-E02",
+          "expression": "GNN - GPM",
+          "metric": "L_S_over_X",
+          "order": 7,
+          "relative_baseline": "connection_R10_lambda0.5:L_S_over_X:GPM",
+          "task_coordinate": "connection_R10_lambda0.5",
+          "unit": "dimensionless"
+        },
+        {
+          "coefficients": {
+            "connection_R10_lambda1:L_E_over_X:GNN": 1.0,
+            "connection_R10_lambda1:L_E_over_X:GPM": -1.0
+          },
+          "contrast_id": "C4-08",
+          "experiment_id": "C4-E02",
+          "expression": "GNN - GPM",
+          "metric": "L_E_over_X",
+          "order": 8,
+          "relative_baseline": "connection_R10_lambda1:L_E_over_X:GPM",
+          "task_coordinate": "connection_R10_lambda1",
+          "unit": "dimensionless"
+        },
+        {
+          "coefficients": {
+            "connection_R10_lambda1:L_S_over_X:GNN": 1.0,
+            "connection_R10_lambda1:L_S_over_X:GPM": -1.0
+          },
+          "contrast_id": "C4-09",
+          "experiment_id": "C4-E02",
+          "expression": "GNN - GPM",
+          "metric": "L_S_over_X",
+          "order": 9,
+          "relative_baseline": "connection_R10_lambda1:L_S_over_X:GPM",
+          "task_coordinate": "connection_R10_lambda1",
+          "unit": "dimensionless"
+        }
+      ]
+    },
+    "C5": {},
+    "C6": {},
+    "support": {}
+  }
+}

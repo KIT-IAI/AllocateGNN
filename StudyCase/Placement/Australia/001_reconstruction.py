@@ -1,4 +1,4 @@
-"""Show the Australian peak-reconstruction stress-test result."""
+"""Recompute the current Australian peak-reconstruction stress-test result."""
 import json
 from pathlib import Path
 import sys

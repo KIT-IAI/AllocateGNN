@@ -1,0 +1,43 @@
+schema_version = "sg_artifact_schema_v1"
+artifact_type = "table"
+[table]
+exact_rows = 10
+allow_extra_columns = true
+unique_by = [["country", "contrast_id"]]
+[[table.columns]]
+name = "effect"
+dtype = "number"
+nullable = false
+[[table.columns]]
+name = "ci_low"
+dtype = "number"
+nullable = false
+[[table.columns]]
+name = "ci_high"
+dtype = "number"
+nullable = false
+[[table.columns]]
+name = "p"
+dtype = "number"
+minimum = 0
+maximum = 1
+[[table.columns]]
+name = "holm_p"
+dtype = "number"
+minimum = 0
+maximum = 1
+[[table.columns]]
+name = "descriptive_only"
+dtype = "boolean"
+[[table.columns]]
+name = "block_support"
+dtype = "boolean"
+[[table.columns]]
+name = "bootstrap_indices_sha256"
+dtype = "string"
+[inference]
+family = "ten preregistered RMSE contrasts per country"
+relative_effect = "100*sum(left-right)/sum(right)"
+interval = "paired region percentile bootstrap, 10000, linear quantile"
+block_support = "same sign and native block percentile interval excludes zero"
+degradation = "single contrast only; Moran alarm and not block_support"

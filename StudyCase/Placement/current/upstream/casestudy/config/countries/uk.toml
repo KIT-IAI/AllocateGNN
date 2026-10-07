@@ -1,0 +1,35 @@
+schema_version = "sg_country_profile_v1"
+
+[country]
+code = "uk"
+directory = "1_UK"
+label = "United Kingdom"
+evaluation_scope = "four_task_chain"
+
+[crs]
+native = "EPSG:27700"
+area = "EPSG:27700"
+generation = "EPSG:3857"
+storage = "EPSG:4326"
+working = "EPSG:27700"
+
+[temporal]
+protocol = "GB_PS_2023_network_snapshot__ONS_2022_2023_context"
+demand_vintage = "2023"
+feature_vintage = "VIIRS_2022_2023"
+
+[units]
+demand = "MVA"
+capacity = "MVA"
+area = "m2"
+
+[station_contract]
+id_column = "station_id"
+demand_column = "Demand (MVA)"
+capacity_column = "Firm Capacity (MVA)"
+region_column = "ITL3"
+source_key = "ITL3"
+region_demand_column = "Demand (MVA)"
+capacity_basis = "firm_n1"
+security_class_column = ""
+noncoincident_flag_column = ""

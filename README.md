@@ -7,7 +7,7 @@
 
 <h1 align="center">AllocateGNN</h1>
 
-**Note**: *Last update on 2026.08.21*
+**Note**: *Last update on 2026.10.07*
 
 <div align="left"> This repository is the official code of the paper <strong>"Improving Spatial Allocation for Energy System
 Coupling with Graph Neural Networks"</strong> and of its follow-up study on mechanism-dependent antagonism of auxiliary information.</div>
@@ -19,12 +19,14 @@ Coupling with Graph Neural Networks"</strong> and of its follow-up study on mech
 > The exact code that accompanied the first (EPSR) paper is preserved at the git tag [`paper1-epsr`](https://github.com/KIT-IAI/AllocateGNN/tree/paper1-epsr).
 
 > [!NOTE]
-> **Publication-preparation release:** `SpatialPlacement/`, `StudyCase/Placement/`, and
-> `study_materials/placement/` support the forthcoming manuscript
-> *"Task- and scale-matched evaluation of spatial allocation proxies for network planning"*.
-> The package reproduces manuscript numbers from derived frozen CSVs; it does
-> not claim end-to-end lu5 model retraining because the held-out fields and
-> checkpoints are unavailable.
+> **Current placement-paper release:**
+> *"Task- and Scale-Matched Evaluation of Spatial Demand Allocation for Power Grid Planning"*.
+> The default [placement entry point](StudyCase/Placement/README.md) now reproduces
+> `fixedload_20260925_r2`, including the fixed 100, 300 and 500 MW connection experiments.
+> [Current source and provenance](StudyCase/Placement/current/README.md) contain the
+> `sglib` pipeline and the paper-specific connection and statistical scripts.
+> The earlier lu5 numerical package remains available through the explicitly named
+> legacy entry point.
 
 ## 1. Introduction
 
@@ -105,10 +107,11 @@ The `Allocator`, `Weighter`, and `FeatureExtractor` subpackages expose registry-
 An alternative approach using clustering (DBSCAN, HDBSCAN, K-Means, etc.) combined with Voronoi tessellation. Supports optimization-based allocation via Pyomo with CIVD/IVD influence methods.
 
 ### 3.6 Spatial placement evaluation
-The top-level `SpatialPlacement` package provides reusable peak-reconstruction,
-p-median siting, rule-based sizing, connection-proxy, uncertainty-bound, and
-statistical utilities. Paper-specific case descriptions remain under
-`StudyCase/Placement/`.
+The current paper uses `sglib` under `StudyCase/Placement/current/upstream/`
+and the fixed-load scripts under `StudyCase/Placement/current/scripts/`.
+The top-level `SpatialPlacement` package provides the public reproduction entry
+point. Its earlier `core/` and `pipeline/` utilities are retained for compatibility
+with the historical lu5 study.
 
 ## 4. Case Studies (`StudyCase/`)
 
@@ -182,12 +185,19 @@ Each `StudyCase/<grid>/` folder holds numbered scripts and notebooks. The traini
 
 ### 6.4 Reproducing the placement-paper numbers
 
+The current numerical reproduction needs only the lightweight dependencies:
+
 ```bash
+pip install -r StudyCase/Placement/current/requirements-current.txt
 python -m SpatialPlacement.reproduce_paper_numbers --verify
 ```
 
-This verifies the manuscript-scoped hashes and regenerates the numerical
-summary from `study_materials/placement/`.
+This checks the current release hashes, recomputes statistics from the published
+regional results and verifies them against `fixedload_20260925_r2`.
+The British 300 MW mean fixed-location cost errors are GBP 11.59 million for LU
+and GBP 8.63 million for GNN-based allocation.
+See [the reproduction guide](StudyCase/Placement/current/README.md) for figures,
+the full source pipeline, and the separate historical entry point.
 
 ## 7. Citation 📝
 

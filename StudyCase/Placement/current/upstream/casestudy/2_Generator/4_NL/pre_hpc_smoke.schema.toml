@@ -1,0 +1,6 @@
+schema_version = "sg_artifact_schema_v1"
+artifact_type = "json"
+
+[json]
+required_paths = ["schema_version", "status", "country", "formal", "regions", "source_level", "target_level", "real_gate_a_sources_and_targets", "feature_fixture", "scientific_admission", "admission_note", "idr.version", "idr.fixed", "idr.matched", "idr.v2", "static_components", "training", "training.*.family", "training.*.task_id", "training.*.formal", "training.*.epochs", "training.*.completion", "training.*.training_verify", "training.*.inference_task_id", "training.*.inference_completion", "training.*.inference_verify", "training.*.inference_regions", "artifacts", "artifacts.*.sha256", "artifacts.*.bytes"]
+unique_by = ["training.*.family", "training.*.task_id"]

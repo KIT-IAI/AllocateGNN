@@ -1,0 +1,26 @@
+schema_version = "sg_artifact_schema_v1"
+artifact_type = "npz"
+[npz]
+allow_extra_arrays = false
+[npz.arrays.assignment]
+dtype_kind = "iu"
+shape = ["n_cells"]
+[npz.arrays.grid_cluster]
+dtype_kind = "iu"
+shape = ["n_cells"]
+[npz.arrays.station_cluster]
+dtype_kind = "iu"
+shape = ["n_targets"]
+[npz.arrays.raw_labels]
+dtype_kind = "i"
+shape = ["n_targets"]
+[npz.arrays.probabilities]
+dtype_kind = "f"
+shape = ["n_targets"]
+finite = true
+# canonical VD target identities, recorded by the extension index (sg_civd_extension_index_v1)
+[npz.arrays.station_id]
+required = false
+dtype_kind = "US"
+shape = ["n_targets"]
+

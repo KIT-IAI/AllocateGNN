@@ -1,0 +1,36 @@
+schema_version = "sg_artifact_schema_v1"
+artifact_type = "table"
+
+[table]
+allow_extra_columns = true
+unique_by = [["station_id"]]
+
+[[table.columns]]
+name = "station_id"
+dtype = "string"
+nullable = false
+
+[[table.columns]]
+name = "PS Name"
+dtype = "string"
+nullable = false
+
+[[table.columns]]
+name = "Demand (MVA)"
+dtype = "number"
+unit = "MVA"
+
+[[table.columns]]
+name = "Firm Capacity (MVA)"
+dtype = "number"
+unit = "MVA"
+
+[[table.columns]]
+name = "ITL3"
+dtype = "string"
+
+[[table.columns]]
+name = "capacity_basis"
+dtype = "string"
+nullable = false
+allowed_values = ["firm_n1"]

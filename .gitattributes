@@ -1,0 +1,6 @@
+# Preserve source and frozen evidence bytes, including inherited whitespace.
+StudyCase/Placement/current/upstream/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+StudyCase/Placement/current/scripts/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+study_materials/placement/current/** -text whitespace=cr-at-eol
+study_materials/placement/current/frozen/** whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+StudyCase/Placement/current/acronyms.json -text whitespace=cr-at-eol

@@ -1,25 +1,21 @@
-# Britain case
+# Britain: current paper
 
-Britain is the primary 16-region case. The manuscript evaluates peak
-reconstruction, substation siting, rule-based sizing, and a stylised
-large-demand connection proxy. The public release includes derived result
-tables and method code, but not raw registers, lu5 held-out fields, or model
-checkpoints.
+The current study covers 16 British regions, 1,891 substations and 799,346 grid
+cells. The four task comparisons include all 16 regions. Reference-dependent
+analyses use the 13 regions that pass the reference-allocation screen.
 
-See `study_materials/placement/case_facts/register_summary.json` for the
-reported register facts and `protocol.json` for fixed settings.
+At a 10 km radius and a 300 MW incoming load, mean fixed-location cost error
+decreases from GBP 11.59 million for LU to GBP 8.63 million for GNN-based
+allocation. All 16 regions improve. Siting and sizing have mixed directions.
 
-## Execution order
+The numbered scripts display reconstruction, siting and sizing, connection,
+scale, conditional bounds and the diagnostic panel, respectively. They can
+be run independently from the repository root:
 
-1. `001_reconstruction.py` - peak reconstruction and per-seed results.
-2. `002_siting_sizing.py` - p-median siting and both matching protocols.
-3. `003_connection.py` - fixed-site connection-cost error.
-4. `004_scale_analysis.py` - station-centred geographic-support sweep.
-5. `005_insensitivity_audit.py` - connection-bound audit.
-6. `006_diagnostic_panel.py` - nine-distribution RQ1 diagnostic panel.
-
-Run a script from the repository root, for example:
-
-```powershell
-python StudyCase/Placement/British/002_siting_sizing.py
+```bash
+python StudyCase/Placement/British/003_connection.py
 ```
+
+Protocol and region counts are recorded in
+`study_materials/placement/current/frozen/config.json` and `uk_region_support.csv`.
+See the [current reproduction guide](../current/README.md).

@@ -1,0 +1,236 @@
+{
+  "schema": "placement_current_subset_v1",
+  "run_id": "fixedload_20260925_r2",
+  "files": [
+    {
+      "path": "code/upstream_release_69c4008732ed.zip",
+      "sha256": "a8ef11fad856f8bbb549eeffb7782211f29181bfea9ba59ad50db1d7efa9f150",
+      "bytes": 971859
+    },
+    {
+      "path": "frozen/au_adequacy.csv",
+      "sha256": "4c81380b3336cd863f42d9a8be4090f7932c5050a47874b46c014840fc333902",
+      "bytes": 766552
+    },
+    {
+      "path": "frozen/au_controls.csv",
+      "sha256": "6399c7d98a6df3fca335ae28251b2fed3796a8f0fa689314a2df2f57552d2ef1",
+      "bytes": 82673
+    },
+    {
+      "path": "frozen/au_cost_oof.csv",
+      "sha256": "661d004c2c089860a5b3a413b3d9e11182fb2fa91fe67fa116b2a2aa7e225492",
+      "bytes": 143437
+    },
+    {
+      "path": "frozen/au_ref_eligibility.csv",
+      "sha256": "90f91239b915563b31c36c0fd5558128ef1e42276f47050c73f630c8fd5d3f85",
+      "bytes": 2889
+    },
+    {
+      "path": "frozen/au_region_support.csv",
+      "sha256": "96cfaabfcbde570c118d575b30bf9d6bd80abff24b65d6f7a822a215c33a4985",
+      "bytes": 8872
+    },
+    {
+      "path": "frozen/au_scale_grid.csv",
+      "sha256": "b4326f4e9d4bcbfb92967d5cd886b08f3e4b3341c4a701f25b49a87ceddeaec2",
+      "bytes": 88815
+    },
+    {
+      "path": "frozen/au_scale_station.csv",
+      "sha256": "8624418b82fccdf8a51a37582046b8e62bb3a43cfc39319ae8fcff7c2ebba225",
+      "bytes": 82258
+    },
+    {
+      "path": "frozen/checks.json",
+      "sha256": "6fad8117af5f556e98c06c1641939ea44456fbdc8d723f1af5ff101493cd0c1a",
+      "bytes": 50946
+    },
+    {
+      "path": "frozen/code/paper2_fixed_load_connection.py",
+      "sha256": "d703bb3b05c6d1a7ec30823e7665576cf59ca62f6e0bfea7bfb3a4a22b723b56",
+      "bytes": 41206
+    },
+    {
+      "path": "frozen/code/paper2_ledger.py",
+      "sha256": "48b0235e266182e0ae4394ebc9f42cb769b2f2348a35f21339b29226a20a31c5",
+      "bytes": 15727
+    },
+    {
+      "path": "frozen/code/paper2_statistics.py",
+      "sha256": "6941117c773f8a75544be61c99aab564f22ab04f1bf2994ff7dced7b97fa409e",
+      "bytes": 32081
+    },
+    {
+      "path": "frozen/config.json",
+      "sha256": "1a9282ac1b92e0ce2d20a8ccaefad5f146b96116ce80280a34ba54824e69566c",
+      "bytes": 5872
+    },
+    {
+      "path": "frozen/inputs_manifest.csv",
+      "sha256": "7da5924d0ceb8d6dbb7448b2b4aeb61dd7cf1df621cb607058ff4859ff57e65c",
+      "bytes": 36530
+    },
+    {
+      "path": "frozen/ledger/claim_ledger.csv",
+      "sha256": "dfcfe9a169c1afc5fff86e00192e68fd771eb4270c0406c6626d1eeb5d605fbb",
+      "bytes": 250528
+    },
+    {
+      "path": "frozen/PROVENANCE.md",
+      "sha256": "d4d081d4756d5034dbe503f0a7d4913776fadac41c68ee9f2a1e91e3b8813afc",
+      "bytes": 5285
+    },
+    {
+      "path": "frozen/receipt.json",
+      "sha256": "07e5b04c80f95f451e85571d2d14f0210f3d23a0bf84f7bf8860758de7752c27",
+      "bytes": 4084
+    },
+    {
+      "path": "frozen/run.log",
+      "sha256": "8f71742aed5124459341a5cb3701e6a953660d2b6e16e54dc2f43fbcfe9fa1af",
+      "bytes": 3989
+    },
+    {
+      "path": "frozen/SHA256SUMS",
+      "sha256": "195a21fc9e18f28aefd543e069da573cfe2964ffb7b3b6762cebfe4d19171c00",
+      "bytes": 4099
+    },
+    {
+      "path": "frozen/stats/adequacy_pass_curves.csv",
+      "sha256": "f8753ec57bf7efbdbca94d67bd0dac85b69d030c9c74bdc1e8b581fe06f992d7",
+      "bytes": 150155
+    },
+    {
+      "path": "frozen/stats/adequacy_summary.csv",
+      "sha256": "732ee870b1890d32fcf7f71857f7d571c639688b340d4057b9c6a21cdf771485",
+      "bytes": 8118
+    },
+    {
+      "path": "frozen/stats/connection_endpoints.csv",
+      "sha256": "0696cea833068f9f1a9978c971ad58d7163ceb6377c80cb4d7c9211ef66b73c9",
+      "bytes": 3881
+    },
+    {
+      "path": "frozen/stats/holm_family_disclosure.csv",
+      "sha256": "ed25b6059fcb1f37f0b76fc1643aca1ff6432b96e4e535e8e82eae9825fd4903",
+      "bytes": 3446
+    },
+    {
+      "path": "frozen/stats/module_contrasts.csv",
+      "sha256": "5285c9cd420c76b47244bd8103b30dbf6501d0c76a40497462762e91a1260417",
+      "bytes": 16861
+    },
+    {
+      "path": "frozen/stats/panel_levels.csv",
+      "sha256": "315f0634c361057d423d22c583ac44692fd4ea14ef23a33606c570eedc4fbe6c",
+      "bytes": 12499
+    },
+    {
+      "path": "frozen/stats/panel_region_associations.csv",
+      "sha256": "14f270a25a0e3868b424e1bb0ae8723d0afc098ffe06350088509348c07ec116",
+      "bytes": 22318
+    },
+    {
+      "path": "frozen/stats/panel_summary.csv",
+      "sha256": "17cdffa5223634250991372b459640c9c576bfd9edaea85815710e27e4f7338b",
+      "bytes": 13411
+    },
+    {
+      "path": "frozen/stats/per_seed_contrasts.csv",
+      "sha256": "e18d08f23aefacbdf4a7f05c97c036802d0a0515882060d25e12f85eaf0bdf1a",
+      "bytes": 25221
+    },
+    {
+      "path": "frozen/stats/receipt.json",
+      "sha256": "931607403bb4de7931af391f7ccdd9cdc862853c341a8b7f24f76a2234e820ee",
+      "bytes": 2865
+    },
+    {
+      "path": "frozen/stats/scale_curves.csv",
+      "sha256": "f29bc565a6b89763d0cd5b9926adba573a901d4f1ccaa9b0bc68152ffd593650",
+      "bytes": 11187
+    },
+    {
+      "path": "frozen/stats/stats_meta.json",
+      "sha256": "761862a1b1bb60fdc78f190c3efe14c32de1aac07666a4737d08b2c4288ca294",
+      "bytes": 53578
+    },
+    {
+      "path": "frozen/stats/t25_summary.csv",
+      "sha256": "995179c64ce1f2e53e2668b6cefc45bc57fa4f1317d0657fdda2e4df8658e825",
+      "bytes": 609
+    },
+    {
+      "path": "frozen/stats/table3_four_module.csv",
+      "sha256": "e5899a7095f1e849fb4ccff945a6a58289ce0709f3994458bc7bf078bed43ed0",
+      "bytes": 4006
+    },
+    {
+      "path": "frozen/tasks/au_task_region_values.csv",
+      "sha256": "d83e9130f30c2fae818cf86801b302d4f3a3eb32b028fc853b7c4fc14f6eb894",
+      "bytes": 20124
+    },
+    {
+      "path": "frozen/tasks/au_task_seed_values.csv",
+      "sha256": "600154e2387ceb34093d110d03121191ab06483385f2f6c2376523e270d1f269",
+      "bytes": 78464
+    },
+    {
+      "path": "frozen/tasks/uk_task_region_values.csv",
+      "sha256": "308b1b112ea2d1972cc12172535134a033caf9685a0b6c7c438d46ccdbd88cbf",
+      "bytes": 21137
+    },
+    {
+      "path": "frozen/tasks/uk_task_seed_values.csv",
+      "sha256": "65311972200d4faa3305952dd2a60a3909d4235314973e7d88e407ab23bc2da1",
+      "bytes": 86393
+    },
+    {
+      "path": "frozen/uk_adequacy.csv",
+      "sha256": "3be788cbb1fe54803018768b1a96dc9276adfb99e294627727550ddc0c28cbe1",
+      "bytes": 703090
+    },
+    {
+      "path": "frozen/uk_controls.csv",
+      "sha256": "efeec768a345d4909970399e51221e0a089315d35d032f3afc5b2753f11ddf81",
+      "bytes": 101075
+    },
+    {
+      "path": "frozen/uk_cost_oof.csv",
+      "sha256": "7c765ea0aa578efea463ddb3e5810d85fb278283f715852bdcc8ae7caccb63a3",
+      "bytes": 213244
+    },
+    {
+      "path": "frozen/uk_ref_eligibility.csv",
+      "sha256": "e44f87515101e8138503c2081c9a5bf09b5b2ebc62b869480f3438a3978017b1",
+      "bytes": 3478
+    },
+    {
+      "path": "frozen/uk_region_support.csv",
+      "sha256": "146f7484dcec06251696e6a460631b9afcc237a3c4ee8ef1d4194c6248e279dc",
+      "bytes": 11777
+    },
+    {
+      "path": "frozen/uk_scale_grid.csv",
+      "sha256": "3dd59b8701d0f344c9abf2ae6478c280111b7d088c4513377cf2305e58fcc607",
+      "bytes": 110931
+    },
+    {
+      "path": "frozen/uk_scale_station.csv",
+      "sha256": "501fe0e98b5707176433342ecb5f5b2775288e0e83b4715ae181097bb956fa13",
+      "bytes": 105277
+    },
+    {
+      "path": "frozen/uk_t25_sensitivity.csv",
+      "sha256": "69dc2adab726681e33b78812c2aac91ae8687cb7752ef31ee1543ad25d6dbed0",
+      "bytes": 54159
+    },
+    {
+      "path": "frozen/uk_tariff_mapping.csv",
+      "sha256": "8e3146876e6e868ea0953459b6fb9330ade3f2dd02b53298c44c5aaeeb1447f0",
+      "bytes": 2306947
+    }
+  ]
+}

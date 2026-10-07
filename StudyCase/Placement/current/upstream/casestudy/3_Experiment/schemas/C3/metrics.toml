@@ -1,0 +1,22 @@
+schema_version = "sg_artifact_schema_v1"
+artifact_type = "table"
+[table]
+min_rows = 1
+allow_extra_columns = true
+unique_by = [["country", "region", "candidate", "seed", "allocator", "metric"]]
+[[table.columns]]
+name = "metric"
+nullable = false
+allowed_values = ["rmse", "mae", "wape", "predictive_r2", "corr"]
+[[table.columns]]
+name = "allocator"
+nullable = false
+allowed_values = ["VD", "IDR-fixed", "IDR-matched", "CIVD"]
+[[table.columns]]
+name = "value"
+dtype = "number"
+nullable = true
+[[table.columns]]
+name = "status"
+nullable = false
+allowed_values = ["VALID", "METRIC_NOT_ASSESSABLE"]

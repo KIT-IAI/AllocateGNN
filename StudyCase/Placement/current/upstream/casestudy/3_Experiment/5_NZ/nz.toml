@@ -1,0 +1,5 @@
+schema_version = "sg_experiment_country_v1"
+regions = ["Orion_NZ__historical_spatial_1", "Orion_NZ__historical_spatial_2", "Orion_NZ__historical_spatial_3", "Vector_Lines__historical_spatial_1", "Vector_Lines__historical_spatial_2", "Vector_Lines__historical_spatial_3", "Wellington_Electricity__historical_spatial_1", "Wellington_Electricity__historical_spatial_2", "Wellington_Electricity__historical_spatial_3"]
+representative_region = "Wellington_Electricity__historical_spatial_3"
+t1_regions = []
+

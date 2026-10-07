@@ -1,0 +1,103 @@
+schema_version = "sg_dataoverview_country_v1"
+
+[osm_snapshot]
+url = "https://download.geofabrik.de/europe/germany/sachsen-anhalt-latest.osm.pbf"
+scope = "sachsen-anhalt"
+
+[ntl]
+dataset_id = "NOAA/VIIRS/DNB/MONTHLY_V1/VCMSLCFG"
+bands = ["avg_rad"]
+date_range = ["2022-01-01","2023-12-31"]
+composite_method = "median"
+credential_env = "GEE_SERVICE_ACCOUNT_KEY_PATH"
+
+[regions]
+source_key = "Name"
+source_path = "data/datasets/2_derived/de/bplus/regions.gpkg"
+
+[canonical]
+regions = "data/datasets/2_derived/de/bplus/regions.gpkg"
+stations = "data/datasets/2_derived/de/bplus/stations.gpkg"
+
+[[regions.items]]
+id = "boerde"
+source_key_order = ["Gröningen","Kroppenstedt","Oschersleben (Bode)","Sülzetal","Am Großen Bruch","Wanzleben-Börde","Hötensleben","Ausleben","Eilsleben","Hohe Börde","Völpke","Ummendorf","Sommersdorf","Erxleben","Wefensleben","Niedere Börde","Harbke","Barleben","Ingersleben","Wolmirstedt","Altenhausen","Haldensleben","Beendorf","Oebisfelde-Weferlingen","Loitsche-Heinrichsberg","Westheide","Zielitz","Colbitz","Rogätz","Flechtingen","Bülstringen","Calvörde","Angern","Burgstall"]
+
+[grid_columns]
+names = ["index_region","Name","geometry"]
+
+[datasets.geoserver]
+category = "boundaries_grid"
+license = "BKG dl-de/by-2-0 and partner service terms"
+vintage = "partner-service snapshot"
+semantics = "Börde municipal boundaries and substation load"
+query_protocol = "geoserver"
+[datasets.geoserver.query]
+endpoint = "https://webapp.regiocom.net/geoserver"
+layers = ["Postgres:v_lkb_vg250_gem_sql", "Postgres:v_lkb_vg250_krs_sql", "Postgres:v_epa_uw", "Postgres:v_epa_uw_last"]
+
+[datasets.gva]
+category = "regional_totals"
+license = "Eurostat reuse policy"
+vintage = "2015-2024"
+semantics = "Eurostat NUTS3 GVA by NACE"
+[[datasets.gva.files]]
+url = "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/nama_10r_3gva/A.CP_MEUR.TOTAL+A+B-E+C+F+G-J+G-I+J+K-N+K+L+M_N+O-U+O-Q+R-U.DE+DEE07?format=SDMX-CSV&startPeriod=2015&endPeriod=2024"
+filename = "eurostat/nama_10r_3gva_sdmx.csv"
+kind = "file"
+
+[datasets.osm_snapshot]
+category = "landuse"
+license = "ODbL 1.0"
+vintage = "current snapshot"
+semantics = "Geofabrik Sachsen-Anhalt OSM snapshot"
+[[datasets.osm_snapshot.files]]
+url = "https://download.geofabrik.de/europe/germany/sachsen-anhalt-latest.osm.pbf"
+filename = "../osm_snapshot_raw/de/sachsen-anhalt.osm.pbf"
+kind = "file"
+
+[datasets.ntl]
+category = "ntl"
+license = "NOAA public data"
+vintage = "2022-2023"
+semantics = "VIIRS monthly median radiance"
+query_protocol = "gee"
+[datasets.ntl.query]
+credential_env = "GEE_SERVICE_ACCOUNT_KEY_PATH"
+output = "ntl/viirs_2022_2023_median.tif"
+
+[products.gva]
+category = "regional_totals"
+depends_on = ["de.gva.download"]
+produces = ["data/datasets/2_derived/de/nama_10r_3gva.xlsx"]
+semantics = "Workbook reconstructed from SDMX"
+
+[products.regions]
+category = "boundaries_grid"
+depends_on = ["de.geoserver.download", "de.gva.derive"]
+produces = ["data/datasets/2_derived/de/bplus/regions.gpkg"]
+semantics = "Börde municipal source regions"
+
+[products.substations]
+category = "station_register"
+depends_on = ["de.geoserver.download", "de.regions.derive"]
+produces = ["data/datasets/2_derived/de/bplus/stations.gpkg"]
+semantics = "Börde substations and observed load"
+
+[products.grid]
+category = "boundaries_grid"
+depends_on = ["de.regions.derive"]
+produces = ["data/datasets/2_derived/de/grid_bplus/bundles"]
+semantics = "B+ grid bundles for every analysis region"
+
+[products.features]
+category = "features_cuz"
+depends_on = ["de.grid.derive", "de.osm_snapshot.download", "de.ntl.download"]
+produces = ["data/datasets/2_derived/de/features_bplus/extracted"]
+semantics = "land-use, Built-S, C/U/Z and NTL arrays"
+
+[products.inventory]
+category = "features_cuz"
+depends_on = ["de.features.derive", "de.substations.derive"]
+produces = ["results/1_DataOverview/3_DE/data_inventory.json"]
+semantics = "Schema and coverage inventory"
